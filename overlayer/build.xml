@@ -12,7 +12,7 @@
 
   <!-- set global properties for this build -->
   <property name="build" location="Overlayer"/>
-  <property name="SP800-53" location="../standards/NIST/SP800-53/800-53-controls.xml"/>
+  <property name="SP800-53" location="../../standards/NIST/SP800-53/800-53-controls.xml"/>
   
   <target name="init">
     <!-- Create the time stamp -->
