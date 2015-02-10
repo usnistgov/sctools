@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- $Id: build.xml,v 1.8 2015/01/08 22:23:27 lubell Exp $-->
+<!DOCTYPE project [
+<!ENTITY dt "Date"> <!-- avoid keyword substitution in regexp -->
+]>
+<!-- $Id: build.xml,v 1.8 2015/01/08 22:23:27 lubell Exp $-->
+<project name="Overlayer" default="zip" basedir=".">
+  <description>Ant build file for Overlayer distribution</description>
+
+  <taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
+  <taskdef name="schematron" classname="com.schematron.ant.SchematronTask"/>
+
+  <!-- set global properties for this build -->
+  <property name="build" location="Overlayer"/>
+  <property name="SP800-53" location="../standards/NIST/SP800-53/800-53-controls.xml"/>
+  
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+  </target>
+
+  <target name="transform">
+    <!-- run XSLTs to generate catalog and families instances -->
+    <xslt in="${SP800-53}" out="families.xml" style="families.xsl"/>
+    <xslt in="${SP800-53}" out="catalog.xml" style="catalog.xsl"/>
+  </target>
+    
+  <target name="copy" depends="init, transform, clean"
+          description="generate the distribution">
+    <xmltask source="overlayer.xml" todir="${build}"/>
+    <copy file=".htaccess" todir="${build}" preservelastmodified="true"/>
+    <copy file="families.xml" todir="${build}" preservelastmodified="true"/>
+    <copy file="catalog.xml" todir="${build}" preservelastmodified="true"/>
+    <copy file="overlayer.xml" todir="${build}" preservelastmodified="true"/>
+    <copy file="matrix.xml" todir="${build}" preservelastmodified="true"/>
+    <copy file="stylesheet.xsl" todir="${build}" preservelastmodified="true"/>
+    <copy todir="${build}/images" preservelastmodified="true">
+      <fileset dir="images"/>
+    </copy>
+    <copy todir="${build}/xsltforms" preservelastmodified="true">
+      <fileset dir="xsltforms"/>
+    </copy>
+  </target>
+
+  <target name="fixUpdated" depends="copy"
+	  description="remove CVS keyword stuff from  'Last updated'
+		       value">
+    <replaceregexp
+	match="\$&dt;\:(.*)\d\d\:\d\d\:\d\d.*\$"
+	replace="\1">
+      <fileset dir="${build}" includes="overlayer.xml"/>
+    </replaceregexp>
+  </target>
+
+  <target name="sf" depends="fixUpdated" description="install on SourceForge">
+    <exec executable="pscp">
+      <arg line="-r Overlayer sf:/home/project-web/qod/htdocs"/>
+    </exec>
+  </target>
+
+  <target name="sch" description="validate overlay against a schematron schema">
+    <schematron schema="${schema}" file="${file}"/>
+  </target>
+
+  <target name="zip" depends="fixUpdated" 
+	  description="zip up the copied files">
+    <zip destfile="${build}-${DSTAMP}.zip" basedir="." includes="Overlayer/**"/>
+  </target>
+
+  <target name="clean"
+          description="clean up">
+    <!-- Delete the ${build} directory tree and any generated zip files -->
+    <delete dir="${build}"/>
+    <delete dir="." includes="Overlayer-*.zip"/>
+  </target>
+</project>
