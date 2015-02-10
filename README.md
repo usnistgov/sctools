@@ -1,2 +1,2 @@
 # sctools
-Tools for tailoring security automation, baseline tailoring, and overlay development.
+Tools for security content automation, baseline tailoring, and overlay development.
