@@ -1,5 +1,7 @@
 $Id: TODO.txt,v 1.12 2015/01/09 15:31:18 lubell Exp $
 
+Fix CVS keywords - don't work with Git
+
 Decide whether/how to support PM control family
 
 In IE, get selected|added|removed values to update properly in i-settings
