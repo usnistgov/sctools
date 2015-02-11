@@ -3,8 +3,6 @@
 
 <!DOCTYPE html [
 <!ENTITY LastUpdated "$Date: 2015/01/07 14:49:58 $">
-<!ENTITY Attribution "By Inkscape Developers (Inkscape (original document)) [GPL (http://www.gnu.org/licenses/gpl.html)], via Wikimedia Commons">
-<!ENTITY AttributionURL "http://commons.wikimedia.org/wiki/File&#x25;3AInkscape_icons_layer_next.svg">
 <!ENTITY ImpactAppearance "minimal">
 <!ENTITY FamiliesAppearance "minimal">
 <!ENTITY ControlsAppearance "minimal">
@@ -40,7 +38,7 @@
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
       xmlns:ev="http://www.w3.org/2001/xml-events">
   <head>
-    <title>Overlayer</title>
+    <title>Baseline Tailor</title>
     <link rel="shortcut icon" href="images/favicon.ico"/>
     <style type="text/css">
       
@@ -210,7 +208,7 @@
   </head>
   <body>
 
-    <h1><a target="_blank" title="&Attribution;" href="&AttributionURL;"><img alt="Inkscape icons layer next" width="50px" height="50px" src="images/layer.png"/></a><span class="SWTitle">Overlayer</span> <span class="SWSubTitle">Security Control Overlay Editor</span> <span class="SWSubTitle">Version <xf:output ref="instance('i-version')"/></span></h1>
+    <h1><img alt="needle and thread image" width="50px" height="50px" src="images/Needle_and_thread_silhouette.png"/><span class="SWTitle">Baseline Tailor</span> <span class="SWSubTitle">Security Control Editor</span> <span class="SWSubTitle">Version <xf:output ref="instance('i-version')"/></span></h1>
 
     <xf:group ref="instance('i-settings')">
 
@@ -502,7 +500,7 @@
       <tr class="Row">
 	<td colspan="2" class="Cell">
 	  <xf:group>
-	    <xf:label>Overlay XML:</xf:label>
+	    <xf:label>XML representation:</xf:label>
 	    <xf:input ref="instance('i-settings')/nonBaselinedCEFlag" incremental="true">
 	      <xf:label>Include non-baselined Control Enhancements?</xf:label>
 	    </xf:input>
