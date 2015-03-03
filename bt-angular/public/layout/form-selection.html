@@ -1,7 +1,11 @@
-<md-toolbar layout="row" layout-align="space-between center" class="md-primary">
+<md-toolbar layout="row" layout-align="space-between start" class="md-primary">
   <h2 class="md-toolbar-tools">
     <span>Catalog</span>
   </h2>
+  <md-select multiple ng-model="catalog.fam" placeholder="Family">
+     <md-select-label>{{ catalog.fam.length ? catalog.fam.join(', ') : 'Family' }}</md-select-label>
+    <md-option ng-value="opt" ng-repeat="opt in catalog.families">{{ opt }}</md-option>
+  </md-select>
 </md-toolbar>
  
 
