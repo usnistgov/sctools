@@ -1,0 +1,33 @@
+<md-content>
+
+	<md-toolbar>
+      <h2 layout="row" layout-align="space-between center" class="md-toolbar-tools">
+        <span>SP 800-53 Wizard</span>
+        <span>
+          <a class="glyphicon glyphicon-cloud-download" target="_self" ng-click="profile.linkXML()"> <md-tooltip>Download Overlay</md-tooltip></a>
+          <div class="glyphicon glyphicon-cloud-upload"  ng-file-select ng-model="profile.file"  ng-file-change="profile.fileSelect()"> <md-tooltip>Upload Overlay</md-tooltip></div>
+        </span>
+      </h2>
+    </md-toolbar>
+  <div layout="row" layout-align="space-around center">
+	<div flex flex-order="1">  
+		<md-radio-group layout="row" layout-align="space-around center" ng-model="profile.overlay.baseline" ng-change="profile.setBase()">
+		  <md-tooltip>
+          Base Line Impact
+        </md-tooltip>
+	      <md-radio-button value="LOW">Low</md-radio-button>
+	      <md-radio-button value="MODERATE"> Moderate</md-radio-button>
+	      <md-radio-button value="HIGH">High</md-radio-button>
+	    </md-radio-group>
+	</div>
+
+	  <div flex flex-order="2">
+	    <md-input-container> 
+			<label>Overlay Title</label>
+			<input ng-model="profile.overlay.name">
+		</md-input-container> 
+	  </div>
+
+  </div>
+
+</md-content>

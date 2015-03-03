@@ -1,0 +1,19 @@
+<div class="histBox">
+	<span layout="row" layout-align="space-between center">
+	<h3>{{modification.id}}</h3>
+	<div ng-class="item.glyphClass" ng-click="item.collapse()"><md-tooltip>{{item.collapseEntry()?'Collapse':'Expand'}}</md-tooltip></div>
+	</span>
+	<md-input-container ng-show="modification.guidance && item.collapseEntry()"> 
+			<label>Guidance</label>
+			<input rows="1" ng-model="modification.guidance" readonly>
+	</md-input-container> 
+	<md-input-container ng-show="modification.rationale && item.collapseEntry()"> 
+			<label>Rationale</label>
+			<input rows="1" ng-model="modification.rationale" readonly>
+	</md-input-container> 
+	<md-input-container ng-show="(modification.scopeMeasure && (modification.status==='comp' || modification.status==='scope')) && item.collapseEntry()"> 
+			<label>{{modification.status==='scope'?"Compensating":"Scoped"}} Control</label>
+			<input rows="1" ng-model="modification.scopeMeasure" readonly>
+	</md-input-container> 
+
+</div>

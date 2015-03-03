@@ -1,0 +1,62 @@
+.myFluidContainer {
+	padding: 20px;
+	width: ;
+	background-color: white;
+}
+
+.table {
+	font-size: .8em;
+}
+.tbody {
+	display: block;
+	height: 500px;
+	overflow-y: scroll;
+}
+.selectedRow {
+	border-color: #5bc0de; 
+	background: #5bc0de;
+	color: white;
+}
+.enhanceBody {
+	display: block;
+	height: 250px;
+	overflow-y: scroll;
+}
+
+/* makes the dividers visible */
+.glyphicon-chevron-left,
+.glyphicon-chevron-right,
+.glyphicon-chevron-up,
+.glyphicon-chevron-down{
+  color: #aaa;
+}
+
+
+
+.grid {
+	width:100%;
+
+	height:600px;
+/*  
+  position: absolute;
+  top:65px;
+  bottom:0px;
+  left:0px;
+  right:0px;*/
+}
+
+.histBox {
+	display: block;
+	border-radius: 5px;
+	background-color: #f7f7f7;
+	padding: 5px;
+	overflow: scroll;
+}
+
+
+.histOuterBox {
+	display: block;
+	border-radius: 5px;
+	background-color: #f0f0f0;
+	overflow: scroll;
+}

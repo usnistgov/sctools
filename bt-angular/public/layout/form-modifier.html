@@ -1,0 +1,65 @@
+<md-toolbar class="md-primary">
+  <h2 class="md-toolbar-tools">
+    <span>Modification <span ng-bind="mod.currentMod().id"></span> </span>
+  </h2>
+</md-toolbar>
+
+<form name="modificationForm">
+
+	<md-content class = "md-padding">
+		<div layout="row" layout-align="space-between start">
+		
+
+			<div flex="15" flex-order="1">
+
+				<md-radio-group ng-model="mod.currentMod().status" >
+			        <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['base']" value="base">Baseline</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['scope']" value="scope">Scoped</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['add']" value="add">Added</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['comp']" value="comp">Compensating</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['not']" value="not" >N/A</md-radio-button>
+			    </md-radio-group>
+
+			</div>
+			
+			<div flex="80" flex-order="2">
+				<div layout="row" layout-wrap>
+					
+					<div flex> 
+						<md-input-container>
+							<label>Supplemental Guidance</label>
+							<textarea ng-model="mod.currentMod().guidance" rows="2" ng-disabled="!mod.currentMod().id"></textarea>
+						</md-input-container>
+					</div>
+
+					<div flex> 
+						<md-input-container>
+							<label>Rationale</label>
+							<textarea ng-required="mod.modDelta()" ng-disabled="mod.currentMod().rationale.length===0 || !mod.modDelta()" ng-model="mod.currentMod().rationale" rows="2" name="rationale"></textarea>
+						</md-input-container>
+					</div>
+
+
+				</div>
+				
+				<div layout="row" ayout-align="space-between center"layout-wrap>
+				
+					<md-button flex="20" align="left" class="md-raised md-primary" ng-click="mod.submitMod()" ng-disabled="modificationForm.$invalid || !mod.currentMod().id" style="height: 50px;">Add Change</md-button>
+					<div flex="5"></div>
+					<md-button flex="20" align="left" class="md-raised md-warn" ng-hide="mod.modContains()" ng-click="mod.deleteMod()" style="height: 50px;">Delete Change</md-button>
+					<div flex="5"></div>
+					<div flex="20" align="left" ng-show="mod.modContains()"></div>
+					<md-input-container flex="50" align="left" ng-show="mod.currentMod().status==='comp' || mod.currentMod().status==='scope'">
+							<label>For {{mod.currentMod().status==='scope'?"Compensating":"Scoped"}} Control</label>
+							<textarea ng-required="mod.currentMod().status==='comp'" ng-disabled="mod.currentMod().scopeMeasure.length===0" ng-model="mod.currentMod().scopeMeasure" rows="2"></textarea>
+					</md-input-container>
+					
+
+				</div>	
+
+
+			</div>
+		</div>
+	</md-content>
+
+</form>
