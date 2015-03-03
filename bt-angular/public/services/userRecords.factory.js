@@ -57,7 +57,9 @@
         * TODO: Have currentRecord's new status (baseline or not-included) be set based on the json data
         */
         function deleteRecord() {
+            service.lookup[service.currentRecord.id] = service.currentRecord.prior;
             delete service.records[service.currentRecord.id];
+
             return service.currentRecord;
         }
 
