@@ -10,20 +10,23 @@
     */
 
     /* @ngInject */
-    GridCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON', '$scope'];
-    function GridCtrl(UserRecords, SecurityMeasuresJSON, $scope) {
+    GridCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON', '$scope', '$filter'];
+    function GridCtrl(UserRecords, SecurityMeasuresJSON, $scope, $filter) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'GridCtrl';
 		
-		vm.data = {};
+		    vm.srcData = {};
+        vm.dispData ={};
 
         vm.selectMeasure = selectMeasure;
         vm.setRow = setRow;
+        vm.updateFilter = updateFilter;
 
+        vm.familyFilter = [];
+        vm.measureFilter = [];
         vm.families = [
-           ""
-           ,"ACCESS CONTROL"
+            "ACCESS CONTROL"
            ,"AUDIT AND ACCOUNTABILITY"
            ,"AWARENESS AND TRAINING"
            ,"CONFIGURATION MANAGEMENT"
@@ -49,7 +52,7 @@
         // the configuration for the ui-grid
         vm.gridOptions = {
           enablePaginationControls: true,
-          enableFiltering: true,
+          //enableFiltering: true,
           enableRowSelection: true,
           multiSelect: false,
           enableRowHeaderSelection: false,
@@ -107,11 +110,13 @@
         function activate() {
             // collects the json object from the Security MeasuresJSON service
             SecurityMeasuresJSON.func().success( function(data) {
-                vm.data = data["controls:controls"]["controls:control"];
-                vm.gridOptions.data = vm.data;
+                vm.srcData = data["controls:controls"]["controls:control"];
+                vm.gridOptions.data = vm.srcData;
+                vm.dispData = angular.copy(vm.srcData);
+                
                 // initilazes the state of the various data points
-                for( var i = 0; i < vm.data.length; i ++ ) {
-                  vm.lookup[vm.data[i].number[0]] = "not";
+                for( var i = 0; i < vm.srcData.length; i ++ ) {
+                  vm.lookup[vm.srcData[i].number[0]] = "not";
                 }
             })
         }
@@ -121,6 +126,11 @@
             if(row.number[0] !== UserRecords.currentRecord.id) {
               UserRecords.setCurrById(row.number[0]); 
             }
+        }
+
+        function updateFilter() {
+          vm.dispData = $filter('familyFilter')(vm.srcData, vm.familyFilter);
+          vm.gridOptions.data = vm.dispData;
         }
         
     }

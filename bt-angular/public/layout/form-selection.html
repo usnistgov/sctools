@@ -1,11 +1,18 @@
-<md-toolbar layout="row" layout-align="space-between start" class="md-primary">
-  <h2 class="md-toolbar-tools">
-    <span>Catalog</span>
+<md-toolbar layout="row" class="md-primary">
+  <h2 flex = "20" class="md-toolbar-tools">
+    <span>Catalog {{'{ '+catalog.dispData.length+' }' }}</span>
   </h2>
-  <md-select multiple ng-model="catalog.fam" placeholder="Family">
-     <md-select-label>{{ catalog.fam.length ? catalog.fam.join(', ') : 'Family' }}</md-select-label>
+  <md-select flex = "15" multiple ng-model="catalog.familyFilter"] ng-change="catalog.updateFilter()">
+     <md-select-label>{{ catalog.familyFilter.length ? catalog.familyFilter.length+' Families' : ' All Families' }}</md-select-label>
+    <md-option ng-value="opt" ng-repeat="opt in catalog.families">{{ opt.toUpperCase() }}</md-option>
+  </md-select>
+
+  <md-select flex = "15" multiple ng-model="catalog.measureFilter" ng-change="catalog.updateFilter()">
+     <md-select-label>{{ catalog.measureFilter.length ? catalog.measureFilter.length+' Measures' : ' All Measures' }}</md-select-label>
     <md-option ng-value="opt" ng-repeat="opt in catalog.families">{{ opt }}</md-option>
   </md-select>
+
+
 </md-toolbar>
  
 
