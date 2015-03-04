@@ -9,7 +9,7 @@
 
   <md-select flex = "15" multiple ng-model="catalog.measureFilter" ng-change="catalog.updateFilter()">
      <md-select-label>{{ catalog.measureFilter.length ? catalog.measureFilter.length+' Measures' : ' All Measures' }}</md-select-label>
-    <md-option ng-value="opt" ng-repeat="opt in catalog.families">{{ opt }}</md-option>
+    <md-option ng-value="opt" ng-repeat="opt in catalog.measuresList()">{{ opt.number[0] + ': ' + opt.title[0] }}</md-option>
   </md-select>
 
 

@@ -22,6 +22,7 @@
         vm.selectMeasure = selectMeasure;
         vm.setRow = setRow;
         vm.updateFilter = updateFilter;
+        vm.measuresList = measuresList;
 
         vm.familyFilter = [];
         vm.measureFilter = [];
@@ -128,8 +129,12 @@
             }
         }
 
+        function measuresList() {
+           return $filter('familyFilter')(vm.srcData, vm.familyFilter);
+        }
+
         function updateFilter() {
-          vm.dispData = $filter('familyFilter')(vm.srcData, vm.familyFilter);
+          vm.dispData = $filter('measureFilter')( $filter('familyFilter')(vm.srcData, vm.familyFilter), vm.measureFilter);
           vm.gridOptions.data = vm.dispData;
         }
         
