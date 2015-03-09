@@ -134,7 +134,14 @@
         }
 
         function updateFilter() {
+          if(vm.familyFilter.length === 0) {
+            vm.measureFilter = [];
+          }
           vm.dispData = $filter('measureFilter')( $filter('familyFilter')(vm.srcData, vm.familyFilter), vm.measureFilter);
+          if(vm.dispData.length === 0) {
+            vm.measureFilter = [];
+            vm.dispData = $filter('measureFilter')( $filter('familyFilter')(vm.srcData, vm.familyFilter), vm.measureFilter);
+          }
           vm.gridOptions.data = vm.dispData;
         }
         
