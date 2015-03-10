@@ -115,10 +115,7 @@
                 vm.gridOptions.data = vm.srcData;
                 vm.dispData = angular.copy(vm.srcData);
                 
-                // initilazes the state of the various data points
-                for( var i = 0; i < vm.srcData.length; i ++ ) {
-                  vm.lookup[vm.srcData[i].number[0]] = "not";
-                }
+                UserRecords.setBase(vm.srcData);
             })
         }
 

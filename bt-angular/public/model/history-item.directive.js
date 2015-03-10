@@ -26,7 +26,6 @@
 
         function link(scope, element, attrs) {
        
-        	console.log("historyItem")
         }
 
         function controller() {

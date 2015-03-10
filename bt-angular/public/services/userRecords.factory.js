@@ -126,11 +126,11 @@
                          service.records[data[i].number[0]].status = 'base';
                     }
                   }
-                  if(service.lookup[data[i].number[0]] === 'not') {
+                  if(!service.lookup[data[i].number[0]] || service.lookup[data[i].number[0]] === 'not') {
                     service.lookup[data[i].number[0]] = 'base';  
                   } 
                 } else {
-                  if (service.lookup[data[i].number[0]] === 'base') {
+                  if (!service.lookup[data[i].number[0]] || service.lookup[data[i].number[0]] === 'base') {
                     service.lookup[data[i].number[0]] = 'not';
                   }
                   if(service.records[data[i].number[0]] && service.records[data[i].number[0]].prior ==='base') {
