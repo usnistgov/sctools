@@ -140,6 +140,32 @@
                     }
                   }
                 }
+                if(data[i]['control-enhancements']) {
+                angular.forEach(data[i]['control-enhancements'][0]['control-enhancement'], function(item) {
+                    
+                    if(item['baseline-impact'] && item['baseline-impact'].indexOf(service.profile.baseline) > -1) {
+                        if(service.records[item.number[0]] && service.records[item.number[0]].prior ==='not') {
+                        service.records[item.number[0]].prior = 'base';
+                        if(service.records[item.number[0]].status ==='not') {
+                             service.records[item.number[0]].status = 'base';
+                        }
+                      }
+                      if(!service.lookup[item.number[0]] || service.lookup[item.number[0]] === 'not') {
+                        service.lookup[item.number[0]] = 'base';  
+                      } 
+                    } else {
+                      if (!service.lookup[item.number[0]] || service.lookup[item.number[0]] === 'base') {
+                        service.lookup[item.number[0]] = 'not';
+                      }
+                      if(service.records[item.number[0]] && service.records[item.number[0]].prior ==='base') {
+                        service.records[item.number[0]].prior = 'not';
+                        if(service.records[item.number[0]].status ==='base') {
+                             service.records[item.number[0]].status = 'not';
+                        }
+                      }
+                    }    
+                  });
+                }
             }  
             if(service.records[service.currentRecord.id]) {
                 service.setCurrById(service.currentRecord.id);
