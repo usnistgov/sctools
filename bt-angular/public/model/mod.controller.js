@@ -20,7 +20,7 @@
         vm.submitMod = submitMod;
         vm.modDelta = modDelta;
         vm.currentMod = currentMod;
-        vm.lookup = UserRecords.lookup;
+        vm.lookup = UserRecords.noEnhanceLookup;
         // this array sets the allowed operations (ex: a measure in the baseline can't be added to the baseline)
         vm.changeChart = {
           'base': {'base':true, 'scope':true, 'add':false, 'comp':false, 'not':false},

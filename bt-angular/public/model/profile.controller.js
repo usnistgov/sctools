@@ -54,7 +54,18 @@
         function fileSelect() {
             $upload.upload({url: 'upload', file:vm.file})
                     .success(function(data, status, headers) {
-                    console.log(data)});
+                    UserRecords.deleteAll();
+                    angular.forEach(data.root, function(element) {
+                        var toAdd = {};
+                        toAdd.guidance = element[0].guidance[0];
+                        toAdd.id = element[0].id[0];
+                        toAdd.prior = element[0].prior[0];
+                        toAdd.rationale = element[0].rationale[0];
+                        toAdd.scopeMeasure = element[0].scopeMeasure[0];
+                        toAdd.status = element[0].status[0];
+                        UserRecords.records[toAdd.id] = toAdd;
+                    });
+                });
         }
 
     }

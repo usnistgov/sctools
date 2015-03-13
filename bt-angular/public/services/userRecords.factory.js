@@ -29,10 +29,12 @@
             records: {},
             // a object(used as a hash table) to bind the states (added, scoped, baseline, etc.) to the unique identifiers (AC-1, AC-2, etc.)
             lookup: {},
+            noEnhanceLookup: {},
             getRecordById: getRecordById,
             setCurrById: setCurrById,
             submitRecord: submitRecord,
             deleteRecord: deleteRecord,
+            deleteAll: deleteAll,
             setBase: setBase, 
             registerCallback: registerCallback,
             selectCallbacks: []
@@ -61,6 +63,12 @@
             delete service.records[service.currentRecord.id];
 
             return service.currentRecord;
+        }
+
+        function deleteAll() {
+            angular.forEach(service.records, function(key) {
+                delete service.records[key.id];
+            });
         }
 
         /*
@@ -128,11 +136,17 @@
                   }
                   if(!service.lookup[data[i].number[0]] || service.lookup[data[i].number[0]] === 'not') {
                     service.lookup[data[i].number[0]] = 'base';  
+                  }
+                  if(!service.noEnhanceLookup[data[i].number[0]]) {
+                    service.noEnhanceLookup[data[i].number[0]] = 'base';
                   } 
                 } else {
                   if (!service.lookup[data[i].number[0]] || service.lookup[data[i].number[0]] === 'base') {
                     service.lookup[data[i].number[0]] = 'not';
                   }
+                  if(!service.noEnhanceLookup[data[i].number[0]]) {
+                    service.noEnhanceLookup[data[i].number[0]] = 'not';
+                  } 
                   if(service.records[data[i].number[0]] && service.records[data[i].number[0]].prior ==='base') {
                     service.records[data[i].number[0]].prior = 'not';
                     if(service.records[data[i].number[0]].status ==='base') {
