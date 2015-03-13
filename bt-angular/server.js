@@ -44,6 +44,7 @@ app.post('/upload', function(req, res) {
         var parser = new xml2js.Parser();
         parser.parseString(data, function(err, result) {
 	        res.send(result);
+	        res.end();
 	    });
       });
     });
