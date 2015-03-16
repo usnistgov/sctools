@@ -160,7 +160,6 @@
       <!-- This model instance captures the current UI state. The 'control' and 'enhancement' elements have dynamic content representing the  current state of the control and control enhancement information. -->
       <xf:instance id="i-settings" xmlns="">
 	<controlOverlay>
-	  <nonBaselinedCEFlag>false</nonBaselinedCEFlag>
 	  <family>ACCESS CONTROL</family>
 	  <rationale flag="false">Rationale here.</rationale>
 	  <control number="AC-1">
@@ -196,8 +195,6 @@
 
       <xf:bind nodeset="instance('i-settings')//guidance"
 	       relevant="..[gFlag=true()]"/>
-
-      <xf:bind nodeset="instance('i-settings')/nonBaselinedCEFlag" type="xs:boolean"/>
 
       <xf:bind nodeset="instance('i-settings')/rationale" relevant= "@flag=true()"/>
 
@@ -501,10 +498,6 @@
 	<td colspan="2" class="Cell">
 	  <xf:group>
 	    <xf:label>XML representation:</xf:label>
-	    <xf:input ref="instance('i-settings')/nonBaselinedCEFlag" incremental="true">
-	      <xf:label>Include non-baselined Control Enhancements?</xf:label>
-	    </xf:input>
-	    <br/>
 	    <xf:textarea class="XMLData" ref="instance('i-pretty')">
 	      <xf:label/>
 	    </xf:textarea>

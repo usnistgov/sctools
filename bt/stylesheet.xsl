@@ -19,7 +19,7 @@
      <xsl:value-of select="."/>
    </xsl:template>
 
-   <xsl:template match="xRefLabel | nonBaselinedCEFlag | gFlag | l | m | h | @label" priority="1"/>
+   <xsl:template match="xRefLabel | gFlag | l | m | h | @label" priority="1"/>
 
    <xsl:template match="rationale" priority="1">
      <xsl:text>&#160;&#160;&lt;rationale flag="</xsl:text>
@@ -64,11 +64,8 @@
 </xsl:text>
    </xsl:template>
 
-<!-- This template rule works with FF but not with Chrome. -->
-<!--   <xsl:template match="enhancement[impact[@value='4'] and ..[nonBaselinedCEFlag='false']]" priority="1"/>-->
-
   <xsl:template match="enhancement" priority="1">
-    <xsl:if test="impact[@value &lt; '4'] or //nonBaselinedCEFlag = 'true'">
+    <xsl:if test="impact[@value &lt; '4']">
       <xsl:text>&#160;&#160;</xsl:text>
       <xsl:text>&lt;enhancement</xsl:text>
       <xsl:apply-templates select="@*"/>
