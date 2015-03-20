@@ -9,18 +9,21 @@
     * This angular controller provides the thin layer between the form-modifier.html page and our UserRecords
     */
     /* @ngInject */
-    ModCtrl.$inject = ['UserRecords'];
-    function ModCtrl(UserRecords) {
+    ModCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON'];
+    function ModCtrl(UserRecords, SecurityMeasuresJSON) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'ModCtrl';
         
+        vm.data = [];
         vm.modContains = modContains;
         vm.deleteMod = deleteMod;        
         vm.submitMod = submitMod;
         vm.modDelta = modDelta;
         vm.currentMod = currentMod;
         vm.lookup = UserRecords.noEnhanceLookup;
+        vm.getEnhance = getEnhance;
+        vm.unsetEnhance = unsetEnhance;
         // this array sets the allowed operations (ex: a measure in the baseline can't be added to the baseline)
         vm.changeChart = {
           'base': {'base':true, 'scope':true, 'add':false, 'comp':false, 'not':false},
@@ -29,6 +32,14 @@
           'comp': {'base':false, 'scope':false, 'add':false, 'comp':true, 'not':false},
           'not': {'base':false, 'scope':false, 'add':true, 'comp':true, 'not':true}
         };
+
+        activate();
+        
+        function activate() {
+            SecurityMeasuresJSON.func().success( function(data) {
+                vm.data = data["controls:controls"]["controls:control"];
+            })
+        }
 
         // gets the current record
         function currentMod() {
@@ -57,6 +68,26 @@
           } else {
             return true;
           }
+        }
+
+        // returns a list of the id's of the compensating controls
+        function getEnhance() {
+            var list = [];
+            var id = UserRecords.currentRecord.scopeMeasure;
+            angular.forEach(vm.data, function(record) {
+                if(record.number[0] === id && record['control-enhancements'] &&
+                                              record['control-enhancements'][0] &&
+                                              record['control-enhancements'][0]['control-enhancement']) {
+                    angular.forEach(record['control-enhancements'][0]['control-enhancement'], function(enhancement) {
+                        list.push(enhancement.number[0]);
+                    });
+                }
+            });
+            return list;
+        }
+
+        function unsetEnhance() {
+            UserRecords.currentRecord.enhanceMeasure = UserRecords.currentRecord.scopeMeasure;
         }
 
     }

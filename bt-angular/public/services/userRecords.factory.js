@@ -21,7 +21,8 @@
                         prior:'',
                         guidance:'',
                         rationale:'',
-                        scopeMeasure:''
+                        scopeMeasure:'',
+                        enhanceMeasure:''
                     },
             // config information
             profile: { name:'', baseline:''},
@@ -67,6 +68,7 @@
 
         function deleteAll() {
             angular.forEach(service.records, function(key) {
+                service.lookup[key.id] = key.prior;
                 delete service.records[key.id];
             });
         }
@@ -89,7 +91,8 @@
                                 prior:service.lookup[id],
                                 guidance:'',
                                 rationale:'',
-                                scopeMeasure:''
+                                scopeMeasure:'',
+                                enhanceMeasure:''
                             };
             }
             angular.forEach(service.selectCallbacks, function(callback) { callback(service.currentRecord); });
@@ -114,6 +117,7 @@
                     existingRecord.guidance = toPush.guidance;
                     existingRecord.rationale = toPush.rationale;
                     existingRecord.scopeMeasure = toPush.scopeMeasure;
+                    existingRecord.enhanceMeasure = toPush.enhanceMeasure;
 
                 } else {
                     service.records[toPush.id] = toPush;

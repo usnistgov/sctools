@@ -22,6 +22,7 @@
         vm.data = {};
         vm.title = 'ProfileCtrl';
         vm.file = {};
+        vm.filePast = '';
         vm.overlay = UserRecords.profile;
 
 
@@ -52,6 +53,10 @@
         }
 
         function fileSelect() {
+            if( !vm.file || !vm.file[0] || (vm.filePast === vm.file[0].name) ) {
+                return;
+            }
+            console.log(vm.file[0].name);
             $upload.upload({url: 'upload', file:vm.file})
                     .success(function(data, status, headers) {
                     UserRecords.deleteAll();
@@ -63,10 +68,13 @@
                         toAdd.rationale = element[0].rationale[0];
                         toAdd.scopeMeasure = element[0].scopeMeasure[0];
                         toAdd.status = element[0].status[0];
+                        UserRecords.lookup[toAdd.id] = toAdd.status;
                         UserRecords.records[toAdd.id] = toAdd;
                     });
                 });
+                vm.filePast = angular.copy(vm.file[0].name);
         }
+        
 
     }
 })();

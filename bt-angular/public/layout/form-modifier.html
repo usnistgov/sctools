@@ -49,14 +49,15 @@
 					<md-button flex="20" align="left" class="md-raised md-warn" ng-hide="mod.modContains()" ng-click="mod.deleteMod()" style="height: 50px;">Delete Change</md-button>
 					<div flex="5"></div>
 					<div flex="20" align="left" ng-show="mod.modContains()"></div>
-					<!-- <md-input-container flex="50" align="left" ng-show="mod.currentMod().status==='comp' || mod.currentMod().status==='scope'">
-							<label>For {{mod.currentMod().status==='scope'?"Compensating":"Scoped"}} Control</label>
-							<textarea ng-required="mod.currentMod().status==='comp'" ng-disabled="mod.currentMod().scopeMeasure.length===0" ng-model="mod.currentMod().scopeMeasure" rows="2"></textarea>
-					</md-input-container> -->
-					<md-select flex="50" align="left" ng-show="mod.currentMod().status==='comp' || mod.currentMod().status==='scope'" ng-model="mod.currentMod().scopeMeasure">
+
+					<md-select flex="25" align="left" ng-show="mod.currentMod().status==='comp' || mod.currentMod().status==='scope'" ng-model="mod.currentMod().scopeMeasure" ng-change="mod.unsetEnhance()">
 						<md-select-label>For {{mod.currentMod().status==='scope'?'Compensating' + ' Control ' + mod.currentMod().scopeMeasure:'Scoped' + ' Control ' + mod.currentMod().scopeMeasure}}</md-select-label>
 						<md-option ng-value="key" ng-repeat="(key, val) in mod.lookup">{{key}}</md-option>
+					</md-select>
 
+					<md-select flex="25" align="left" ng-show="(mod.currentMod().status==='comp' || mod.currentMod().status==='scope') && mod.currentMod().scopeMeasure && mod.getEnhance().length > 0" ng-model="mod.currentMod().enhanceMeasure">
+						<md-select-label>Enhancement {{mod.currentMod().enhanceMeasure}}</md-select-label>
+						<md-option ng-value="key" ng-repeat="key in mod.getEnhance()">{{key}}</md-option>
 					</md-select>
 					
 

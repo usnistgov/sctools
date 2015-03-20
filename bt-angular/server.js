@@ -22,20 +22,7 @@ app.get('/json', function(req, res) {
 
 app.post('/upload', function(req, res) {
 	
-	// req.writeHead(200, {'content-type': ' application/x-www-form-urlencoded'});
-	// req.on('data', function(data) {
-	// 	var parser = new xml2js.Parser();
-		
-	// 	parser.parseString(data.toString(), function(err, result) {
-	// 				console.log(result, err);
-	// 	});
-
-	// 	console.log(data.toString());
-	// 	res.end();
-
-
-	// });
-
+	console.log("upload")
 
 	var bus = new busboy({ headers: req.headers });
 
@@ -44,14 +31,15 @@ app.post('/upload', function(req, res) {
         var parser = new xml2js.Parser();
         parser.parseString(data, function(err, result) {
 	        res.send(result);
-	        res.end();
+	        
 	    });
       });
     });
-
+    bus.on('end', function() {
+    	res.end();
+    });
 	
     req.pipe(bus);
-
 
 })
 
