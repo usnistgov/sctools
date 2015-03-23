@@ -18,7 +18,6 @@
             currentRecord: {
                         id:'',
                         status:'',
-                        prior:'',
                         guidance:'',
                         rationale:'',
                         scopeMeasure:'',
@@ -37,7 +36,7 @@
             deleteRecord: deleteRecord,
             deleteAll: deleteAll,
             setBase: setBase, 
-            registerCallback: registerCallback,
+            registerSelectCallback: registerSelectCallback,
             selectCallbacks: []
         };
         return service;
@@ -60,7 +59,11 @@
         * TODO: Have currentRecord's new status (baseline or not-included) be set based on the json data
         */
         function deleteRecord() {
-            service.lookup[service.currentRecord.id] = service.currentRecord.prior;
+            if( service.lookup[service.currentRecord.id].baseline && service.lookup[service.currentRecord.id].baseline.indexOf(service.profile.baseline) > -1) {
+                service.lookup[service.currentRecord.id].status = 'base';
+            } else {
+                service.lookup[service.currentRecord.id].status = 'not';
+            }
             delete service.records[service.currentRecord.id];
 
             return service.currentRecord;
@@ -68,7 +71,11 @@
 
         function deleteAll() {
             angular.forEach(service.records, function(key) {
-                service.lookup[key.id] = key.prior;
+                if( service.lookup[key.id].baseline && service.lookup[key.id].baseline.indexOf(service.profile.baseline) > -1) {
+                    service.lookup[key.id].status = 'base';
+                } else {
+                    service.lookup[key.id].status = 'not';
+                }
                 delete service.records[key.id];
             });
         }
@@ -87,8 +94,7 @@
                 service.currentRecord =  angular.copy(existingRecord);
             } else {
                 service.currentRecord = {id:id,
-                                status:service.lookup[id],
-                                prior:service.lookup[id],
+                                status:service.lookup[id].status,
                                 guidance:'',
                                 rationale:'',
                                 scopeMeasure:'',
@@ -108,17 +114,15 @@
         function submitRecord() {
             if((service.currentRecord.guidance.length > 0 || service.currentRecord.rationale.length > 0)) {
                 var toPush = angular.copy(service.currentRecord);
-                service.lookup[service.currentRecord.id] = toPush.status;
+                service.lookup[service.currentRecord.id].status = toPush.status;
                 var existingRecord = getRecordById(service.currentRecord.id);
                 if(existingRecord) {
                     existingRecord.id = toPush.id;
                     existingRecord.status = toPush.status;
-                    existingRecord.prior = toPush.prior;
                     existingRecord.guidance = toPush.guidance;
                     existingRecord.rationale = toPush.rationale;
                     existingRecord.scopeMeasure = toPush.scopeMeasure;
                     existingRecord.enhanceMeasure = toPush.enhanceMeasure;
-
                 } else {
                     service.records[toPush.id] = toPush;
                 }
@@ -132,65 +136,54 @@
         function setBase(data) {
              for( var i = 0; i < data.length; i ++ ) {
                 if(data[i]['baseline-impact'] && data[i]['baseline-impact'].indexOf(service.profile.baseline) > -1) {
-                  if(service.records[data[i].number[0]] && service.records[data[i].number[0]].prior ==='not') {
-                    service.records[data[i].number[0]].prior = 'base';
-                    if(service.records[data[i].number[0]].status ==='not') {
-                         service.records[data[i].number[0]].status = 'base';
-                    }
+                  if(service.records[data[i].number[0]]) {
+                       service.records[data[i].number[0]].status = 'base';
                   }
-                  if(!service.lookup[data[i].number[0]] || service.lookup[data[i].number[0]] === 'not') {
-                    service.lookup[data[i].number[0]] = 'base';  
+                  if(!service.lookup[data[i].number[0]] || service.lookup[data[i].number[0]].status === 'not') {
+                    service.lookup[data[i].number[0]] = {status:'base', baseline:data[i]['baseline-impact']};  
                   }
                   if(!service.noEnhanceLookup[data[i].number[0]]) {
-                    service.noEnhanceLookup[data[i].number[0]] = 'base';
+                    service.noEnhanceLookup[data[i].number[0]] = {status:'base', baseline:data[i]['baseline-impact']};
                   } 
                 } else {
-                  if (!service.lookup[data[i].number[0]] || service.lookup[data[i].number[0]] === 'base') {
-                    service.lookup[data[i].number[0]] = 'not';
+                  if (!service.lookup[data[i].number[0]] || service.lookup[data[i].number[0]].status === 'base') {
+                    service.lookup[data[i].number[0]] = {status:'not', baseline:data[i]['baseline-impact']};
                   }
                   if(!service.noEnhanceLookup[data[i].number[0]]) {
-                    service.noEnhanceLookup[data[i].number[0]] = 'not';
+                    service.noEnhanceLookup[data[i].number[0]] = {status:'not', baseline:data[i]['baseline-impact']};
                   } 
-                  if(service.records[data[i].number[0]] && service.records[data[i].number[0]].prior ==='base') {
-                    service.records[data[i].number[0]].prior = 'not';
-                    if(service.records[data[i].number[0]].status ==='base') {
-                         service.records[data[i].number[0]].status = 'not';
-                    }
+                  if(service.records[data[i].number[0]]) {
+                      service.records[data[i].number[0]].status = 'not';
                   }
                 }
                 if(data[i]['control-enhancements']) {
                 angular.forEach(data[i]['control-enhancements'][0]['control-enhancement'], function(item) {
                     
                     if(item['baseline-impact'] && item['baseline-impact'].indexOf(service.profile.baseline) > -1) {
-                        if(service.records[item.number[0]] && service.records[item.number[0]].prior ==='not') {
-                        service.records[item.number[0]].prior = 'base';
-                        if(service.records[item.number[0]].status ==='not') {
+                        if(service.records[item.number[0]]) {
                              service.records[item.number[0]].status = 'base';
                         }
-                      }
-                      if(!service.lookup[item.number[0]] || service.lookup[item.number[0]] === 'not') {
-                        service.lookup[item.number[0]] = 'base';  
+                      
+                      if(!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'not') {
+                        service.lookup[item.number[0]] = {status:'base', baseline:item['baseline-impact']};  
                       } 
                     } else {
-                      if (!service.lookup[item.number[0]] || service.lookup[item.number[0]] === 'base') {
-                        service.lookup[item.number[0]] = 'not';
-                      }
-                      if(service.records[item.number[0]] && service.records[item.number[0]].prior ==='base') {
-                        service.records[item.number[0]].prior = 'not';
-                        if(service.records[item.number[0]].status ==='base') {
+                          if (!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'base') {
+                            service.lookup[item.number[0]] = {status:'not', baseline:item['baseline-impact']};
+                          }
+                          if(service.records[item.number[0]]) {
                              service.records[item.number[0]].status = 'not';
-                        }
-                      }
+                          }
                     }    
                   });
                 }
             }  
-            if(service.records[service.currentRecord.id]) {
-                service.setCurrById(service.currentRecord.id);
-            }
+            // if(service.records[service.currentRecord.id]) {
+            //     service.setCurrById(service.currentRecord.id);
+            // }
         }
 
-        function registerCallback(callback) {
+        function registerSelectCallback(callback) {
             service.selectCallbacks.push(callback);
         }
 

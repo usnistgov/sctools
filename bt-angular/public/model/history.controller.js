@@ -27,7 +27,7 @@
 
         // sets the currently selected record
         function selectLog(mod) {
-
+          
           UserRecords.setCurrById(mod.id);
         }
 

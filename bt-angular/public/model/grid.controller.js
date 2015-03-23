@@ -85,7 +85,7 @@
             vm.selectMeasure(row.entity); 
           }));
           vm.gridApi.core.addRowHeaderColumn( {  name: 'rowHeaderCol', displayName: 'Status', width: 100, cellTemplate: '/layout/row-header-template.html'} );
-          UserRecords.registerCallback(vm.setRow);
+          UserRecords.registerSelectCallback(vm.setRow);
         };
         
         vm.lookup = UserRecords.lookup;

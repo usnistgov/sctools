@@ -12,12 +12,12 @@
 
 			<div flex="15" flex-order="1">
 
-				<md-radio-group ng-model="mod.currentMod().status" >
-			        <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['base']" value="base">Baseline</md-radio-button>
-				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['scope']" value="scope">Scoped</md-radio-button>
-				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['add']" value="add">Added</md-radio-button>
-				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['comp']" value="comp">Compensating</md-radio-button>
-				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().prior]['not']" value="not" >N/A</md-radio-button>
+				<md-radio-group ng-model="mod.currentMod().status" ng-change="mod.setDirty()">
+			        <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['base']" value="base">Baseline</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['scope']" value="scope">Scoped</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['add']" value="add">Added</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['comp']" value="comp">Compensating</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['not']" value="not" >N/A</md-radio-button>
 			    </md-radio-group>
 
 			</div>
@@ -35,7 +35,7 @@
 					<div flex> 
 						<md-input-container>
 							<label>Rationale</label>
-							<textarea ng-required="mod.modDelta()" ng-disabled="mod.currentMod().rationale.length===0 || !mod.modDelta()" ng-model="mod.currentMod().rationale" rows="2" name="rationale"></textarea>
+							<textarea ng-required="mod.modDelta()" ng-disabled="!mod.modDelta()" ng-model="mod.currentMod().rationale" rows="2" name="rationale"></textarea>
 						</md-input-container>
 					</div>
 

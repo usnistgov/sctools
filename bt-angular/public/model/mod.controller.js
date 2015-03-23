@@ -14,7 +14,7 @@
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'ModCtrl';
-        
+        vm.dirty = false;
         vm.data = [];
         vm.modContains = modContains;
         vm.deleteMod = deleteMod;        
@@ -24,12 +24,13 @@
         vm.lookup = UserRecords.noEnhanceLookup;
         vm.getEnhance = getEnhance;
         vm.unsetEnhance = unsetEnhance;
+        vm.setDirty = setDirty;
         // this array sets the allowed operations (ex: a measure in the baseline can't be added to the baseline)
         vm.changeChart = {
           'base': {'base':true, 'scope':true, 'add':false, 'comp':false, 'not':false},
-          'scope': {'base':false, 'scope':true, 'add':false, 'comp':false, 'not':false},
-          'add': {'base':false, 'scope':false, 'add':true, 'comp':false, 'not':false},
-          'comp': {'base':false, 'scope':false, 'add':false, 'comp':true, 'not':false},
+          'scope': {'base':true, 'scope':true, 'add':false, 'comp':false, 'not':false},
+          'add': {'base':false, 'scope':false, 'add':true, 'comp':true, 'not':true},
+          'comp': {'base':false, 'scope':false, 'add':true, 'comp':true, 'not':true},
           'not': {'base':false, 'scope':false, 'add':true, 'comp':true, 'not':true}
         };
 
@@ -54,19 +55,24 @@
         // delete the current modification
         function deleteMod() {
             UserRecords.deleteRecord();
+            vm.dirty = false;
         }
 
         // submits the current record
         function submitMod() {
             UserRecords.submitRecord();
+            vm.dirty = false;
         }
 
+        function setDirty() {
+            vm.dirty = true;
+        }
         // checks if the status has been mutated in the form
         function modDelta() {
-          if( vm.currentMod().status === vm.currentMod().prior) {
-            return false;
-          } else {
+          if( UserRecords.currentRecord.status != 'base' && UserRecords.currentRecord.status != 'not' ) {
             return true;
+          } else {
+            return false;
           }
         }
 
