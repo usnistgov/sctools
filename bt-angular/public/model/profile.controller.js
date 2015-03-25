@@ -57,16 +57,17 @@
                 return;
             }
             console.log(vm.file[0].name);
+            console.log(UserRecords.lookup);
             $upload.upload({url: 'upload', file:vm.file})
                     .success(function(data, status, headers) {
                     UserRecords.deleteAll();
-                    angular.forEach(data.root, function(element) {
+                    angular.forEach(data.root.node, function(element) {
                         var toAdd = {};
-                        toAdd.guidance = element[0].guidance[0];
-                        toAdd.id = element[0].id[0];
-                        toAdd.rationale = element[0].rationale[0];
-                        toAdd.scopeMeasure = element[0].scopeMeasure[0];
-                        toAdd.status = element[0].status[0];
+                        toAdd.guidance = element.guidance[0];
+                        toAdd.id = element.id[0];
+                        toAdd.rationale = element.rationale[0];
+                        toAdd.scopeMeasure = element.scopeMeasure[0];
+                        toAdd.status = element.status[0];
                         UserRecords.lookup[toAdd.id].status = toAdd.status;
                         UserRecords.records[toAdd.id] = toAdd;
                     });

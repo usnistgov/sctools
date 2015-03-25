@@ -31,7 +31,6 @@ app.post('/upload', function(req, res) {
         var parser = new xml2js.Parser();
         parser.parseString(data, function(err, result) {
 	        res.send(result);
-	        
 	    });
       });
     });
@@ -55,7 +54,7 @@ app.post('/xml', function(req, res) {
 				var results = [];
 				for(var key in parsed) {
 					var obj = {};
-					obj[key] = parsed[key];
+					obj['node'] = parsed[key];
 					results.push(obj);
 				}
 				return results;

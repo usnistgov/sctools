@@ -49,41 +49,58 @@
 
 <body ng-app="app">
 
-  <div ui-layout="{dividerSize: '8px;'}" ng-controller="FormCtrl as form">
-
-    <div ui-layout-container size="150px" min-size="75px" max-size="275px" class="">
-
-      <div ng-controller="ProfileCtrl as profile" ui-view="header"></div>
-
-    </div>
+  <section layout="row" layout-align="space-around center">
     
-    <div ui-layout-container> 
-      <div ui-layout="{flow : 'column', dividerSize: '8px;'}" >
+
+    <div  ui-layout="{dividerSize: '8px;'}" ng-controller="FormCtrl as form" style="position:absolute;">
+
+      <div ui-layout-container size="150px" min-size="75px" max-size="275px">
+
+        <div ng-controller="ProfileCtrl as profile" ui-view="header"></div>
+
+      </div>
+      
+      <div ui-layout-container> 
+        <div ui-layout="{flow : 'column', dividerSize: '8px;'}" >
 
 
-        <div ui-layout-container size="80%" min-size="40%">
-         
-         <div ng-controller="GridCtrl as catalog" ui-view="selector"></div>
-         
-       </div>
+          <div ui-layout-container size="80%" min-size="40%">
+           
+           <div ng-controller="GridCtrl as catalog" ui-view="selector"></div>
+           
+         </div>
 
 
-       <div ui-layout-container min-size="" class="">
+         <div ui-layout-container min-size="" class="">
 
-         <div ng-controller="HistoryCtrl as hist" ui-view="history"></div>
+           <div ng-controller="HistoryCtrl as hist" ui-view="history"></div>
+
+         </div>
 
        </div>
 
      </div>
+     
+     <div ui-layout-container size="275px" max-size="500px" class="">
 
-   </div>
-   
-   <div ui-layout-container size="275px" max-size="500px" class="">
+      <div ng-controller="ModCtrl as mod" ui-view="modifier"></div>
 
-    <div ng-controller="ModCtrl as mod" ui-view="modifier"></div>
+    </div>
 
-  </div>
-</div>
+<!-- </div>
+  <div flex="20" style="z-index:5000; border: 2px solid red;">
+    yoasdflkuahdlsxf;kja ;dsfiuxhga'lsrdkjxcfluadrjslkf;a
+    <md-sidenav md-is-locked-open="$mdMedia('gt-md')">
+      <md-toolbar class="md-primary">
+        <h1>Sidenav Right</h1>
+      </md-toolbar>
+      <md-content class="md-padding">
+        HELLO WORLD
+      </md-content>
+    </md-sidenav>
+  </div> -->
+</section>
+
 
 </body>
 
