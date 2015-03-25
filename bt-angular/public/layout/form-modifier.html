@@ -12,7 +12,7 @@
 
 			<div flex="15" flex-order="1">
 
-				<md-radio-group ng-model="mod.currentMod().status" ng-change="mod.setDirty()">
+				<md-radio-group ng-model="mod.currentMod().status" ng-change="mod.clearMod()">
 			        <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['base']" value="base">Baseline</md-radio-button>
 				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['scope']" value="scope">Scoped</md-radio-button>
 				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['add']" value="add">Added</md-radio-button>
@@ -50,13 +50,13 @@
 					<div flex="5"></div>
 					<div flex="20" align="left" ng-show="mod.modContains()"></div>
 
-					<md-select flex="25" align="left" ng-show="mod.currentMod().status==='comp' || mod.currentMod().status==='scope'" ng-model="mod.currentMod().scopeMeasure" ng-change="mod.unsetEnhance()">
+					<md-select flex="25" align="left" ng-show="mod.currentMod().status==='comp' || mod.currentMod().status==='scope'" ng-model="mod.currentMod().scopeMeasure" ng-change="mod.unsetEnhance()" ng-required="mod.currentMod().status==='comp' || mod.currentMod().status==='scope'">
 						<md-select-label>For {{mod.currentMod().status==='scope'?'Compensating' + ' Control ' + mod.currentMod().scopeMeasure:'Scoped' + ' Control ' + mod.currentMod().scopeMeasure}}</md-select-label>
 						<md-option ng-value="key" ng-repeat="(key, val) in mod.lookup">{{key}}</md-option>
 					</md-select>
 
 					<md-select flex="25" align="left" ng-show="(mod.currentMod().status==='comp' || mod.currentMod().status==='scope') && mod.currentMod().scopeMeasure && mod.getEnhance().length > 0" ng-model="mod.currentMod().enhanceMeasure">
-						<md-select-label>Enhancement {{mod.currentMod().enhanceMeasure}}</md-select-label>
+						<md-select-label>{{mod.currentMod().enhanceMeasure===mod.currentMod().scopeMeasure ? 'No Enhancement' : ( 'Enhancement '+ mod.currentMod().enhanceMeasure)}}</md-select-label>
 						<md-option ng-value="key" ng-repeat="key in mod.getEnhance()">{{key}}</md-option>
 					</md-select>
 					

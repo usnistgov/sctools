@@ -10,8 +10,8 @@
     * This controller will eventually be involved in querying and serving XML files
     */
     /* @ngInject */
-    ProfileCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON', '$mdSidenav', '$upload'];
-    function ProfileCtrl(UserRecords, SecurityMeasuresJSON, $mdSidenav, $upload) {
+    ProfileCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON', '$mdSidenav', '$upload', '$window'];
+    function ProfileCtrl(UserRecords, SecurityMeasuresJSON, $mdSidenav, $upload, $window) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -45,10 +45,15 @@
                 // following section found at: http://stackoverflow.com/questions/20300547/download-csv-file-from-web-api-in-angular-js
                 var hiddenElement = document.createElement('a');
 
-                hiddenElement.href = 'data:attachment/text,' + encodeURI(data);
+                //hiddenElement.href = 'data:text/xml;charset=utf-8,' + encodeURIComponent(data);
+                hiddenElement.href = 'data:text/xml;charset=utf-8,' + encodeURIComponent(data);
                 hiddenElement.target = '_blank';
                 hiddenElement.download = 'SP80053_'+UserRecords.profile.name+'.xml';
-                hiddenElement.click();
+
+                  
+                //hiddenElement.click();
+                window.open(hiddenElement.href);
+                //window.location.assign(hiddenElement.href);
             })
         }
 
@@ -69,6 +74,7 @@
                         toAdd.id = element.id[0];
                         toAdd.rationale = element.rationale[0];
                         toAdd.scopeMeasure = element.scopeMeasure[0];
+                        toAdd.enhanceMeasure = element.enhanceMeasure[0];
                         toAdd.status = element.status[0];
                         UserRecords.lookup[toAdd.id].status = toAdd.status;
                         UserRecords.records[toAdd.id] = toAdd;
