@@ -49,18 +49,19 @@ app.post('/xml', function(req, res) {
 			var parsed = JSON.parse(data);
 			
 			var xml = xmlbuilder.create('root');
-
+			
 			xml = xml.ele(function() {
 				var results = [];
-				for(var key in parsed) {
+				results.push(parsed.profile);
+				for(var key in parsed.records) {
 					var obj = {};
-					obj['node'] = parsed[key];
+					obj['node'] = parsed.records[key];
 					results.push(obj);
 				}
 				return results;
 			});
 			xml = xml.end({ pretty: true});
-		
+			
 			res.send(xml);
 		}
 

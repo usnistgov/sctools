@@ -22,7 +22,6 @@
         vm.data = {};
         vm.title = 'ProfileCtrl';
         vm.file = {};
-        vm.filePast = '';
         vm.overlay = UserRecords.profile;
 
 
@@ -39,7 +38,8 @@
         }
 
         function linkXML() {
-            SecurityMeasuresJSON.getXML(UserRecords.records).success( function(data) {
+            var toDown = { records: UserRecords.records, profile: UserRecords.profile };
+            SecurityMeasuresJSON.getXML(toDown).success( function(data) {
                 console.log(data);
 
                 // following section found at: http://stackoverflow.com/questions/20300547/download-csv-file-from-web-api-in-angular-js
@@ -47,20 +47,22 @@
 
                 hiddenElement.href = 'data:attachment/text,' + encodeURI(data);
                 hiddenElement.target = '_blank';
-                hiddenElement.download = 'SP80053.xml';
+                hiddenElement.download = 'SP80053_'+UserRecords.profile.name+'.xml';
                 hiddenElement.click();
             })
         }
 
         function fileSelect() {
-            if( !vm.file || !vm.file[0] || (vm.filePast === vm.file[0].name) ) {
+            if ( !vm.file || !vm.file[0]) { // prevents oddness in event handler
                 return;
             }
-            console.log(vm.file[0].name);
             console.log(UserRecords.lookup);
             $upload.upload({url: 'upload', file:vm.file})
                     .success(function(data, status, headers) {
                     UserRecords.deleteAll();
+                    UserRecords.profile.name = data.root.name[0];
+                    UserRecords.profile.baseline = data.root.baseline[0];
+                    vm.setBase(UserRecords.profile.baseline);
                     angular.forEach(data.root.node, function(element) {
                         var toAdd = {};
                         toAdd.guidance = element.guidance[0];
@@ -72,7 +74,6 @@
                         UserRecords.records[toAdd.id] = toAdd;
                     });
                 });
-                vm.filePast = angular.copy(vm.file[0].name);
         }
         
 
