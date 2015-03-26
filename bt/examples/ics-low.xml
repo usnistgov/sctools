@@ -9,9 +9,9 @@ CP-10 table includes withdrawn CEs 3 and 5
 
 -->
 
-<ICSOverlay>
+<tailoredBaseline>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-1">
@@ -20,9 +20,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems. ICS access by vendors and maintenance staff can occur over a very large facility footprint or geographic area and into unobserved spaces such as mechanical/electrical rooms, ceilings, floors, field substations, switch and valve vaults, and pump stations.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-2">
@@ -79,9 +79,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-3">
@@ -90,9 +90,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The organization ensures that access enforcement mechanisms do not adversely impact the operational performance of the ICS. Example compensating controls include encapsulation. Policy for logical access control to Non-Addressable and Non-Routable system resources and the associated information is made explicit. Access control mechanisms include hardware, firmware, and software that controls or has device access, such as device drivers and communications controllers. Physical access control may serve as a compensating control for logical access control, however, it may not provide sufficient granularity in situations where users require access to different functions. Logical access enforcement may be implemented in encapsulating hardware and software.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-7">
@@ -101,9 +101,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Many ICS must remain continuously on and operators remain logged onto the system at all times. A “log-over” capability may be employed. Example compensating controls include logging or recording all unsuccessful login attempts and alerting ICS security personnel though alarms or other means when the number of organization-defined consecutive invalid access attempts is exceeded.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-8">
@@ -112,9 +112,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Many ICS must remain continuously on and system use notification may not be supported or effective. Example compensating controls include posting physical notices in ICS facilities.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-14">
@@ -123,9 +123,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-17">
@@ -158,9 +158,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-18">
@@ -187,9 +187,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-19">
@@ -204,9 +204,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-20">
@@ -227,9 +227,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>ACCESS CONTROL</family>
     <rationale flag="false"/>
     <control number="AC-22">
@@ -238,9 +238,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Generally, public access to ICS systems is not permitted. Selected information may be transferred to a publicly accessible information system, possibly with added controls (e.g., introduction of fuzziness or delay).</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AWARENESS AND TRAINING</family>
     <rationale flag="false"/>
     <control number="AC-1">
@@ -249,9 +249,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AWARENESS AND TRAINING</family>
     <rationale flag="false"/>
     <control number="AT-2">
@@ -266,9 +266,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AWARENESS AND TRAINING</family>
     <rationale flag="false"/>
     <control number="AT-3">
@@ -277,9 +277,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Security training includes initial and periodic review of ICS-specific policies, standard operating procedures, security trends, and vulnerabilities. The ICS security training program is consistent with the requirements of the security awareness and training policy established by the organization.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AWARENESS AND TRAINING</family>
     <rationale flag="false"/>
     <control number="AT-4">
@@ -288,9 +288,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="false"/>
     <control number="AU-1">
@@ -299,9 +299,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="false"/>
     <control number="AU-2">
@@ -316,9 +316,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="false"/>
     <control number="AU-3">
@@ -339,9 +339,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="true">Legacy ICS components typically do not have capacity to store or analyze audit data. The retention periods for some data, particularly compliance data, may require large volumes of storage.</rationale>
     <control number="AU-4">
@@ -356,9 +356,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Legacy ICS typically are typically configured with remote storage on a separate information system (e.g., the historian accumulates historical operational ICS data and is backed up for storage at a different site). ICS are currently using online backup services and increasingly moving to Cloud based and Virtualized services. Retention of some data (e.g., SCADA telemetry) may be required by regulatory authorities.</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="false"/>
     <control number="AU-5">
@@ -379,9 +379,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="false"/>
     <control number="AU-6">
@@ -414,9 +414,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="false"/>
     <control number="AU-8">
@@ -431,9 +431,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="true">ICS employ suitable mechanisms (e.g., GPS, IEEE 1588).</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="false"/>
     <control number="AU-9">
@@ -460,9 +460,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="false"/>
     <control number="AU-11">
@@ -471,9 +471,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>AUDIT AND ACCOUNTABILITY</family>
     <rationale flag="false"/>
     <control number="AU-12">
@@ -494,9 +494,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="true">Example compensating controls include employing nonautomated mechanisms or procedures.</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
     <rationale flag="false"/>
     <control number="CA-1">
@@ -505,9 +505,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
     <rationale flag="false"/>
     <control number="CA-2">
@@ -528,9 +528,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="true">The organization conducts risk analysis to support the selection of assessment target (e.g., the live system, an off-line replica, a simulation).</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
     <rationale flag="false"/>
     <control number="CA-3">
@@ -545,9 +545,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
     <rationale flag="false"/>
     <control number="CA-5">
@@ -556,9 +556,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
     <rationale flag="false"/>
     <control number="CA-6">
@@ -567,9 +567,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
     <rationale flag="false"/>
     <control number="CA-7">
@@ -584,9 +584,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
     <rationale flag="false"/>
     <control number="CA-9">
@@ -595,9 +595,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Organizations perform risk-benefit analysis to support determination whether an ICS should be connected to other internal information system(s) and (separate) constituent system components. The Authorizing Official fully understands the organizational information security policies and procedures; the ICS security policies and procedures; the risks to organizational operations and assets, individuals, other organizations, and the Nation associated with the connected to other information system(s) and (separate) constituent system components, whether by authorizing each individual internal connection or authorizing internal connections for a class of components with common characteristics and/or configurations; and the specific health, safety, and environmental risks associated with a particular interconnection. The AO documents risk acceptance in the ICS system security plan.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONFIGURATION MANAGEMENT</family>
     <rationale flag="false"/>
     <control number="CM-1">
@@ -606,9 +606,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONFIGURATION MANAGEMENT</family>
     <rationale flag="false"/>
     <control number="CM-2">
@@ -641,9 +641,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONFIGURATION MANAGEMENT</family>
     <rationale flag="false"/>
     <control number="CM-4">
@@ -658,9 +658,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONFIGURATION MANAGEMENT</family>
     <rationale flag="false"/>
     <control number="CM-6">
@@ -681,9 +681,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONFIGURATION MANAGEMENT</family>
     <rationale flag="true">(1) Periodic review and removal of unnecessary and/or nonsecure functions, ports, protocols, and services are added to the LOW baseline because many of the LOW impact ICS components could adversely affect the systems to which they are connected.
     (4, 5) Whitelisting (CE 5) is more effective than blacklisting (CE 4). The set of applications that run in ICS is essentially static, making whitelisting practical. ICS-CERT recommends deploying application whitelisting on ICS. Reference: http://ics-cert.us-cert.gov/tips/ICS-TIP-12-146-01B</rationale>
@@ -723,9 +723,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONFIGURATION MANAGEMENT</family>
     <rationale flag="false"/>
     <control number="CM-8">
@@ -764,9 +764,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONFIGURATION MANAGEMENT</family>
     <rationale flag="false"/>
     <control number="CM-10">
@@ -775,9 +775,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONFIGURATION MANAGEMENT</family>
     <rationale flag="false"/>
     <control number="CM-11">
@@ -786,9 +786,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONFIGURATION MANAGEMENT</family>
     <rationale flag="false"/>
     <control number="CM-11">
@@ -797,9 +797,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONTINGENCY PLANNING</family>
     <rationale flag="false"/>
     <control number="CP-1">
@@ -808,9 +808,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONTINGENCY PLANNING</family>
     <rationale flag="false"/>
     <control number="CP-2">
@@ -855,9 +855,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONTINGENCY PLANNING</family>
     <rationale flag="false"/>
     <control number="CP-3">
@@ -872,9 +872,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONTINGENCY PLANNING</family>
     <rationale flag="false"/>
     <control number="CP-4">
@@ -895,9 +895,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONTINGENCY PLANNING</family>
     <rationale flag="false"/>
     <control number="CP-9">
@@ -930,9 +930,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>CONTINGENCY PLANNING</family>
     <rationale flag="false"/>
     <control number="CP-10">
@@ -953,9 +953,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>IDENTIFICATION AND AUTHENTICATION</family>
     <rationale flag="false"/>
     <control number="IA-1">
@@ -964,9 +964,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>IDENTIFICATION AND AUTHENTICATION</family>
     <rationale flag="false"/>
     <control number="IA-2">
@@ -1023,9 +1023,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Example compensating controls include implementing support for PIV external to the ICS.</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>IDENTIFICATION AND AUTHENTICATION</family>
     <rationale flag="true">ICS may exchange information with many external systems and devices. Identifying and authenticating the devices introduces situations that do not exist with humans. These controls include assignments that enable the organization to specifically enumerated that are selected; or to categorize devices by types, models, or other group characteristics. Assignments also enable the organizations to select appropriate controls for local, remote, and network connections.</rationale>
     <control number="IA-3">
@@ -1046,9 +1046,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="1"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>IDENTIFICATION AND AUTHENTICATION</family>
     <rationale flag="false"/>
     <control number="IA-4">
@@ -1057,8 +1057,8 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
-  <controlOverlay>
+  </tailoredControl>
+  <tailoredControl>
     <family>IDENTIFICATION AND AUTHENTICATION</family>
     <rationale flag="false"/>
     <control number="IA-5">
@@ -1091,9 +1091,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>IDENTIFICATION AND AUTHENTICATION</family>
     <rationale flag="false"/>
     <control number="IA-6">
@@ -1102,9 +1102,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">This control assumes a visual interface that provides feedback of authentication information during the authentication process. When ICS authentication uses an interface that does not support visual feedback, (e.g., protocol-based authentication) this control may be tailored out.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>IDENTIFICATION AND AUTHENTICATION</family>
     <rationale flag="false"/>
     <control number="IA-7">
@@ -1113,9 +1113,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>IDENTIFICATION AND AUTHENTICATION</family>
     <rationale flag="false"/>
     <control number="IA-8">
@@ -1148,9 +1148,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="1"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>INCIDENT RESPONSE</family>
     <rationale flag="false"/>
     <control number="IR-1">
@@ -1159,9 +1159,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>INCIDENT RESPONSE</family>
     <rationale flag="false"/>
     <control number="IR-2">
@@ -1182,9 +1182,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
   
-  <controlOverlay>
+  <tailoredControl>
     <family>INCIDENT RESPONSE</family>
     <rationale flag="false"/>
     <control number="IR-4">
@@ -1205,9 +1205,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>INCIDENT RESPONSE</family>
     <rationale flag="false"/>
     <control number="IR-5">
@@ -1222,9 +1222,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>INCIDENT RESPONSE</family>
     <rationale flag="false"/>
     <control number="IR-6">
@@ -1239,9 +1239,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="true">The automated mechanisms used to support the incident reporting process are not necessarily part of, or connected to, the ICS.</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>INCIDENT RESPONSE</family>
     <rationale flag="false"/>
     <control number="IR-7">
@@ -1256,9 +1256,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>INCIDENT RESPONSE</family>
     <rationale flag="false"/>
     <control number="IR-8">
@@ -1267,9 +1267,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>MAINTENANCE</family>
     <rationale flag="false"/>
     <control number="MA-1">
@@ -1278,9 +1278,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>MAINTENANCE</family>
     <rationale flag="false"/>
     <control number="MA-2">
@@ -1295,9 +1295,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>MAINTENANCE</family>
     <rationale flag="false"/>
     <control number="MA-4">
@@ -1318,9 +1318,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="true">In crisis or emergency situations, the organization may need immediate access to non local maintenance and diagnostic services in order to restore essential ICS operations or services. Example compensating controls include limiting the extent of the maintenance and diagnostic services to the minimum essential activities, carefully monitoring and auditing the non-local maintenance and diagnostic activities.</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>MAINTENANCE</family>
     <rationale flag="false"/>
     <control number="MA-5">
@@ -1335,9 +1335,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>MEDIA PROTECTION</family>
     <rationale flag="false"/>
     <control number="MP-1">
@@ -1346,9 +1346,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>MEDIA PROTECTION</family>
     <rationale flag="false"/>
     <control number="MP-2">
@@ -1357,9 +1357,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>MEDIA PROTECTION</family>
     <rationale flag="false"/>
     <control number="MP-6">
@@ -1386,9 +1386,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>MEDIA PROTECTION</family>
     <rationale flag="false"/>
     <control number="MP-7">
@@ -1403,9 +1403,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="false"/>
     <control number="PE-1">
@@ -1414,9 +1414,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems. The ICS components can be distributed over a large facility footprint or geographic area and can be an entry point into the entire organizational network ICS. Regulatory controls may also apply.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="false"/>
     <control number="PE-2">
@@ -1425,9 +1425,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="false"/>
     <control number="PE-3">
@@ -1442,9 +1442,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="true">Many of the ICS components are in remote geographical and dispersed locations with little capability to monitor all ICS components. Other components may be in ceilings, floors, or distribution closets with minimal physical barriers to detect, delay or deny access to the devices and no electronic surveillance or guard forces response capability.</rationale>
     <control number="PE-6">
@@ -1465,9 +1465,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="true">The locations of ICS components (e.g., field devices, remote terminal units) can include various remote locations (e.g., substations, pumping stations).</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="false"/>
     <control number="PE-8">
@@ -1482,9 +1482,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="true">ICS may support critical activities which will be needed for safety and reliability even in the absence of reliable power from the public grid.</rationale>
     <control number="PE-11">
@@ -1505,9 +1505,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="false"/>
     <control number="PE-12">
@@ -1516,9 +1516,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="false"/>
     <control number="PE-13">
@@ -1545,9 +1545,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="false"/>
     <control number="PE-14">
@@ -1556,9 +1556,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Temperature and humidity controls are typically components of other ICS systems such as the HVAC, process, or lighting systems, or can be a standalone and unique ICS system. ICS can operate in extreme environments and both interior and exterior locations. For a specific ICS, the temperature and humidity design and operational parameters dictate the performance specifications. As ICS and IS become interconnected and the network provides connectivity across the hybrid domain, power circuits, distribution closets, routers and switches that support fire protection and life safety systems must be maintained at the proper temperature and humidity.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="false"/>
     <control number="PE-15">
@@ -1573,9 +1573,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
     <rationale flag="false"/>
     <control number="PE-16">
@@ -1584,9 +1584,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PLANNING</family>
     <rationale flag="false"/>
     <control number="PL-1">
@@ -1595,9 +1595,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PLANNING</family>
     <rationale flag="true">When systems are highly inter-connected, coordinated planning is essential. A low impact system could adversely affect a higher impact system.</rationale>
     <control number="PL-2">
@@ -1612,9 +1612,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PLANNING</family>
     <rationale flag="false"/>
     <control number="PL-4">
@@ -1629,9 +1629,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PERSONNEL SECURITY</family>
     <rationale flag="false"/>
     <control number="PS-1">
@@ -1640,9 +1640,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PERSONNEL SECURITY</family>
     <rationale flag="false"/>
     <control number="PS-2">
@@ -1651,9 +1651,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PERSONNEL SECURITY</family>
     <rationale flag="false"/>
     <control number="PS-3">
@@ -1662,9 +1662,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PERSONNEL SECURITY</family>
     <rationale flag="false"/>
     <control number="PS-4">
@@ -1679,9 +1679,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PERSONNEL SECURITY</family>
     <rationale flag="false"/>
     <control number="PS-5">
@@ -1690,9 +1690,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PERSONNEL SECURITY</family>
     <rationale flag="false"/>
     <control number="PS-6">
@@ -1701,9 +1701,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PERSONNEL SECURITY</family>
     <rationale flag="false"/>
     <control number="PS-7">
@@ -1712,9 +1712,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>PERSONNEL SECURITY</family>
     <rationale flag="false"/>
     <control number="PS-8">
@@ -1723,9 +1723,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>RISK ASSESSMENT</family>
     <rationale flag="false"/>
     <control number="RA-1">
@@ -1734,9 +1734,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>RISK ASSESSMENT</family>
     <rationale flag="false"/>
     <control number="RA-2">
@@ -1745,9 +1745,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>RISK ASSESSMENT</family>
     <rationale flag="false"/>
     <control number="RA-3">
@@ -1756,9 +1756,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>RISK ASSESSMENT</family>
     <rationale flag="false"/>
     <control number="RA-5">
@@ -1791,9 +1791,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND SERVICES ACQUISITION</family>
     <rationale flag="false"/>
     <control number="SA-1">
@@ -1802,9 +1802,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND SERVICES ACQUISITION</family>
     <rationale flag="false"/>
     <control number="SA-2">
@@ -1813,9 +1813,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND SERVICES ACQUISITION</family>
     <rationale flag="false"/>
     <control number="SA-3">
@@ -1824,9 +1824,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND SERVICES ACQUISITION</family>
     <rationale flag="false"/>
     <control number="SA-4">
@@ -1859,9 +1859,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Example compensating controls include employing external products on the FIPS 201-approved products list for Personal Identity Verification (PIV) capability in conjunction with ICS products.</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND SERVICES ACQUISITION</family>
     <rationale flag="false"/>
     <control number="SA-5">
@@ -1870,9 +1870,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND SERVICES ACQUISITION</family>
     <rationale flag="false"/>
     <control number="SA-9">
@@ -1887,9 +1887,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="false"/>
     <control number="SC-1">
@@ -1898,9 +1898,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="false"/>
     <control number="SC-5">
@@ -1909,9 +1909,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Example compensating controls include ensuring a loss of communication results in the ICS operating in nominal or safe mode. Risk-based analysis informs the establishment of policy and procedure.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="true">As part of the architecture and design of the ICS, the organization selects an appropriate failure mode in accordance with the function performed by the ICS and the operational environment. The ability to choose the failure mode for the physical part of the ICS differentiates the ICS from other IT systems. This choice may be a significant influence in mitigating the impact of a failure.</rationale>
     <control number="SC-7">
@@ -1962,9 +1962,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="false"/>
     <control number="SC-12">
@@ -1979,9 +1979,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="false"/>
     <control number="SC-13">
@@ -1990,9 +1990,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="false"/>
     <control number="SC-15">
@@ -2001,9 +2001,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="false"/>
     <control number="SC-20">
@@ -2012,9 +2012,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The use of secure name/address resolution services is determined after careful consideration and after verification that it does not adversely impact the operation of the ICS.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="false"/>
     <control number="SC-21">
@@ -2023,9 +2023,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The use of secure name/address resolution services is determined after careful consideration and after verification that it does not adversely impact the operation of the ICS.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="false"/>
     <control number="SC-22">
@@ -2034,9 +2034,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The use of secure name/address resolution services is determined after careful consideration and after verification that it does not adversely impact the operational performance of the ICS.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="false"/>
     <control number="SC-39">
@@ -2045,9 +2045,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">Example compensating controls include partition processes to separate platforms.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
     <rationale flag="true">The function of ICS can be readily determined in advance, making it easier to identify ports and I/O devices that are unnecessary. Disabling or removing ports reinforces air-gap policy.</rationale>
     <control number="SC-41">
@@ -2056,9 +2056,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND INFORMATION INTEGRITY</family>
     <rationale flag="false"/>
     <control number="SI-1">
@@ -2067,9 +2067,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND INFORMATION INTEGRITY</family>
     <rationale flag="false"/>
     <control number="SI-2">
@@ -2090,9 +2090,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="true">In situations where the ICS cannot support the use of automated mechanisms to conduct and report on the status of flaw remediation, the organization employs nonautomated mechanisms or procedures which incorporate methods to apply, track, and verify mitigation efforts as compensating controls in accordance with the general tailoring guidance.</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND INFORMATION INTEGRITY</family>
     <rationale flag="false"/>
     <control number="SI-3">
@@ -2113,9 +2113,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="true">The organization implements automatic updates of malicious code protection with consideration of the impact on operation of the ICS. In situations where the ICS cannot support the use of automatic update of malicious code protection, the organization employs nonautomated procedures as compensating controls in accordance with the general tailoring guidance</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND INFORMATION INTEGRITY</family>
     <rationale flag="false"/>
     <control number="SI-4">
@@ -2142,9 +2142,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="2"/>
       <guidance flag="true">Example compensating controls include manual methods of generating alerts.</guidance>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND INFORMATION INTEGRITY</family>
     <rationale flag="false"/>
     <control number="SI-5">
@@ -2159,9 +2159,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="3"/>
       <guidance flag="false"/>
     </enhancement>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND INFORMATION INTEGRITY</family>
     <rationale flag="false"/>
     <control number="SI-12">
@@ -2170,9 +2170,9 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="false"/>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-  <controlOverlay>
+  <tailoredControl>
     <family>SYSTEM AND INFORMATION INTEGRITY</family>
     <rationale flag="true">This control provides a structure for the organization to identify their policy and procedures for dealing with failures and other incidents. Creating a written record of the decision process for selecting incidents and appropriate response is part of risk management in light of changing environment of operations.</rationale>
     <control number="SI-17">
@@ -2181,6 +2181,6 @@ CP-10 table includes withdrawn CEs 3 and 5
       <impact value="1"/>
       <guidance flag="true">The selected failure conditions and corresponding procedures may vary among baselines. The same failure event may trigger different response depending on the impact level. Mechanical and analog system can be used to provide mechanisms to ensure fail-safe procedures. Fail-safe states should incorporate potential impacts to human safety, physical systems, and the environment. Related controls: CP-6.</guidance>
     </control>
-  </controlOverlay>
+  </tailoredControl>
 
-</ICSOverlay>
+</tailoredBaseline>

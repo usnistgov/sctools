@@ -80,7 +80,7 @@
   </xsl:template>
 
    <xsl:template match="*">
-     <xsl:if test="ancestor::controlOverlay">
+     <xsl:if test="ancestor::tailoredControl">
        <xsl:text>&#160;&#160;</xsl:text>
        <xsl:if test="ancestor::control or ancestor::enhancement">
 	 <xsl:text>&#160;&#160;</xsl:text>
@@ -94,7 +94,7 @@
    </xsl:template>
 
    <xsl:template match="*[text() and not(comment() | processing-instruction())]">
-     <xsl:if test="ancestor::controlOverlay">
+     <xsl:if test="ancestor::tailoredControl">
        <xsl:text>&#160;&#160;</xsl:text>
        <xsl:if test="ancestor::control or ancestor::enhancement">
 	 <xsl:text>&#160;&#160;</xsl:text>
@@ -112,7 +112,7 @@
   </xsl:template>
 
   <xsl:template match="*[*]">
-    <xsl:if test="ancestor::controlOverlay">
+    <xsl:if test="ancestor::tailoredControl">
       <xsl:text>&#160;&#160;</xsl:text>
     </xsl:if>
     <xsl:text>&lt;</xsl:text>
@@ -121,7 +121,7 @@
     <xsl:text>&gt;
 </xsl:text>
     <xsl:apply-templates/>
-    <xsl:if test="ancestor::controlOverlay">
+    <xsl:if test="ancestor::tailoredControl">
       <xsl:text>&#160;&#160;</xsl:text>
     </xsl:if>
     <xsl:text>&lt;/</xsl:text>

@@ -1,10 +1,10 @@
 default namespace = ""
 
 start =
-   ## An entire Industrial Control System (ICS) overlay.
-element ICSOverlay {
-   ## Overlay for a security control from the SP 800-53 catalog.
-   element controlOverlay {
+   ## An entire tailored baseline.
+element tailoredBaseline {
+   ## Tailoring for a security control from the SP 800-53 catalog.
+   element tailoredControl {
       ## Name of the control's family.
       element family { text },
       ## Justification for change the baseline. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored.
@@ -19,7 +19,7 @@ element ICSOverlay {
          title,
          \default,
          impact,
-         ## Overlay-specific supplemental guidance for a control. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored.
+         ## Additional supplemental guidance for a control. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored.
          element guidance {
             booleanFlag,
             text
@@ -32,7 +32,7 @@ element ICSOverlay {
          title,
          \default,
          impact,
-         ## Overlay-specific supplemental guidance for a control enhancement. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored. Otherwise, booleanFlag cross-references the guidance of another  control enhancement within the parent controlOverlay element.
+         ## Additional supplemental guidance for a control enhancement. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored. Otherwise, booleanFlag cross-references the guidance of another  control enhancement within the parent tailoredControl element.
          element guidance {
             (booleanFlag | posIntFlag),
             text
@@ -48,7 +48,7 @@ title = element title { text }
       attribute value { "1"|"2"|"3"|"4" }
    }
 impact =
-## Overlay impact. 1 represents 'LOW', 2 represents 'MODERATE', 3 represents 'HIGH', and 4 represents 'N/A' (i.e. not included in the overlay).
+## Tailored impact. 1 represents 'LOW', 2 represents 'MODERATE', 3 represents 'HIGH', and 4 represents 'N/A' (i.e. not included in the baseline).
    element impact {
       attribute value {  "1"|"2"|"3"|"4" }
    }

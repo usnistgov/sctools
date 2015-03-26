@@ -58,7 +58,7 @@
     </exec>
   </target>
 
-  <target name="sch" description="validate overlay against a schematron schema">
+  <target name="sch" description="validate tailoring against a schematron schema">
     <schematron schema="${schema}" file="${file}"/>
   </target>
 

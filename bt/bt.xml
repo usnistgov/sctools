@@ -107,7 +107,7 @@
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
-	<version>0.2</version>
+	<version>0.3</version>
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
@@ -152,14 +152,14 @@
 	  <cImpactTooHigh>Control impact higher than lowest control enhancement impact.</cImpactTooHigh>
 	  <ceImpactTooLow>Control Enhancement impact lower than control impact.</ceImpactTooLow>
 	  <CM-7>CM-7(4) impact as high or higher than CM-7(5) impact. Blacklisting and whitelisting cannot be applied simultaneously, and whitelisting is more restrictive than blacklisting.</CM-7>
-	  <illegalGuidance>Control Enhancement must have LOW, MODERATE, or HIGH impact to have overlay supplemental guidance.</illegalGuidance>
-	  <illegalXRef>Cross-reference to Control Enhancement without overlay supplemental guidance.</illegalXRef>
+	  <illegalGuidance>Control Enhancement must have LOW, MODERATE, or HIGH impact if adding supplemental guidance.</illegalGuidance>
+	  <illegalXRef>Cross-reference to Control Enhancement without added supplemental guidance.</illegalXRef>
 	</data>
       </xf:instance>
 
       <!-- This model instance captures the current UI state. The 'control' and 'enhancement' elements have dynamic content representing the  current state of the control and control enhancement information. -->
       <xf:instance id="i-settings" xmlns="">
-	<controlOverlay>
+	<tailoredControl>
 	  <family>ACCESS CONTROL</family>
 	  <rationale flag="false">Rationale here.</rationale>
 	  <control number="AC-1">
@@ -172,7 +172,7 @@
 	    <h>&S;</h>
 	    <guidance>Guidance here.</guidance>
 	  </control>
-	</controlOverlay>
+	</tailoredControl>
       </xf:instance>
 
       <xf:bind nodeset="instance('i-url')" calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)"/>
@@ -343,7 +343,7 @@
 	<td rowspan="2">CONTROL<br/>NUMBER</td>
 	<td rowspan="2">CONTROL NAME<br/><div class="CETitle">Control Enhancement Name</div></td>
 	<td rowspan="2">BASELINE<br/>IMPACT</td>
-	<td rowspan="2">OVERLAY<br/>SUPPLE-<br/>MENTAL<br/>GUIDANCE</td>
+	<td rowspan="2">ADDED<br/>SUPPLE-<br/>MENTAL<br/>GUIDANCE</td>
 	<td colspan="3">CONTROL BASELINES</td>
       </tr>
       <tr class="Heading">
@@ -431,7 +431,7 @@
 
 	</td>
 
-	<!-- Cell containing checkboxes for overlay supplemental guidance -->
+	<!-- Cell containing checkboxes for added supplemental guidance -->
 	<td>
 	  <div class="Cell">
 	    <xf:input incremental="true" bind="b-c-gFlag">
@@ -507,7 +507,7 @@
 	  
 	  <div>
 	    <xf:textarea class="Guidance" incremental="true" ref="&CXPath;/guidance">
-	      <xf:label>Overlay Supplemental Guidance:<br/></xf:label>
+	      <xf:label>Additional Supplemental Guidance:<br/></xf:label>
 	    </xf:textarea>
 	  </div>
 
@@ -517,7 +517,7 @@
 		<xf:label>
 		  <span>Control Enhancement (</span>
 		  <xf:output ref="..@number"/>
-		  <span>) Overlay Supplemental Guidance:</span><br/>
+		  <span>) Additional Supplemental Guidance:</span><br/>
 		</xf:label>
 		<xf:textarea ref="." class="Guidance" incremental="true">
 		  <xf:label/>

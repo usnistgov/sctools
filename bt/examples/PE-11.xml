@@ -1,4 +1,4 @@
-<controlOverlay>
+<tailoredControl>
   <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
   <rationale flag="true">ICS may support critical activities which will be needed for safety and reliability even in the absence of reliable power from the public grid</rationale>
   <control number="PE-11">
@@ -19,4 +19,4 @@
     <impact value="3"/>
     <guidance flag="false"/>
   </enhancement>
-</controlOverlay>
+</tailoredControl>
