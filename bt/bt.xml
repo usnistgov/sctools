@@ -214,7 +214,7 @@
 	  <td>
 	    <xf:group ref="instance('i-baselines')/baselines">
 	      <table>
-		<tr><td colspan="2">Filter by baseline:</td></tr>
+		<tr><td colspan="2">Baselines:</td></tr>
 		<tr class="Row">
 		  <td>
 		    <xf:select appearance="full" ref=".">
@@ -246,7 +246,7 @@
 	  <td>
 	    <xf:group ref="instance('i-priorities')/priorities">
 	      <table>
-		<tr><td colspan="2">Filter by priority:</td></tr>
+		<tr><td colspan="2">Priorities:</td></tr>
 		<tr class="Row">
 		  <td>
 		    <xf:select appearance="full" ref=".">
