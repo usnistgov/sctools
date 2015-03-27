@@ -10,8 +10,8 @@
     * This controller will eventually be involved in querying and serving XML files
     */
     /* @ngInject */
-    ProfileCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON', '$mdSidenav', '$upload', '$window'];
-    function ProfileCtrl(UserRecords, SecurityMeasuresJSON, $mdSidenav, $upload, $window) {
+    ProfileCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON', '$mdSidenav', '$upload', '$window', '$http'];
+    function ProfileCtrl(UserRecords, SecurityMeasuresJSON, $mdSidenav, $upload, $window, $http) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -37,6 +37,15 @@
           UserRecords.setBase(vm.data);
         }
 
+        function openSaveAsDialog(filename, content, mediaType) {
+            var blob = new Blob([content], {type: mediaType});
+            console.log("BEFORE")
+            saveAs(blob, filename);
+           console.log("AFTER")
+        }
+
+
+
         function linkXML() {
             var toDown = { records: UserRecords.records, profile: UserRecords.profile };
             SecurityMeasuresJSON.getXML(toDown).success( function(data) {
@@ -52,8 +61,14 @@
 
                   
                 //hiddenElement.click();
-                window.open(hiddenElement.href);
+                // window.open(hiddenElement.href);
                 //window.location.assign(hiddenElement.href);
+
+                  // var iframe = document.createElement("iframe");
+                  // iframe.setAttribute("src", hiddenElement.href);
+                  // iframe.setAttribute("style", "display: none");
+                  // document.body.appendChild(iframe);
+                openSaveAsDialog(hiddenElement.download, data, 'data:text/xml');
             })
         }
 
