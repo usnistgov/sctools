@@ -1,6 +1,9 @@
+.stretch {
+	overflow: hidden !important;
+}
 .myFluidContainer {
 	padding: 20px;
-	width: ;
+	width: 100%;
 	background-color: white;
 }
 
@@ -10,7 +13,6 @@
 .tbody {
 	display: block;
 	height: 500px;
-	overflow-y: scroll;
 }
 .selectedRow {
 	border-color: #5bc0de; 
@@ -20,7 +22,6 @@
 .enhanceBody {
 	display: block;
 	height: 250px;
-	overflow-y: scroll;
 }
 
 /* makes the dividers visible */
@@ -45,7 +46,6 @@
 	border-radius: 5px;
 	background-color: #f7f7f7;
 	padding: 5px;
-	overflow: scroll;
 }
 
 
@@ -53,6 +53,5 @@
 	display: block;
 	border-radius: 5px;
 	background-color: #f0f0f0;
-	overflow: scroll;
 }
 

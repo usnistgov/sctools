@@ -59,7 +59,16 @@
                 hiddenElement.target = '_blank';
                 hiddenElement.download = 'SP80053_'+UserRecords.profile.name+'.xml';
 
-                  
+                var svg = new Blob(
+                ["<svg xmlns='http://www.w3.org/2000/svg'></svg>"],
+                {type: "image/svg+xml;charset=utf-8"}
+                );
+                var img = new Image();
+                img.onload = function() { console.log("SUPPORT"); };
+                img.onerror = function() { console.log("unsupported"); };
+                img.src = URL.createObjectURL(svg);;
+
+
                 //hiddenElement.click();
                 // window.open(hiddenElement.href);
                 //window.location.assign(hiddenElement.href);
