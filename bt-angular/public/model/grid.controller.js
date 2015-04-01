@@ -10,8 +10,8 @@
     */
 
     /* @ngInject */
-    GridCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON', '$scope', '$filter'];
-    function GridCtrl(UserRecords, SecurityMeasuresJSON, $scope, $filter) {
+    //GridCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON', '$scope', '$filter', '$routeProvider'];
+    function GridCtrl(UserRecords, SecurityMeasuresJSON, $scope, $filter, spData) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'GridCtrl';
@@ -110,10 +110,11 @@
 
         function activate() {
             // collects the json object from the Security MeasuresJSON service
+
             SecurityMeasuresJSON.func().success( function(data) {
+              console.log("HELLO")
                 vm.srcData = data["controls:controls"]["controls:control"];
                 vm.gridOptions.data = vm.srcData;
-                vm.dispData = angular.copy(vm.srcData);
                 
                 UserRecords.setBase(vm.srcData);
             })

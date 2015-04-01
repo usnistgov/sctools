@@ -7,9 +7,9 @@
 
     /* @ngInject */
     function historyItem () {
-        // Usage:
+        // Usage: This is used in the form-history ng-repeat.
         //
-        // Creates:
+        // Creates: A box that shows a single change from UserRecords
         //
         var directive = {
             controller: controller,
@@ -34,6 +34,7 @@
             vm.collapseEntry = collapseEntry;
             vm.glyphClass = 'glyphicon glyphicon-circle-arrow-left';
 
+            // The following logic sets the glyphcon of the arrow that shows the collapse state
             function collapse() {
                 vm.glyphClass = vm.glyphClass==='glyphicon glyphicon-circle-arrow-left'?
                                 'glyphicon glyphicon-circle-arrow-down':

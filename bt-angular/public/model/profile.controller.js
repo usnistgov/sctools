@@ -39,13 +39,14 @@
 
         function openSaveAsDialog(filename, content, mediaType) {
             var blob = new Blob([content], {type: mediaType});
-            console.log("BEFORE")
             saveAs(blob, filename);
-           console.log("AFTER")
         }
 
 
-
+        // This is the function called when the download button is clicked
+        // It makes a request to the Node server that returns XML
+        // The function then attempts to force a client side download using the FileSaver library
+        // This does not currently work in Safari, but sends an alert to the client browser
         function linkXML() {
             var toDown = { records: UserRecords.records, profile: UserRecords.profile };
             SecurityMeasuresJSON.getXML(toDown).success( function(data) {
@@ -59,14 +60,23 @@
                 hiddenElement.target = '_blank';
                 hiddenElement.download = 'SP80053_'+UserRecords.profile.name+'.xml';
 
+
+                // this test was located at https://github.com/eligrey/FileSaver.js/issues/12
+                // it appears to figure out if the download will work by testing Blob compatibility
                 var svg = new Blob(
                 ["<svg xmlns='http://www.w3.org/2000/svg'></svg>"],
                 {type: "image/svg+xml;charset=utf-8"}
                 );
                 var img = new Image();
-                img.onload = function() { console.log("SUPPORT"); };
-                img.onerror = function() { console.log("unsupported"); };
-                img.src = URL.createObjectURL(svg);;
+                img.onload = function() { 
+                        console.log("SUPPORT"); 
+                         openSaveAsDialog(hiddenElement.download, data, 'data:text/xml');
+                    };
+                img.onerror = function() { 
+                        console.log("unsupported"); 
+                        alert('Your browser does not support Blob urls');        
+                };
+                img.src = URL.createObjectURL(svg);
 
 
                 //hiddenElement.click();
@@ -77,10 +87,13 @@
                   // iframe.setAttribute("src", hiddenElement.href);
                   // iframe.setAttribute("style", "display: none");
                   // document.body.appendChild(iframe);
-                openSaveAsDialog(hiddenElement.download, data, 'data:text/xml');
+               
             })
         }
 
+        // This is the function fired on upload
+        // It uses the upload service to send a copy of the selected File to the Node server
+        // The response from the server is the converted JSON that is used internally
         function fileSelect() {
             if ( !vm.file || !vm.file[0]) { // prevents oddness in event handler
                 return;

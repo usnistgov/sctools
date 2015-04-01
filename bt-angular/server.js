@@ -13,12 +13,17 @@ app.listen(process.argv[2]);
 
 app.get('/json', function(req, res) {
 
-		getSP80053P().then( function(data) {
+		// getSP80053P().then( function(data) {
+		// 	console.log("sending json");
+		// 	res.send(data);
+		// })
+		fs.readFile(__dirname+'/800-53-controls.json', function(err, data) { 
+			var toSend = JSON.parse(data);
 			console.log("sending json");
-			res.send(data);
-		})
+			res.send(toSend);
 
-})
+		});
+	});
 
 app.post('/upload', function(req, res) {
 	

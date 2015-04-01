@@ -96,6 +96,7 @@
             return list;
         }
 
+        // A hackyway of transitioning between the enhanceMeasure and scopeMeasure fields of the currentRecord
         function unsetEnhance() {
             UserRecords.currentRecord.enhanceMeasure = UserRecords.currentRecord.scopeMeasure;
         }
