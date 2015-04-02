@@ -74,7 +74,11 @@
                     };
                 img.onerror = function() { 
                         console.log("unsupported"); 
-                        alert('Your browser does not support Blob urls');        
+                        var win = window.open(hiddenElement.href);    
+                        if(!win || win.closed || typeof win.closed=='undefined') 
+                        { 
+                         alert('Your browser does not support Blob urls. Please switch browsers or unblock popups to use this feature.');       
+                        }  
                 };
                 img.src = URL.createObjectURL(svg);
 
