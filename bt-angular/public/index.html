@@ -24,11 +24,11 @@
   <script src="lib/angular-material.js"></script>
   <script src="lib/angular-animate.js"></script>
 
-  <script src="lib/ui-grid-unstable.js"></script>
+  <script src="lib/ui-grid.js"></script>
   <script src="lib/ui-layout.js"></script>
-  <script src="lib/angular-ui-router.js"></script>
+  <script src="lib/release/angular-ui-router.js"></script>
   <script src="lib/angular-file-upload.js"></script>
-  <script src="lib/FileSaver.js"></script>
+  <script src="lib_static/FileSaver.js"></script>
 
   
 
@@ -53,7 +53,7 @@
   <section layout="row" layout-align="space-around center">
     
 
-    <div  ui-layout="{dividerSize: '8px;'}" ng-controller="FormCtrl as form" style="position:absolute;">
+    <div  ui-layout="{dividerSize: '8px;'}" ng-controller="FormCtrl as form" style="position:absolute; z-index: 10;">
 
       <div ui-layout-container size="150px" min-size="75px" max-size="275px">
 

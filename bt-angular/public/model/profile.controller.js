@@ -30,7 +30,7 @@
         function activate() {
             SecurityMeasuresJSON.func().success( function(data) {
                 vm.data = data["controls:controls"]["controls:control"];
-            })
+            });
         }
 
         function setBase() {
@@ -92,7 +92,7 @@
                   // iframe.setAttribute("style", "display: none");
                   // document.body.appendChild(iframe);
                
-            })
+            });
         }
 
         // This is the function fired on upload

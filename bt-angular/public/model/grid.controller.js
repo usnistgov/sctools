@@ -27,24 +27,24 @@
         vm.familyFilter = [];
         vm.measureFilter = [];
         vm.families = [
-            "ACCESS CONTROL"
-           ,"AUDIT AND ACCOUNTABILITY"
-           ,"AWARENESS AND TRAINING"
-           ,"CONFIGURATION MANAGEMENT"
-           ,"CONTINGENCY PLANNING"
-           ,"IDENTIFICATION AND AUTHENTICATION"
-           ,"INCIDENT RESPONSE"
-           ,"MAINTENANCE"
-           ,"MEDIA PROTECTION"
-           ,"PERSONNEL SECURITY"
-           ,"PHYSICAL AND ENVIRONMENTAL PROTECTION"
-           ,"PLANNING"
-           ,"Program Management"
-           ,"RISK ASSESSMENT"
-           ,"SECURITY ASSESSMENT AND AUTHORIZATION"
-           ,"SYSTEM AND COMMUNICATIONS PROTECTION"
-           ,"SYSTEM AND INFORMATION INTEGRITY"
-           ,"SYSTEM AND SERVICES ACQUISITION"
+            "ACCESS CONTROL",
+            "AUDIT AND ACCOUNTABILITY",
+            "AWARENESS AND TRAINING",
+            "CONFIGURATION MANAGEMENT",
+            "CONTINGENCY PLANNING",
+            "IDENTIFICATION AND AUTHENTICATION",
+            "INCIDENT RESPONSE",
+            "MAINTENANCE",
+            "MEDIA PROTECTION",
+            "PERSONNEL SECURITY",
+            "PHYSICAL AND ENVIRONMENTAL PROTECTION",
+            "PLANNING",
+            "Program Management",
+            "RISK ASSESSMENT",
+            "SECURITY ASSESSMENT AND AUTHORIZATION",
+            "SYSTEM AND COMMUNICATIONS PROTECTION",
+            "SYSTEM AND INFORMATION INTEGRITY",
+            "SYSTEM AND SERVICES ACQUISITION"
         ];
 
         
@@ -112,12 +112,12 @@
             // collects the json object from the Security MeasuresJSON service
 
             SecurityMeasuresJSON.func().success( function(data) {
-              console.log("HELLO")
+              console.log("HELLO");
                 vm.srcData = data["controls:controls"]["controls:control"];
                 vm.gridOptions.data = vm.srcData;
                 
                 UserRecords.setBase(vm.srcData);
-            })
+            });
         }
 
         // the call back for selection

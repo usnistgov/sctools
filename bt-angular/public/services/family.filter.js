@@ -17,7 +17,7 @@
 		 		if(filters.indexOf(item.family[0]) > -1 || filters.length === 0) {
 				 	filtered.push(item);
 		 		}
-			})
+			});
 			return filtered;
         }
     }

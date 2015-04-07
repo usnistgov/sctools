@@ -17,7 +17,7 @@
         activate();
         
         function activate() {
-            console.log("Welcome to the Overlayer")
+            console.log("Welcome to the Overlayer");
         }
 
     }

@@ -19,14 +19,14 @@ app.config( function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
             'modifier': { templateUrl: 'layout/form-modifier.html' }
           }
           
-        })
+        });
 
   $urlRouterProvider.otherwise('/');
 
   $mdThemingProvider.theme('default')
       .primaryPalette('light-blue')
-      .accentPalette('cyan')
-})
+      .accentPalette('cyan');
+});
 
 // app.provider('spData', function spDataProvider() { {
 
@@ -53,17 +53,17 @@ app.service('spData', ['$http', function($http){
   return {
 
     loadDataPromise: function() {
-          console.log("YO")
+          console.log("YO");
           return $http.get("/json").then(function(data) {
-            console.log("SUCCESS")
+            console.log("SUCCESS");
 
             return {
               data: data
-            }
-          })
+            };
+          });
         }
 
-  }
+  };
   
-}])
+}]);
 

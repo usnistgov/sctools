@@ -25,10 +25,10 @@
                             mold.family = [item.family[0]];
                             mold.priority = [item.priority[0]];
                             filtered.push(mold);
-                        })
+                        });
                     }
 		 		}
-			})
+			});
 			return filtered;
         }
     }

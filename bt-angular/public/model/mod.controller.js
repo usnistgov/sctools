@@ -39,7 +39,7 @@
         function activate() {
             SecurityMeasuresJSON.func().success( function(data) {
                 vm.data = data["controls:controls"]["controls:control"];
-            })
+            });
         }
 
         // gets the current record
@@ -54,7 +54,7 @@
 
         // delete the current modification
         function deleteMod() {
-            vm.clearMod()
+            vm.clearMod();
             UserRecords.deleteRecord();
             vm.dirty = false;
         }

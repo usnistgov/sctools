@@ -157,25 +157,45 @@
                   }
                 }
                 if(data[i]['control-enhancements']) {
-                angular.forEach(data[i]['control-enhancements'][0]['control-enhancement'], function(item) {
-                    
-                    if(item['baseline-impact'] && item['baseline-impact'].indexOf(service.profile.baseline) > -1) {
-                        if(service.records[item.number[0]]) {
-                             service.records[item.number[0]].status = 'base';
+                    for( var j = 0; j < data[i]['control-enhancements'][0]['control-enhancement'].length; j ++ ) {
+                        var item = data[i]['control-enhancements'][0]['control-enhancement'][j];
+                        if(item['baseline-impact'] && item['baseline-impact'].indexOf(service.profile.baseline) > -1) {
+                            if(service.records[item.number[0]]) {
+                                 service.records[item.number[0]].status = 'base';
+                            }
+                          
+                          if(!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'not') {
+                            service.lookup[item.number[0]] = {status:'base', baseline:item['baseline-impact']};  
+                          } 
+                        } else {
+                              if (!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'base') {
+                                service.lookup[item.number[0]] = {status:'not', baseline:item['baseline-impact']};
+                              }
+                              if(service.records[item.number[0]]) {
+                                 service.records[item.number[0]].status = 'not';
+                              }
                         }
+
+                    }
+                // angular.forEach(data[i]['control-enhancements'][0]['control-enhancement'], function(item) {
+                    
+                //     if(item['baseline-impact'] && item['baseline-impact'].indexOf(service.profile.baseline) > -1) {
+                //         if(service.records[item.number[0]]) {
+                //              service.records[item.number[0]].status = 'base';
+                //         }
                       
-                      if(!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'not') {
-                        service.lookup[item.number[0]] = {status:'base', baseline:item['baseline-impact']};  
-                      } 
-                    } else {
-                          if (!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'base') {
-                            service.lookup[item.number[0]] = {status:'not', baseline:item['baseline-impact']};
-                          }
-                          if(service.records[item.number[0]]) {
-                             service.records[item.number[0]].status = 'not';
-                          }
-                    }    
-                  });
+                //       if(!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'not') {
+                //         service.lookup[item.number[0]] = {status:'base', baseline:item['baseline-impact']};  
+                //       } 
+                //     } else {
+                //           if (!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'base') {
+                //             service.lookup[item.number[0]] = {status:'not', baseline:item['baseline-impact']};
+                //           }
+                //           if(service.records[item.number[0]]) {
+                //              service.records[item.number[0]].status = 'not';
+                //           }
+                //     }    
+                //   });
                 }
             }  
             // if(service.records[service.currentRecord.id]) {

@@ -13,12 +13,12 @@
     function SecurityMeasuresJSON($http) {
         var service = {
             func: func,
-            getXML: getXML
+            getXML: getXML,
+            jsonPromise: null
         };
         return service;
 
         ////////////////
-        var jsonPromise = null;
 
         /*
         * A poorly named function (should be renamed) that queries our server for the json version of the SP800-53 security measures
@@ -26,11 +26,11 @@
         * This file returns a promise instead of a javascript object (useful when conducting async operaions)
         */
         function func() {
-	        if(jsonPromise) {
-				return jsonPromise;
+	        if(service.jsonPromise) {
+				return service.jsonPromise;
 			} else {
-				jsonPromise = $http.get("/json");
-				return jsonPromise;
+				service.jsonPromise = $http.get("/json");
+				return service.jsonPromise;
 			}
         }
 

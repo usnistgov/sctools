@@ -1,6 +1,6 @@
 <md-toolbar layout="row" class="md-primary">
   <h2 flex = "25" class="md-toolbar-tools">
-    <span>Catalog {{'{ '+catalog.dispData.length+' }' }}</span>
+    <span>Catalog {{'{ '+(catalog.dispData.length>0?catalog.dispData.length:catalog.srcData.length)+' }' }}</span>
   </h2>
   <md-select flex = "25" multiple ng-model="catalog.familyFilter"] ng-change="catalog.updateFilter()">
      <md-select-label>{{ catalog.familyFilter.length ? catalog.familyFilter.length+' Families' : ' All Families' }}</md-select-label>
