@@ -22,6 +22,7 @@
         vm.data = {};
         vm.title = 'ProfileCtrl';
         vm.file = {};
+        vm.file_hist = [];
         vm.overlay = UserRecords.profile;
 
 
@@ -102,23 +103,27 @@
             if ( !vm.file || !vm.file[0]) { // prevents oddness in event handler
                 return;
             }
-            console.log(UserRecords.lookup);
+            console.log(vm.file);
+            vm.file_hist.push(vm.file[0].name);
             $upload.upload({url: 'upload', file:vm.file})
                     .success(function(data, status, headers) {
-                    UserRecords.deleteAll();
-                    UserRecords.profile.name = data.root.name[0];
-                    UserRecords.profile.baseline = data.root.baseline[0];
-                    vm.setBase(UserRecords.profile.baseline);
+                    // UserRecords.deleteAll();
+                    // UserRecords.profile.name = data.root.name[0];
+                    // UserRecords.profile.baseline = data.root.baseline[0];
+                    console.log(UserRecords.profile.baseline);
+                    // vm.setBase(UserRecords.profile.baseline);
                     angular.forEach(data.root.node, function(element) {
-                        var toAdd = {};
-                        toAdd.guidance = element.guidance[0];
-                        toAdd.id = element.id[0];
-                        toAdd.rationale = element.rationale[0];
-                        toAdd.scopeMeasure = element.scopeMeasure[0];
-                        toAdd.enhanceMeasure = element.enhanceMeasure[0];
-                        toAdd.status = element.status[0];
-                        UserRecords.lookup[toAdd.id].status = toAdd.status;
-                        UserRecords.records[toAdd.id] = toAdd;
+                        if(!UserRecords.getRecordById(element.id[0])) {
+                            var toAdd = {};
+                            toAdd.guidance = element.guidance[0];
+                            toAdd.id = element.id[0];
+                            toAdd.rationale = element.rationale[0];
+                            toAdd.scopeMeasure = element.scopeMeasure[0];
+                            toAdd.enhanceMeasure = element.enhanceMeasure[0];
+                            toAdd.status = element.status[0];
+                            UserRecords.lookup[toAdd.id].status = toAdd.status;
+                            UserRecords.records[toAdd.id] = toAdd;
+                        }
                     });
                 });
         }

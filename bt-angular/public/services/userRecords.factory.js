@@ -136,7 +136,7 @@
         function setBase(data) {
              for( var i = 0; i < data.length; i ++ ) {
                 if(data[i]['baseline-impact'] && data[i]['baseline-impact'].indexOf(service.profile.baseline) > -1) {
-                  if(service.records[data[i].number[0]]) {
+                  if(service.records[data[i].number[0]] && service.records[data[i].number[0]].status == 'not') {
                        service.records[data[i].number[0]].status = 'base';
                   }
                   if(!service.lookup[data[i].number[0]] || service.lookup[data[i].number[0]].status === 'not') {
@@ -152,7 +152,7 @@
                   if(!service.noEnhanceLookup[data[i].number[0]]) {
                     service.noEnhanceLookup[data[i].number[0]] = {status:'not', baseline:data[i]['baseline-impact']};
                   } 
-                  if(service.records[data[i].number[0]]) {
+                  if(service.records[data[i].number[0]] && service.records[data[i].number[0]].status == 'base') {
                       service.records[data[i].number[0]].status = 'not';
                   }
                 }
@@ -160,7 +160,7 @@
                     for( var j = 0; j < data[i]['control-enhancements'][0]['control-enhancement'].length; j ++ ) {
                         var item = data[i]['control-enhancements'][0]['control-enhancement'][j];
                         if(item['baseline-impact'] && item['baseline-impact'].indexOf(service.profile.baseline) > -1) {
-                            if(service.records[item.number[0]]) {
+                            if(service.records[item.number[0]] && service.records[data[i].number[0]].status == 'not') {
                                  service.records[item.number[0]].status = 'base';
                             }
                           
@@ -171,36 +171,14 @@
                               if (!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'base') {
                                 service.lookup[item.number[0]] = {status:'not', baseline:item['baseline-impact']};
                               }
-                              if(service.records[item.number[0]]) {
+                              if(service.records[item.number[0]] && service.records[data[i].number[0]].status == 'base') {
                                  service.records[item.number[0]].status = 'not';
                               }
                         }
 
                     }
-                // angular.forEach(data[i]['control-enhancements'][0]['control-enhancement'], function(item) {
-                    
-                //     if(item['baseline-impact'] && item['baseline-impact'].indexOf(service.profile.baseline) > -1) {
-                //         if(service.records[item.number[0]]) {
-                //              service.records[item.number[0]].status = 'base';
-                //         }
-                      
-                //       if(!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'not') {
-                //         service.lookup[item.number[0]] = {status:'base', baseline:item['baseline-impact']};  
-                //       } 
-                //     } else {
-                //           if (!service.lookup[item.number[0]] || service.lookup[item.number[0]].status === 'base') {
-                //             service.lookup[item.number[0]] = {status:'not', baseline:item['baseline-impact']};
-                //           }
-                //           if(service.records[item.number[0]]) {
-                //              service.records[item.number[0]].status = 'not';
-                //           }
-                //     }    
-                //   });
                 }
             }  
-            // if(service.records[service.currentRecord.id]) {
-            //     service.setCurrById(service.currentRecord.id);
-            // }
         }
 
         function registerSelectCallback(callback) {

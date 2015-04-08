@@ -2,7 +2,11 @@
 
 	<md-toolbar>
       <h2 layout="row" layout-align="space-between center" class="md-toolbar-tools">
-        <span>SP 800-53 Wizard</span>
+        <span>SP 800-53 Wizard 
+        	<span ng-repeat="file in profile.file_hist">{{file+'/'}}</span>
+
+        </span>
+
         <span>
           <a class="glyphicon glyphicon-cloud-download" target="_self" ng-click="profile.linkXML()"> <md-tooltip>Download Overlay</md-tooltip></a>
           <div class="glyphicon glyphicon-cloud-upload"  ng-file-select ng-model="profile.file"  ng-file-change="profile.fileSelect()"> <md-tooltip>Upload Overlay</md-tooltip></div>
