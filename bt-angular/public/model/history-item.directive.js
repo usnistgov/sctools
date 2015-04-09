@@ -16,6 +16,7 @@
             link: link,
             restrict: 'E',
             scope: {
+                uid: "=",
             	modification: "="
             },
             templateUrl: 'layout/history-item-template.html'
@@ -24,7 +25,6 @@
         return directive;
 
         function link(scope, element, attrs) {
-       
         }
 
         function controller() {

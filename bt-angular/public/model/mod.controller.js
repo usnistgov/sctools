@@ -16,11 +16,20 @@
         vm.title = 'ModCtrl';
         vm.dirty = false;
         vm.data = [];
+        vm.state = {
+
+            id: null,
+            status: null,
+            guidance: null,
+            rationale: null,
+            enhanceMeasure: null,
+            scopeMeasure: null
+        }
+
         vm.modContains = modContains;
         vm.deleteMod = deleteMod;        
         vm.submitMod = submitMod;
         vm.modDelta = modDelta;
-        vm.currentMod = currentMod;
         vm.lookup = UserRecords.noEnhanceLookup;
         vm.getEnhance = getEnhance;
         vm.unsetEnhance = unsetEnhance;
@@ -37,43 +46,56 @@
         activate();
         
         function activate() {
+            UserRecords.registerFocusCallback( function() { 
+                vm.state.id = UserRecords.focusRecord.uid;
+                vm.state.status  = UserRecords.focusRecord.state;
+                vm.state.guidance = UserRecords.focusRecord.comments.text;
+                vm.state.rationale = UserRecords.focusRecord.comments.rationale;
+                vm.state.enhanceMeasure = UserRecords.focusRecord.comments.link;
+                vm.state.scopeMeasure = UserRecords.focusRecord.comments.link;
+            });
             SecurityMeasuresJSON.func().success( function(data) {
                 vm.data = data["controls:controls"]["controls:control"];
             });
         }
 
-        // gets the current record
-        function currentMod() {
-            return UserRecords.currentRecord;
-        }
-
         // checks if the current modificaiton already has a record in the modification list
         function modContains() {
-          return UserRecords.getRecordById(UserRecords.currentRecord.id) === null;
+          return UserRecords.focusRecord.dirty;
         }
 
         // delete the current modification
         function deleteMod() {
+
+            UserRecords.revertRecord(UserRecords.focusRecord.uid);
+
             vm.clearMod();
-            UserRecords.deleteRecord();
-            vm.dirty = false;
+            // UserRecords.deleteRecord();
+            // vm.dirty = false;
         }
 
         // submits the current record
         function submitMod() {
-            UserRecords.submitRecord();
-            vm.dirty = false;
+            UserRecords.changeRecord(vm.state.id,
+                                     vm.state.status, 
+                                     vm.state.guidance,
+                                     vm.state.rationale,
+                                     vm.state.enhanceMeasure);
+
+            // UserRecords.submitRecord();
+            // vm.dirty = false;
+            // console.log(UserRecords.dirtySubSet());
         }
 
         function clearMod() {
-            UserRecords.currentRecord.scopeMeasure = '';
-            UserRecords.currentRecord.enhanceMeasure = '';
-            UserRecords.currentRecord.rationale = '';
-            UserRecords.currentRecord.guidance = '';
+            vm.state.scopeMeasure = '';
+            vm.state.enhanceMeasure = '';
+            vm.state.rationale = '';
+            vm.state.guidance = '';
         }
         // checks if the status has been mutated in the form
         function modDelta() {
-          if( UserRecords.currentRecord.status != 'base' && UserRecords.currentRecord.status != 'not' ) {
+          if( vm.state.status != 'base' && vm.state.status != 'not' ) {
             return true;
           } else {
             return false;
@@ -83,7 +105,7 @@
         // returns a list of the id's of the compensating controls
         function getEnhance() {
             var list = [];
-            var id = UserRecords.currentRecord.scopeMeasure;
+            var id = vm.state.scopeMeasure;
             angular.forEach(vm.data, function(record) {
                 if(record.number[0] === id && record['control-enhancements'] &&
                                               record['control-enhancements'][0] &&
@@ -98,7 +120,7 @@
 
         // A hackyway of transitioning between the enhanceMeasure and scopeMeasure fields of the currentRecord
         function unsetEnhance() {
-            UserRecords.currentRecord.enhanceMeasure = UserRecords.currentRecord.scopeMeasure;
+            vm.state.enhanceMeasure = vm.state.scopeMeasure;
         }
 
     }

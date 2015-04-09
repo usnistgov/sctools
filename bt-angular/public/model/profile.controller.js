@@ -35,7 +35,7 @@
         }
 
         function setBase() {
-          UserRecords.setBase(vm.data);
+          UserRecords.setSysBaseline();
         }
 
         function openSaveAsDialog(filename, content, mediaType) {
@@ -49,7 +49,7 @@
         // The function then attempts to force a client side download using the FileSaver library
         // This does not currently work in Safari, but sends an alert to the client browser
         function linkXML() {
-            var toDown = { records: UserRecords.records, profile: UserRecords.profile };
+            var toDown = { records: UserRecords.dirtySubSet(), profile: UserRecords.profile };
             SecurityMeasuresJSON.getXML(toDown).success( function(data) {
                 console.log(data);
 

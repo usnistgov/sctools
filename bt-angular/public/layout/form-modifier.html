@@ -1,6 +1,6 @@
 <md-toolbar class="md-primary">
   <h2 class="md-toolbar-tools">
-    <span>Modification <span ng-bind="mod.currentMod().id"></span> </span>
+    <span>Modification <span ng-bind="mod.state.id"></span> </span>
   </h2>
 </md-toolbar>
 
@@ -12,12 +12,12 @@
 
 			<div flex="15" flex-order="1">
 
-				<md-radio-group ng-model="mod.currentMod().status" ng-change="mod.clearMod()">
-			        <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['base']" value="base">Baseline</md-radio-button>
-				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['scope']" value="scope">Scoped</md-radio-button>
-				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['add']" value="add">Added</md-radio-button>
-				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['comp']" value="comp">Compensating</md-radio-button>
-				    <md-radio-button  ng-disabled="!mod.currentMod().id || !mod.changeChart[mod.currentMod().status]['not']" value="not" >N/A</md-radio-button>
+				<md-radio-group ng-model="mod.state.status" ng-change="mod.clearMod()">
+			        <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['base']" value="base">Baseline</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['scope']" value="scope">Scoped</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['add']" value="add">Added</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['comp']" value="comp">Compensating</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['not']" value="not" >N/A</md-radio-button>
 			    </md-radio-group>
 
 			</div>
@@ -28,14 +28,14 @@
 					<div flex> 
 						<md-input-container>
 							<label>Implementation Detail</label>
-							<textarea ng-model="mod.currentMod().guidance" rows="2" ng-disabled="!mod.currentMod().id"></textarea>
+							<textarea ng-model="mod.state.guidance" rows="2" ng-disabled="!mod.state.id"></textarea>
 						</md-input-container>
 					</div>
 
 					<div flex> 
 						<md-input-container>
 							<label>Rationale</label>
-							<textarea ng-required="mod.modDelta()" ng-disabled="!mod.modDelta()" ng-model="mod.currentMod().rationale" rows="2" name="rationale"></textarea>
+							<textarea ng-required="mod.modDelta()" ng-disabled="!mod.modDelta()" ng-model="mod.state.rationale" rows="2" name="rationale"></textarea>
 						</md-input-container>
 					</div>
 
@@ -44,19 +44,19 @@
 				
 				<div layout="row" ayout-align="space-between center"layout-wrap>
 				
-					<md-button flex="20" align="left" class="md-raised md-primary" ng-click="mod.submitMod()" ng-disabled="modificationForm.$invalid || !mod.currentMod().id" style="height: 50px;">Add Change</md-button>
+					<md-button flex="20" align="left" class="md-raised md-primary" ng-click="mod.submitMod()" ng-disabled="modificationForm.$invalid || !mod.state.id" style="height: 50px;">Add Change</md-button>
 					<div flex="5"></div>
-					<md-button flex="20" align="left" class="md-raised md-warn" ng-hide="mod.modContains()" ng-click="mod.deleteMod()" style="height: 50px;">Delete Change</md-button>
+					<md-button flex="20" align="left" class="md-raised md-warn" ng-show="mod.modContains()" ng-click="mod.deleteMod()" style="height: 50px;">Delete Change</md-button>
 					<div flex="5"></div>
 					<div flex="20" align="left" ng-show="mod.modContains()"></div>
 
-					<md-select flex="25" align="left" ng-show="mod.currentMod().status==='comp' || mod.currentMod().status==='scope'" ng-model="mod.currentMod().scopeMeasure" ng-change="mod.unsetEnhance()" ng-required="mod.currentMod().status==='comp' || mod.currentMod().status==='scope'">
-						<md-select-label>For {{mod.currentMod().status==='scope'?'Compensating' + ' Control ' + mod.currentMod().scopeMeasure:'Scoped' + ' Control ' + mod.currentMod().scopeMeasure}}</md-select-label>
+					<md-select flex="25" align="left" ng-show="mod.state.status==='comp' || mod.state.status==='scope'" ng-model="mod.state.scopeMeasure" ng-change="mod.unsetEnhance()" ng-required="mod.state.status==='comp' || mod.state.status==='scope'">
+						<md-select-label>For {{mod.state.status==='scope'?'Compensating' + ' Control ' + mod.state.scopeMeasure:'Scoped' + ' Control ' + mod.state.scopeMeasure}}</md-select-label>
 						<md-option ng-value="key" ng-repeat="(key, val) in mod.lookup">{{key}}</md-option>
 					</md-select>
 
-					<md-select flex="25" align="left" ng-show="(mod.currentMod().status==='comp' || mod.currentMod().status==='scope') && mod.currentMod().scopeMeasure && mod.getEnhance().length > 0" ng-model="mod.currentMod().enhanceMeasure">
-						<md-select-label>{{mod.currentMod().enhanceMeasure===mod.currentMod().scopeMeasure ? 'No Enhancement' : ( 'Enhancement '+ mod.currentMod().enhanceMeasure)}}</md-select-label>
+					<md-select flex="25" align="left" ng-show="(mod.state.status==='comp' || mod.state.status==='scope') && mod.state.scopeMeasure && mod.getEnhance().length > 0" ng-model="mod.state.enhanceMeasure">
+						<md-select-label>{{mod.state.enhanceMeasure===mod.state.scopeMeasure ? 'No Enhancement' : ( 'Enhancement '+ mod.state.enhanceMeasure)}}</md-select-label>
 						<md-option ng-value="key" ng-repeat="key in mod.getEnhance()">{{key}}</md-option>
 					</md-select>
 					

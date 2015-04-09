@@ -3,13 +3,14 @@
   <h2 class="md-toolbar-tools">
     <span>Session</span>
   </h2>
-</md-toolbar>
+</md-toolbar>	
 
-<md-content class="md-padding" layout-align="space-between center">
+<md-content class="md-padding" layout-align="space-between center" style="overflow-y:scroll">
 	<md-list>
-		<md-item ng-repeat="(id, mod) in hist.modifications" ng-click="hist.selectLog(mod)" ng-class="{'histOuterBox':hist.currentMod().id===mod.id}">
+		<md-item ng-repeat="(uid, mod) in hist.modifications | dirtyFilter" ng-click="hist.selectLog(uid)" ng-class="{'histOuterBox':hist.currentMod().uid===uid}">
+			
 			<md-item-content layout="row" layout-align="space-around center">
-				<div ng-switch on="mod.status">			
+				<div ng-switch on="mod.state">			
 			        <div ng-switch-when="base" class="md-tile-icon glyphicon glyphicon-record" flex="5"><md-tooltip>Baseline</md-tooltip></div>
 					<div ng-switch-when="scope" class="md-tile-icon glyphicon glyphicon-remove-circle" flex="5"><md-tooltip>Scoped</md-tooltip></div>
 					<div ng-switch-when="add" class="md-tile-icon glyphicon glyphicon-ok-circle" flex="5"><md-tooltip>Added</md-tooltip></div>
@@ -17,13 +18,13 @@
 					<div ng-switch-when="not" class="md-tile-icon glyphicon glyphicon-ban-circle" flex="5"><md-tooltip>Not Included</md-tooltip></div>
 				</div>
 		        <div class="md-tile-content" flex>
-					 
-					 <history-item modification="mod" ng-class="{'border: black':true}"></history-item>
+					
+					 <history-item modification="mod" uid="uid" ng-class="{'border: black':true}"></history-item>
 
 				</div>
 			</md-item-content>
 			<md-divider ng-if="!$last"></md-divider>
-		</md-item>
+		<md-item>
 	</md-list>
 
 </md-content>

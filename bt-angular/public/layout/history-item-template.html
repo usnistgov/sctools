@@ -1,19 +1,19 @@
 <div class="histBox">
 	<span layout="row" layout-align="space-between center">
-	<h3>{{modification.id}}</h3>
+	<h3>{{uid}}</h3>
 	<div ng-class="item.glyphClass" ng-click="item.collapse()"><md-tooltip>{{item.collapseEntry()?'Collapse':'Expand'}}</md-tooltip></div>
 	</span>
-	<md-input-container ng-show="modification.guidance && item.collapseEntry()"> 
+	<md-input-container ng-show="modification.comments.text && item.collapseEntry()"> 
 			<label>Guidance</label>
-			<input rows="1" ng-model="modification.guidance" readonly>
+			<input rows="1" ng-model="modification.comments.text" readonly>
 	</md-input-container> 
-	<md-input-container ng-show="modification.rationale && item.collapseEntry()"> 
+	<md-input-container ng-show="modification.comments.rationale && item.collapseEntry()">
 			<label>Rationale</label>
-			<input rows="1" ng-model="modification.rationale" readonly>
+			<input rows="1" ng-model="modification.comments.rationale" readonly>
 	</md-input-container> 
-	<md-input-container ng-show="(modification.scopeMeasure && (modification.status==='comp' || modification.status==='scope')) && item.collapseEntry()"> 
-			<label>{{modification.status==='scope'?"Compensating":"Scoped"}} Control</label>
-			<input rows="1" ng-model="modification.enhanceMeasure" readonly>
+	<md-input-container ng-show="(modification.comments.link && (modification.state==='comp' || modification.state==='scope')) && item.collapseEntry()"> 
+			<label>{{modification.state==='scope'?"Compensating":"Scoped"}} Control</label>
+			<input rows="1" ng-model="modification.comments.link" readonly>
 	</md-input-container> 
 
 </div>

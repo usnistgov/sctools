@@ -85,10 +85,10 @@
             vm.selectMeasure(row.entity); 
           }));
           vm.gridApi.core.addRowHeaderColumn( {  name: 'rowHeaderCol', displayName: 'Status', width: 100, cellTemplate: '/layout/row-header-template.html'} );
-          UserRecords.registerSelectCallback(vm.setRow);
+          UserRecords.registerFocusCallback(vm.setRow);
         };
         
-        vm.lookup = UserRecords.lookup;
+        vm.lookup = UserRecords.recordDict;
 
         activate();
 
@@ -98,10 +98,10 @@
         * I do not like it (slightly inefficient)
         */
 
-        function setRow(measure) {
+        function setRow() {
           vm.gridApi.selection.clearSelectedRows();
           for(var i = 0; i < vm.gridApi.grid.rows.length; i ++) {
-            if(measure.id === vm.gridApi.grid.rows[i].entity.number[0]) {
+            if(UserRecords.focusRecord.uid === vm.gridApi.grid.rows[i].entity.number[0]) {
               vm.gridApi.selection.toggleRowSelection(vm.gridApi.grid.rows[i].entity);
               break;
             }
@@ -112,18 +112,19 @@
             // collects the json object from the Security MeasuresJSON service
 
             SecurityMeasuresJSON.func().success( function(data) {
-              console.log("HELLO");
+              
                 vm.srcData = data["controls:controls"]["controls:control"];
                 vm.gridOptions.data = vm.srcData;
                 
-                UserRecords.setBase(vm.srcData);
+                UserRecords.initRecords(vm.srcData);
+                UserRecords.setSysBaseline();
             });
         }
 
         // the call back for selection
        function selectMeasure(row) {
-            if(row.number[0] !== UserRecords.currentRecord.id) {
-              UserRecords.setCurrById(row.number[0]); 
+            if(row.number[0] !== UserRecords.focusRecord.uid) {
+              UserRecords.focusID(row.number[0]); 
             }
         }
 

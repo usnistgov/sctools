@@ -16,19 +16,24 @@
         vm.title = 'HistoryCtrl';
 
         // access the record list
-        vm.modifications = UserRecords.records;
+        vm.modifications = UserRecords.recordDict;
         vm.currentMod = currentMod;
         vm.selectLog = selectLog;
+        vm.dirtyList = dirtyList;
 
         // get the currently selected record
         function currentMod() {
-            return UserRecords.currentRecord;
+            return UserRecords.focusRecord;
         }
 
         // sets the currently selected record
-        function selectLog(mod) {
-          
-          UserRecords.setCurrById(mod.id);
+        function selectLog(uid) {
+          UserRecords.focusID(uid);
+        }
+
+        function dirtyList() {
+            var ref =  UserRecords.dirtySubSet();
+            return ref;
         }
 
     }
