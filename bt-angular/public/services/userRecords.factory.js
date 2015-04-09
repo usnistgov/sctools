@@ -84,14 +84,17 @@
                                        null
                                        );
 
-                if( data[i]['control-enhancements'] 
-                    && data[i]['control-enhancements'][0] 
-                    && data[i]['control-enhancements'][0]['control-enhancement'] ) {
+                if( data[i]['control-enhancements'] && 
+                    data[i]['control-enhancements'][0] && 
+                    data[i]['control-enhancements'][0]['control-enhancement'] ) {
                     temp.config.enhancements = [];
                     var enhanceList = data[i]['control-enhancements'][0]['control-enhancement'];
                     for( var j = 0; j < enhanceList.length; j ++) {
-                        temp.config.enhancements.push(enhanceList[j].number[0]);
-                        var enhanceItem = new Record( enhanceList[j].number[0],
+                        var id = enhanceList[j].number[0].replace(/[ \(\)]/g, "-")
+                                                         .replace(/(.*)-$/, "$1")
+                                                         .replace(/--/g, "-");
+                        temp.config.enhancements.push(id);
+                        var enhanceItem = new Record(  id,
                                                        undefined,                                   
                                                        false,    
                                                        enhanceList[j]['baseline-impact'],

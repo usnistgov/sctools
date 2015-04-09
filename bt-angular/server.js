@@ -34,7 +34,9 @@ app.post('/upload', function(req, res) {
 	bus.on('file', function(fieldname, file, filename, encoding, mimetype) {
        file.on('data', function(data) {
         var parser = new xml2js.Parser();
+        console.log("data: "+data);
         parser.parseString(data, function(err, result) {
+        	console.log(err);
 	        res.send(result);
 	    });
       });

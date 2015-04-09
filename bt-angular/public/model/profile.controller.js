@@ -10,8 +10,8 @@
     * This controller will eventually be involved in querying and serving XML files
     */
     /* @ngInject */
-    ProfileCtrl.$inject = ['UserRecords', '$mdSidenav', '$upload', '$window', '$http'];
-    function ProfileCtrl(UserRecords, $mdSidenav, $upload, $window, $http) {
+    ProfileCtrl.$inject = ['UserRecords', '$mdSidenav', '$upload', '$window', '$http', 'SecurityMeasuresJSON'];
+    function ProfileCtrl(UserRecords, $mdSidenav, $upload, $window, $http, SecurityMeasuresJSON) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -73,16 +73,6 @@
                 };
                 img.src = URL.createObjectURL(svg);
 
-
-                //hiddenElement.click();
-                // window.open(hiddenElement.href);
-                //window.location.assign(hiddenElement.href);
-
-                  // var iframe = document.createElement("iframe");
-                  // iframe.setAttribute("src", hiddenElement.href);
-                  // iframe.setAttribute("style", "display: none");
-                  // document.body.appendChild(iframe);
-               
             });
         }
 
@@ -97,24 +87,18 @@
             vm.file_hist.push(vm.file[0].name);
             $upload.upload({url: 'upload', file:vm.file})
                     .success(function(data, status, headers) {
-                    // UserRecords.deleteAll();
-                    // UserRecords.profile.name = data.root.name[0];
-                    // UserRecords.profile.baseline = data.root.baseline[0];
-                    console.log(UserRecords.profile.baseline);
-                    // vm.setBase(UserRecords.profile.baseline);
+                    console.log(data);
+                    console.log("HELLO "+status);
                     angular.forEach(data.root.node, function(element) {
-                        if(!UserRecords.getRecordById(element.id[0])) {
-                            var toAdd = {};
-                            toAdd.guidance = element.guidance[0];
-                            toAdd.id = element.id[0];
-                            toAdd.rationale = element.rationale[0];
-                            toAdd.scopeMeasure = element.scopeMeasure[0];
-                            toAdd.enhanceMeasure = element.enhanceMeasure[0];
-                            toAdd.status = element.status[0];
-                            UserRecords.lookup[toAdd.id].status = toAdd.status;
-                            UserRecords.records[toAdd.id] = toAdd;
+                        if(!UserRecords.recordDict[ element.uid[0] ].dirty) {
+                            UserRecords.changeRecord(
+                                        element.uid[0],
+                                        element.state[0],
+                                        element.comments[0].text[0],
+                                        element.comments[0].rationale[0],
+                                        element.comments[0].link[0]);    
                         }
-                    });
+                     });     
                 });
         }
         

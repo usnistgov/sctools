@@ -24,7 +24,7 @@
             rationale: null,
             enhanceMeasure: null,
             scopeMeasure: null
-        }
+        };
 
         vm.modContains = modContains;
         vm.deleteMod = deleteMod;        
@@ -80,6 +80,7 @@
                                      vm.state.guidance,
                                      vm.state.rationale,
                                      vm.state.enhanceMeasure);
+
 
             // UserRecords.submitRecord();
             // vm.dirty = false;
