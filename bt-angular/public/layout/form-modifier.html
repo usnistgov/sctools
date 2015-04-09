@@ -52,7 +52,7 @@
 
 					<md-select flex="25" align="left" ng-show="mod.state.status==='comp' || mod.state.status==='scope'" ng-model="mod.state.scopeMeasure" ng-change="mod.unsetEnhance()" ng-required="mod.state.status==='comp' || mod.state.status==='scope'">
 						<md-select-label>For {{mod.state.status==='scope'?'Compensating' + ' Control ' + mod.state.scopeMeasure:'Scoped' + ' Control ' + mod.state.scopeMeasure}}</md-select-label>
-						<md-option ng-value="key" ng-repeat="(key, val) in mod.lookup">{{key}}</md-option>
+						<md-option ng-value="key" ng-repeat="(key, val) in mod.recordDict | parentFilter">{{key}}</md-option>
 					</md-select>
 
 					<md-select flex="25" align="left" ng-show="(mod.state.status==='comp' || mod.state.status==='scope') && mod.state.scopeMeasure && mod.getEnhance().length > 0" ng-model="mod.state.enhanceMeasure">

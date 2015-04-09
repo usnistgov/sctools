@@ -27,6 +27,7 @@
             changeRecord: changeRecord,
             setSysBaseline: setSysBaseline,
             dirtySubSet: dirtySubSet,
+            parentSubSet: parentSubSet,
             registerFocusCallback: registerFocusCallback,
 
 
@@ -51,7 +52,7 @@
 
         // Function that should be called as a constructor
         // Calling this without the 'new' keyword will yoeld unexpected behavior
-        function Record( uid, state, dirty, baseline, family, priority, title ) {
+        function Record( uid, state, dirty, baseline, family, priority, title , enhancements) {
             this.uid = uid;
             this.state = state;
             this.dirty = dirty?true:false;
@@ -64,7 +65,8 @@
                 baseline:baseline,
                 family:family,
                 priority:priority,
-                title:title
+                title:title,
+                enhancements:enhancements
             };
         }
 
@@ -78,12 +80,35 @@
                                        data[i]['baseline-impact'],
                                        data[i].family?data[i].family[0]:null,
                                        data[i].priority?data[i].priority[0]:null, 
-                                       data[i].title?data[i].title[0]:null
+                                       data[i].title?data[i].title[0]:null,
+                                       null
                                        );
 
-                service.recordDict[data[i].number[0]] = temp;
+                if( data[i]['control-enhancements'] 
+                    && data[i]['control-enhancements'][0] 
+                    && data[i]['control-enhancements'][0]['control-enhancement'] ) {
+                    temp.config.enhancements = [];
+                    var enhanceList = data[i]['control-enhancements'][0]['control-enhancement'];
+                    for( var j = 0; j < enhanceList.length; j ++) {
+                        temp.config.enhancements.push(enhanceList[j].number[0]);
+                        var enhanceItem = new Record( enhanceList[j].number[0],
+                                                       undefined,                                   
+                                                       false,    
+                                                       enhanceList[j]['baseline-impact'],
+                                                       temp.config.family,
+                                                       temp.config.priority, 
+                                                       enhanceList[j].title?enhanceList[j].title[0]:null,
+                                                       undefined
+                                                       );
+
+                        service.recordDict[enhanceItem.uid] = enhanceItem;
+                    }
+                }
+                service.recordDict[temp.uid] = temp;
                
             }
+
+            console.log(service.recordDict);
         }
 
         // Check individual record against baseline
@@ -99,7 +124,9 @@
         // Function that initializes the state parameters of the records
         function setSysBaseline() {
             angular.forEach(service.recordDict, function(record) {
-                record.state = matchConfig(record.config);
+                if(!record.dirty) {
+                    record.state = matchConfig(record.config);
+                }
             });
         }
 
@@ -128,13 +155,15 @@
                             ref.config.baseline,
                             ref.config.family,
                             ref.config.priority,
-                            ref.config.title
+                            ref.config.title,
+                            ref.config.enhancements
                     );
                 return true;
             }
             return false;
         }
 
+        // Sets the focus record
         function focusID( uid ) {
             var ref = service.recordDict[uid];
             if(ref) {
@@ -149,6 +178,7 @@
             }
         } 
 
+        // Function that creates a call back chain for when an ID is focused (i.e. on selection)
         function registerFocusCallback( callback ) {
             if( !registerFocusCallback.prototype.callbacks ) {
                 registerFocusCallback.prototype.callbacks = [];
@@ -158,9 +188,15 @@
 
         }
 
+        // Returns a list of the records that have been modified
         function dirtySubSet() {
             return $filter('dirtyFilter')(service.recordDict);
         }
-        
+
+        // Returns a list of the records that have been modified
+        function parentSubSet() {
+            return $filter('parentFilter')(service.recordDict);
+        }
+
     }
 })();

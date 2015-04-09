@@ -9,8 +9,8 @@
     * This angular controller provides the thin layer between the form-modifier.html page and our UserRecords
     */
     /* @ngInject */
-    ModCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON'];
-    function ModCtrl(UserRecords, SecurityMeasuresJSON) {
+    ModCtrl.$inject = ['UserRecords'];
+    function ModCtrl(UserRecords) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'ModCtrl';
@@ -34,6 +34,8 @@
         vm.getEnhance = getEnhance;
         vm.unsetEnhance = unsetEnhance;
         vm.clearMod = clearMod;
+        vm.recordDict = UserRecords.recordDict;
+
         // this array sets the allowed operations (ex: a measure in the baseline can't be added to the baseline)
         vm.changeChart = {
           'base': {'base':true, 'scope':true, 'add':false, 'comp':false, 'not':false},
@@ -53,9 +55,6 @@
                 vm.state.rationale = UserRecords.focusRecord.comments.rationale;
                 vm.state.enhanceMeasure = UserRecords.focusRecord.comments.link;
                 vm.state.scopeMeasure = UserRecords.focusRecord.comments.link;
-            });
-            SecurityMeasuresJSON.func().success( function(data) {
-                vm.data = data["controls:controls"]["controls:control"];
             });
         }
 
@@ -104,18 +103,14 @@
 
         // returns a list of the id's of the compensating controls
         function getEnhance() {
-            var list = [];
-            var id = vm.state.scopeMeasure;
-            angular.forEach(vm.data, function(record) {
-                if(record.number[0] === id && record['control-enhancements'] &&
-                                              record['control-enhancements'][0] &&
-                                              record['control-enhancements'][0]['control-enhancement']) {
-                    angular.forEach(record['control-enhancements'][0]['control-enhancement'], function(enhancement) {
-                        list.push(enhancement.number[0]);
-                    });
-                }
-            });
-            return list;
+            if(vm.state.scopeMeasure &&
+               UserRecords.recordDict &&
+               UserRecords.recordDict[vm.state.scopeMeasure] && 
+               UserRecords.recordDict[vm.state.scopeMeasure].config.enhancements !== undefined ) {
+                return UserRecords.recordDict[vm.state.scopeMeasure].config.enhancements;
+            } else {
+                return null;
+            }
         }
 
         // A hackyway of transitioning between the enhanceMeasure and scopeMeasure fields of the currentRecord
