@@ -12,13 +12,5 @@
     function FormCtrl() {
         /*jshint validthis: true */   
 
-        var vm = this;
-
-        activate();
-        
-        function activate() {
-            console.log("Welcome to the Overlayer");
-        }
-
     }
 })();

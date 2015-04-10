@@ -7,7 +7,7 @@
 
 <md-content class="md-padding" layout-align="space-between center" style="overflow-y:scroll">
 	<md-list>
-		<md-item ng-repeat="(uid, mod) in hist.modifications | dirtyFilter" ng-click="hist.selectLog(uid)" ng-class="{'histOuterBox':hist.currentMod().uid===uid}">
+		<md-item ng-repeat="(uid, mod) in hist.modifications() | dirtyFilter" ng-click="hist.selectLog(uid)" ng-class="{'histOuterBox':hist.currentMod().uid===uid}">
 			
 			<md-item-content layout="row" layout-align="space-around center">
 				<div ng-switch on="mod.state">			

@@ -11,7 +11,7 @@
 
     /* @ngInject */
     //GridCtrl.$inject = ['UserRecords', 'SecurityMeasuresJSON', '$scope', '$filter', '$routeProvider'];
-    function GridCtrl(UserRecords, SecurityMeasuresJSON, $scope, $filter, spData) {
+    function GridCtrl(UserRecords, SecurityMeasuresJSON, $scope, $filter) {
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'GridCtrl';
@@ -58,19 +58,19 @@
           multiSelect: false,
           enableRowHeaderSelection: false,
           columnDefs: [
-              { field: 'number[0]',
+              { field: 'uid',
                 width: '8%',
               displayName: 'Measure' },
-            { field: 'title[0]',
+            { field: 'config.title',
             width: '37%',
               displayName: 'Title' },
-            { field: 'priority[0]',
+            { field: 'config.priority',
                width: '8%',
               displayName: 'Priority' },
-            { field: 'baseline-impact', 
+            { field: 'config.baseline', 
             width: '17%',
             displayName: 'Baseline'},
-            { field: 'family[0]', 
+            { field: 'config.family', 
             width: '20%',
             displayName: 'Family'}
           ]
@@ -101,7 +101,7 @@
         function setRow() {
           vm.gridApi.selection.clearSelectedRows();
           for(var i = 0; i < vm.gridApi.grid.rows.length; i ++) {
-            if(UserRecords.focusRecord.uid === vm.gridApi.grid.rows[i].entity.number[0]) {
+            if(UserRecords.focusRecord.uid === vm.gridApi.grid.rows[i].entity.uid) {
               vm.gridApi.selection.toggleRowSelection(vm.gridApi.grid.rows[i].entity);
               break;
             }
@@ -111,27 +111,39 @@
         function activate() {
             // collects the json object from the Security MeasuresJSON service
 
-            SecurityMeasuresJSON.func().success( function(data) {
+            SecurityMeasuresJSON.getJSON().success( function(data) {
               
-                vm.srcData = data["controls:controls"]["controls:control"];
+                // vm.srcData = data["controls:controls"]["controls:control"];
+                // vm.gridOptions.data = vm.srcData;
+                
+                // UserRecords.initRecords(vm.srcData);
+                // UserRecords.setSysBaseline();
+              UserRecords.initRecords(data);
+                UserRecords.setSysBaseline();
+                vm.srcData = [];
+                angular.forEach(UserRecords.parentSubSet(), function(value, index) {
+                                                    vm.srcData.push(value);
+                                                });
                 vm.gridOptions.data = vm.srcData;
                 
-                UserRecords.initRecords(vm.srcData);
-                UserRecords.setSysBaseline();
+
+                vm.lookup = UserRecords.recordDict;
             });
         }
 
         // the call back for selection
        function selectMeasure(row) {
-            if(row.number[0] !== UserRecords.focusRecord.uid) {
-              UserRecords.focusID(row.number[0]); 
+            if(row.uid !== UserRecords.focusRecord.uid) {
+              UserRecords.focusID(row.uid); 
             }
         }
 
+        // returns all of the measures in a certain family
         function measuresList() {
            return $filter('familyFilter')(vm.srcData, vm.familyFilter);
         }
 
+        // returns all of the measures/enhancements in a certain family of list of measures
         function updateFilter() {
           if(vm.familyFilter.length === 0) {
             vm.measureFilter = [];

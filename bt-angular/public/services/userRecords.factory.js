@@ -39,12 +39,7 @@
                         rationale:'',
                         scopeMeasure:'',
                         enhanceMeasure:''
-                    },
-            // a object(used as a hash table) to bind the states (added, scoped, baseline, etc.) to the unique identifiers (AC-1, AC-2, etc.)
-            lookup: {},
-            // the array of records that the user has manipulated
-            records: {},
-            noEnhanceLookup: {}
+                    }
         };
         return service;
 
@@ -70,48 +65,10 @@
             };
         }
 
-        // Function that transforms the JSON data from the server into a client useful form
+        // Setter for recordDict
         function initRecords( data ) {
+            service.recordDict = data;
 
-            for( var i = 0; i < data.length; i ++ ) {
-                var temp = new Record( data[i].number[0],
-                                       undefined,                                   
-                                       false,    
-                                       data[i]['baseline-impact'],
-                                       data[i].family?data[i].family[0]:null,
-                                       data[i].priority?data[i].priority[0]:null, 
-                                       data[i].title?data[i].title[0]:null,
-                                       null
-                                       );
-
-                if( data[i]['control-enhancements'] && 
-                    data[i]['control-enhancements'][0] && 
-                    data[i]['control-enhancements'][0]['control-enhancement'] ) {
-                    temp.config.enhancements = [];
-                    var enhanceList = data[i]['control-enhancements'][0]['control-enhancement'];
-                    for( var j = 0; j < enhanceList.length; j ++) {
-                        var id = enhanceList[j].number[0].replace(/[ \(\)]/g, "-")
-                                                         .replace(/(.*)-$/, "$1")
-                                                         .replace(/--/g, "-");
-                        temp.config.enhancements.push(id);
-                        var enhanceItem = new Record(  id,
-                                                       undefined,                                   
-                                                       false,    
-                                                       enhanceList[j]['baseline-impact'],
-                                                       temp.config.family,
-                                                       temp.config.priority, 
-                                                       enhanceList[j].title?enhanceList[j].title[0]:null,
-                                                       undefined
-                                                       );
-
-                        service.recordDict[enhanceItem.uid] = enhanceItem;
-                    }
-                }
-                service.recordDict[temp.uid] = temp;
-               
-            }
-
-            console.log(service.recordDict);
         }
 
         // Check individual record against baseline

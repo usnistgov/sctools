@@ -1,3 +1,4 @@
+// This is where the angular application is declared and configured
 var app = angular
           .module('app', [
             'ui.layout', 
@@ -28,42 +29,5 @@ app.config( function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
       .accentPalette('cyan');
 });
 
-// app.provider('spData', function spDataProvider() { {
 
-//   this.$get = ['$http', function spDataFactory($http) {
-//       var service =  {
-//         loadDataPromise: $http.get("/json").then(function(data) {
-//           console.log('success');
-//           service.data = data;
-//         }),
-//         data: {}
-//       };
-
-//       return service;
-       
-      
-
-
-//   }];
-
-// }})
-
-app.service('spData', ['$http', function($http){
-
-  return {
-
-    loadDataPromise: function() {
-          console.log("YO");
-          return $http.get("/json").then(function(data) {
-            console.log("SUCCESS");
-
-            return {
-              data: data
-            };
-          });
-        }
-
-  };
-  
-}]);
 

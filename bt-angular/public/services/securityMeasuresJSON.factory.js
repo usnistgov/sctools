@@ -12,7 +12,7 @@
     */
     function SecurityMeasuresJSON($http) {
         var service = {
-            func: func,
+            getJSON: getJSON,
             getXML: getXML,
             jsonPromise: null
         };
@@ -25,7 +25,7 @@
         *
         * This file returns a promise instead of a javascript object (useful when conducting async operaions)
         */
-        function func() {
+        function getJSON() {
 	        if(service.jsonPromise) {
 				return service.jsonPromise;
 			} else {
@@ -34,6 +34,7 @@
 			}
         }
 
+        // This function returns an XML representation of the state of execution
         function getXML(profile) {
             var xmlPromise = $http.post("/xml", profile);
             return xmlPromise;

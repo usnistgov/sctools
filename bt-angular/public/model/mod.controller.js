@@ -34,7 +34,7 @@
         vm.getEnhance = getEnhance;
         vm.unsetEnhance = unsetEnhance;
         vm.clearMod = clearMod;
-        vm.recordDict = UserRecords.recordDict;
+        vm.recordDict = recordDict;
 
         // this array sets the allowed operations (ex: a measure in the baseline can't be added to the baseline)
         vm.changeChart = {
@@ -67,7 +67,7 @@
         function deleteMod() {
 
             UserRecords.revertRecord(UserRecords.focusRecord.uid);
-
+            UserRecords.focusID(UserRecords.focusRecord.uid);
             vm.clearMod();
             // UserRecords.deleteRecord();
             // vm.dirty = false;
@@ -75,6 +75,7 @@
 
         // submits the current record
         function submitMod() {
+            console.log("submit");
             UserRecords.changeRecord(vm.state.id,
                                      vm.state.status, 
                                      vm.state.guidance,
@@ -117,6 +118,10 @@
         // A hackyway of transitioning between the enhanceMeasure and scopeMeasure fields of the currentRecord
         function unsetEnhance() {
             vm.state.enhanceMeasure = vm.state.scopeMeasure;
+        }
+
+        function recordDict() {
+            return UserRecords.recordDict;
         }
 
     }

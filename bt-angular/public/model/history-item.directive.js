@@ -39,6 +39,8 @@
                                 'glyphicon glyphicon-circle-arrow-down':
                                 'glyphicon glyphicon-circle-arrow-left';
             }
+
+            // The following logic switches the arrow to pointing down
             function collapseEntry() {
                 return vm.glyphClass==='glyphicon glyphicon-circle-arrow-down';
             }

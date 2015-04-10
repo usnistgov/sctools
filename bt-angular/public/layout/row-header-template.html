@@ -1,7 +1,7 @@
-<div ng-switch on="grid.appScope.lookup[row.entity.number[0]].state">
+<div ng-switch on="grid.appScope.lookup[row.entity.uid].state">
 	<div ng-switch-when="base">
 		<md-button class="md-raised md-primary " aria-label={{$index+"label"} style="width: 100%">
-			<md-tooltip>Baseline</md-tooltip>
+			
 			<div class="glyphicon glyphicon-record"></div>
 		</md-button>
 	</div>
@@ -30,3 +30,37 @@
 		</md-button>
 	</div>
 </div>
+
+
+<!-- The following html uses icons instead of buttons. This is faster because it doesn't create watches 
+     in the digest cycle, but it is not as pretty ... -->
+
+<!-- 
+<div ng-switch on="grid.appScope.lookup[row.entity.number[0]].state">
+	<div ng-switch-when="base">
+		<md-icon md-svg-src="lib_icon/ic_adjust_48px.svg" class="md-raised center md-primary ">
+			
+		</md-icon>
+	</div>
+	<div  ng-switch-when="not">
+		<md-icon md-svg-src="lib_icon/ic_block_48px.svg" class="md-raised center md-background">
+		
+		</md-icon>
+	</div>
+	<div ng-switch-when="scope">
+		<md-icon md-svg-src="lib_icon/ic_remove_circle_outline_48px.svg" class="md-raised center md-warn">
+			
+		</md-icon>
+	</div>
+	<div ng-switch-when="add">
+		<md-icon md-svg-src="lib_icon/ic_add_circle_outline_48px.svg" class="md-raised center md-accent ">
+		
+		</md-icon>
+	</div>
+	<div ng-switch-when="comp">
+		<md-icon md-svg-src="lib_icon/ic_tonality_48px.svg" class="md-raised center md-accent ">
+	
+		</md-icon>
+	</div>
+</div>
+ --> 

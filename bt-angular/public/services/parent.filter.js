@@ -5,6 +5,8 @@
         .module('app')
         .filter('parentFilter', parentFilter);
 
+    // This filter is used to access the base controls of 800-53 (ignores enhancement controls)
+
     /* @ngInject */
     function parentFilter() {
         return func;

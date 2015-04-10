@@ -83,12 +83,12 @@
             if ( !vm.file || !vm.file[0]) { // prevents oddness in event handler
                 return;
             }
-            console.log(vm.file);
-            vm.file_hist.push(vm.file[0].name);
+            //vm.file_hist.push(vm.file[0].name);
             $upload.upload({url: 'upload', file:vm.file})
                     .success(function(data, status, headers) {
-                    console.log(data);
-                    console.log("HELLO "+status);
+                    UserRecords.profile.name = data.root.name[0];
+                    UserRecords.profile.baseline = data.root.baseline[0];
+                    UserRecords.setSysBaseline();
                     angular.forEach(data.root.node, function(element) {
                         if(!UserRecords.recordDict[ element.uid[0] ].dirty) {
                             UserRecords.changeRecord(

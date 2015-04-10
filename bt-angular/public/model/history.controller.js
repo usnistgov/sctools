@@ -16,7 +16,7 @@
         vm.title = 'HistoryCtrl';
 
         // access the record list
-        vm.modifications = UserRecords.recordDict;
+        vm.modifications = modifications;
         vm.currentMod = currentMod;
         vm.selectLog = selectLog;
         vm.dirtyList = dirtyList;
@@ -31,10 +31,15 @@
           UserRecords.focusID(uid);
         }
 
+        // a getter for the modified records
         function dirtyList() {
             var ref =  UserRecords.dirtySubSet();
             return ref;
         }
 
+        // a getter for the records
+        function modifications() {
+            return UserRecords.recordDict;
+        }
     }
 })();

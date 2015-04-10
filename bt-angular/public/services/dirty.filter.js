@@ -5,6 +5,8 @@
         .module('app')
         .filter('dirtyFilter', dirtyFilter);
 
+    // This filter returns all of the controls that have been modified from their defaults
+
     /* @ngInject */
     function dirtyFilter() {
         return func;
@@ -19,6 +21,7 @@
                     filtered[key]=value;
                 }
 			});
+            
 			return filtered;
         }
     }
