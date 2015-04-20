@@ -17,8 +17,10 @@
             
             // config information
             profile: { name:'', baseline:''},
-            
+            inheritedDict: {},
+            addInherited: addInherited,
 
+            Record: Record,
             recordDict: {},
             focusRecord: new Record(),
             focusID: focusID,
@@ -29,17 +31,8 @@
             dirtySubSet: dirtySubSet,
             parentSubSet: parentSubSet,
             registerFocusCallback: registerFocusCallback,
+            inheritRecord: inheritRecord
 
-
-            // the record that is currently selected
-            currentRecord: {
-                        id:'',
-                        status:'',
-                        guidance:'',
-                        rationale:'',
-                        scopeMeasure:'',
-                        enhanceMeasure:''
-                    }
         };
         return service;
 
@@ -156,6 +149,20 @@
         // Returns a list of the records that have been modified
         function parentSubSet() {
             return $filter('parentFilter')(service.recordDict);
+        }
+
+        function addInherited(dictionairy) {
+            service.inheritedDict[dictionairy.profile.name] = dictionairy;
+            console.log(service.inheritedDict);
+        }
+
+        function inheritRecord(item, dictionairy) {
+            console.log(item)
+            if(service.recordDict[item.uid].inherit) {
+                service.recordDict[item.uid].inherit.push(dictionairy.profile.name);
+            } else {
+                service.recordDict[item.uid].inherit = [dictionairy.profile.name];
+            }
         }
 
     }

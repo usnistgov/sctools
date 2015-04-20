@@ -20,6 +20,8 @@
         vm.currentMod = currentMod;
         vm.selectLog = selectLog;
         vm.dirtyList = dirtyList;
+        vm.inherited = inherited;
+        vm.inheritedTailoring = null;
 
         // get the currently selected record
         function currentMod() {
@@ -39,7 +41,18 @@
 
         // a getter for the records
         function modifications() {
-            return UserRecords.recordDict;
+
+            if(vm.inheritedTailoring) {
+                return UserRecords.inheritedDict[vm.inheritedTailoring];
+            } else {
+                return UserRecords.recordDict;
+            }
+        }
+
+        function inherited() {
+            var ret = UserRecords.inheritedDict;
+            ret.this = UserRecords.recordDict;
+            return ret;
         }
     }
 })();

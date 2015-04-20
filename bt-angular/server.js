@@ -13,6 +13,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.listen(8004);
 
+getSP80053P().then(function(data, err) {
+	fs.writeFile(__dirname+'/800-53-controls-processed.xml', JSON.stringify(x(data['controls:controls']['controls:control'])));
+
+})
 
 // This is a route for the web app to get a datastructure containing pertinent information on the sp800-53 document
 app.get('/json', function(req, res) {
@@ -87,68 +91,86 @@ app.post('/xml', function(req, res) {
 	
 });
 
-// // This returns a basic JSON representation of the 800-53 spec
-// function getSP80053P () {
-// 	var def = q.defer();
-// 	if(getSP80053P.data) {
-// 		def.resolve(getSP80053P.data);
-// 	} else {
-// 		var parser = new xml2js.Parser();
-// 		fs.readFile(__dirname+'/800-53-controls.xml', function(err, data) { 
-// 				if(err) {
-// 					console.log(err+"I DID NOT FIND IT!");
-// 					return;
-// 				} else {
-// 					console.log("SUCCESS");
-// 				}
-// 				parser.parseString(data, function(err, result) {
-// 					getSP80053P.data = result;
-// 					def.resolve(getSP80053P.data);
-// 				});
-// 			});
-// 	}
-// 	return def.promise;
-// }
+	// This returns a basic JSON representation of the 800-53 spec
+	function getSP80053P () {
+		var def = q.defer();
+		if(getSP80053P.data) {
+			def.resolve(getSP80053P.data);
+		} else {
+			var parser = new xml2js.Parser();
+			fs.readFile(__dirname+'/800-53-controls.xml', function(err, data) { 
+					if(err) {
+						console.log(err+"I DID NOT FIND IT!");
+						return;
+					} else {
+						console.log("SUCCESS");
+					}
+					parser.parseString(data, function(err, result) {
+						getSP80053P.data = result;
+						def.resolve(getSP80053P.data);
+					});
+				});
+		}
+		return def.promise;
+	}
+function Record( uid, state, dirty, baseline, family, priority, title , enhancements) {
+            this.uid = uid;
+            this.state = state;
+            this.dirty = dirty?true:false;
 
-// this  code is used to transform 800-53-controls.json into 800-53-controls-processed.json
-// function x(data) {
-		// var service = { recordDict: {}};
-			// for( var i = 0; i < data.length; i ++ ) {
-            //     var temp = new Record( data[i].number[0],
-            //                            undefined,                                   
-            //                            false,    
-            //                            data[i]['baseline-impact'],
-            //                            data[i].family?data[i].family[0]:null,
-            //                            data[i].priority?data[i].priority[0]:null, 
-            //                            data[i].title?data[i].title[0]:null,
-            //                            null
-            //                            );
+            this.inherit = null;
+            this.comments = {
+                text:null,
+                rationale:null,
+                link:null
+            };
+            this.config = {
+                baseline:baseline,
+                family:family,
+                priority:priority,
+                title:title,
+                enhancements:enhancements
+            };
+        }
+	// this  code is used to transform 800-53-controls.json into 800-53-controls-processed.json
+	function x(data) {
+		var service = { recordDict: {}};
+			for( var i = 0; i < data.length; i ++ ) {
+	            var temp = new Record( data[i].number[0],
+	                                   undefined,                                   
+	                                   false,    
+	                                   data[i]['baseline-impact'],
+	                                   data[i].family?data[i].family[0]:null,
+	                                   data[i].priority?data[i].priority[0]:null, 
+	                                   data[i].title?data[i].title[0]:null,
+	                                   null
+	                                   );
 
-            //     if( data[i]['control-enhancements'] && 
-            //         data[i]['control-enhancements'][0] && 
-            //         data[i]['control-enhancements'][0]['control-enhancement'] ) {
-            //         temp.config.enhancements = [];
-            //         var enhanceList = data[i]['control-enhancements'][0]['control-enhancement'];
-            //         for( var j = 0; j < enhanceList.length; j ++) {
-            //             var id = enhanceList[j].number[0].replace(/[ \(\)]/g, "-")
-            //                                              .replace(/(.*)-$/, "$1")
-            //                                              .replace(/--/g, "-");
-            //             temp.config.enhancements.push(id);
-            //             var enhanceItem = new Record(  id,
-            //                                            undefined,                                   
-            //                                            false,    
-            //                                            enhanceList[j]['baseline-impact'],
-            //                                            temp.config.family,
-            //                                            temp.config.priority, 
-            //                                            enhanceList[j].title?enhanceList[j].title[0]:null,
-            //                                            undefined
-            //                                            );
+	            if( data[i]['control-enhancements'] && 
+	                data[i]['control-enhancements'][0] && 
+	                data[i]['control-enhancements'][0]['control-enhancement'] ) {
+	                temp.config.enhancements = [];
+	                var enhanceList = data[i]['control-enhancements'][0]['control-enhancement'];
+	                for( var j = 0; j < enhanceList.length; j ++) {
+	                    var id = enhanceList[j].number[0].replace(/[ \(\)]/g, "-")
+	                                                     .replace(/(.*)-$/, "$1")
+	                                                     .replace(/--/g, "-");
+	                    temp.config.enhancements.push(id);
+	                    var enhanceItem = new Record(  id,
+	                                                   undefined,                                   
+	                                                   false,    
+	                                                   enhanceList[j]['baseline-impact'],
+	                                                   temp.config.family,
+	                                                   temp.config.priority, 
+	                                                   enhanceList[j].title?enhanceList[j].title[0]:null,
+	                                                   undefined
+	                                                   );
 
-            //             service.recordDict[enhanceItem.uid] = enhanceItem;
-            //         }
-            //     }
-            //     service.recordDict[temp.uid] = temp;
-               
-            // }
-        // return service.recordDict;
-// }
+	                    service.recordDict[enhanceItem.uid] = enhanceItem;
+	                }
+	            }
+	            service.recordDict[temp.uid] = temp;
+	           
+	        }
+	    return service.recordDict;
+	}

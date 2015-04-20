@@ -1,8 +1,14 @@
 	
-<md-toolbar class="md-primary" md-scroll-shrink>
-  <h2 class="md-toolbar-tools">
+<md-toolbar layout="row" layout-align"space between center" class="md-primary" md-scroll-shrink>
+  <h2 flex="40" class="md-toolbar-tools">
     <span>Session</span>
   </h2>
+
+  <md-select flex ng-model="hist.inheritedTailoring" style="margin-top: 1em;">
+     <md-select-label>{{hist.inheritedTailoring?hist.inheritedTailoring:'this'}}</md-select-label>
+    <md-option ng-value="opt.profile.name" ng-repeat="opt in hist.inherited()">{{ (opt.profile.name.length>0)?opt.profile.name:'this' }}</md-option>
+  </md-select>
+
 </md-toolbar>	
 
 <md-content class="md-padding" layout-align="space-between center" style="overflow-y:scroll">

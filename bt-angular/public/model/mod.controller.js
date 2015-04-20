@@ -30,11 +30,14 @@
         vm.deleteMod = deleteMod;        
         vm.submitMod = submitMod;
         vm.modDelta = modDelta;
-        vm.lookup = UserRecords.noEnhanceLookup;
         vm.getEnhance = getEnhance;
         vm.unsetEnhance = unsetEnhance;
         vm.clearMod = clearMod;
         vm.recordDict = recordDict;
+        vm.inherited = inherited;
+        vm.inheritedTailoring = [];
+        vm.inheritMeasure = inheritMeasure;
+        vm.inheritedDict = UserRecords.inheritedDict;
 
         // this array sets the allowed operations (ex: a measure in the baseline can't be added to the baseline)
         vm.changeChart = {
@@ -49,6 +52,7 @@
         
         function activate() {
             UserRecords.registerFocusCallback( function() { 
+                vm.inheritedTailoring = UserRecords.focusRecord.inherit?UserRecords.focusRecord.inherit:[];
                 vm.state.id = UserRecords.focusRecord.uid;
                 vm.state.status  = UserRecords.focusRecord.state;
                 vm.state.guidance = UserRecords.focusRecord.comments.text;
@@ -75,14 +79,19 @@
 
         // submits the current record
         function submitMod() {
-            console.log("submit");
+
+                UserRecords.focusRecord.inherit = vm.inheritedTailoring;
             UserRecords.changeRecord(vm.state.id,
                                      vm.state.status, 
                                      vm.state.guidance,
                                      vm.state.rationale,
                                      vm.state.enhanceMeasure);
 
-
+            if(vm.inheritedTailoring) {
+                // var parentRecord = UserRecords.inheritedDict[vm.inheritedTailoring][UserRecords.focusRecord.uid];
+                
+                // UserRecords.inheritRecord(parentRecord, UserRecords.inheritedDict[vm.inheritedTailoring]);
+            }
             // UserRecords.submitRecord();
             // vm.dirty = false;
             // console.log(UserRecords.dirtySubSet());
@@ -93,6 +102,7 @@
             vm.state.enhanceMeasure = '';
             vm.state.rationale = '';
             vm.state.guidance = '';
+            vm.inheritedTailoring = [];
         }
         // checks if the status has been mutated in the form
         function modDelta() {
@@ -120,9 +130,49 @@
             vm.state.enhanceMeasure = vm.state.scopeMeasure;
         }
 
+        // a getter for the records
         function recordDict() {
             return UserRecords.recordDict;
         }
+
+
+        function inherited() {
+            if(!UserRecords.focusRecord.uid) {
+                return {};
+            }
+            var focusid = UserRecords.focusRecord.uid
+            var ret = UserRecords.inheritedDict;
+            var filtered = {};
+            angular.forEach(ret, function(value, key) {
+                if(value[focusid] && value[focusid].dirty) {
+                    filtered[key] = value;
+                }
+            })
+            return filtered;
+        }
+
+        function inheritMeasure() {
+            // if(vm.inheritedTailoring) {
+            //     var parentRecord = UserRecords.inheritedDict[vm.inheritedTailoring][UserRecords.focusRecord.uid];
+                
+            //     vm.state.status = parentRecord.state;
+            //     vm.state.scopeMeasure = parentRecord.comments.link;
+            //     vm.state.enhanceMeasure = parentRecord.comments.link;
+            //     vm.state.rationale = parentRecord.comments.rationale;
+            //     vm.state.guidance = parentRecord.comments.text;
+
+                
+            // } else {
+
+            //     vm.state.status  = UserRecords.focusRecord.state;
+            //     vm.state.guidance = UserRecords.focusRecord.comments.text;
+            //     vm.state.rationale = UserRecords.focusRecord.comments.rationale;
+            //     vm.state.enhanceMeasure = UserRecords.focusRecord.comments.link;
+            //     vm.state.scopeMeasure = UserRecords.focusRecord.comments.link;
+
+            // }
+        }
+
 
     }
 })();

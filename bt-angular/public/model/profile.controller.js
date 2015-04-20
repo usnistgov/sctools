@@ -10,8 +10,8 @@
     * This controller will eventually be involved in querying and serving XML files
     */
     /* @ngInject */
-    ProfileCtrl.$inject = ['UserRecords', '$mdSidenav', '$upload', '$window', '$http', 'SecurityMeasuresJSON'];
-    function ProfileCtrl(UserRecords, $mdSidenav, $upload, $window, $http, SecurityMeasuresJSON) {
+    ProfileCtrl.$inject = ['UserRecords', '$mdSidenav', '$upload', '$window', '$http', 'SecurityMeasuresJSON', '$filter'];
+    function ProfileCtrl(UserRecords, $mdSidenav, $upload, $window, $http, SecurityMeasuresJSON, $filter) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -22,7 +22,9 @@
         vm.file = {};
         vm.file_hist = [];
         vm.overlay = UserRecords.profile;
-
+        vm.inheritedTailoring = null;
+        vm.inheritMeasure = inheritMeasure;
+        vm.inherited = inherited;
 
         function setBase() {
           UserRecords.setSysBaseline();
@@ -49,7 +51,7 @@
                 //hiddenElement.href = 'data:text/xml;charset=utf-8,' + encodeURIComponent(data);
                 hiddenElement.href = 'data:text/xml;charset=utf-8,' + encodeURIComponent(data);
                 hiddenElement.target = '_blank';
-                hiddenElement.download = 'SP80053_'+UserRecords.profile.name+'.xml';
+                hiddenElement.download = 'SP80053_'+UserRecords.profile.name.replace(/ /g, "_")+'.xml';
 
 
                 // this test was located at https://github.com/eligrey/FileSaver.js/issues/12
@@ -86,22 +88,49 @@
             //vm.file_hist.push(vm.file[0].name);
             $upload.upload({url: 'upload', file:vm.file})
                     .success(function(data, status, headers) {
-                    UserRecords.profile.name = data.root.name[0];
-                    UserRecords.profile.baseline = data.root.baseline[0];
-                    UserRecords.setSysBaseline();
+                    var dict = {};
+                    dict.profile = {};
+                    dict.profile.name = data.root.name[0];
+                    dict.profile.baseline = data.root.baseline[0];
+                    // UserRecords.profile.name = data.root.name[0];
+                    // UserRecords.profile.baseline = data.root.baseline[0];
+                    // UserRecords.setSysBaseline();
                     angular.forEach(data.root.node, function(element) {
-                        if(!UserRecords.recordDict[ element.uid[0] ].dirty) {
-                            UserRecords.changeRecord(
-                                        element.uid[0],
-                                        element.state[0],
-                                        element.comments[0].text[0],
-                                        element.comments[0].rationale[0],
-                                        element.comments[0].link[0]);    
-                        }
-                     });     
+                             var temp = new UserRecords.Record(
+                                         element.uid[0],
+                                         element.state[0],
+                                         true,
+                                         UserRecords.recordDict[element.uid[0]].config.baseline,
+                                         UserRecords.recordDict[element.uid[0]].config.family,
+                                         UserRecords.recordDict[element.uid[0]].config.priority,
+                                         UserRecords.recordDict[element.uid[0]].config.enhancements);    
+        
+                             temp.comments.text = element.comments[0].text[0];
+                             temp.comments.rationale = element.comments[0].rationale[0];
+                             temp.comments.link = element.comments[0].link[0];
+                             dict[temp.uid] = temp;
+                      });
+                    UserRecords.addInherited(dict);
                 });
         }
         
+        function inheritMeasure() {
+            if(vm.inheritedTailoring) {
+                var data = $filter('dirtyFilter')(UserRecords.inheritedDict[vm.inheritedTailoring]);
+                // UserRecords.profile.name = data.profile.name;
+                // UserRecords.profile.baseline = data.profile.baseline;
+                console.log(data);
+                // UserRecords.setSysBaseline();
+                angular.forEach(data, function(element, key) {
+                    UserRecords.inheritRecord(element, UserRecords.inheritedDict[vm.inheritedTailoring]);
+                    // UserRecords.changeRecord(element.uid, element.state, element.comments.text, element.comments.rationale, element.comments.link);
+                })
+            }
+        }
+
+        function inherited() {
+            return UserRecords.inheritedDict;
+        }
 
     }
 })();

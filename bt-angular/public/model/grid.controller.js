@@ -92,6 +92,28 @@
 
         activate();
 
+        function activate() {
+            // collects the json object from the Security MeasuresJSON service
+
+            var data = SecurityMeasuresJSON.getJSON();
+            
+              // vm.srcData = data["controls:controls"]["controls:control"];
+              // vm.gridOptions.data = vm.srcData;
+              
+              // UserRecords.initRecords(vm.srcData);
+              // UserRecords.setSysBaseline();
+            UserRecords.initRecords(data);
+            UserRecords.setSysBaseline();
+            vm.srcData = [];
+            angular.forEach(UserRecords.parentSubSet(), function(value, index) {
+                                                vm.srcData.push(value);
+                                            });
+            vm.gridOptions.data = vm.srcData;
+            
+
+            vm.lookup = UserRecords.recordDict;
+        }
+
         /*
         * This is the callback that updates the rows
         * It is a linear algorithm
@@ -108,29 +130,6 @@
           }
         }
 
-        function activate() {
-            // collects the json object from the Security MeasuresJSON service
-
-            SecurityMeasuresJSON.getJSON().success( function(data) {
-              
-                // vm.srcData = data["controls:controls"]["controls:control"];
-                // vm.gridOptions.data = vm.srcData;
-                
-                // UserRecords.initRecords(vm.srcData);
-                // UserRecords.setSysBaseline();
-              UserRecords.initRecords(data);
-                UserRecords.setSysBaseline();
-                vm.srcData = [];
-                angular.forEach(UserRecords.parentSubSet(), function(value, index) {
-                                                    vm.srcData.push(value);
-                                                });
-                vm.gridOptions.data = vm.srcData;
-                
-
-                vm.lookup = UserRecords.recordDict;
-            });
-        }
-
         // the call back for selection
        function selectMeasure(row) {
             if(row.uid !== UserRecords.focusRecord.uid) {
@@ -144,7 +143,7 @@
         }
 
         // returns all of the measures/enhancements in a certain family of list of measures
-        function updateFilter() {
+        function updateFilter() { 
           if(vm.familyFilter.length === 0) {
             vm.measureFilter = [];
           }
