@@ -2,7 +2,10 @@
 	<div ng-switch-when="base">
 		<md-button md-no-ink class="md-raised md-primary " aria-label={{$index+"label"} style="width: 100%">
 			
-			
+			<div ng-show="grid.appScope.lookup[row.entity.uid].mergeConflict > 0" class="glyphicon glyphicon-fire">
+				<md-tooltip>Conflict {{grid.appScope.lookup[row.entity.uid].mergeConflict}}</md-tooltip>
+			</div>
+
 			<div class="glyphicon glyphicon-record">
 				<md-tooltip>Baseline</md-tooltip>
 			</div>
@@ -14,6 +17,10 @@
 	<div  ng-switch-when="not">
 		<md-button md-no-ink class="md-raised md-background" aria-label={{$index+"label"} style="width: 100%">
 			
+			<div ng-show="grid.appScope.lookup[row.entity.uid].mergeConflict > 0" class="glyphicon glyphicon-fire">
+				<md-tooltip>Conflict {{grid.appScope.lookup[row.entity.uid].mergeConflict}}</md-tooltip>
+			</div>
+
 			<div class="glyphicon glyphicon-ban-circle">
 				<md-tooltip>Not Included</md-tooltip>
 			</div>
@@ -23,6 +30,10 @@
 	<div ng-switch-when="scope">
 		<md-button md-no-ink class="md-raised md-warn" aria-label={{$index+"label"} style="width: 100%">
 			
+			<div ng-show="grid.appScope.lookup[row.entity.uid].mergeConflict > 0" class="glyphicon glyphicon-fire">
+				<md-tooltip>Conflict {{grid.appScope.lookup[row.entity.uid].mergeConflict}}</md-tooltip>
+			</div>
+
 			<div class="glyphicon glyphicon-remove-circle">
 				<md-tooltip>Scoped</md-tooltip>
 			</div>
@@ -34,6 +45,10 @@
 	<div ng-switch-when="add">
 		<md-button md-no-ink class="md-raised md-accent " aria-label={{$index+"label"} style="width: 100%">
 			
+			<div ng-show="grid.appScope.lookup[row.entity.uid].mergeConflict > 0" class="glyphicon glyphicon-fire">
+				<md-tooltip>Conflict {{grid.appScope.lookup[row.entity.uid].mergeConflict}}</md-tooltip>
+			</div>
+
 			<div class="glyphicon glyphicon-ok-circle">
 				<md-tooltip>Added</md-tooltip>
 			</div>
@@ -45,6 +60,10 @@
 	<div ng-switch-when="comp">
 		<md-button md-no-ink class="md-raised md-accent " aria-label={{$index+"label"} style="width: 100%">
 			
+			<div ng-show="grid.appScope.lookup[row.entity.uid].mergeConflict > 0" class="glyphicon glyphicon-fire">
+				<md-tooltip>Conflict</md-tooltip>
+			</div>
+
 			<div class="glyphicon glyphicon-adjust">
 				<md-tooltip>Compensating</md-tooltip>
 			</div>

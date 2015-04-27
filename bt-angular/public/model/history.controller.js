@@ -21,7 +21,7 @@
         vm.selectLog = selectLog;
         vm.dirtyList = dirtyList;
         vm.inherited = inherited;
-        vm.inheritedTailoring = null;
+        vm.inheritedTailoring = null; // the selected tailoring
 
         // get the currently selected record
         function currentMod() {
@@ -49,9 +49,13 @@
             }
         }
 
+        // returns the list of uploaded tailorings/overlays + the current record
         function inherited() {
-            var ret = UserRecords.inheritedDict;
-            ret.this = UserRecords.recordDict;
+            var ret = {this: UserRecords.recordDict};
+            angular.forEach(UserRecords.inheritedDict, function(value, key) {
+                ret[key] = value;
+            });
+
             return ret;
         }
     }

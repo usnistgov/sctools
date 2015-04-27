@@ -16,16 +16,19 @@
         var vm = this;
         vm.title = 'GridCtrl';
 		
-		    vm.srcData = {};
-        vm.dispData ={};
+		    vm.srcData = {}; // the original data
+        vm.dispData ={}; // the data that is filtered
+
+        vm.overlay = UserRecords.profile; // the profile from UserRecords
+
 
         vm.selectMeasure = selectMeasure;
         vm.setRow = setRow;
         vm.updateFilter = updateFilter;
         vm.measuresList = measuresList;
 
-        vm.familyFilter = [];
-        vm.measureFilter = [];
+        vm.familyFilter = []; // data for family select box
+        vm.measureFilter = []; // data for measure select box
         vm.families = [
             "ACCESS CONTROL",
             "AUDIT AND ACCOUNTABILITY",
@@ -48,7 +51,6 @@
         ];
 
         
-        vm.overlay = UserRecords.profile;
 
         // the configuration for the ui-grid
         vm.gridOptions = {
@@ -92,6 +94,7 @@
 
         activate();
 
+        // code run on controller initialization
         function activate() {
             // collects the json object from the Security MeasuresJSON service
 

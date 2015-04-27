@@ -57,24 +57,24 @@
 
     <div  ui-layout="{dividerSize: '8px;'}" ng-controller="FormCtrl as form" style="position:absolute; z-index: 10;">
 
-      <div ui-layout-container size="65px" min-size="65px" max-size="65px">
+      <div ui-layout-container size="65px" min-size="65px" max-size="65px" style="z-index: 10;">
 
         <div ng-controller="ProfileCtrl as profile" ui-view="header"></div>
 
       </div>
       
       <div ui-layout-container> 
-        <div ui-layout="{flow : 'column', dividerSize: '8px;'}" >
+        <div ui-layout="{flow : 'column', dividerSize: '8px;'}" style="z-index: 10;">
 
 
-          <div ui-layout-container size="80%" min-size="40%">
+          <div ui-layout-container size="80%" min-size="40%" style="z-index: 10;">
            
            <div ng-controller="GridCtrl as catalog" ui-view="selector"></div>
            
          </div>
 
 
-         <div ui-layout-container min-size="" class="">
+         <div ui-layout-container min-size="" class="" style="z-index: 10;">
 
            <div ng-controller="HistoryCtrl as hist" ui-view="history"></div>
 
@@ -84,7 +84,7 @@
 
      </div>
      
-     <div ui-layout-container size="275px" max-size="500px" class="">
+     <div ui-layout-container size="325px" max-size="500px" class="">
 
       <div ng-controller="ModCtrl as mod" ui-view="modifier"></div>
 

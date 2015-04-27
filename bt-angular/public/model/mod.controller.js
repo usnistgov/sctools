@@ -25,6 +25,9 @@
             enhanceMeasure: null,
             scopeMeasure: null
         };
+        vm.inheritedTailoring = []; // the list of selected files
+        vm.inheritedDict = UserRecords.inheritedDict; // the list of available files
+        vm.overlays = UserRecords.overlays;
 
         vm.modContains = modContains;
         vm.deleteMod = deleteMod;        
@@ -35,9 +38,8 @@
         vm.clearMod = clearMod;
         vm.recordDict = recordDict;
         vm.inherited = inherited;
-        vm.inheritedTailoring = [];
-        vm.inheritMeasure = inheritMeasure;
-        vm.inheritedDict = UserRecords.inheritedDict;
+        vm.srcOverlays = srcOverlays;
+        vm.setOverlay = setOverlay;
 
         // this array sets the allowed operations (ex: a measure in the baseline can't be added to the baseline)
         vm.changeChart = {
@@ -50,6 +52,7 @@
 
         activate();
         
+        // the code that is run on controller initialization
         function activate() {
             UserRecords.registerFocusCallback( function() { 
                 vm.inheritedTailoring = UserRecords.focusRecord.inherit?UserRecords.focusRecord.inherit:[];
@@ -97,12 +100,12 @@
             // console.log(UserRecords.dirtySubSet());
         }
 
+        // this clears the current state
         function clearMod() {
             vm.state.scopeMeasure = '';
             vm.state.enhanceMeasure = '';
             vm.state.rationale = '';
             vm.state.guidance = '';
-            vm.inheritedTailoring = [];
         }
         // checks if the status has been mutated in the form
         function modDelta() {
@@ -135,42 +138,37 @@
             return UserRecords.recordDict;
         }
 
-
+        // this function returns the list of uploaded tailorings that have an entry for the selected value
         function inherited() {
             if(!UserRecords.focusRecord.uid) {
                 return {};
             }
-            var focusid = UserRecords.focusRecord.uid
+            var focusid = UserRecords.focusRecord.uid;
             var ret = UserRecords.inheritedDict;
             var filtered = {};
             angular.forEach(ret, function(value, key) {
                 if(value[focusid] && value[focusid].dirty) {
                     filtered[key] = value;
                 }
-            })
+            });
             return filtered;
         }
 
-        function inheritMeasure() {
-            // if(vm.inheritedTailoring) {
-            //     var parentRecord = UserRecords.inheritedDict[vm.inheritedTailoring][UserRecords.focusRecord.uid];
-                
-            //     vm.state.status = parentRecord.state;
-            //     vm.state.scopeMeasure = parentRecord.comments.link;
-            //     vm.state.enhanceMeasure = parentRecord.comments.link;
-            //     vm.state.rationale = parentRecord.comments.rationale;
-            //     vm.state.guidance = parentRecord.comments.text;
+        function srcOverlays() {
+            return UserRecords.overlays.filter(function(overlay) {
+                return UserRecords.inheritedDict[overlay][vm.state.id];
+            });
+        }
 
-                
-            // } else {
-
-            //     vm.state.status  = UserRecords.focusRecord.state;
-            //     vm.state.guidance = UserRecords.focusRecord.comments.text;
-            //     vm.state.rationale = UserRecords.focusRecord.comments.rationale;
-            //     vm.state.enhanceMeasure = UserRecords.focusRecord.comments.link;
-            //     vm.state.scopeMeasure = UserRecords.focusRecord.comments.link;
-
-            // }
+        function setOverlay() {
+            console.log(vm.overlays);
+            vm.state.id = UserRecords.inheritedDict[vm.overlays][vm.state.id].uid;
+            vm.state.status = UserRecords.inheritedDict[vm.overlays][vm.state.id].state; 
+            vm.state.guidance = UserRecords.inheritedDict[vm.overlays][vm.state.id].comments.text;
+            vm.state.rationale = UserRecords.inheritedDict[vm.overlays][vm.state.id].comments.rationale;
+            vm.state.enhanceMeasure = UserRecords.inheritedDict[vm.overlays][vm.state.id].comments.enhanceMeasure;
+            vm.state.scopeMeasure = UserRecords.inheritedDict[vm.overlays][vm.state.id].comments.enhanceMeasure;
+                     
         }
 
 

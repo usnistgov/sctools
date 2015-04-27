@@ -19,7 +19,7 @@
             profile: { name:'', baseline:''},
             inheritedDict: {},
             addInherited: addInherited,
-
+            overlays: [],
             Record: Record,
             recordDict: {},
             focusRecord: new Record(),
@@ -31,7 +31,8 @@
             dirtySubSet: dirtySubSet,
             parentSubSet: parentSubSet,
             registerFocusCallback: registerFocusCallback,
-            inheritRecord: inheritRecord
+            inheritRecord: inheritRecord,
+            applyOverlays: applyOverlays
 
         };
         return service;
@@ -40,10 +41,11 @@
 
         // Function that should be called as a constructor
         // Calling this without the 'new' keyword will yoeld unexpected behavior
-        function Record( uid, state, dirty, baseline, family, priority, title , enhancements) {
+        function Record( uid, state, dirty, baseline, family, priority, title , enhancements, merge) {
             this.uid = uid;
             this.state = state;
             this.dirty = dirty?true:false;
+            this.mergeConflict = merge;
             this.comments = {
                 text:null,
                 rationale:null,
@@ -109,7 +111,8 @@
                             ref.config.family,
                             ref.config.priority,
                             ref.config.title,
-                            ref.config.enhancements
+                            ref.config.enhancements,
+                            ref.mergeConflict>0?ref.mergeConflict-1:0
                     );
                 return true;
             }
@@ -151,18 +154,97 @@
             return $filter('parentFilter')(service.recordDict);
         }
 
+        // This will add a dictionairy to the list of uploaded xml-forms
         function addInherited(dictionairy) {
             service.inheritedDict[dictionairy.profile.name] = dictionairy;
-            console.log(service.inheritedDict);
         }
 
+        // This function adds an inherited dictionairy to the session's record's inherited list
         function inheritRecord(item, dictionairy) {
-            console.log(item)
-            if(service.recordDict[item.uid].inherit) {
+            if(service.recordDict[item.uid].inherit && service.recordDict[item.uid].inherit.indexOf(dictionairy.profile.name) > -1) {
+                return; // if this record has already inherited this tailoring
+            }
+             if(service.recordDict[item.uid].inherit) {
                 service.recordDict[item.uid].inherit.push(dictionairy.profile.name);
             } else {
                 service.recordDict[item.uid].inherit = [dictionairy.profile.name];
             }
+        }
+
+        function applyOverlays( passedOverlays ) {
+            // found at http://stackoverflow.com/questions/11704509/function-that-returns-difference-of-two-arrays-of-strings-in-javascript
+            function diff(A, B) {
+                return B.filter(function (a) {
+                    return A.indexOf(a) == -1;
+                });
+            }
+
+            if(!applyOverlays.prototype.overlays) {
+                applyOverlays.prototype.overlays = [];
+            }
+
+            console.log(diff(passedOverlays, applyOverlays.prototype.overlays));
+            angular.forEach(diff(passedOverlays, applyOverlays.prototype.overlays), function(overlay) {
+                angular.forEach(service.inheritedDict[overlay], function(value, key) {
+                    var thisRecord = service.recordDict[key];
+
+                    if(!thisRecord) {
+                        // not a record
+                    } else if(thisRecord.mergeConflict === 1) {
+                        thisRecord.state = 'not';
+                        service.revertRecord(thisRecord.uid);
+
+
+                        angular.forEach(passedOverlays, function(suboverlay) {
+                            var value = service.inheritedDict[suboverlay][thisRecord.uid];
+
+                            if(value) {
+                                 service.changeRecord(value.uid,
+                                     value.state, 
+                                     value.comments.guidance,
+                                     value.comments.rationale,
+                                     value.comments.enhanceMeasure);
+                                service.recordDict[key].dirty = value.dirty;
+                            }
+                        });
+                    } else {
+                        service.revertRecord(thisRecord.uid);
+                   }
+                    console.log(service.recordDict[key]);
+                });
+            });
+
+
+
+            console.log(diff(applyOverlays.prototype.overlays, passedOverlays));
+            angular.forEach(diff(applyOverlays.prototype.overlays, passedOverlays), function(overlay) {
+
+                //service.profile.baseline = service.inheritedDict[overlay].profile.baseline;
+                angular.forEach(service.inheritedDict[overlay], function(value, key) {
+
+                    var thisRecord = service.recordDict[key];
+                    if(!thisRecord) {
+                        // not a record
+                    } else if( (thisRecord.state == 'scope' && (value.state == 'base' || value.state == 'add' || value.state == 'comp')) ||
+                        (value.state == 'scope' && (thisRecord.state == 'base' || thisRecord.state == 'add' || thisRecord.state == 'comp')) || 
+                        (value.dirty && thisRecord.dirty) ) {
+                        // conflict
+                        thisRecord.mergeConflict ++;
+                    } else {
+                        service.changeRecord(value.uid,
+                                     value.state, 
+                                     value.comments.guidance,
+                                     value.comments.rationale,
+                                     value.comments.enhanceMeasure);
+                        service.recordDict[key].dirty = value.dirty;
+                    }
+                });
+            });
+            //service.setSysBaseline();
+
+            applyOverlays.prototype.overlays = angular.copy(passedOverlays);
+
+            service.overlays = passedOverlays;
         }
 
     }

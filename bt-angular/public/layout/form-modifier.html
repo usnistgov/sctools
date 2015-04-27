@@ -2,9 +2,13 @@
   <h2 flex="20" class="md-toolbar-tools">
     <span>Modification <span ng-bind="mod.state.id"></span> </span>
   </h2>
-
-
     
+ <span flex="10">
+	  <md-select ng-model="mod.overlays" ng-change="mod.setOverlay()" style="margin-top: 1em;" ng-show="mod.srcOverlays().length>0">
+	     <md-select-label>{{'Overlay'}}</md-select-label>
+	    <md-option ng-value="opt" ng-repeat="opt in mod.srcOverlays()">{{ opt }}</md-option>
+	  </md-select>
+	</span>
 </md-toolbar>
 
 <form name="modificationForm">
@@ -47,9 +51,9 @@
 				
 				<div layout="row" layout-align="space-between center" >
 				
-					<md-button flex="20" align="left" class="md-primary" ng-click="mod.submitMod()" ng-disabled="modificationForm.$invalid || !mod.state.id" style="height: 50px;">Add Change</md-button>
+					<md-button flex="20" align="left" class="md-primary" ng-click="mod.submitMod()" ng-disabled="modificationForm.$invalid || !mod.state.id" style="height: 50px;">Add</md-button>
 
-					<md-button flex="20" align="left" class="md-warn" ng-disabled="!mod.modContains()" ng-click="mod.deleteMod()" style="height: 50px;">Delete Change</md-button>
+					<md-button flex="20" align="left" class="md-warn" ng-disabled="!mod.modContains()" ng-click="mod.deleteMod()" style="height: 50px;">Delete</md-button>
 
 					
 
@@ -69,7 +73,7 @@
 
 			</div>
 			<div flex layout="row" layout-align="space-between center" layout-wrap>
-				<md-select flex="100" ng-model="mod.inheritedTailoring" ng-change="mod.inheritMeasure()" style="margin-top: 1em;" multiple>
+				<md-select flex="100" ng-model="mod.inheritedTailoring" style="margin-top: 1em;" multiple>
 			     <md-select-label>{{'Inherited Controls: '+(mod.inheritedTailoring?mod.inheritedTailoring:'nothing')}}</md-select-label>
 			    <md-option ng-value="opt.profile.name" ng-repeat="opt in mod.inherited()">{{ (opt.profile.name.length>0)?opt.profile.name:'nothing' }}</md-option>
 			  </md-select>
@@ -77,9 +81,7 @@
 				<md-content flex class="md-padding" layout-align="space-between center" style="overflow-y:scroll">
 					<md-list>
 						<md-item ng-repeat=" inh in mod.inheritedTailoring">
-							
-							
-							
+	
 
 							<md-item-content layout="row" layout-align="space-around center">
 							<div ng-switch on="mod.inheritedDict[inh][mod.state.id].state">			
@@ -91,7 +93,7 @@
 							</div>
 					        <div class="md-tile-content" flex>
 								
-								 <history-item modification="mod.inheritedDict[inh][mod.state.id]" uid="mod.inheritedDict[inh][mod.state.id].uid" ng-class="{'border: black':true}"></history-item>
+								 <history-item modification="mod.inheritedDict[inh][mod.state.id]" uid="inh" ng-class="{'border: black':true}"></history-item>
 
 							</div>
 

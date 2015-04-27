@@ -13,10 +13,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.listen(8004);
 
-getSP80053P().then(function(data, err) {
-	fs.writeFile(__dirname+'/800-53-controls-processed.xml', JSON.stringify(x(data['controls:controls']['controls:control'])));
+// getSP80053P().then(function(data, err) {
+// 	fs.writeFile(__dirname+'/800-53-controls-processed.xml', JSON.stringify(getControls(data['controls:controls']['controls:control'])));
 
-})
+// });
 
 // This is a route for the web app to get a datastructure containing pertinent information on the sp800-53 document
 app.get('/json', function(req, res) {
@@ -113,11 +113,13 @@ app.post('/xml', function(req, res) {
 		}
 		return def.promise;
 	}
+
+	// this is the function meant to be used as a constructor for userRecords
 function Record( uid, state, dirty, baseline, family, priority, title , enhancements) {
             this.uid = uid;
             this.state = state;
             this.dirty = dirty?true:false;
-
+            this.mergeConflict = 0;
             this.inherit = null;
             this.comments = {
                 text:null,
@@ -133,7 +135,7 @@ function Record( uid, state, dirty, baseline, family, priority, title , enhancem
             };
         }
 	// this  code is used to transform 800-53-controls.json into 800-53-controls-processed.json
-	function x(data) {
+	function getControls(data) {
 		var service = { recordDict: {}};
 			for( var i = 0; i < data.length; i ++ ) {
 	            var temp = new Record( data[i].number[0],
