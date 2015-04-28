@@ -156,20 +156,20 @@
             return $filter('parentFilter')(service.recordDict);
         }
 
-        // This will add a dictionairy to the list of uploaded xml-forms
-        function addInherited(dictionairy) {
-            service.inheritedDict[dictionairy.profile.name] = dictionairy;
+        // This will add a dictionary to the list of uploaded xml-forms
+        function addInherited(dictionary) {
+            service.inheritedDict[dictionary.profile.name] = dictionary;
         }
 
-        // This function adds an inherited dictionairy to the session's record's inherited list
-        function inheritRecord(item, dictionairy) {
-            if(service.recordDict[item.uid].inherit && service.recordDict[item.uid].inherit.indexOf(dictionairy.profile.name) > -1) {
+        // This function adds an inherited dictionary to the session's record's inherited list
+        function inheritRecord(item, dictionary) {
+            if(service.recordDict[item.uid].inherit && service.recordDict[item.uid].inherit.indexOf(dictionary.profile.name) > -1) {
                 return; // if this record has already inherited this tailoring
             }
              if(service.recordDict[item.uid].inherit) {
-                service.recordDict[item.uid].inherit.push(dictionairy.profile.name);
+                service.recordDict[item.uid].inherit.push(dictionary.profile.name);
             } else {
-                service.recordDict[item.uid].inherit = [dictionairy.profile.name];
+                service.recordDict[item.uid].inherit = [dictionary.profile.name];
             }
         }
 
@@ -185,6 +185,11 @@
                 });
             }
 
+            function higher(A, B) {
+                var test = { "Low":1, "Moderate":2, "High":3 };
+                return !B || (test[A] > test[B]);
+            }
+
             if(!applyOverlays.prototype.overlays) {
                 applyOverlays.prototype.overlays = [];
             }
@@ -195,6 +200,9 @@
                     var thisRecord = service.recordDict[key];
 
                     if(!thisRecord) {
+                        if(value.baseline === service.profile.baseline) {
+                            service.profile.baseline = "";
+                        }
                         // not a record
                     } else if(thisRecord.mergeConflict === 1) {
                         thisRecord.state = 'not';
@@ -228,6 +236,9 @@
 
                     var thisRecord = service.recordDict[key];
                     if(!thisRecord) {
+                        if( higher(value.baseline, service.profile.baseline) ) {
+                            service.profile.baseline = value.baseline;
+                        }       
                         // not a record
                     } else if( (thisRecord.state == 'scope' && (value.state == 'base' || value.state == 'add' || value.state == 'comp')) ||
                         (value.state == 'scope' && (thisRecord.state == 'base' || thisRecord.state == 'add' || thisRecord.state == 'comp')) || 
@@ -244,7 +255,7 @@
                     }
                 });
             });
-            //service.setSysBaseline();
+            service.setSysBaseline();
 
             applyOverlays.prototype.overlays = angular.copy(passedOverlays);
 
