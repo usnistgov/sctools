@@ -45,7 +45,6 @@
         function linkXML() {
             var toDown = { records: UserRecords.dirtySubSet(), profile: UserRecords.profile };
             SecurityMeasuresJSON.getXML(toDown).success( function(data) {
-                console.log(data);
 
                 // following section found at: http://stackoverflow.com/questions/20300547/download-csv-file-from-web-api-in-angular-js
                 var hiddenElement = document.createElement('a');
@@ -64,11 +63,9 @@
                 );
                 var img = new Image();
                 img.onload = function() { 
-                        console.log("SUPPORT"); 
                          openSaveAsDialog(hiddenElement.download, data, 'data:text/xml');
                     };
                 img.onerror = function() { 
-                        console.log("unsupported"); 
                         var win = window.open(hiddenElement.href);    
                         if(!win || win.closed || typeof win.closed=='undefined') 
                         { 
@@ -142,82 +139,7 @@
         // it loops through each overlay in the selected array and updates the current user Records
         // it handles collisions on a first come first serve basis
         function applyOverlays() {
-
             UserRecords.applyOverlays(vm.overlays);
-            // // found at http://stackoverflow.com/questions/11704509/function-that-returns-difference-of-two-arrays-of-strings-in-javascript
-            // function diff(A, B) {
-            //     return B.filter(function (a) {
-            //         return A.indexOf(a) == -1;
-            //     });
-            // }
-
-            // if(!applyOverlays.prototype.overlays) {
-            //     applyOverlays.prototype.overlays = [];
-            // }
-
-            // console.log(diff(vm.overlays, applyOverlays.prototype.overlays));
-            // angular.forEach(diff(vm.overlays, applyOverlays.prototype.overlays), function(overlay) {
-            //     angular.forEach(UserRecords.inheritedDict[overlay], function(value, key) {
-            //         var thisRecord = UserRecords.recordDict[key];
-
-            //         if(!thisRecord) {
-            //             // not a record
-            //         } else if(thisRecord.mergeConflict === 1) {
-            //             thisRecord.state = 'not';
-            //             UserRecords.revertRecord(thisRecord.uid);
-
-
-            //             angular.forEach(vm.overlays, function(suboverlay) {
-            //                 var value = UserRecords.inheritedDict[suboverlay][thisRecord.uid];
-
-            //                 if(value) {
-            //                      UserRecords.changeRecord(value.uid,
-            //                          value.state, 
-            //                          value.comments.guidance,
-            //                          value.comments.rationale,
-            //                          value.comments.enhanceMeasure);
-            //                     UserRecords.recordDict[key].dirty = value.dirty;
-            //                 }
-            //             });
-            //         } else {
-            //             UserRecords.revertRecord(thisRecord.uid);
-            //        }
-            //         console.log(UserRecords.recordDict[key]);
-            //     });
-            // });
-
-
-
-            // console.log(diff(applyOverlays.prototype.overlays, vm.overlays));
-            // angular.forEach(diff(applyOverlays.prototype.overlays, vm.overlays), function(overlay) {
-
-            //     //UserRecords.profile.baseline = UserRecords.inheritedDict[overlay].profile.baseline;
-            //     angular.forEach(UserRecords.inheritedDict[overlay], function(value, key) {
-
-            //         var thisRecord = UserRecords.recordDict[key];
-            //         if(!thisRecord) {
-            //             // not a record
-            //         } else if( (thisRecord.state == 'scope' && (value.state == 'base' || value.state == 'add' || value.state == 'comp')) ||
-            //             (value.state == 'scope' && (thisRecord.state == 'base' || thisRecord.state == 'add' || thisRecord.state == 'comp')) || 
-            //             (value.dirty && thisRecord.dirty) ) {
-            //             // conflict
-            //             thisRecord.mergeConflict ++;
-            //         } else {
-            //             UserRecords.changeRecord(value.uid,
-            //                          value.state, 
-            //                          value.comments.guidance,
-            //                          value.comments.rationale,
-            //                          value.comments.enhanceMeasure);
-            //             UserRecords.recordDict[key].dirty = value.dirty;
-            //         }
-            //     });
-            // });
-            // //UserRecords.setSysBaseline();
-
-            // applyOverlays.prototype.overlays = angular.copy(vm.overlays);
-
-            // UserRecords.overlays = vm.overlays;
-            
         }
 
     }

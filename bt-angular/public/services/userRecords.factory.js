@@ -16,23 +16,25 @@
         var service = {
             
             // config information
-            profile: { name:'', baseline:''},
-            inheritedDict: {},
-            addInherited: addInherited,
-            overlays: [],
-            Record: Record,
-            recordDict: {},
-            focusRecord: new Record(),
-            focusID: focusID,
-            initRecords: initRecords,
-            revertRecord: revertRecord,
-            changeRecord: changeRecord,
-            setSysBaseline: setSysBaseline,
-            dirtySubSet: dirtySubSet,
-            parentSubSet: parentSubSet,
-            registerFocusCallback: registerFocusCallback,
-            inheritRecord: inheritRecord,
-            applyOverlays: applyOverlays
+            profile: { name:'', baseline:''},   // session information  
+            inheritedDict: {},                  // list of uploaded dictionairies
+            addInherited: addInherited,         // function that adds to inheritedDict
+            overlays: [],                       // list of uploaded dictionaires that are overlays
+            Record: Record,                     // constructor function
+            
+            recordDict: {},                     // list of 80053 controls and changes (Used Constantly)
+            
+            focusRecord: new Record(),          // the currently selected record
+            focusID: focusID,                   // function that changes the focus record
+            initRecords: initRecords,           // function that sets recordDict
+            revertRecord: revertRecord,         // function that removes a change
+            changeRecord: changeRecord,         // function that adds a change
+            setSysBaseline: setSysBaseline,     // function that updates recordDict for the baseline
+            dirtySubSet: dirtySubSet,           // function that returns changed records
+            parentSubSet: parentSubSet,         // function that returns all non-enhancement records
+            registerFocusCallback: registerFocusCallback,   // function that registers a function to be called on focusId
+            inheritRecord: inheritRecord,       // function that adds a dictionairy to a records inherit list
+            applyOverlays: applyOverlays        // function that incorporates overlays into the tailoring
 
         };
         return service;
@@ -171,6 +173,10 @@
             }
         }
 
+
+        // This function will handle merging overlays into the tailoring
+        // This function does a first come first serve collision strategy
+        // May not deal with multiple inheritance in the desired way
         function applyOverlays( passedOverlays ) {
             // found at http://stackoverflow.com/questions/11704509/function-that-returns-difference-of-two-arrays-of-strings-in-javascript
             function diff(A, B) {
@@ -183,7 +189,7 @@
                 applyOverlays.prototype.overlays = [];
             }
 
-            console.log(diff(passedOverlays, applyOverlays.prototype.overlays));
+            // these are the recently removed overlays
             angular.forEach(diff(passedOverlays, applyOverlays.prototype.overlays), function(overlay) {
                 angular.forEach(service.inheritedDict[overlay], function(value, key) {
                     var thisRecord = service.recordDict[key];
@@ -210,13 +216,11 @@
                     } else {
                         service.revertRecord(thisRecord.uid);
                    }
-                    console.log(service.recordDict[key]);
                 });
             });
 
 
-
-            console.log(diff(applyOverlays.prototype.overlays, passedOverlays));
+            // these are the newly added overlays
             angular.forEach(diff(applyOverlays.prototype.overlays, passedOverlays), function(overlay) {
 
                 //service.profile.baseline = service.inheritedDict[overlay].profile.baseline;

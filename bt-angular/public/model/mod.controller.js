@@ -14,9 +14,7 @@
         /*jshint validthis: true */
         var vm = this;
         vm.title = 'ModCtrl';
-        vm.dirty = false;
-        vm.data = [];
-        vm.state = {
+        vm.state = {    // the state of the controller
 
             id: null,
             status: null,
@@ -27,7 +25,7 @@
         };
         vm.inheritedTailoring = []; // the list of selected files
         vm.inheritedDict = UserRecords.inheritedDict; // the list of available files
-        vm.overlays = UserRecords.overlays;
+        vm.overlays = UserRecords.overlays; // the list of overlays
 
         vm.modContains = modContains;
         vm.deleteMod = deleteMod;        
@@ -76,28 +74,18 @@
             UserRecords.revertRecord(UserRecords.focusRecord.uid);
             UserRecords.focusID(UserRecords.focusRecord.uid);
             vm.clearMod();
-            // UserRecords.deleteRecord();
-            // vm.dirty = false;
         }
 
         // submits the current record
         function submitMod() {
 
-                UserRecords.focusRecord.inherit = vm.inheritedTailoring;
+            UserRecords.focusRecord.inherit = vm.inheritedTailoring;
             UserRecords.changeRecord(vm.state.id,
                                      vm.state.status, 
                                      vm.state.guidance,
                                      vm.state.rationale,
                                      vm.state.enhanceMeasure);
 
-            if(vm.inheritedTailoring) {
-                // var parentRecord = UserRecords.inheritedDict[vm.inheritedTailoring][UserRecords.focusRecord.uid];
-                
-                // UserRecords.inheritRecord(parentRecord, UserRecords.inheritedDict[vm.inheritedTailoring]);
-            }
-            // UserRecords.submitRecord();
-            // vm.dirty = false;
-            // console.log(UserRecords.dirtySubSet());
         }
 
         // this clears the current state
@@ -154,12 +142,14 @@
             return filtered;
         }
 
+        // function returns overlays that apply to the focusRecord
         function srcOverlays() {
             return UserRecords.overlays.filter(function(overlay) {
                 return UserRecords.inheritedDict[overlay][vm.state.id];
             });
         }
 
+        // function that helps resolve overlay multiple inheritance (user selects parent)
         function setOverlay() {
             console.log(vm.overlays);
             vm.state.id = UserRecords.inheritedDict[vm.overlays][vm.state.id].uid;
