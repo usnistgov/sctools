@@ -260,6 +260,8 @@
             applyOverlays.prototype.overlays = angular.copy(passedOverlays);
 
             service.overlays = passedOverlays;
+
+            service.focusID(service.focusRecord.uid);
         }
 
     }
