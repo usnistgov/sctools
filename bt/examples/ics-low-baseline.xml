@@ -1,0 +1,1282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tailoredBaseline>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-1">
+         <title>ACCESS CONTROL POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems. ICS access by vendors and maintenance staff can occur over a very large facility footprint or geographic area and into unobserved spaces such as mechanical/electrical rooms, ceilings, floors, field substations, switch and valve vaults, and pump stations.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-2">
+         <title>ACCOUNT MANAGEMENT</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include providing increased physical security, personnel security, intrusion detection, auditing measures.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-3">
+         <title>ACCESS ENFORCEMENT</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The organization ensures that access enforcement mechanisms do not adversely impact the operational performance of the ICS. Example compensating controls include encapsulation. Policy for logical access control to Non-Addressable and Non-Routable system resources and the associated information is made explicit. Access control mechanisms include hardware, firmware, and software that controls or has device access, such as device drivers and communications controllers. Physical access control may serve as a compensating control for logical access control, however, it may not provide sufficient granularity in situations where users require access to different functions. Logical access enforcement may be implemented in encapsulating hardware and software.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-7">
+         <title>UNSUCCESSFUL LOGON ATTEMPTS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Many ICS must remain continuously on and operators remain logged onto the system at all times. A “log-over” capability may be employed. Example compensating controls include logging or recording all unsuccessful login attempts and alerting ICS security personnel though alarms or other means when the number of organization-defined consecutive invalid access attempts is exceeded.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-8">
+         <title>SYSTEM USE NOTIFICATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Many ICS must remain continuously on and system use notification may not be supported or effective. Example compensating controls include posting physical notices in ICS facilities.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-14">
+         <title>PERMITTED ACTIONS WITHOUT IDENTIFICATION OR AUTHENTICATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-17">
+         <title>REMOTE ACCESS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">In situations where the ICS cannot implement any or all of the components of this control, the organization employs other mechanisms or procedures as compensating controls in accordance with the general tailoring guidance. Example compensating controls include employing nonautomated mechanisms or procedures as compensating controls in accordance with the general tailoring guidance.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-18">
+         <title>WIRELESS ACCESS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">In situations where the ICS cannot implement any or all of the components of this control, the organization employs other mechanisms or procedures as compensating controls in accordance with the general tailoring guidance.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-19">
+         <title>ACCESS CONTROL FOR MOBILE DEVICES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-20">
+         <title>USE OF EXTERNAL INFORMATION SYSTEMS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Organizations refine the definition of “external” to reflect lines of authority and responsibility; granularity of organization entity; and their relationships. An organization may consider a system to be external if that system performs different functions, implements different policies, comes under different managers, or does not provide sufficient visibility into the implementation of security controls to allow the establishment of a satisfactory trust relationship. For example, a process control system and a business data processing system would typically be considered external to each other. Access to an ICS for support by a business partner, such as a vendor or support contractor, is another common example. The definition and trustworthiness of external information systems is reexamined with respect to ICS functions, purposes, technology, and limitations to establish a clear documented technical or business case for use and an acceptance of the risk inherent in the use of an external information system.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>ACCESS CONTROL</family>
+      <rationale flag="false"/>
+      <control number="AC-22">
+         <title>PUBLICLY ACCESSIBLE CONTENT</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Generally, public access to ICS systems is not permitted. Selected information may be transferred to a publicly accessible information system, possibly with added controls (e.g., introduction of fuzziness or delay).</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AWARENESS AND TRAINING</family>
+      <rationale flag="false"/>
+      <control number="AC-1">
+         <title>ACCESS CONTROL POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AWARENESS AND TRAINING</family>
+      <rationale flag="false"/>
+      <control number="AT-2">
+         <title>SECURITY AWARENESS TRAINING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Security awareness training includes initial and periodic review of ICS-specific policies, standard operating procedures, security trends, and vulnerabilities. The ICS security awareness program is consistent with the requirements of the security awareness and training policy established by the organization.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AWARENESS AND TRAINING</family>
+      <rationale flag="false"/>
+      <control number="AT-3">
+         <title>ROLE-BASED SECURITY TRAINING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Security training includes initial and periodic review of ICS-specific policies, standard operating procedures, security trends, and vulnerabilities. The ICS security training program is consistent with the requirements of the security awareness and training policy established by the organization.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AWARENESS AND TRAINING</family>
+      <rationale flag="false"/>
+      <control number="AT-4">
+         <title>SECURITY TRAINING RECORDS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="false"/>
+      <control number="AU-1">
+         <title>AUDIT AND ACCOUNTABILITY POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="false"/>
+      <control number="AU-2">
+         <title>AUDIT EVENTS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The organization may designate ICS events as audit events, requiring that ICS data and/or telemetry be recorded as audit data.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="false"/>
+      <control number="AU-3">
+         <title>CONTENT OF AUDIT RECORDS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include providing an auditing capability on a separate information system.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="true">Legacy ICS components typically do not have capacity to store or analyze audit data. The retention periods for some data, particularly compliance data, may require large volumes of storage.</rationale>
+      <control number="AU-4">
+         <title>AUDIT STORAGE CAPACITY</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+      <enhancement number="1">
+         <title>TRANSFER TO ALTERNATE STORAGE</title>
+         <default value="4"/>
+         <impact value="1"/>
+         <guidance flag="true">Legacy ICS typically are typically configured with remote storage on a separate information system (e.g., the historian accumulates historical operational ICS data and is backed up for storage at a different site). ICS are currently using online backup services and increasingly moving to Cloud based and Virtualized services. Retention of some data (e.g., SCADA telemetry) may be required by regulatory authorities.</guidance>
+      </enhancement>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="false"/>
+      <control number="AU-5">
+         <title>RESPONSE TO AUDIT PROCESSING FAILURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="false"/>
+      <control number="AU-6">
+         <title>AUDIT REVIEW, ANALYSIS, AND REPORTING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="false"/>
+      <control number="AU-8">
+         <title>TIME STAMPS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include using a separate information system designated as an authoritative time source.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="false"/>
+      <control number="AU-9">
+         <title>PROTECTION OF AUDIT INFORMATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="false"/>
+      <control number="AU-11">
+         <title>AUDIT RECORD RETENTION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>AUDIT AND ACCOUNTABILITY</family>
+      <rationale flag="false"/>
+      <control number="AU-12">
+         <title>AUDIT GENERATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
+      <rationale flag="false"/>
+      <control number="CA-1">
+         <title>SECURITY ASSESSMENT AND AUTHORIZATION POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
+      <rationale flag="false"/>
+      <control number="CA-2">
+         <title>SECURITY ASSESSMENTS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Assessments are performed and documented by qualified assessors (i.e., experienced in assessing ICS) authorized by the organization. The organization ensures that assessments do not interfere with ICS functions. The individual/group conducting the assessment fully understands the organizational information security policies and procedures, the ICS security policies and procedures, and the specific health, safety, and environmental risks associated with a particular facility and/or process. The organization ensures that the assessment does not affect system operation or result in intentional or unintentional system modification. If assessment activities must be performed on the production ICS, it may need to be taken off-line before an assessment can be conducted. If an ICS must be taken off-line to conduct an assessment, the assessment is scheduled to occur during planned ICS outages whenever possible.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
+      <rationale flag="false"/>
+      <control number="CA-3">
+         <title>SYSTEM INTERCONNECTIONS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Organizations perform risk-benefit analysis to support determination whether an ICS should be connected to other information system(s). The Authorizing Official fully understands the organizational information security policies and procedures; the ICS security policies and procedures; the risks to organizational operations and assets, individuals, other organizations, and the Nation associated with the connected to other information system(s); and the specific health, safety, and environmental risks associated with a particular interconnection. The AO documents risk acceptance in the ICS system security plan.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
+      <rationale flag="false"/>
+      <control number="CA-5">
+         <title>PLAN OF ACTION AND MILESTONES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
+      <rationale flag="false"/>
+      <control number="CA-6">
+         <title>SECURITY AUTHORIZATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
+      <rationale flag="false"/>
+      <control number="CA-7">
+         <title>CONTINUOUS MONITORING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Continuous monitoring programs for ICS are designed, documented, and implemented by qualified personnel (i.e., experienced with ICS) selected by the organization. The organization ensures that continuous monitoring does not interfere with ICS functions. The individual/group designing and conducting the continuous monitoring fully understands the organizational information security policies and procedures, the ICS security policies and procedures, and the specific health, safety, and environmental risks associated with a particular facility and/or process. The organization ensures that continuous monitoring does not affect system operation or result in intentional or unintentional system modification. Example compensating controls include external monitoring.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SECURITY ASSESSMENT AND AUTHORIZATION</family>
+      <rationale flag="false"/>
+      <control number="CA-9">
+         <title>INTERNAL SYSTEM CONNECTIONS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Organizations perform risk-benefit analysis to support determination whether an ICS should be connected to other internal information system(s) and (separate) constituent system components. The Authorizing Official fully understands the organizational information security policies and procedures; the ICS security policies and procedures; the risks to organizational operations and assets, individuals, other organizations, and the Nation associated with the connected to other information system(s) and (separate) constituent system components, whether by authorizing each individual internal connection or authorizing internal connections for a class of components with common characteristics and/or configurations; and the specific health, safety, and environmental risks associated with a particular interconnection. The AO documents risk acceptance in the ICS system security plan.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONFIGURATION MANAGEMENT</family>
+      <rationale flag="false"/>
+      <control number="CM-1">
+         <title>CONFIGURATION MANAGEMENT POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONFIGURATION MANAGEMENT</family>
+      <rationale flag="false"/>
+      <control number="CM-2">
+         <title>BASELINE CONFIGURATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONFIGURATION MANAGEMENT</family>
+      <rationale flag="false"/>
+      <control number="CM-4">
+         <title>SECURITY IMPACT ANALYSIS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The organization considers ICS safety and security interdependencies.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONFIGURATION MANAGEMENT</family>
+      <rationale flag="false"/>
+      <control number="CM-6">
+         <title>CONFIGURATION SETTINGS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONFIGURATION MANAGEMENT</family>
+      <rationale flag="true">(1) Periodic review and removal of unnecessary and/or nonsecure functions, ports, protocols, and services are added to the LOW baseline because many of the LOW impact ICS components could adversely affect the systems to which they are connected.
+    (4, 5) Whitelisting (CE 5) is more effective than blacklisting (CE 4). The set of applications that run in ICS is essentially static, making whitelisting practical. ICS-CERT recommends deploying application whitelisting on ICS. Reference: http://ics-cert.us-cert.gov/tips/ICS-TIP-12-146-01B</rationale>
+      <control number="CM-7">
+         <title>LEAST FUNCTIONALITY</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Ports, as used in SP 800-53, are part of the address space in network protocols and are often associated with specific protocols or functions. As such, ports are not relevant to non-routable protocols and devices. When dealing with non-routable and non-addressable protocols and devices, prohibiting or restricting the use of specified functions, protocols, and/or services must be implemented for the (sub)system granularity that is available (e.g., at a low level, interrupts could be disabled; at a high level, set points could be made read-only except for privileged users). Example compensating controls include employing nonautomated mechanisms or procedures.</guidance>
+      </control>
+      <enhancement number="1">
+         <title>PERIODIC REVIEW</title>
+         <default value="2"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </enhancement>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONFIGURATION MANAGEMENT</family>
+      <rationale flag="false"/>
+      <control number="CM-8">
+         <title>INFORMATION SYSTEM COMPONENT INVENTORY</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONFIGURATION MANAGEMENT</family>
+      <rationale flag="false"/>
+      <control number="CM-10">
+         <title>SOFTWARE USAGE RESTRICTIONS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONFIGURATION MANAGEMENT</family>
+      <rationale flag="false"/>
+      <control number="CM-11">
+         <title>USER-INSTALLED SOFTWARE</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONFIGURATION MANAGEMENT</family>
+      <rationale flag="false"/>
+      <control number="CM-11">
+         <title>USER-INSTALLED SOFTWARE</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONTINGENCY PLANNING</family>
+      <rationale flag="false"/>
+      <control number="CP-1">
+         <title>CONTINGENCY PLANNING POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONTINGENCY PLANNING</family>
+      <rationale flag="false"/>
+      <control number="CP-2">
+         <title>CONTINGENCY PLAN</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The organization defines contingency plans for categories of disruptions or failures. In the event of a loss of processing within the ICS or communication with operational facilities, the ICS executes predetermined procedures (e.g., alert the operator of the failure and then do nothing, alert the operator and then safely shut down the industrial process, alert the operator and then maintain the last operational setting prior to failure).</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONTINGENCY PLANNING</family>
+      <rationale flag="false"/>
+      <control number="CP-3">
+         <title>CONTINGENCY TRAINING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONTINGENCY PLANNING</family>
+      <rationale flag="false"/>
+      <control number="CP-4">
+         <title>CONTINGENCY PLAN TESTING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONTINGENCY PLANNING</family>
+      <rationale flag="false"/>
+      <control number="CP-9">
+         <title>INFORMATION SYSTEM BACKUP</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>CONTINGENCY PLANNING</family>
+      <rationale flag="false"/>
+      <control number="CP-10">
+         <title>INFORMATION SYSTEM RECOVERY AND RECONSTITUTION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Reconstitution of the ICS includes consideration whether system state variables should be restored to initial values or values before disruption (e.g., are valves restored to full open, full closed, or settings prior to disruption). Restoring system state variables may be disruptive to ongoing physical processes (e.g., valves initially closed may adversely affect system cooling).</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>IDENTIFICATION AND AUTHENTICATION</family>
+      <rationale flag="false"/>
+      <control number="IA-1">
+         <title>IDENTIFICATION AND AUTHENTICATION POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>IDENTIFICATION AND AUTHENTICATION</family>
+      <rationale flag="false"/>
+      <control number="IA-2">
+         <title>IDENTIFICATION AND AUTHENTICATION (ORGANIZATIONAL USERS)</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Where users function as a single group (e.g., control room operators), user identification and authentication may be role-based, group-based, or device-based. For certain ICS, the capability for immediate operator interaction is critical. Local emergency actions for ICS are not hampered by identification or authentication requirements. Access to these systems may be restricted by appropriate physical security controls. Example compensating controls include providing increased physical security, personnel security, and auditing measures. For example, manual voice authentication of remote personnel and local, manual actions may be required in order to establish a remote access. See AC-17 ICS Supplemental Guidance. Local user access to ICS components is enabled only when necessary, approved, and authenticated.</guidance>
+      </control>
+      <enhancement number="1">
+         <title>NETWORK ACCESS TO PRIVILEGED ACCOUNTS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include implementing physical security measures.</guidance>
+      </enhancement>
+      <enhancement number="12">
+         <title>ACCEPTANCE OF PIV CREDENTIALS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include implementing support for PIV external to the ICS.</guidance>
+      </enhancement>
+   </tailoredControl>
+   <tailoredControl>
+      <family>IDENTIFICATION AND AUTHENTICATION</family>
+      <rationale flag="true">ICS may exchange information with many external systems and devices. Identifying and authenticating the devices introduces situations that do not exist with humans. These controls include assignments that enable the organization to specifically enumerated that are selected; or to categorize devices by types, models, or other group characteristics. Assignments also enable the organizations to select appropriate controls for local, remote, and network connections.</rationale>
+      <control number="IA-3">
+         <title>DEVICE IDENTIFICATION AND AUTHENTICATION</title>
+         <default value="2"/>
+         <impact value="1"/>
+         <guidance flag="true">The organization may permit connection of devices, also known as non-person entities (NPE), belonging to and authorized by another organization (e.g., business partners) to their ICS. Especially when these devices are non-local, their identification and authentication can be vital. Organizations may perform risk and impact analysis to determine the required strength of authentication mechanisms. Example compensating controls for devices and protocols which do not provide authentication for remote network connections, include implementing physical security measures.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>IDENTIFICATION AND AUTHENTICATION</family>
+      <rationale flag="false"/>
+      <control number="IA-4">
+         <title>IDENTIFIER MANAGEMENT</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>IDENTIFICATION AND AUTHENTICATION</family>
+      <rationale flag="false"/>
+      <control number="IA-5">
+         <title>AUTHENTICATOR MANAGEMENT</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include physical access control, encapsulating the ICS to provide authentication external to the ICS.</guidance>
+      </control>
+      <enhancement number="1">
+         <title>PASSWORD-BASED AUTHENTICATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </enhancement>
+      <enhancement number="11">
+         <title>HARDWARE TOKEN-BASED AUTHENTICATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </enhancement>
+   </tailoredControl>
+   <tailoredControl>
+      <family>IDENTIFICATION AND AUTHENTICATION</family>
+      <rationale flag="false"/>
+      <control number="IA-6">
+         <title>AUTHENTICATOR FEEDBACK</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">This control assumes a visual interface that provides feedback of authentication information during the authentication process. When ICS authentication uses an interface that does not support visual feedback, (e.g., protocol-based authentication) this control may be tailored out.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>IDENTIFICATION AND AUTHENTICATION</family>
+      <rationale flag="false"/>
+      <control number="IA-7">
+         <title>CRYPTOGRAPHIC MODULE AUTHENTICATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>IDENTIFICATION AND AUTHENTICATION</family>
+      <rationale flag="false"/>
+      <control number="IA-8">
+         <title>IDENTIFICATION AND AUTHENTICATION (NON-ORGANIZATIONAL USERS)</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The ICS Supplemental Guidance for IA-2, Identification and Authentication (Organizational Users), is applicable for Non- Organizational Users.</guidance>
+      </control>
+      <enhancement number="1">
+         <title>ACCEPTANCE OF PIV CREDENTIALS FROM OTHER AGENCIES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include implementing support external to the ICS and multi-factor authentication.</guidance>
+      </enhancement>
+      <enhancement number="2">
+         <title>ACCEPTANCE OF THIRD-PARTY CREDENTIALS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="1"/>
+      </enhancement>
+      <enhancement number="3">
+         <title>USE OF FICAM-APPROVED PRODUCTS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="1"/>
+      </enhancement>
+      <enhancement number="4">
+         <title>USE OF FICAM-ISSUED PROFILES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="1"/>
+      </enhancement>
+   </tailoredControl>
+   <tailoredControl>
+      <family>INCIDENT RESPONSE</family>
+      <rationale flag="false"/>
+      <control number="IR-1">
+         <title>INCIDENT RESPONSE POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>INCIDENT RESPONSE</family>
+      <rationale flag="false"/>
+      <control number="IR-2">
+         <title>INCIDENT RESPONSE TRAINING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>INCIDENT RESPONSE</family>
+      <rationale flag="false"/>
+      <control number="IR-4">
+         <title>INCIDENT HANDLING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>INCIDENT RESPONSE</family>
+      <rationale flag="false"/>
+      <control number="IR-5">
+         <title>INCIDENT MONITORING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>INCIDENT RESPONSE</family>
+      <rationale flag="false"/>
+      <control number="IR-6">
+         <title>INCIDENT REPORTING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The organization should report incidents on a timely basis. The DHS National Cybersecurity &amp; Communications Integration Center (NCCIC), http://www.dhs.gov/about-national-cybersecurity-communications-integration-center serves as a centralized location where operational elements involved in cybersecurity and communications reliance are coordinated and integrated. The Industrial Control Systems Cyber Emergency Response Team (ICS-CERT) http://ics-cert.us-cert.gov/ics-cert/ collaborates with international and private sector Computer Emergency Response Teams (CERTs) to share control systems-related security incidents and mitigation measures.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>INCIDENT RESPONSE</family>
+      <rationale flag="false"/>
+      <control number="IR-7">
+         <title>INCIDENT RESPONSE ASSISTANCE</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>INCIDENT RESPONSE</family>
+      <rationale flag="false"/>
+      <control number="IR-8">
+         <title>INCIDENT RESPONSE PLAN</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>MAINTENANCE</family>
+      <rationale flag="false"/>
+      <control number="MA-1">
+         <title>SYSTEM MAINTENANCE POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>MAINTENANCE</family>
+      <rationale flag="false"/>
+      <control number="MA-2">
+         <title>CONTROLLED MAINTENANCE</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>MAINTENANCE</family>
+      <rationale flag="false"/>
+      <control number="MA-4">
+         <title>NONLOCAL MAINTENANCE</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>MAINTENANCE</family>
+      <rationale flag="false"/>
+      <control number="MA-5">
+         <title>MAINTENANCE PERSONNEL</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>MEDIA PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="MP-1">
+         <title>MEDIA PROTECTION POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>MEDIA PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="MP-2">
+         <title>MEDIA ACCESS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>MEDIA PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="MP-6">
+         <title>MEDIA SANITIZATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>MEDIA PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="MP-7">
+         <title>MEDIA USE</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="PE-1">
+         <title>PHYSICAL AND ENVIRONMENTAL PROTECTION POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems. The ICS components can be distributed over a large facility footprint or geographic area and can be an entry point into the entire organizational network ICS. Regulatory controls may also apply.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="PE-2">
+         <title>PHYSICAL ACCESS AUTHORIZATIONS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="PE-3">
+         <title>PHYSICAL ACCESS CONTROL</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The organization considers ICS safety and security interdependencies. The organization considers access requirements in emergency situations. During an emergency-related event, the organization may restrict access to ICS facilities and assets to authorized individuals only. ICS are often constructed of devices that either do not have or cannot use comprehensive access control capabilities due to time-restrictive safety constraints. Physical access controls and defense-in-depth measures are used by the organization when necessary and possible to supplement ICS security when electronic mechanisms are unable to fulfill the security requirements of the organization’s security plan. Primary nodes, distribution closets, and mechanical/electrical rooms should be locked and require key or electronic access control and incorporate intrusion detection sensors.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="true">Many of the ICS components are in remote geographical and dispersed locations with little capability to monitor all ICS components. Other components may be in ceilings, floors, or distribution closets with minimal physical barriers to detect, delay or deny access to the devices and no electronic surveillance or guard forces response capability.</rationale>
+      <control number="PE-6">
+         <title>MONITORING PHYSICAL ACCESS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Physical access controls and defense-in-depth measures are used as compensating controls by the organization when necessary and possible to supplement ICS security when electronic mechanisms are unable to monitor, detect and alarm when an ICS has been accessed. These compensating controls are in addition to the PE-6 controls (e.g., employing PE-3(4) Lockable Casings and/or PE-3(5) Tamper Protection).</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="PE-8">
+         <title>VISITOR ACCESS RECORDS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="true">ICS may support critical activities which will be needed for safety and reliability even in the absence of reliable power from the public grid.</rationale>
+      <control number="PE-11">
+         <title>EMERGENCY POWER</title>
+         <default value="2"/>
+         <impact value="1"/>
+         <guidance flag="true">Emergency power production, transmission and distribution systems are a type of ICS that are required to meet extremely high performance specifications. The systems are governed by international, national, state and local building codes, must be tested on a continual basis, and must be repaired and placed back into operations within a short period of time. Traditionally, emergency power has been provided by generators for short to mid-term power (typically for fire and life safety systems, some IT load, and evacuation transport) and UPS battery packs in distribution closets and within work areas to allow some level of business continuity and for the orderly shutdown of non-essential IT and facility systems. Traditional emergency power systems typically are off-line until a loss of power occurs and are typically on a separate network and control system specific to the facility they support. New methods of energy generation and storage (e.g., solar voltaic, geothermal, flywheel, microgrid, distributed energy) that have a real-time demand and storage connection to local utilities or cross connected to multiple facilities should be carefully analyzed to ensure that the power can meet the load and signal quality without disruption of mission essential functions.</guidance>
+      </control>
+      <enhancement number="1">
+         <title>LONG-TERM ALTERNATE POWER SUPPLY - MINIMAL OPERATIONAL CAPABILITY</title>
+         <default value="3"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </enhancement>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="PE-12">
+         <title>EMERGENCY LIGHTING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="PE-13">
+         <title>FIRE PROTECTION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Fire suppression mechanisms should take the ICS environment into account (e.g., water sprinkler systems could be hazardous in specific environments).</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="PE-14">
+         <title>TEMPERATURE AND HUMIDITY CONTROLS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Temperature and humidity controls are typically components of other ICS systems such as the HVAC, process, or lighting systems, or can be a standalone and unique ICS system. ICS can operate in extreme environments and both interior and exterior locations. For a specific ICS, the temperature and humidity design and operational parameters dictate the performance specifications. As ICS and IS become interconnected and the network provides connectivity across the hybrid domain, power circuits, distribution closets, routers and switches that support fire protection and life safety systems must be maintained at the proper temperature and humidity.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="PE-15">
+         <title>WATER DAMAGE PROTECTION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Water damage protection and use of shutoff and isolation valves is both a procedural action, and also a specific type of ICS. ICS that are used in the manufacturing, hydropower, transportation/navigation, water and wastewater industries rely on the movement of water and are specifically designed to manage the quantity/flow and pressure of water. As ICS and IS become interconnected and the network provides connectivity across the hybrid domain, power circuits, distribution closets, routers and switches that support fire protection and life safety systems should ensure that water will not disable the system (e.g. a fire that activates the sprinkler system does not spray onto the fire control servers, router, switches and short out the alarms, egress systems, emergency lighting, and suppression systems).</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PHYSICAL AND ENVIRONMENTAL PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="PE-16">
+         <title>DELIVERY AND REMOVAL</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PLANNING</family>
+      <rationale flag="false"/>
+      <control number="PL-1">
+         <title>SECURITY PLANNING POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PLANNING</family>
+      <rationale flag="true">When systems are highly inter-connected, coordinated planning is essential. A low impact system could adversely affect a higher impact system.</rationale>
+      <control number="PL-2">
+         <title>SYSTEM SECURITY PLAN</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+      <enhancement number="3">
+         <title>PLAN / COORDINATE WITH OTHER ORGANIZATIONAL ENTITIES</title>
+         <default value="2"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </enhancement>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PLANNING</family>
+      <rationale flag="false"/>
+      <control number="PL-4">
+         <title>RULES OF BEHAVIOR</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PERSONNEL SECURITY</family>
+      <rationale flag="false"/>
+      <control number="PS-1">
+         <title>PERSONNEL SECURITY POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PERSONNEL SECURITY</family>
+      <rationale flag="false"/>
+      <control number="PS-2">
+         <title>POSITION RISK DESIGNATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PERSONNEL SECURITY</family>
+      <rationale flag="false"/>
+      <control number="PS-3">
+         <title>PERSONNEL SCREENING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PERSONNEL SECURITY</family>
+      <rationale flag="false"/>
+      <control number="PS-4">
+         <title>PERSONNEL TERMINATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PERSONNEL SECURITY</family>
+      <rationale flag="false"/>
+      <control number="PS-5">
+         <title>PERSONNEL TRANSFER</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PERSONNEL SECURITY</family>
+      <rationale flag="false"/>
+      <control number="PS-6">
+         <title>ACCESS AGREEMENTS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PERSONNEL SECURITY</family>
+      <rationale flag="false"/>
+      <control number="PS-7">
+         <title>THIRD-PARTY PERSONNEL SECURITY</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>PERSONNEL SECURITY</family>
+      <rationale flag="false"/>
+      <control number="PS-8">
+         <title>PERSONNEL SANCTIONS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>RISK ASSESSMENT</family>
+      <rationale flag="false"/>
+      <control number="RA-1">
+         <title>RISK ASSESSMENT POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>RISK ASSESSMENT</family>
+      <rationale flag="false"/>
+      <control number="RA-2">
+         <title>SECURITY CATEGORIZATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>RISK ASSESSMENT</family>
+      <rationale flag="false"/>
+      <control number="RA-3">
+         <title>RISK ASSESSMENT</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>RISK ASSESSMENT</family>
+      <rationale flag="false"/>
+      <control number="RA-5">
+         <title>VULNERABILITY SCANNING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Active vulnerability scanning, which introduces network traffic, is used with care on ICS systems to ensure that ICS functions are not adversely impacted by the scanning process. The organization makes a risk-based determination whether to employ active scanning. Passive monitoring /sniffing may be used as part of a compensating control. Example compensating controls include providing a replicated, virtualized, or simulated system to conduct scanning. Production ICS may need to be taken off-line before scanning can be conducted. If ICS are taken off-line for scanning, scans are scheduled to occur during planned ICS outages whenever possible. If vulnerability scanning tools are used on non-ICS networks, extra care is taken to ensure that they do not scan the ICS network. Network scanning is not applicable to non-addressable communications. Vulnerability examination may be performed using other mechanisms than scanning to identify the objects being examined. Host-based vulnerability examination is an example compensating control.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND SERVICES ACQUISITION</family>
+      <rationale flag="false"/>
+      <control number="SA-1">
+         <title>SYSTEM AND SERVICES ACQUISITION POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND SERVICES ACQUISITION</family>
+      <rationale flag="false"/>
+      <control number="SA-2">
+         <title>ALLOCATION OF RESOURCES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND SERVICES ACQUISITION</family>
+      <rationale flag="false"/>
+      <control number="SA-3">
+         <title>SYSTEM DEVELOPMENT LIFE CYCLE</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND SERVICES ACQUISITION</family>
+      <rationale flag="false"/>
+      <control number="SA-4">
+         <title>ACQUISITION PROCESS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Since ICS security has historically focused on physical protection and isolation, vendors and developers may be unfamiliar with cybersecurity. Organizations should anticipate a need to engage with ICS suppliers to raise awareness of cybersecurity needs. The SCADA/Control Systems Procurement Project provides example cybersecurity procurement language for ICS. References: Web: http://ics-cert.us-cert.gov/sites/default/files/FINAL-Procurement_Language_Rev4_100809_0.pdf</guidance>
+      </control>
+      <enhancement number="10">
+         <title>USE OF APPROVED PIV PRODUCTS</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include employing external products on the FIPS 201-approved products list for Personal Identity Verification (PIV) capability in conjunction with ICS products.</guidance>
+      </enhancement>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND SERVICES ACQUISITION</family>
+      <rationale flag="false"/>
+      <control number="SA-5">
+         <title>INFORMATION SYSTEM DOCUMENTATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND SERVICES ACQUISITION</family>
+      <rationale flag="false"/>
+      <control number="SA-9">
+         <title>EXTERNAL INFORMATION SYSTEM SERVICES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="SC-1">
+         <title>SYSTEM AND COMMUNICATIONS PROTECTION POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="SC-5">
+         <title>DENIAL OF SERVICE PROTECTION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include ensuring a loss of communication results in the ICS operating in nominal or safe mode. Risk-based analysis informs the establishment of policy and procedure.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="true">As part of the architecture and design of the ICS, the organization selects an appropriate failure mode in accordance with the function performed by the ICS and the operational environment. The ability to choose the failure mode for the physical part of the ICS differentiates the ICS from other IT systems. This choice may be a significant influence in mitigating the impact of a failure.</rationale>
+      <control number="SC-7">
+         <title>BOUNDARY PROTECTION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="SC-12">
+         <title>CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The use of cryptographic key management in ICS is intended to support internal nonpublic use.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="SC-13">
+         <title>CRYPTOGRAPHIC PROTECTION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="SC-15">
+         <title>COLLABORATIVE COMPUTING DEVICES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="SC-20">
+         <title>SECURE NAME / ADDRESS RESOLUTION SERVICE (AUTHORITATIVE SOURCE)</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The use of secure name/address resolution services is determined after careful consideration and after verification that it does not adversely impact the operation of the ICS.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="SC-21">
+         <title>SECURE NAME / ADDRESS RESOLUTION SERVICE (RECURSIVE OR CACHING RESOLVER)</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The use of secure name/address resolution services is determined after careful consideration and after verification that it does not adversely impact the operation of the ICS.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="SC-22">
+         <title>ARCHITECTURE AND PROVISIONING FOR NAME / ADDRESS RESOLUTION SERVICE</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The use of secure name/address resolution services is determined after careful consideration and after verification that it does not adversely impact the operational performance of the ICS.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="false"/>
+      <control number="SC-39">
+         <title>PROCESS ISOLATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Example compensating controls include partition processes to separate platforms.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND COMMUNICATIONS PROTECTION</family>
+      <rationale flag="true">The function of ICS can be readily determined in advance, making it easier to identify ports and I/O devices that are unnecessary. Disabling or removing ports reinforces air-gap policy.</rationale>
+      <control number="SC-41">
+         <title>PORT AND I/O DEVICE ACCESS</title>
+         <default value="4"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND INFORMATION INTEGRITY</family>
+      <rationale flag="false"/>
+      <control number="SI-1">
+         <title>SYSTEM AND INFORMATION INTEGRITY POLICY AND PROCEDURES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The policy specifically addresses the unique properties and requirements of ICS and the relationship to non-ICS systems.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND INFORMATION INTEGRITY</family>
+      <rationale flag="false"/>
+      <control number="SI-2">
+         <title>FLAW REMEDIATION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">Flaw Remediation is complicated since many ICS employ operating systems and other software that is not current, is no longer being maintained by the vendors, and is not resistant to current threats. ICS operators are often dependent on product vendors to validate the operability of a patch and also sometimes to perform the installation. Often flaws cannot be remediated based on circumstances outside of the ICS operator's control (e.g., lack of a vendor patch). Sometime the organization has no choice but to accept additional risk. In these situations, compensating controls should be implemented (e.g., limit the exposure of the vulnerable system). Other compensating controls that do not decrease the residual risk but increase the ability to respond may be desirable (e.g., provide a timely response in case of an incident; devise a plan to ensure the ICS can identify the exploitation of the flaw). Testing flaw remediation in an ICS may require more resources than the organization can commit.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND INFORMATION INTEGRITY</family>
+      <rationale flag="false"/>
+      <control number="SI-3">
+         <title>MALICIOUS CODE PROTECTION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The use and deployment of malicious code protection is determined after careful consideration and after verification that it does not adversely impact the operation of the ICS. Malicious code protection tools should be configured to minimize their potential impact on the ICS (e.g., employ notification rather than quarantine). Example compensating controls include increased traffic monitoring and auditing.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND INFORMATION INTEGRITY</family>
+      <rationale flag="false"/>
+      <control number="SI-4">
+         <title>INFORMATION SYSTEM MONITORING</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The organization ensures that the use of monitoring tools and techniques does not adversely impact the operational performance of the ICS. Example compensating controls include deploying sufficient network monitoring.</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND INFORMATION INTEGRITY</family>
+      <rationale flag="false"/>
+      <control number="SI-5">
+         <title>SECURITY ALERTS, ADVISORIES, AND DIRECTIVES</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="true">The DHS Industrial Control Systems Cyber Emergency Response Team (ICS-CERT) generates security alerts and advisories relative to ICS http://ics-cert.us-cert.gov/ .</guidance>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND INFORMATION INTEGRITY</family>
+      <rationale flag="false"/>
+      <control number="SI-12">
+         <title>INFORMATION HANDLING AND RETENTION</title>
+         <default value="1"/>
+         <impact value="1"/>
+         <guidance flag="false"/>
+      </control>
+   </tailoredControl>
+   <tailoredControl>
+      <family>SYSTEM AND INFORMATION INTEGRITY</family>
+      <rationale flag="true">This control provides a structure for the organization to identify their policy and procedures for dealing with failures and other incidents. Creating a written record of the decision process for selecting incidents and appropriate response is part of risk management in light of changing environment of operations.</rationale>
+      <control number="SI-17">
+         <title>FAIL-SAFE PROCEDURES</title>
+         <default value="4"/>
+         <impact value="1"/>
+         <guidance flag="true">The selected failure conditions and corresponding procedures may vary among baselines. The same failure event may trigger different response depending on the impact level. Mechanical and analog system can be used to provide mechanisms to ensure fail-safe procedures. Fail-safe states should incorporate potential impacts to human safety, physical systems, and the environment. Related controls: CP-6.</guidance>
+      </control>
+   </tailoredControl>
+</tailoredBaseline>
