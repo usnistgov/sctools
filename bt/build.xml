@@ -29,6 +29,7 @@
           description="generate the distribution">
     <xmltask source="bt.xml" todir="${build}"/>
     <copy file=".htaccess" todir="${build}" preservelastmodified="true"/>
+    <copy file="core.xml" todir="${build}" preservelastmodified="true"/>
     <copy file="families.xml" todir="${build}" preservelastmodified="true"/>
     <copy file="catalog.xml" todir="${build}" preservelastmodified="true"/>
     <copy file="bt.xml" todir="${build}" preservelastmodified="true"/>
