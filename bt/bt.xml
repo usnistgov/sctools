@@ -180,12 +180,21 @@
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
-	<version>0.3</version>
+	<version>0.4</version>
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
 	<controlURL/>
       </xf:instance>
+
+      <xf:instance id="i-core-url" xmlns="">
+	<data>
+	  <control/>
+	  <family/>
+	  <all>http://web.nvd.nist.gov/view/800-53/Rev4/home</all>
+	</data>
+      </xf:instance>
+
 
       <xf:instance id="i-ceTemplate" xmlns="">
 	<data>
@@ -239,6 +248,7 @@
 	  </category>
 	  <subcategory id="ID.AM-1">
 	    <description/>
+	    <sp800-53-all-message flag="false">Controls from all families</sp800-53-all-message>
 	  </subcategory>
 	  <family>ACCESS CONTROL</family>
 	  <rationale flag="false">Rationale here.</rationale>
@@ -258,6 +268,10 @@
       <xf:bind nodeset="instance('i-settings')/category/description" calculate="instance('i-core')//description[..@id=instance('i-settings')/category@id]"/>
 
       <xf:bind nodeset="instance('i-settings')/subcategory/description" calculate="instance('i-core')//description[..@id=instance('i-settings')/subcategory@id]"/>
+
+      <xf:bind nodeset="instance('i-settings')//sp800-53-all-message@flag" calculate="choose(instance('i-core')//sp800-53[@all=true() and ..@id=instance('i-settings')/subcategory@id], true(), false())" type="xs:boolean"/>
+
+      <xf:bind nodeset="instance('i-settings')//sp800-53-all-message" relevant="@flag=true()"/>
 
       <xf:bind nodeset="instance('i-url')" calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)"/>
 
@@ -385,15 +399,44 @@
 	    </table>
 	    <p>Informative References to NIST SP 800-53:</p>
 	    <xf:repeat nodeset="instance('i-core')//subCategory[@id=instance('i-settings')/subcategory@id]/sp800-53/family">
-	      <xf:output ref="."/>
-	      <span> family</span>
+	      <xf:trigger>
+		<xf:label>
+		  <xf:output ref="."/>
+		  <span> family</span>
+		</xf:label>
+		<xf:hint>Open NIST Special Publication 800-53 (Rev. 4)  security control family in a new browser tab.</xf:hint>
+		<xf:action ev:event="DOMActivate">
+		  <xf:setvalue ref="instance('i-core-url')/family" value="concat('http://web.nvd.nist.gov/view/800-53/Rev4/family?familyName=', instance('i-families')/family@name[starts-with(../control@number, context())])"/>
+		<xf:load show="new" ref="instance('i-core-url')/family"/>
+		</xf:action>
+	      </xf:trigger>
 	    </xf:repeat>
 	    <xf:repeat nodeset="instance('i-core')//subCategory[@id=instance('i-settings')/subcategory@id]/sp800-53/control">
-	      <xf:output ref="."/>
+	      <xf:trigger>
+		<xf:label ref="."/>
+		<xf:hint>Open NIST Special Publication 800-53 (Rev. 4)  security control definition in a new browser tab.</xf:hint>
+		<xf:action ev:event="DOMActivate">
+		  <xf:setvalue ref="instance('i-core-url')/control" value="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', context())"/>
+		<xf:load show="new" ref="instance('i-core-url')/control"/>
+		</xf:action>
+	      </xf:trigger>
 	    </xf:repeat>
+	    <xf:group ref="subcategory/sp800-53-all-message">
+	    <xf:trigger>
+	      <xf:label ref="."/>
+	      <xf:hint>Open NIST Special Publication 800-53 (Rev. 4) security control catalog in a new browser tab.</xf:hint>
+	      <xf:load ev:event="DOMActivate" show="new" ref="instance('i-core-url')/all"/>
+	    </xf:trigger>
+	    <xf:repeat nodeset="instance('i-core')//subCategory[@id=instance('i-settings')/subcategory@id]/sp800-53/except">
+	      <span>(except </span>
+	      <xf:output ref="."/>
+	      <span>)</span>
+	    </xf:repeat>
+	    </xf:group>
 	  </xf:group>
 	</div>
       </xf:case>
+
       <xf:case id="case-tailor" selected="true">
 <div id="div-tailor">
     <xf:group ref="instance('i-settings')">
