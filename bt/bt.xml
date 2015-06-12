@@ -126,6 +126,10 @@
       font-weight: bold;
       }
 
+      .ControlButton {
+      width: 6em;
+      }
+
       .SWTitle {
       color: DimGray;
       font-size: larger;}
@@ -307,7 +311,7 @@
 
     <div id="horizontal-tab-menu">
       <xf:trigger id="tab-core" appearance="minimal">
-	<xf:label class="TabText">Browse the Framework Core</xf:label>
+	<xf:label class="TabText">Use the Framework Core</xf:label>
 	<xf:toggle case="case-core" ev:event="DOMActivate"/>
       </xf:trigger>
       <xf:trigger id="tab-tailor" appearance="minimal">
@@ -352,7 +356,7 @@
 	    </xf:select1>
 		  </div>
 		</td>
-		<td class="Cell">
+		<td>
 		  <table>
 		    <tr>
 		      <td class="Cell">
@@ -404,7 +408,11 @@
 		  <xf:output ref="."/>
 		  <span> family</span>
 		</xf:label>
-		<xf:hint>Open NIST Special Publication 800-53 (Rev. 4)  security control family in a new browser tab.</xf:hint>
+		<xf:hint>
+		<span>Open security control family </span>
+		<xf:output ref="."/>
+		<span> in a new browser tab.</span>
+		</xf:hint>
 		<xf:action ev:event="DOMActivate">
 		  <xf:setvalue ref="instance('i-core-url')/family" value="concat('http://web.nvd.nist.gov/view/800-53/Rev4/family?familyName=', instance('i-families')/family@name[starts-with(../control@number, context())])"/>
 		<xf:load show="new" ref="instance('i-core-url')/family"/>
@@ -412,19 +420,46 @@
 	      </xf:trigger>
 	    </xf:repeat>
 	    <xf:repeat nodeset="instance('i-core')//subCategory[@id=instance('i-settings')/subcategory@id]/sp800-53/control">
+	      <table>
+		<tr>
+		  <td class="ControlButton">
 	      <xf:trigger>
 		<xf:label ref="."/>
-		<xf:hint>Open NIST Special Publication 800-53 (Rev. 4)  security control definition in a new browser tab.</xf:hint>
+		<xf:hint>
+		<span>Open security control </span>
+		<xf:output ref="."/>
+		<span> definition in a new browser tab.</span>
+		</xf:hint>
 		<xf:action ev:event="DOMActivate">
 		  <xf:setvalue ref="instance('i-core-url')/control" value="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', context())"/>
 		<xf:load show="new" ref="instance('i-core-url')/control"/>
 		</xf:action>
 	      </xf:trigger>
+		  </td>
+		  <td>
+	      <xf:trigger>
+		<xf:label>
+		  <img src="images/favicon.ico" alt="needle and thread image"/>
+		</xf:label>
+		<xf:hint>
+		<span>Tailor security control </span>
+		<xf:output ref="."/>
+		<span>.</span>
+		</xf:hint>
+		<xf:action ev:event="DOMActivate">
+		  <xf:setvalue ref="instance('i-settings')/family" value="instance('i-families')/family@name[starts-with(../control@number, substring-before(context(), '-'))]"/>
+		  <xf:setvalue ref="instance('i-settings')/control@number" value="context()"/>
+		  <xf:dispatch targetid="tab-tailor" name="DOMActivate"/>
+		</xf:action>
+	      </xf:trigger>
+		  </td>
+		</tr>
+	      </table>
 	    </xf:repeat>
 	    <xf:group ref="subcategory/sp800-53-all-message">
 	    <xf:trigger>
 	      <xf:label ref="."/>
-	      <xf:hint>Open NIST Special Publication 800-53 (Rev. 4) security control catalog in a new browser tab.</xf:hint>
+	      <xf:hint>Open security control catalog in a new browser tab.</xf:hint>
 	      <xf:load ev:event="DOMActivate" show="new" ref="instance('i-core-url')/all"/>
 	    </xf:trigger>
 	    <xf:repeat nodeset="instance('i-core')//subCategory[@id=instance('i-settings')/subcategory@id]/sp800-53/except">
@@ -521,7 +556,7 @@
 	    </xf:select1>
 	    <br/><br/>
 
-	    <xf:select1 appearance="&ControlsAppearance;" ref="control@number">
+	    <xf:select1 id="select1-control" appearance="&ControlsAppearance;" ref="control@number">
 	      <xf:label>Control:<br/></xf:label>
 	      <xf:itemset nodeset="instance('i-families')/family[@name=instance('i-settings')/family]/control[contains(instance('i-baselines')/baselines,default) and contains(instance('i-priorities')/priorities,priority)]">
 		<xf:label ref="dropDownLabel"/>
@@ -561,7 +596,26 @@
 		</xf:action>
 
 	      </xf:action>
-	    </xf:select1>
+	    </xf:select1><br/><br/>
+	    <span>Framework Core subcategories referencing </span>
+	    <xf:output ref="instance('i-settings')/control@number"/>
+	    <span>:</span><br/>
+	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number]">
+	      <xf:trigger>
+		<xf:label ref="@id"/>
+		<xf:hint>
+		  <span>Show Framework Core </span>
+		  <xf:output ref="@id"/>
+		  <span> definition.</span>
+		</xf:hint>
+		<xf:action ev:event="DOMActivate">
+		  <xf:setvalue ref="instance('i-settings')/function@id" value="substring-before(context()/@id, '.')"/>
+		  <xf:setvalue ref="instance('i-settings')/category@id" value="substring-before(context()/@id, '-')"/>
+		  <xf:setvalue ref="instance('i-settings')/subcategory@id" value="context()/@id"/>
+		  <xf:dispatch targetid="tab-core" name="DOMActivate"/>
+		</xf:action>
+	      </xf:trigger>
+	    </xf:repeat>
 	  </td>
 	</tr>
       </table>
@@ -589,9 +643,15 @@
 	<!-- Cell containing control and control enhancement IDs -->
 	<td>
 	  <div class="Cell">
-	    <span class="Control">
+	    <xf:trigger>
+	      <xf:label ref="&CXPath;@number"/>
+	      <xf:hint>
+	      <span>Open security control </span>
 	      <xf:output ref="&CXPath;@number"/>
-	    </span>
+	      <span> definition in a new browser tab.</span>
+	      </xf:hint>
+	      <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')"/>
+	    </xf:trigger>
 	  </div>
 	  <xf:repeat nodeset="instance('i-settings')/enhancement">
 	    <div class="Cell">
@@ -610,11 +670,6 @@
 	      <xf:output ref="&CXPath;/title"/>
 	      <xf:output value="' '"/>
 	    </span>
-	    <xf:trigger>
-	      <xf:label>NIST SP 800-53</xf:label>
-	      <xf:hint>Open NIST Special Publication 800-53 (Rev. 4)  security control definition in a new browser tab.</xf:hint>
-	      <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')"/>
-	    </xf:trigger>
 	  </div>
 	  <xf:repeat nodeset="instance('i-settings')/enhancement">
 	    <div class="Cell"><span class="CETitle">
