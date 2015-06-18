@@ -72,17 +72,20 @@
       }
  
       /* properties common to all the swapped views */
-      #div-core,#div-tailor {
+      #div-core,#div-tailor, #div-xref {
       padding: 5px;
       border-left: solid gray 1px;
       border-right: solid gray 1px;
       border-bottom: solid gray 1px;
       }
       #tab-core, #div-core {
-      background-color: OldLace;
+      background-color: Azure;
       }
       #tab-tailor, #div-tailor {
-      background-color: Azure;
+      background-color: LightYellow;
+      }
+      #tab-xref, #div-xref {
+      background-color: OldLace;
       }
       
       body {font-family: Arial;}
@@ -269,6 +272,8 @@
 	</tailoredControl>
       </xf:instance>
 
+<!--      <xf:bind nodeset="instance('i-settings')/category@id"  calculate="instance('i-core')//category@id[../..@id=instance('i-settings')/function@id]"/>-->
+
       <xf:bind nodeset="instance('i-settings')/category/description" calculate="instance('i-core')//description[..@id=instance('i-settings')/category@id]"/>
 
       <xf:bind nodeset="instance('i-settings')/subcategory/description" calculate="instance('i-core')//description[..@id=instance('i-settings')/subcategory@id]"/>
@@ -310,26 +315,30 @@
     <h1><img alt="needle and thread image" width="50px" height="50px" src="images/Needle_and_thread_silhouette.png"/><span class="SWTitle">Baseline Tailor</span> <span class="SWSubTitle">Security Control Editor</span> <span class="SWSubTitle">Version <xf:output ref="instance('i-version')"/></span></h1>
 
     <div id="horizontal-tab-menu">
-      <xf:trigger id="tab-core" appearance="minimal">
-	<xf:label class="TabText">Use the Framework Core</xf:label>
-	<xf:toggle case="case-core" ev:event="DOMActivate"/>
-      </xf:trigger>
       <xf:trigger id="tab-tailor" appearance="minimal">
 	<xf:label class="TabText">Tailor a Control</xf:label>
 	<xf:toggle case="case-tailor" ev:event="DOMActivate"/>
       </xf:trigger>
+      <xf:trigger id="tab-core" appearance="minimal">
+	<xf:label class="TabText">Browse the Core</xf:label>
+	<xf:toggle case="case-core" ev:event="DOMActivate"/>
+      </xf:trigger>
+      <xf:trigger id="tab-xref" appearance="minimal">
+	<xf:label class="TabText">Show Cross Refs</xf:label>
+	<xf:toggle case="case-xref" ev:event="DOMActivate"/>
+      </xf:trigger>
     </div>
 
     <xf:switch>
-      <xf:case id="case-core" selected="true">
+      <xf:case id="case-core" selected="false">
 	<div id="div-core">
 	  <xf:group ref="instance('i-settings')">
 	    <table>
 	      <tr class="Row">
 		<td class="Cell">
 		  <div class="Functions">
-	    <xf:select1 id="core-funtion-select1" appearance="&FunctionsAppearance;" ref="function@id">
-	      <xf:label>Function:<br/></xf:label>
+	    <xf:select1 id="select1-function" appearance="&FunctionsAppearance;" ref="function@id">
+	      <xf:label>Framework core function:<br/></xf:label>
 	      <xf:item>
 		<xf:label class="ID">IDENTIFY (ID)</xf:label>
 		<xf:value>ID</xf:value>
@@ -360,15 +369,14 @@
 		  <table>
 		    <tr>
 		      <td class="Cell">
-		  <xf:select1 appearance="&CategoriesAppearance;"
-			      ref="category@id">
+		  <xf:select1 id="select1-category" appearance="&CategoriesAppearance;" ref="category@id">
 		    <xf:label>Category:<br/></xf:label>
 		    <xf:itemset nodeset=
 "instance('i-core')//category[..@id=instance('i-settings')/function@id]">
 		      <xf:label ref="dropDownLabel"/>
 		      <xf:value ref="@id"/>
 		    </xf:itemset>
-		    <xf:action ev:event="xforms-value-changed">
+		    <xf:action ev:event="xforms-select">
 		      <xf:setvalue ref="instance('i-settings')/subcategory@id" value="instance('i-core')//subCategory@id[../..@id=instance('i-settings')/category@id]"/>
 		    </xf:action>
 		  </xf:select1><br/>
@@ -381,7 +389,7 @@
 		    </tr>
 		    <tr>
 		      <td class="Cell">
-			<xf:select1 appearance="&CategoriesAppearance;"
+			<xf:select1 id="select1-subcategory" appearance="&CategoriesAppearance;"
 				    ref="subcategory@id">
 			  <xf:label>Subcategory:<br/></xf:label>
 			  <xf:itemset nodeset=
@@ -597,25 +605,20 @@
 
 	      </xf:action>
 	    </xf:select1><br/><br/>
-	    <span>Framework Core subcategories referencing </span>
-	    <xf:output ref="instance('i-settings')/control@number"/>
-	    <span>:</span><br/>
-	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number or sp800-53/family=substring-before(instance('i-settings')/control@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control@number))]">
-	      <xf:trigger>
-		<xf:label ref="@id"/>
-		<xf:hint>
-		  <span>Show Framework Core </span>
-		  <xf:output ref="@id"/>
-		  <span> definition.</span>
-		</xf:hint>
-		<xf:action ev:event="DOMActivate">
-		  <xf:setvalue ref="instance('i-settings')/function@id" value="substring-before(context()/@id, '.')"/>
-		  <xf:setvalue ref="instance('i-settings')/category@id" value="substring-before(context()/@id, '-')"/>
-		  <xf:setvalue ref="instance('i-settings')/subcategory@id" value="context()/@id"/>
-		  <xf:dispatch targetid="tab-core" name="DOMActivate"/>
-		</xf:action>
-	      </xf:trigger>
-	    </xf:repeat>
+	    <xf:trigger>
+	      <xf:label>
+		<span>Framework Core subcategories referencing </span>
+		<xf:output ref="instance('i-settings')/control@number"/>
+	      </xf:label>
+	      <xf:hint>
+	      <span>Show Framework Core subcategories referencing </span>
+	      <xf:output ref="instance('i-settings')/control@number"/>
+	      <span>.</span>
+	      </xf:hint>
+	      <xf:action ev:event="DOMActivate">
+		<xf:dispatch targetid="tab-xref" name="DOMActivate"/>
+	      </xf:action>
+	    </xf:trigger>
 	  </td>
 	</tr>
       </table>
@@ -824,6 +827,31 @@
     </table>
   </div>
   </xf:case>    
+  <xf:case id ="case-xref" selected="false">
+    <div id="div-xref">
+      <xf:group class="Cell">
+	    <span>Framework Core subcategories referencing </span>
+	    <xf:output ref="instance('i-settings')/control@number"/>
+	    <span>:</span><br/>
+	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number or sp800-53/family=substring-before(instance('i-settings')/control@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control@number))]">
+	      <xf:trigger>
+		<xf:label ref="@id"/>
+		<xf:hint>
+		  <span>Show Framework Core </span>
+		  <xf:output ref="@id"/>
+		  <span> definition.</span>
+		</xf:hint>
+		<xf:action ev:event="DOMActivate">
+		  <xf:setvalue ref="instance('i-settings')/function@id" value="substring-before(context()/@id, '.')"/>
+		  <xf:setvalue ref="instance('i-settings')/category@id" value="substring-before(context()/@id, '-')"/>
+		  <xf:setvalue ref="instance('i-settings')/subcategory@id" value="context()/@id"/>
+		  <xf:dispatch targetid="tab-core" name="DOMActivate"/>
+		</xf:action>
+	      </xf:trigger>
+	    </xf:repeat>
+      </xf:group>
+    </div>
+  </xf:case>
 </xf:switch>
     <div class="footer">
       <p>
