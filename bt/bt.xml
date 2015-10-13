@@ -71,7 +71,7 @@
       }
  
       /* properties common to all the swapped views */
-      #div-core,#div-tailor, #div-xref {
+      #div-core, #div-tailor, #div-xref, #div-profile {
       padding: 5px;
       border-left: solid gray 1px;
       border-right: solid gray 1px;
@@ -85,6 +85,9 @@
       }
       #tab-xref, #div-xref {
       background-color: OldLace;
+      }
+      #tab-profile, #div-profile {
+      background-color: MistyRose;
       }
       
       body {font-family: Arial;}
@@ -165,6 +168,14 @@
       font-size: small;
       }
 
+      table-container {
+      display: table-row;
+      }
+      .table-cell {
+      display: table-cell;
+      vertical-align: top;
+      }
+
     </style>
 
     <xf:model>
@@ -186,7 +197,7 @@
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
-	<version>0.4</version>
+	<version>0.5</version>
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
@@ -255,8 +266,25 @@
 	  <subcategory id="ID.AM-1">
 	    <description/>
 	    <sp800-53-all-message flag="false">Controls from all families</sp800-53-all-message>
+	    <inProfileMessage flag="false"> [selected in Framework Profile]</inProfileMessage>
 	  </subcategory>
 	  <crossRef flag="false"/>	
+	</data>
+      </xf:instance>
+
+      <xf:instance id="i-subcats" src="subcategories.xml"/>
+
+      <xf:instance id="i-profile">
+	<data xmlns="">
+          <profile1/>
+          <profile2/>
+          <profile3/>
+          <profile4/>
+          <profile5/>
+          <profile6/>
+          <profile7/>
+          <profile8/>
+          <profile/>
 	</data>
       </xf:instance>
 
@@ -278,6 +306,8 @@
 	</tailoredControl>
       </xf:instance>
 
+      <xf:bind nodeset="instance('i-profile')/profile" calculate="concat(../profile1, ' ', ../profile2, ' ', ../profile3, ' ', ../profile4,' ', ../profile5, ' ', ../profile6, ' ',../profile7, ' ', ../profile8)"/>
+
       <xf:bind nodeset="instance('i-browse')/category/description" calculate="instance('i-core')//description[..@id=instance('i-browse')/category@id]"/>
 
       <xf:bind nodeset="instance('i-browse')/subcategory/description" calculate="instance('i-core')//description[..@id=instance('i-browse')/subcategory@id]"/>
@@ -287,6 +317,10 @@
       <xf:bind nodeset="instance('i-browse')//sp800-53-all-message" relevant="@flag=true()"/>
 
       <xf:bind nodeset="instance('i-browse')/crossRef@flag" calculate="choose(not(substring-before(..,'.')=../../function@id and substring-before(..,'-')=../../category@id and ..=../../subcategory@id), false(), .)" type="xs:boolean"/>
+
+      <xf:bind nodeset="instance('i-browse')//inProfileMessage@flag" calculate="contains(instance('i-profile')/profile, ../..@id)" type="xs:boolean"/>
+
+      <xf:bind nodeset="instance('i-browse')/subcategory/inProfileMessage" relevant="@flag=true()"/>
 
       <xf:bind nodeset="instance('i-url')" calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)"/>
 
@@ -328,6 +362,10 @@
       <xf:trigger id="tab-core" appearance="minimal">
 	<xf:label class="TabText">Cyber Framework Browser</xf:label>
 	<xf:toggle case="case-core" ev:event="DOMActivate"/>
+      </xf:trigger>
+      <xf:trigger id="tab-profile" appearance="minimal">
+	<xf:label class="TabText">Framework Profile</xf:label>
+	<xf:toggle case="case-profile" ev:event="DOMActivate"/>
       </xf:trigger>
       <xf:trigger id="tab-xref" appearance="minimal">
 	<xf:label class="TabText">Cross References</xf:label>
@@ -408,6 +446,9 @@
 			    <span>: </span>
 			  </strong>
 			  <xf:output ref="subcategory/description"/>
+			  <strong>
+			    <xf:output ref="subcategory/inProfileMessage"/>
+			  </strong>
 		      </td>
 		    </tr>
 		  </table>
@@ -481,6 +522,93 @@
 		<span>)</span>
 	      </xf:repeat>
 	    </xf:group>
+	  </xf:group>
+	</div>
+      </xf:case>
+
+      <xf:case id="case-profile" selected="false">
+	<div id="div-profile">
+	  <xf:group ref="instance('i-profile')">
+	    <xf:label>Select all subcategories to include in the profile:</xf:label>
+	    <table>
+	      <tr class="Row">
+		<td class="Cell">
+		  <xf:select ref="profile1" appearance="full">
+		    <xf:label/>
+		    <xf:itemset nodeset="instance('i-subcats')/id[position() &lt; 13]">
+                      <xf:label ref="." />
+                      <xf:value ref="." />
+                    </xf:itemset>
+                  </xf:select>
+		</td>
+		<td class="Cell">
+		  <xf:select ref="profile2" appearance="full">
+		    <xf:label/>
+		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 12) and (position() &lt; 25)]">
+                      <xf:label ref="." />
+                      <xf:value ref="." />
+                    </xf:itemset>
+                  </xf:select>
+		</td>
+		<td class="Cell">
+		  <xf:select ref="profile3" appearance="full">
+		    <xf:label/>
+		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 24) and (position() &lt; 37)]">
+                      <xf:label ref="." />
+                      <xf:value ref="." />
+                    </xf:itemset>
+                  </xf:select>
+		</td>
+		<td class="Cell">
+		  <xf:select ref="profile4" appearance="full">
+		    <xf:label/>
+		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 36) and (position() &lt; 49)]">
+                      <xf:label ref="." />
+                      <xf:value ref="." />
+                    </xf:itemset>
+                  </xf:select>
+		</td>
+		<td class="Cell">
+		  <xf:select ref="profile5" appearance="full">
+		    <xf:label/>
+		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 48) and (position() &lt; 61)]">
+                      <xf:label ref="." />
+                      <xf:value ref="." />
+                    </xf:itemset>
+                  </xf:select>
+		</td>
+		<td class="Cell">
+		  <xf:select ref="profile6" appearance="full">
+		    <xf:label/>
+		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 60) and (position() &lt; 73)]">
+                      <xf:label ref="." />
+                      <xf:value ref="." />
+                    </xf:itemset>
+                  </xf:select>
+		</td>
+		<td class="Cell">
+		  <xf:select ref="profile7" appearance="full">
+		    <xf:label/>
+		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 72) and (position() &lt; 85)]">
+                      <xf:label ref="." />
+                      <xf:value ref="." />
+                    </xf:itemset>
+                  </xf:select>
+		</td>
+		<td class="Cell">
+		  <xf:select ref="profile8" appearance="full">
+		    <xf:label/>
+		    <xf:itemset nodeset="instance('i-subcats')/id[position() &gt; 84]">
+                      <xf:label ref="." />
+                      <xf:value ref="." />
+                    </xf:itemset>
+                  </xf:select>
+		</td>
+	      </tr>
+	    </table>
+	    <xf:output ref="profile">
+	      <xf:label>Framework Profile: </xf:label>
+	    </xf:output>
 	  </xf:group>
 	</div>
       </xf:case>
