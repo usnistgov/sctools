@@ -28,6 +28,7 @@
 <!ENTITY CXPath "instance('i-settings')/control">
 <!ENTITY CEDropDownXPath "enhancement[position()=index('ceDropDown-repeat')]">
 <!ENTITY CECatalogXPath "instance('i-catalog')/control[@number=&CXPath;@number]/enhancement">
+<!ENTITY RemoveFromProfileValue "normalize-space(concat(substring-before(., instance('i-browse')/subcategory@id), ' ', substring-after(., instance('i-browse')/subcategory@id)))">
 ]>
 
 <?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
@@ -263,10 +264,9 @@
 	  <category id="ID.AM">
 	    <description/>
 	  </category>
-	  <subcategory id="ID.AM-1">
+	  <subcategory id="ID.AM-1" addText="Add to Profile" removeText="Remove from Profile">
 	    <description/>
 	    <sp800-53-all-message flag="false">Controls from all families</sp800-53-all-message>
-	    <inProfileMessage flag="false"> [selected in Framework Profile]</inProfileMessage>
 	  </subcategory>
 	  <crossRef flag="false"/>	
 	</data>
@@ -318,9 +318,7 @@
 
       <xf:bind nodeset="instance('i-browse')/crossRef@flag" calculate="choose(not(substring-before(..,'.')=../../function@id and substring-before(..,'-')=../../category@id and ..=../../subcategory@id), false(), .)" type="xs:boolean"/>
 
-      <xf:bind nodeset="instance('i-browse')//inProfileMessage@flag" calculate="contains(instance('i-profile')/profile, ../..@id)" type="xs:boolean"/>
-
-      <xf:bind nodeset="instance('i-browse')/subcategory/inProfileMessage" relevant="@flag=true()"/>
+      <xf:bind nodeset="instance('i-browse')/subcategory@removeText" relevant="contains(instance('i-profile')/profile, ..@id)"/>
 
       <xf:bind nodeset="instance('i-url')" calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)"/>
 
@@ -381,7 +379,7 @@
 	      <tr class="Row">
 		<td class="Cell">
 		  <div class="Functions">
-		    <xf:select1 id="select1-function" appearance="&FunctionsAppearance;" ref="function@id">
+		    <xf:select1 appearance="&FunctionsAppearance;" ref="function@id">
 		      <xf:label>Framework core function:<br/></xf:label>
 		      <xf:item>
 			<xf:label class="ID">IDENTIFY (ID)</xf:label>
@@ -413,7 +411,7 @@
 		  <table>
 		    <tr>
 		      <td class="Cell">
-		      <xf:select1 id="select1-category" ref="category@id" appearance="&CategoriesAppearance;">
+		      <xf:select1 ref="category@id" appearance="&CategoriesAppearance;">
 			<xf:label>Category:<br/></xf:label>
 			<xf:itemset nodeset=
 "instance('i-core')//category[..@id=instance('i-browse')/function@id]">
@@ -433,7 +431,8 @@
 		    </tr>
 		    <tr>
 		      <td class="Cell">
-			<xf:select1 id="select1-subcategory" appearance="&CategoriesAppearance;" ref="subcategory@id">
+			<xf:group ref="subcategory">
+			  <xf:select1 appearance="&CategoriesAppearance;" ref="@id">
 			  <xf:label>Subcategory:<br/></xf:label>
 			  <xf:itemset nodeset=
 "instance('i-core')//subCategory[..@id=instance('i-browse')/category@id]">
@@ -442,13 +441,18 @@
 			  </xf:itemset>
 			  </xf:select1><br/>
 			  <strong>
-			    <xf:output ref="subcategory@id"/>
+			    <xf:output ref="@id"/>
 			    <span>: </span>
 			  </strong>
-			  <xf:output ref="subcategory/description"/>
-			  <strong>
-			    <xf:output ref="subcategory/inProfileMessage"/>
-			  </strong>
+			  <xf:output ref="description"/><br/>
+			  <xf:trigger ref="@removeText">
+			    <xf:label ref="."/>
+			    <xf:action ev:event="DOMActivate">
+			      <xf:setvalue if="instance('i-subcats')/id[. = instance('i-browse')/subcategory@id and (position() &lt; 13)]" ref="instance('i-profile')/profile1" value="&RemoveFromProfileValue;"/>
+			      <xf:dispatch targetid="tab-profile" name="DOMActivate"/>
+			    </xf:action>
+			  </xf:trigger>
+			</xf:group>
 		      </td>
 		    </tr>
 		  </table>
@@ -697,7 +701,7 @@
 		  </xf:select1>
 		  <br/><br/>
 
-		  <xf:select1 id="select1-control" appearance="&ControlsAppearance;" ref="control@number">
+		  <xf:select1 appearance="&ControlsAppearance;" ref="control@number">
 		    <xf:label>Control:<br/></xf:label>
 		    <xf:itemset nodeset="instance('i-families')/family[@name=instance('i-settings')/family]/control[contains(instance('i-baselines')/baselines,default) and contains(instance('i-priorities')/priorities,priority)]">
 		      <xf:label ref="dropDownLabel"/>
