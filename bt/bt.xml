@@ -29,6 +29,25 @@
 <!ENTITY CEDropDownXPath "enhancement[position()=index('ceDropDown-repeat')]">
 <!ENTITY CECatalogXPath "instance('i-catalog')/control[@number=&CXPath;@number]/enhancement">
 <!ENTITY RemoveFromProfileValue "normalize-space(concat(substring-before(., instance('i-browse')/subcategory@id), ' ', substring-after(., instance('i-browse')/subcategory@id)))">
+<!ENTITY AddToProfileValue "normalize-space(concat(., ' ', instance('i-browse')/subcategory@id))">
+<!ENTITY SubcatListXPath "instance('i-subcats')/id[.=instance('i-browse')/subcategory@id">
+<!ENTITY ProfileLabelButton
+"
+<xf:label>
+  <xf:trigger>
+    <xf:label ref='.'/>
+    <xf:hint>
+      <span>Check/uncheck the box to add/remove </span>
+      <xf:output ref='.'/>
+      <span>. Click the button to show its Framework Core information.</span>
+    </xf:hint>
+    <xf:action ev:event='DOMActivate'>
+      <xf:setvalue ref='instance(&apos;i-browse&apos;)/subcategory@id' value='context()'/>
+      <xf:setvalue ref='instance(&apos;i-browse&apos;)/crossRef@flag' value='false()'/><xf:dispatch targetid='tab-core' name='DOMActivate'/>
+    </xf:action>
+  </xf:trigger>
+</xf:label>
+">
 ]>
 
 <?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
@@ -185,11 +204,16 @@
       <xf:instance id="i-catalog" src="catalog.xml" xmlns=""/>
       <xf:instance id="i-families" src="families.xml"/>
       <xf:instance id="i-stylesheet" src="stylesheet.xsl"/>
+      <xf:instance id="i-stylesheet-profile" src="stylesheet-profile.xsl"/>
 
       <!-- This model instance helps with determining where to say 'selected', 'added', 'removed' in the UI -->
       <xf:instance id="i-matrix" src="matrix.xml"/>
 
-      <xf:instance id="i-pretty" xmlns="">
+      <xf:instance id="i-pretty-tailored" xmlns="">
+	<pretty/>
+      </xf:instance>
+
+      <xf:instance id="i-pretty-profile" xmlns="">
 	<pretty/>
       </xf:instance>
 
@@ -268,7 +292,8 @@
 	    <description/>
 	    <sp800-53-all-message flag="false">Controls from all families</sp800-53-all-message>
 	  </subcategory>
-	  <crossRef flag="false"/>	
+	  <crossRef flag="false"/>
+	  <profileID/>
 	</data>
       </xf:instance>
 
@@ -320,6 +345,12 @@
 
       <xf:bind nodeset="instance('i-browse')/subcategory@removeText" relevant="contains(instance('i-profile')/profile, ..@id)"/>
 
+      <xf:bind nodeset="instance('i-browse')/subcategory@addText" relevant="not(contains(instance('i-profile')/profile, ..@id))"/>
+
+      <xf:bind nodeset="instance('i-browse')/category@id" calculate="substring-before(instance('i-browse')/subcategory@id, '-')"/>
+
+      <xf:bind nodeset="instance('i-browse')/function@id" calculate="substring-before(instance('i-browse')/category@id, '.')"/>
+
       <xf:bind nodeset="instance('i-url')" calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)"/>
 
       <xf:bind nodeset="instance('i-settings')/enhancement/xRefLabel" calculate="concat('(',..@number,')')"/>
@@ -343,7 +374,9 @@
 
       <xf:bind nodeset="instance('i-settings')/rationale" relevant= "@flag=true()"/>
 
-      <xf:bind nodeset="instance('i-pretty')" calculate="transform(instance('i-settings'),serialize(instance('i-stylesheet')),true())"/>
+      <xf:bind nodeset="instance('i-pretty-tailored')" calculate="transform(instance('i-settings'),serialize(instance('i-stylesheet')),true())"/>
+
+      <xf:bind nodeset="instance('i-pretty-profile')" calculate="transform(instance('i-profile')/profile, serialize(instance('i-stylesheet-profile')), true())"/>
 
     </xf:model>
 
@@ -447,8 +480,39 @@
 			  <xf:output ref="description"/><br/>
 			  <xf:trigger ref="@removeText">
 			    <xf:label ref="."/>
+			    <xf:hint>
+			      <span>Remove subcategory </span>
+			      <xf:output ref="..@id"/>
+			      <span> from the Framework Profile.</span>
+			    </xf:hint>
 			    <xf:action ev:event="DOMActivate">
-			      <xf:setvalue if="instance('i-subcats')/id[. = instance('i-browse')/subcategory@id and (position() &lt; 13)]" ref="instance('i-profile')/profile1" value="&RemoveFromProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &lt; 13)]" ref="instance('i-profile')/profile1" value="&RemoveFromProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 12) and (position() &lt; 25)]" ref="instance('i-profile')/profile2" value="&RemoveFromProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 24) and (position() &lt; 37)]" ref="instance('i-profile')/profile3" value="&RemoveFromProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 36) and (position() &lt; 49)]" ref="instance('i-profile')/profile4" value="&RemoveFromProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 48) and (position() &lt; 61)]" ref="instance('i-profile')/profile5" value="&RemoveFromProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 60) and (position() &lt; 73)]" ref="instance('i-profile')/profile6" value="&RemoveFromProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 72) and (position() &lt; 85)]" ref="instance('i-profile')/profile7" value="&RemoveFromProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 84)]" ref="instance('i-profile')/profile8" value="&RemoveFromProfileValue;"/>
+			      <xf:dispatch targetid="tab-profile" name="DOMActivate"/>
+			    </xf:action>
+			  </xf:trigger>
+			  <xf:trigger ref="@addText">
+			    <xf:label ref="."/>
+			    <xf:hint>
+			      <span>Add subcategory </span>
+			      <xf:output ref="..@id"/>
+			      <span> to the Framework Profile.</span>
+			    </xf:hint>
+			    <xf:action ev:event="DOMActivate">
+			      <xf:setvalue if="&SubcatListXPath; and (position() &lt; 13)]" ref="instance('i-profile')/profile1" value="&AddToProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 12) and (position() &lt; 25)]" ref="instance('i-profile')/profile2" value="&AddToProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 24) and (position() &lt; 37)]" ref="instance('i-profile')/profile3" value="&AddToProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 36) and (position() &lt; 49)]" ref="instance('i-profile')/profile4" value="&AddToProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 48) and (position() &lt; 61)]" ref="instance('i-profile')/profile5" value="&AddToProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 60) and (position() &lt; 73)]" ref="instance('i-profile')/profile6" value="&AddToProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 72) and (position() &lt; 85)]" ref="instance('i-profile')/profile7" value="&AddToProfileValue;"/>
+			      <xf:setvalue if="&SubcatListXPath; and (position() &gt; 84)]" ref="instance('i-profile')/profile8" value="&AddToProfileValue;"/>
 			      <xf:dispatch targetid="tab-profile" name="DOMActivate"/>
 			    </xf:action>
 			  </xf:trigger>
@@ -540,7 +604,7 @@
 		  <xf:select ref="profile1" appearance="full">
 		    <xf:label/>
 		    <xf:itemset nodeset="instance('i-subcats')/id[position() &lt; 13]">
-                      <xf:label ref="." />
+		      &ProfileLabelButton;
                       <xf:value ref="." />
                     </xf:itemset>
                   </xf:select>
@@ -549,7 +613,7 @@
 		  <xf:select ref="profile2" appearance="full">
 		    <xf:label/>
 		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 12) and (position() &lt; 25)]">
-                      <xf:label ref="." />
+		      &ProfileLabelButton;
                       <xf:value ref="." />
                     </xf:itemset>
                   </xf:select>
@@ -558,7 +622,7 @@
 		  <xf:select ref="profile3" appearance="full">
 		    <xf:label/>
 		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 24) and (position() &lt; 37)]">
-                      <xf:label ref="." />
+		      &ProfileLabelButton;
                       <xf:value ref="." />
                     </xf:itemset>
                   </xf:select>
@@ -567,7 +631,7 @@
 		  <xf:select ref="profile4" appearance="full">
 		    <xf:label/>
 		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 36) and (position() &lt; 49)]">
-                      <xf:label ref="." />
+		      &ProfileLabelButton;
                       <xf:value ref="." />
                     </xf:itemset>
                   </xf:select>
@@ -576,7 +640,7 @@
 		  <xf:select ref="profile5" appearance="full">
 		    <xf:label/>
 		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 48) and (position() &lt; 61)]">
-                      <xf:label ref="." />
+		      &ProfileLabelButton;
                       <xf:value ref="." />
                     </xf:itemset>
                   </xf:select>
@@ -585,7 +649,7 @@
 		  <xf:select ref="profile6" appearance="full">
 		    <xf:label/>
 		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 60) and (position() &lt; 73)]">
-                      <xf:label ref="." />
+		      &ProfileLabelButton;
                       <xf:value ref="." />
                     </xf:itemset>
                   </xf:select>
@@ -594,7 +658,7 @@
 		  <xf:select ref="profile7" appearance="full">
 		    <xf:label/>
 		    <xf:itemset nodeset="instance('i-subcats')/id[(position() &gt; 72) and (position() &lt; 85)]">
-                      <xf:label ref="." />
+		      &ProfileLabelButton;
                       <xf:value ref="." />
                     </xf:itemset>
                   </xf:select>
@@ -603,16 +667,19 @@
 		  <xf:select ref="profile8" appearance="full">
 		    <xf:label/>
 		    <xf:itemset nodeset="instance('i-subcats')/id[position() &gt; 84]">
-                      <xf:label ref="." />
+		      &ProfileLabelButton;
                       <xf:value ref="." />
                     </xf:itemset>
                   </xf:select>
 		</td>
 	      </tr>
 	    </table>
-	    <xf:output ref="profile">
-	      <xf:label>Framework Profile: </xf:label>
-	    </xf:output>
+	    <xf:group>
+	      <xf:label>XML representation:</xf:label>
+	      <xf:textarea class="XMLData" ref="instance('i-pretty-profile')">
+		<xf:label/>
+	      </xf:textarea>
+	    </xf:group>
 	  </xf:group>
 	</div>
       </xf:case>
@@ -926,7 +993,7 @@
 	      <td colspan="2" class="Cell">
 		<xf:group>
 		  <xf:label>XML representation:</xf:label>
-		  <xf:textarea class="XMLData" ref="instance('i-pretty')">
+		  <xf:textarea class="XMLData" ref="instance('i-pretty-tailored')">
 		    <xf:label/>
 		  </xf:textarea>
 		</xf:group>

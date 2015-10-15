@@ -28,7 +28,7 @@
           description="generate the distribution">
     <xmltask source="bt.xml" todir="${build}"/>
     <copy todir="${build}" preservelastmodified="true">
-      <fileset dir="." includes="core.xml subcategories.xml families.xml catalog.xml bt.xml matrix.xml stylesheet.xsl images/** xsltforms/**"/>
+      <fileset dir="." includes="core.xml subcategories.xml families.xml catalog.xml bt.xml matrix.xml stylesheet.xsl stylesheet-profile.xsl images/** xsltforms/**"/>
     </copy>
   </target>
 
