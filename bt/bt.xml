@@ -31,8 +31,7 @@
 <!ENTITY RemoveFromProfileValue "normalize-space(concat(substring-before(., instance('i-browse')/subcategory@id), ' ', substring-after(., instance('i-browse')/subcategory@id)))">
 <!ENTITY AddToProfileValue "normalize-space(concat(., ' ', instance('i-browse')/subcategory@id))">
 <!ENTITY SubcatListXPath "instance('i-subcats')/id[.=instance('i-browse')/subcategory@id">
-<!ENTITY ProfileLabelButton
-"
+<!ENTITY ProfileLabelButton "
 <xf:label>
   <xf:trigger>
     <xf:label ref='.'/>
@@ -42,8 +41,12 @@
       <span>. Click the button to show its Framework Core information.</span>
     </xf:hint>
     <xf:action ev:event='DOMActivate'>
-      <xf:setvalue ref='instance(&apos;i-browse&apos;)/subcategory@id' value='context()'/>
-      <xf:setvalue ref='instance(&apos;i-browse&apos;)/crossRef@flag' value='false()'/><xf:dispatch targetid='tab-core' name='DOMActivate'/>
+<!--      <xf:setvalue ref='instance(&apos;i-browse&apos;)/subcategory@id' value='context()'/>-->
+      <xf:setvalue ref='instance(&apos;i-browse&apos;)/subcategory@id' value='&apos;RS.CO-3&apos;'/>
+      <xf:setvalue ref='instance(&apos;i-browse&apos;)/category@id' value='substring-before(context(),&apos;-&apos;)'/>
+      <xf:setvalue ref='instance(&apos;i-browse&apos;)/function@id' value='substring-before(context(),&apos;.&apos;)'/>
+<!--      <xf:setvalue ref='instance(&apos;i-browse&apos;)/crossRef@flag' value='true()'/>-->
+      <xf:dispatch targetid='tab-core' name='DOMActivate'/>
     </xf:action>
   </xf:trigger>
 </xf:label>
@@ -292,8 +295,7 @@
 	    <description/>
 	    <sp800-53-all-message flag="false">Controls from all families</sp800-53-all-message>
 	  </subcategory>
-	  <crossRef flag="false"/>
-	  <profileID/>
+<!--	  <crossRef flag="false"/>-->
 	</data>
       </xf:instance>
 
@@ -341,15 +343,15 @@
 
       <xf:bind nodeset="instance('i-browse')//sp800-53-all-message" relevant="@flag=true()"/>
 
-      <xf:bind nodeset="instance('i-browse')/crossRef@flag" calculate="choose(not(substring-before(..,'.')=../../function@id and substring-before(..,'-')=../../category@id and ..=../../subcategory@id), false(), .)" type="xs:boolean"/>
+<!--      <xf:bind nodeset="instance('i-browse')/crossRef@flag" calculate="choose(not(substring-before(..,'.')=../../function@id and substring-before(..,'-')=../../category@id and ..=../../subcategory@id), false(), .)" type="xs:boolean"/>-->
 
       <xf:bind nodeset="instance('i-browse')/subcategory@removeText" relevant="contains(instance('i-profile')/profile, ..@id)"/>
 
       <xf:bind nodeset="instance('i-browse')/subcategory@addText" relevant="not(contains(instance('i-profile')/profile, ..@id))"/>
 
-      <xf:bind nodeset="instance('i-browse')/category@id" calculate="substring-before(instance('i-browse')/subcategory@id, '-')"/>
+<!--      <xf:bind nodeset="instance('i-browse')/category@id" calculate="substring-before(instance('i-browse')/subcategory@id, '-')"/>
 
-      <xf:bind nodeset="instance('i-browse')/function@id" calculate="substring-before(instance('i-browse')/category@id, '.')"/>
+      <xf:bind nodeset="instance('i-browse')/function@id" calculate="substring-before(instance('i-browse')/category@id, '.')"/>-->
 
       <xf:bind nodeset="instance('i-url')" calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)"/>
 
@@ -434,7 +436,8 @@
 			<xf:label class="RC">RECOVER (RC)</xf:label>
 			<xf:value>RC</xf:value>
 		      </xf:item>
-		      <xf:action ev:event="xforms-value-changed" if="instance('i-browse')/crossRef@flag=false()">
+<!--		      <xf:action ev:event="xforms-value-changed" if="instance('i-browse')/crossRef@flag=false()">-->
+		      <xf:action ev:event="xforms-value-changed">
 			<xf:setvalue ref="instance('i-browse')/category@id" value="instance('i-core')//category@id[../..@id=instance('i-browse')/function@id]"/>
 		      </xf:action>
 		    </xf:select1>
@@ -451,7 +454,8 @@
 			  <xf:label ref="dropDownLabel"/>
 			  <xf:value ref="@id"/>
 			</xf:itemset>
-			<xf:action ev:event="xforms-value-changed" if="instance('i-browse')/crossRef@flag=false()">
+<!--			<xf:action ev:event="xforms-value-changed" if="instance('i-browse')/crossRef@flag=false()">-->
+			<xf:action ev:event="xforms-value-changed">
 			  <xf:setvalue ref="instance('i-browse')/subcategory@id" value="instance('i-core')//subCategory@id[../..@id=instance('i-browse')/category@id]"/>
 			</xf:action>
 			</xf:select1><br/>
@@ -1051,8 +1055,8 @@
 		  <xf:setvalue ref="instance('i-browse')/function@id" value="substring-before(context()/@id, '.')"/>
 		  <xf:setvalue ref="instance('i-browse')/category@id" value="substring-before(context()/@id, '-')"/>
 		  <xf:setvalue ref="instance('i-browse')/subcategory@id" value="context()/@id"/>
-		  <xf:setvalue ref="instance('i-browse')/crossRef" value="context()/@id"/>
-		  <xf:setvalue ref="instance('i-browse')/crossRef@flag" value="true()"/>
+<!--		  <xf:setvalue ref="instance('i-browse')/crossRef" value="context()/@id"/>
+		  <xf:setvalue ref="instance('i-browse')/crossRef@flag" value="true()"/>-->
 		  <xf:dispatch targetid="tab-core" name="DOMActivate"/>
 		</xf:action>
 	      </xf:trigger>
