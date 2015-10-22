@@ -31,20 +31,20 @@
 <!ENTITY RemoveFromProfileValue "normalize-space(concat(substring-before(., instance('i-browse')/subcategory@id), ' ', substring-after(., instance('i-browse')/subcategory@id)))">
 <!ENTITY AddToProfileValue "normalize-space(concat(., ' ', instance('i-browse')/subcategory@id))">
 <!ENTITY SubcatListXPath "instance('i-subcats')/id[.=instance('i-browse')/subcategory@id">
+
+<!-- Trigger controls used within selects for profile1, profile2, etc. -->
 <!ENTITY ProfileLabelButton "
 <xf:label>
   <xf:trigger>
     <xf:label ref='.'/>
-    <xf:hint>
-      <span>Check/uncheck the box to add/remove </span>
+      <xf:hint>
       <xf:output ref='.'/>
-      <span>. Click the button to show its Framework Core information.</span>
     </xf:hint>
     <xf:action ev:event='DOMActivate'>
-<!--      <xf:setvalue ref='instance(&apos;i-browse&apos;)/subcategory@id' value='context()'/>-->
-      <xf:setvalue ref='instance(&apos;i-browse&apos;)/subcategory@id' value='&apos;RS.CO-3&apos;'/>
-      <xf:setvalue ref='instance(&apos;i-browse&apos;)/category@id' value='substring-before(context(),&apos;-&apos;)'/>
       <xf:setvalue ref='instance(&apos;i-browse&apos;)/function@id' value='substring-before(context(),&apos;.&apos;)'/>
+      <xf:setvalue ref='instance(&apos;i-browse&apos;)/category@id' value='substring-before(context(),&apos;-&apos;)'/>
+      <xf:setvalue ref='instance(&apos;i-browse&apos;)/subcategory@id' value='context()'>
+      </xf:setvalue>
 <!--      <xf:setvalue ref='instance(&apos;i-browse&apos;)/crossRef@flag' value='true()'/>-->
       <xf:dispatch targetid='tab-core' name='DOMActivate'/>
     </xf:action>
@@ -439,6 +439,7 @@
 <!--		      <xf:action ev:event="xforms-value-changed" if="instance('i-browse')/crossRef@flag=false()">-->
 		      <xf:action ev:event="xforms-value-changed">
 			<xf:setvalue ref="instance('i-browse')/category@id" value="instance('i-core')//category@id[../..@id=instance('i-browse')/function@id]"/>
+			<xf:setvalue ref="instance('i-browse')/category/description" value="instance('i-core')//category/description[..@id=instance('i-browse')/category@id]"/>
 		      </xf:action>
 		    </xf:select1>
 		  </div>
@@ -601,7 +602,7 @@
       <xf:case id="case-profile" selected="false">
 	<div id="div-profile">
 	  <xf:group ref="instance('i-profile')">
-	    <xf:label>Select all subcategories to include in the profile:</xf:label>
+	    <xf:label>Check/uncheck the subcategory box to add to or remove the subcategory from the profile. Click the subcategory button to show its Framework Core information.</xf:label>
 	    <table>
 	      <tr class="Row">
 		<td class="Cell">
