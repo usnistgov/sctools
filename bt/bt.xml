@@ -1,36 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- XForms + XHTML document for Baseline Tailor, a user interface for tailoring security controls, browsing the Cybersecurity Framework, and creating a Framework Profile. -->
+
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no" lang="en_us"?>
+
 <!DOCTYPE html [
-<!ENTITY LastUpdated "2015/06/19">
+
+<!-- XForms 'appearance' attribute values -->
 <!ENTITY ImpactAppearance "minimal">
 <!ENTITY FunctionsAppearance "full">
 <!ENTITY CategoriesAppearance "minimal">
 <!ENTITY FamiliesAppearance "minimal">
 <!ENTITY ControlsAppearance "minimal">
 <!ENTITY XRefAppearance "minimal">
+
+<!-- Labels for baseline impact widgets -->
 <!ENTITY L "LOW">
 <!ENTITY M "MODERATE">
 <!ENTITY H "HIGH">
 <!ENTITY X "N/A">
+
+<!-- Output values for CONTROL BASELINES columns in Security Control Editor -->
 <!ENTITY A "Added">
 <!ENTITY R "Removed">
 <!ENTITY S "Selected">
-<!ENTITY BaselineItemList "<xf:item><xf:label>&L;</xf:label><xf:value>1</xf:value></xf:item><xf:item>
-<xf:label>&M;</xf:label><xf:value>2</xf:value></xf:item><xf:item>
-<xf:label>&H;</xf:label><xf:value>3</xf:value></xf:item><xf:item>
-<xf:label>&X;</xf:label><xf:value>4</xf:value></xf:item>">
-<!ENTITY PriorityItemList "<xf:item><xf:label>P0</xf:label><xf:value>4</xf:value></xf:item><xf:item>
-<xf:label>P1</xf:label><xf:value>1</xf:value></xf:item><xf:item>
-<xf:label>P2</xf:label><xf:value>2</xf:value></xf:item><xf:item>
-<xf:label>P3</xf:label><xf:value>3</xf:value></xf:item>">
-<!ENTITY Root "instance('i-settings')">
-<!ENTITY CEXPath "instance('i-settings')/enhancement[number(instance('i-count'))]">
-<!ENTITY CXPath "instance('i-settings')/control">
-<!ENTITY CEDropDownXPath "enhancement[position()=index('ceDropDown-repeat')]">
-<!ENTITY CECatalogXPath "instance('i-catalog')/control[@number=&CXPath;@number]/enhancement">
-<!ENTITY RemoveFromProfileValue "normalize-space(concat(substring-before(., instance('i-browse')/subcategory@id), ' ', substring-after(., instance('i-browse')/subcategory@id)))">
-<!ENTITY AddToProfileValue "normalize-space(concat(., ' ', instance('i-browse')/subcategory@id))">
-<!ENTITY SubcatListXPath "instance('i-subcats')/id[.=instance('i-browse')/subcategory@id">
+
+<!-- Populate baselines checkboxes and control/CE dropdowns -->
+<!ENTITY BaselineItemList "
+<xf:item>
+  <xf:label>&L;</xf:label>
+  <xf:value>1</xf:value>
+</xf:item>
+<xf:item>
+  <xf:label>&M;</xf:label>
+  <xf:value>2</xf:value>
+</xf:item>
+<xf:item>
+  <xf:label>&H;</xf:label>
+   <xf:value>3</xf:value>
+</xf:item>
+<xf:item>
+  <xf:label>&X;</xf:label>
+  <xf:value>4</xf:value>
+</xf:item>
+">
+
+<!-- Populate priorities checkboxes -->
+<!ENTITY PriorityItemList "
+<xf:item>
+  <xf:label>P0</xf:label>
+  <xf:value>4</xf:value>
+</xf:item>
+<xf:item>
+  <xf:label>P1</xf:label>
+  <xf:value>1</xf:value>
+</xf:item>
+<xf:item>
+  <xf:label>P2</xf:label>
+  <xf:value>2</xf:value>
+</xf:item>
+<xf:item>
+  <xf:label>P3</xf:label>
+  <xf:value>3</xf:value>
+</xf:item>
+">
 
 <!-- Actions for subcategory buttons -->
 <!ENTITY SubcategoryButtonActions "
@@ -57,10 +91,18 @@
   </xf:trigger>
 </xf:label>
 ">
-]>
 
-<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
-<?xsltforms-options debug="no" lang="en_us"?>
+<!-- XPath fragments -->
+<!ENTITY Root "instance('i-settings')">
+<!ENTITY CEXPath "instance('i-settings')/enhancement[number(instance('i-count'))]">
+<!ENTITY CXPath "instance('i-settings')/control">
+<!ENTITY CEDropDownXPath "enhancement[position()=index('ceDropDown-repeat')]">
+<!ENTITY CECatalogXPath "instance('i-catalog')/control[@number=&CXPath;@number]/enhancement">
+<!ENTITY RemoveFromProfileValue "normalize-space(concat(substring-before(., instance('i-browse')/subcategory@id), ' ', substring-after(., instance('i-browse')/subcategory@id)))">
+<!ENTITY AddToProfileValue "normalize-space(concat(., ' ', instance('i-browse')/subcategory@id))">
+<!ENTITY SubcatListXPath "instance('i-subcats')/id[.=instance('i-browse')/subcategory@id">
+
+]>
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:html="http://www.w3.org/1999/xhtml"
@@ -68,144 +110,10 @@
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
       xmlns:ev="http://www.w3.org/2001/xml-events">
   <head>
+
     <title>Baseline Tailor</title>
     <link rel="shortcut icon" href="images/favicon.ico"/>
-    <style type="text/css">
-      
-      @namespace xf url("http://www.w3.org/2002/xforms");
-      
-      /* instructions for styling the horizontal tabs at the top of the form */
-      #horizontal-tab-menu {
-      padding-bottom: 2px;
-      font-size: x-large;
-      }
-      #horizontal-tab-menu xf|trigger {
-      border-left: gray solid 1px;
-      border-top: gray solid 1px;
-      border-right: gray solid 1px;
-      border-bottom: 0px; /* so the tab blends into the region under the tab */
-      font-weight: bold;
-      font-size: .9em;
-      /* spacing between the tabs */
-      margin-right: 9px;
-      padding: 3px;
-      /* round corners at the top of the tab - does not work on older */
-      /* versions of IE */
-      -webkit-border-top-left-radius: 5px;
-      -webkit-border-top-right-radius: 5px;
-      -moz-border-radius-topleft: 5px;
-      -moz-border-radius-topright: 5px;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      }
- 
-      /* properties common to all the swapped views */
-      #div-core, #div-tailor, #div-xref, #div-profile {
-      padding: 5px;
-      border-left: solid gray 1px;
-      border-right: solid gray 1px;
-      border-bottom: solid gray 1px;
-      }
-      #tab-core, #div-core {
-      background-color: Azure;
-      }
-      #tab-tailor, #div-tailor {
-      background-color: LightYellow;
-      }
-      #tab-xref, #div-xref {
-      background-color: OldLace;
-      }
-      #tab-profile, #div-profile {
-      background-color: MistyRose;
-      }
-      
-      body {font-family: Arial;}
-
-      h1 img {
-      padding-left: 5px;
-      padding-right: 10px;}
-
-      .Heading {
-      font-weight: bold;
-      text-align: center;
-      background-color: MistyRose;}
-
-      .TabText {
-      color: DimGray;
-      }
-
-      .ID {
-      background-color: Blue;
-      color: White;
-      font-weight: bold;
-      }
-      .PR {
-      background-color: Purple;
-      color: White;
-      font-weight: bold;
-      }
-      .DE {
-      background-color: Yellow;
-      color: Black;
-      font-weight: bold;
-      }
-      .RS {
-      background-color: Red;
-      color: White;
-      font-weight: bold;
-      }
-      .RC {
-      background-color: Green;
-      color: White;
-      font-weight: bold;
-      }
-
-      .ControlButton {
-      width: 6em;
-      }
-
-      .SWTitle {
-      color: DimGray;
-      font-size: larger;}
-
-      .SWSubTitle {
-      font-size: smaller;
-      color: DimGray;
-      margin-left: 3em;}
-
-      .ControlTitle {font-size: large;}
-      
-      .CETitle {
-      font-weight: normal;
-      font-style: italic;}
-      
-      .Control {font-weight: bold;}
-
-      .Row {vertical-align: top;}
-      .Cell {padding: 5px;}
-      .Functions {width: 12em;}
-
-      .XMLData textarea {
-      height: 20em; 
-      width: 45em;}
-
-      .Guidance textarea { 
-      height: 5em; 
-      width: 30em;}
-
-      div.footer {
-      font-size: small;
-      }
-
-      table-container {
-      display: table-row;
-      }
-      .table-cell {
-      display: table-cell;
-      vertical-align: top;
-      }
-
-    </style>
+    <link rel="stylesheet" href="styles.css" type="text/css"/>
 
     <xf:model>
 
@@ -232,6 +140,10 @@
 
       <xf:instance id="i-version" xmlns="">
 	<version>0.5</version>
+      </xf:instance>
+
+      <xf:instance id="i-updated" xmlns="">
+	<updated>2015/10/27</updated>
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
@@ -1068,7 +980,7 @@
       <p>
 	
 	Date created: 2014/12/01 | 
-Last updated: &LastUpdated;
+Last updated: <xf:output ref="instance('i-updated')"/>
 
 <br/>
 
