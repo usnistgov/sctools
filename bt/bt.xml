@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- XForms + XHTML document for Baseline Tailor, a user interface for tailoring security controls, browsing the Cybersecurity Framework, and creating a Framework Profile. -->
+<!-- This is an XForms+XHTML document for Baseline Tailor, a user interface for tailoring security controls, browsing the Cybersecurity Framework, and creating a Framework Profile. -->
 
 <?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
 <?xsltforms-options debug="no" lang="en_us"?>
@@ -120,6 +120,7 @@
       <xf:instance id="i-core" src="core.xml" xmlns=""/>
       <xf:instance id="i-catalog" src="catalog.xml" xmlns=""/>
       <xf:instance id="i-families" src="families.xml"/>
+      <xf:instance id="i-xref" src="xref.xml"/>
       <xf:instance id="i-stylesheet" src="stylesheet.xsl"/>
       <xf:instance id="i-stylesheet-profile" src="stylesheet-profile.xsl"/>
 
@@ -181,6 +182,10 @@
 	<data>
 	  <priorities>1 2 3</priorities>
 	</data>
+      </xf:instance>
+
+      <xf:instance id="i-profileFlag" xmlns="">
+	<profileFlag>false</profileFlag>
       </xf:instance>
 
       <xf:instance id="i-choices" xmlns="">
@@ -297,6 +302,8 @@
       <xf:bind nodeset="instance('i-pretty-tailored')" calculate="transform(instance('i-settings'),serialize(instance('i-stylesheet')),true())"/>
 
       <xf:bind nodeset="instance('i-pretty-profile')" calculate="transform(instance('i-profile')/profile, serialize(instance('i-stylesheet-profile')), true())"/>
+
+      <xf:bind nodeset="instance('i-profileFlag')" type="xs:boolean"/>
 
     </xf:model>
 
@@ -642,6 +649,10 @@
 		    </table>
 		  </xf:group>
 		</td>
+<!--	      <tr class="Row">
+		<td>
+		</td>
+	      </tr>-->
 		<td width="30px"/>
 		<td>
 		  <xf:group ref="instance('i-priorities')/priorities">
@@ -680,6 +691,10 @@
 		</td>
 		<td width="30px"/>
 		<td>
+		  <xf:input ref="instance('i-profileFlag')" appearance="full">
+		    <xf:label>Restrict controls to Framework Profile informative references</xf:label>
+		  </xf:input><br/><br/>
+
 		  <xf:select1 appearance="&FamiliesAppearance;" ref="family">
 		    <xf:label>Control family:<br/></xf:label>
 		    <xf:itemset nodeset="instance('i-families')/family">
@@ -960,7 +975,8 @@
 	    <span>Framework Core subcategories referencing control </span>
 	    <xf:output ref="instance('i-settings')/control@number"/>
 	    <span>:</span><br/>
-	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number or sp800-53/family=substring-before(instance('i-settings')/control@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control@number))]@id">
+<!--	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number or sp800-53/family=substring-before(instance('i-settings')/control@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control@number))]@id">-->
+	    <xf:repeat nodeset="instance('i-xref')//subcategory@number[../..@number=instance('i-settings')/control@number]">
 	      <xf:trigger>
 		<xf:label ref="."/>
 		<xf:hint>

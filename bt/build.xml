@@ -22,13 +22,14 @@
     <xslt in="${SP800-53}" out="catalog.xml" style="catalog.xsl"/>
     <xslt in="${cybercore-exported}" out="core.xml" style="core.xsl"/>
     <xslt in="core.xml" out="subcategories.xml" style="subcategories.xsl"/>
+    <xslt in="families.xml" out="xref.xml" style="xref.xsl"/>
   </target>
     
   <target name="copy" depends="init, transform, clean"
           description="generate the distribution">
     <xmltask source="bt.xml" todir="${build}"/>
     <copy todir="${build}" preservelastmodified="true">
-      <fileset dir="." includes="styles.css core.xml subcategories.xml families.xml catalog.xml bt.xml matrix.xml stylesheet.xsl stylesheet-profile.xsl images/** xsltforms/**"/>
+      <fileset dir="." includes="styles.css core.xml subcategories.xml families.xml catalog.xml bt.xml matrix.xml xref.xml stylesheet.xsl stylesheet-profile.xsl images/** xsltforms/**"/>
     </copy>
   </target>
 
