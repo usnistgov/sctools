@@ -441,7 +441,7 @@
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile6;]" ref="&Profile;6" value="choose(&EndOfProfileStringPredicate;, &RemoveFromProfileEnd;, &RemoveFromProfile;)"/>
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile7;]" ref="&Profile;7" value="choose(&EndOfProfileStringPredicate;, &RemoveFromProfileEnd;, &RemoveFromProfile;)"/>
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and (&InProfile8;)]" ref="&Profile;8" value="choose(&EndOfProfileStringPredicate;, &RemoveFromProfileEnd;, &RemoveFromProfile;)"/>
-			      <xf:dispatch targetid="tab-profile" name="DOMActivate"/>
+<!--			      <xf:dispatch targetid="tab-profile" name="DOMActivate"/>-->
 			    </xf:action>
 			  </xf:trigger>
 			  <xf:trigger ref="@addText">
@@ -460,7 +460,7 @@
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile6;]" ref="&Profile;6" value="&AddToProfile;"/>
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile7;]" ref="&Profile;7" value="&AddToProfile;"/>
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and (&InProfile8;)]" ref="&Profile;8" value="&AddToProfile;"/>
-			      <xf:dispatch targetid="tab-profile" name="DOMActivate"/>
+<!--			      <xf:dispatch targetid="tab-profile" name="DOMActivate"/>-->
 			    </xf:action>
 			  </xf:trigger>
 			</xf:group>
@@ -512,7 +512,7 @@
 		      </xf:label>
 		      <xf:hint>
 			<span>Tailor security control </span>
-			<xf:output ref="."/>
+			<xf:output ref="context()"/>
 			<span>.</span>
 		      </xf:hint>
 		      <xf:action ev:event="DOMActivate">
