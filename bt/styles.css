@@ -112,6 +112,12 @@ font-style: italic;}
 
 .Row {vertical-align: top;}
 .Cell {padding: 5px;}
+
+/* For Impact and Supp. Guidance dropdowns. Vertically aligned in Chrome, 
+but not Firefox */
+.DropDownCell {padding: 7px;}
+
+.WideCell {padding: 20px;}
 .Functions {width: 12em;}
 
 .XMLData textarea {
