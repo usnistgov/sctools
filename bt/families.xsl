@@ -30,10 +30,8 @@
 
   <xsl:template match="controls:control">
     <xsl:if test="not(c:withdrawn)">
-      <control>
-	<xsl:attribute name="number">
-	  <xsl:apply-templates select="c:number"/>
-	</xsl:attribute>
+      <xsl:variable name="controlID" select="c:number"/>
+      <control number="{$controlID}">
 	<title>
 	  <xsl:apply-templates select="c:title"/>
 	</title>
@@ -59,6 +57,11 @@
 	    <xsl:otherwise/>
 	  </xsl:choose>
 	</priority>
+	<xsl:for-each select="document('core.xml')//sp800-53">
+	  <xsl:if test="control = $controlID or family= substring-before($controlID, '-')">
+	    <subcategory number="{../@id}"/>
+	  </xsl:if>
+	</xsl:for-each>
       </control>
     </xsl:if>
   </xsl:template>

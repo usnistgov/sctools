@@ -137,7 +137,6 @@
       <xf:instance id="i-core" src="core.xml" xmlns=""/>
       <xf:instance id="i-catalog" src="catalog.xml" xmlns=""/>
       <xf:instance id="i-families" src="families.xml"/>
-      <xf:instance id="i-xref" src="xref.xml"/>
       <xf:instance id="i-stylesheet" src="stylesheet.xsl"/>
       <xf:instance id="i-stylesheet-profile" src="stylesheet-profile.xsl"/>
 
@@ -637,86 +636,40 @@
 
 	    <table>
 	      <tr class="Row">
-		<td>
+		<td class="WideCell">
 		  <xf:group ref="instance('i-baselines')/baselines">
-		    <table>
-		      <tr><td colspan="2">Baselines:</td></tr>
-		      <tr class="Row">
-			<td>
-			  <xf:select appearance="full" ref=".">
-			    &BaselineItemList;
-			  </xf:select>
-			</td>
-			<td class="Cell">
-			  <xf:trigger>
-			    <xf:label>All Baselines</xf:label>
-			    <xf:hint>Set &L;, &M;, and &H; checkboxes.</xf:hint>
-			    <xf:setvalue ev:event="DOMActivate" ref="." value="'1 2 3'"/>
-			    </xf:trigger><br/>
-			    <xf:trigger>
-			      <xf:label>All Controls</xf:label>
-			      <xf:hint>Set all checkboxes.</xf:hint>
-			      <xf:setvalue ev:event="DOMActivate" ref="." value="'1 2 3 4'"/>
-			      </xf:trigger><br/>
-			      <xf:trigger>
-				<xf:label>Clear All</xf:label>
-				<xf:hint>Clear all checkboxes.</xf:hint>
-				<xf:setvalue ev:event="DOMActivate" ref="." value="''"/>
-			      </xf:trigger>
-			</td>
-		      </tr>
-		    </table>
+		    <xf:label>Baselines:</xf:label>
+		    <xf:select appearance="full" ref=".">
+		      &BaselineItemList;
+		    </xf:select>
+		    <xf:trigger>
+		      <xf:label>Defaults</xf:label>
+		      <xf:hint>Check LOW, MODERATE, and HIGH boxes.</xf:hint>
+		      <xf:reset ev:event="DOMActivate"/>
+		    </xf:trigger>
 		  </xf:group>
 		</td>
-<!--	      <tr class="Row">
-		<td>
-		</td>
-	      </tr>-->
-		<td width="30px"/>
-		<td>
+		<td class="WideCell">
 		  <xf:group ref="instance('i-priorities')/priorities">
-		    <table>
-		      <tr><td colspan="2">Priorities:</td></tr>
-		      <tr class="Row">
-			<td>
-			  <xf:select appearance="full" ref=".">
-			    &PriorityItemList;
-			  </xf:select>
-			</td>
-			<td class="Cell">
-			  <xf:trigger>
-			    <xf:label>All Priorities</xf:label>
-			    <xf:hint>Set P1, P2, and P3 checkboxes.</xf:hint>
-			    <xf:setvalue ev:event="DOMActivate" ref="." 
-					 value="'1 2 3'"/>
-			  </xf:trigger>
-			  <br/>
-			  <xf:trigger>
-			    <xf:label>All Controls</xf:label>
-			    <xf:hint>Set all checkboxes.</xf:hint>
-			    <xf:setvalue ev:event="DOMActivate" ref="." 
-					 value="'4 1 2 3'"/>
-			  </xf:trigger>
-			  <br/>
-			  <xf:trigger>
-			    <xf:label>Clear Priorities</xf:label>
-			    <xf:hint>Clear all checkboxes.</xf:hint>
-			    <xf:setvalue ev:event="DOMActivate" ref="." value="''"/>
-			  </xf:trigger>
-			</td>
-		      </tr>
-		    </table>
+		    <xf:label>Priorities:</xf:label>
+		    <xf:select appearance="full" ref=".">
+		      &PriorityItemList;
+		    </xf:select>
+		    <xf:trigger>
+		      <xf:label>Defaults</xf:label>
+		      <xf:hint>Check P1, P2, and P3 boxes.</xf:hint>
+		      <xf:reset ev:event="DOMActivate"/>
+		    </xf:trigger>
 		  </xf:group>
 		</td>
-		<td width="30px"/>
-		<td>
+		<td class="WideCell">
 		  <xf:input ref="instance('i-restrict')/profileFlag" appearance="full">
 		    <xf:label>Restrict controls to Framework Profile informative references: </xf:label>
 		  </xf:input><br/><br/>
 
 		  <xf:select1 appearance="&FamiliesAppearance;" ref="family">
 		    <xf:label>Control family:<br/></xf:label>
-		    <xf:itemset nodeset="choose(&ProfileFlag;, instance('i-xref')/family[control/subcategory[contains(&Profile;, concat(@number, ' ')) or ends-with(&Profile;, @number)]], instance('i-families')/family)">
+		    <xf:itemset nodeset="choose(&ProfileFlag;, instance('i-families')/family[control/subcategory[contains(&Profile;, concat(@number, ' ')) or ends-with(&Profile;, @number)]], instance('i-families')/family)">
 		      <xf:label ref="@name"/>
 		      <xf:value ref="@name"/>
 		    </xf:itemset>
@@ -725,11 +678,7 @@
 
 		  <xf:select1 appearance="&ControlsAppearance;" ref="control@number">
 		    <xf:label>Control:<br/></xf:label>
-<!--		    <xf:itemset nodeset="instance('i-families')/family[@name=instance('i-settings')/family]/control[contains(instance('i-baselines')/baselines,default) and contains(instance('i-priorities')/priorities,priority) and (not(&ProfileFlag;) or &ReferencedInProfile;)]">
-		      <xf:label ref="dropDownLabel"/>
-		      <xf:value ref="@number"/>
-		    </xf:itemset>-->
-		    <xf:itemset nodeset="instance('i-xref')/family[@name=instance('i-settings')/family]/control[contains(instance('i-baselines')/baselines,default) and contains(instance('i-priorities')/priorities,priority) and (not(&ProfileFlag;) or subcategory[contains(&Profile;, concat(@number, ' ')) or ends-with(&Profile;, @number)])]">
+		    <xf:itemset nodeset="instance('i-families')/family[@name=instance('i-settings')/family]/control[contains(instance('i-baselines')/baselines,default) and contains(instance('i-priorities')/priorities,priority) and (not(&ProfileFlag;) or subcategory[contains(&Profile;, concat(@number, ' ')) or ends-with(&Profile;, @number)])]">
 		      <xf:label ref="instance('i-families')/family[@name=instance('i-settings')/family]//dropDownLabel[..@number=context()/@number]"/>
 		      <xf:value ref="@number"/>
 		    </xf:itemset>
@@ -771,7 +720,7 @@
 		  <br/><br/>
 		  <xf:trigger>
 		    <xf:label>
-		      <span>Framework Core subcategories referencing </span>
+		      <span>Framework Core Subcategories Referencing </span>
 		      <xf:output ref="instance('i-settings')/control@number"/>
 		    </xf:label>
 		    <xf:hint>
@@ -849,7 +798,7 @@
 	      <td>
 	  
 		<!-- Drop-down for selecting control impact-->
-		<div class="Cell">
+		<div class="DropDownCell">
 		  <xf:select1 appearance="&ImpactAppearance;" ref="&CXPath;/impact@value">
 		    <xf:label/>&BaselineItemList;
 		    <xf:alert>
@@ -866,7 +815,7 @@
 
 		<!-- Drop-downs for selecting control enhancement impacts -->
 		<xf:repeat id="ceDropDown-repeat" nodeset="instance('i-settings')/enhancement">
-		  <div class="Cell">
+		  <div class="DropDownCell">
 		    <xf:select1 appearance="&ImpactAppearance;" ref="impact@value">
 		      <xf:label/>&BaselineItemList;
 		      <xf:alert>
@@ -887,13 +836,13 @@
 
 	      <!-- Cell containing checkboxes for added supplemental guidance -->
 	      <td>
-		<div class="Cell">
+		<div class="DropDownCell">
 		  <xf:input incremental="true" bind="b-c-gFlag">
 		    <xf:label/>
 		  </xf:input>
 		</div>
 		<xf:repeat nodeset="instance('i-settings')/enhancement/gFlag">
-		  <div class="Cell">
+		  <div class="DropDownCell">
 		    <xf:select1 ref="." appearance="&XRefAppearance;">
 		      <xf:label/>
 		      <xf:item>
@@ -999,7 +948,7 @@
 	    <xf:output ref="instance('i-settings')/control@number"/>
 	    <span>:</span><br/>
 <!--	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number or sp800-53/family=substring-before(instance('i-settings')/control@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control@number))]@id">-->
-	    <xf:repeat nodeset="instance('i-xref')//subcategory@number[../..@number=instance('i-settings')/control@number]">
+	    <xf:repeat nodeset="instance('i-families')//subcategory@number[../..@number=instance('i-settings')/control@number]">
 	      <xf:trigger>
 		<xf:label ref="."/>
 		<xf:hint>
