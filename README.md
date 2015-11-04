@@ -1,3 +1,3 @@
 # gitrepo
-My personal repository.
+My personal repository. "Master" repository on lamb.
 
