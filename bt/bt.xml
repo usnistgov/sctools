@@ -967,7 +967,6 @@
     <div class="footer">
       <p>
 	
-	Date created: 2014/12/01 | 
 Last updated: <xf:output ref="instance('i-updated')"/>
 
 <br/>
