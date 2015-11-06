@@ -17,10 +17,10 @@
 
   <target name="transform">
     <!-- run XSLTs to generate catalog, families, and cyberframework core instances -->
-    <xslt in="${SP800-53}" out="families.xml" style="families.xsl"/>
-    <xslt in="${SP800-53}" out="catalog.xml" style="catalog.xsl"/>
-    <xslt in="${cybercore-exported}" out="core.xml" style="core.xsl"/>
-    <xslt in="core.xml" out="subcategories.xml" style="subcategories.xsl"/>
+    <xslt in="${SP800-53}" out="bt-model/families.xml" style="families.xsl"/>
+    <xslt in="${SP800-53}" out="bt-model/catalog.xml" style="catalog.xsl"/>
+    <xslt in="${cybercore-exported}" out="bt-model/core.xml" style="core.xsl"/>
+    <xslt in="bt-model/core.xml" out="bt-model/subcategories.xml" style="subcategories.xsl"/>
   </target>
     
   <target name="copy" depends="init, transform, clean"
@@ -60,7 +60,7 @@ PLEASE NOTE: This is an experimental website. NIST does not endorse the views ex
       </insert>
     </xmltask>
     <copy todir="${build}" preservelastmodified="true">
-      <fileset dir="." includes="*.png *.css core.xml subcategories.xml families.xml catalog.xml bt.xml matrix.xml stylesheet.xsl stylesheet-profile.xsl images/** xsltforms/**"/>
+      <fileset dir="." includes="bt.xml *.png *.css bt-model/** images/** xsltforms/**"/>
     </copy>
   </target>
 

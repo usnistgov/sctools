@@ -57,7 +57,7 @@
 	    <xsl:otherwise/>
 	  </xsl:choose>
 	</priority>
-	<xsl:for-each select="document('core.xml')//sp800-53">
+	<xsl:for-each select="document('bt-model/core.xml')//sp800-53">
 	  <xsl:if test="control = $controlID or family= substring-before($controlID, '-')">
 	    <subcategory number="{../@id}"/>
 	  </xsl:if>

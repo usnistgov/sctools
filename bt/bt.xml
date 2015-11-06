@@ -134,14 +134,15 @@
 
     <xf:model>
 
-      <xf:instance id="i-core" src="core.xml" xmlns=""/>
-      <xf:instance id="i-catalog" src="catalog.xml" xmlns=""/>
-      <xf:instance id="i-families" src="families.xml"/>
-      <xf:instance id="i-stylesheet" src="stylesheet.xsl"/>
-      <xf:instance id="i-stylesheet-profile" src="stylesheet-profile.xsl"/>
+      <xf:instance id="i-core" src="bt-model/core.xml" xmlns=""/>
+      <xf:instance id="i-catalog" src="bt-model/catalog.xml" xmlns=""/>
+      <xf:instance id="i-families" src="bt-model/families.xml"/>
+      <xf:instance id="i-subcats" src="bt-model/subcategories.xml"/>
+      <xf:instance id="i-stylesheet" src="bt-model/stylesheet.xsl"/>
+      <xf:instance id="i-stylesheet-profile" src="bt-model/stylesheet-profile.xsl"/>
 
       <!-- This model instance helps with determining where to say 'selected', 'added', 'removed' in the UI -->
-      <xf:instance id="i-matrix" src="matrix.xml"/>
+      <xf:instance id="i-matrix" src="bt-model/matrix.xml"/>
 
       <xf:instance id="i-pretty-tailored" xmlns="">
 	<pretty/>
@@ -239,8 +240,6 @@
 	  <crossRef flag="false"/>
 	</data>
       </xf:instance>
-
-      <xf:instance id="i-subcats" src="subcategories.xml"/>
 
       <xf:instance id="i-profile">
 	<data xmlns="">
