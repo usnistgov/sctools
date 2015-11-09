@@ -1,0 +1,107 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xsltforms="http://www.agencexml.com/xsltforms" xmlns:ev="http://www.w3.org/2001/xml-events" xsltforms:dummy="dummy">
+	<head>
+		<title>XSLTForms Profiler</title>
+        <style type="text/css">
+          .code { font-family: monospace; white-space:pre; }
+        </style>
+		<xf:model>
+			<xf:instance id="profile" src="opener://xsltforms-profiler"/>
+			<xf:instance id="debugger">
+				<data xmlns="">
+					<instance/>
+				</data>
+			</xf:instance>
+			<xf:instance id="view">
+				<data xmlns=""/>
+			</xf:instance>
+			<xf:submission id="getview" method="get" replace="instance" instance="view">
+				<xf:resource value="concat('opener://',instance('debugger')/instance)"/>
+			</xf:submission>
+		</xf:model>
+	</head>
+	<body>
+		<xf:group ref=".[not(*)]">
+			<p>This profiler is accessible when pressing F1 key then activating the corresponding trigger.</p>
+		</xf:group>
+		<xf:group ref=".[*]">
+			<h2>XSLTForms Profiler/Debugger</h2>
+			<p>
+				<xf:output value="xsltforms:date">
+					<xf:label>TimeStamp: </xf:label>
+				</xf:output>
+			</p>
+			<h3><xf:output value="xsltforms:location"/></h3>
+			<p>Environment:
+				<ul>
+					<li>Browser: <xf:output value="xsltforms:appname"/>&#160;<xf:output value="xsltforms:appcodename"/>&#160;<xf:output value="xsltforms:appversion"/></li>
+					<li>User-Agent: <xf:output value="xsltforms:useragent"/></li>
+					<li>Initial XSLT Engine: <xf:output value="xsltforms:xsltengine"/></li>
+					<li>Current XSLT Engine: <xf:output value="xsltforms:xsltengine2"/></li>
+					<li>XSLTForms Version: <xf:output value="xsltforms:version"/></li>
+				</ul>
+			</p>
+			<table>
+				<tr>
+					<td>Instances:</td>
+					<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+					<td>Controls:</td>
+				</tr>
+				<tr valign="top">
+					<td>
+						<ul>
+							<xf:repeat nodeset="xsltforms:instances/xsltforms:instance">
+								<li><span class="code">"<xf:output value="@id"/>"</span>: <xf:output value="concat(., ' node', choose(. &gt; 1,'s',''))"/></li>
+							</xf:repeat>
+						</ul>
+					</td>
+					<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+					<td>
+						<ul>
+							<xf:repeat nodeset="xsltforms:controls/xsltforms:control">
+								<li>xforms:<xf:output value="@type"/>: <xf:output value="concat(., ' item', choose(. &gt; 1,'s',''))"/></li>
+							</xf:repeat>
+						</ul>
+					</td>
+				</tr>
+			</table>
+			<xf:select1 ref="instance('debugger')/instance" appearance="minimal">
+				<xf:label>Instance Viewer: </xf:label>
+				<xf:itemset nodeset="instance('profile')/xsltforms:instances/xsltforms:instance">
+					<xf:label ref="@id"/>
+					<xf:value ref="@id"/>
+				</xf:itemset>
+				<xf:send submission="getview" ev:event="xforms-value-changed"/>
+			</xf:select1>
+			<xf:submit submission="getview">
+				<xf:label>Refresh intance view</xf:label>
+			</xf:submit>
+			<xf:group ref="instance('debugger')/instance[. != '']">
+				<p class="code"><xf:output value="serialize(instance('view'),'yes')"/></p>
+			</xf:group>
+			<table>
+				<tr>
+					<td>HTML Elements Count: <xf:output value="xsltforms:htmlelements"/><br/>
+						XSLT Transformation Time: <xf:output value="xsltforms:transformtime"/>ms<br/>
+						HTML Parsing Time: <xf:output value="xsltforms:htmltime"/>ms<br/>
+						HTML Creation Time: <xf:output value="xsltforms:creatingtime"/>ms
+					</td>
+					<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+					<td>XForms Init Time: <xf:output value="xsltforms:inittime"/>ms<br/>
+						XForms Refresh Count: <xf:output value="xsltforms:refreshcount"/><br/>
+						XForms Cumulative Refresh Time: <xf:output value="xsltforms:refreshtime"/>ms
+					</td>
+				</tr>
+			</table>
+			<xf:group ref=".[xsltforms:xpaths/xsltforms:xpath]">
+				<p>XPath Expressions Cumulative Evaluation Time:
+					<ul>
+						<xf:repeat nodeset="xsltforms:xpaths/xsltforms:xpath | xsltforms:xpaths/xsltforms:others">
+							<li><span class="code"><xf:output value="choose(local-name()='others', 'Others', concat('&quot;',@expr,'&quot;'))"/></span>: <xf:output value="."/>ms</li>
+						</xf:repeat>
+						<li>Total: <xf:output value="xsltforms:xpaths/xsltforms:total"/>ms</li>
+					</ul>
+				</p>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>
