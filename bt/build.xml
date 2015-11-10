@@ -31,36 +31,20 @@
 <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
 	]]>
       </insert>
-      <insert path="/:html/:body/*[1]" position="before">
+      <insert path="/:html/:body/*[1]" file="insert/nist-header.xml" position="before"/>
+      <insert path="/:html/:body/*[last()]" file="insert/nist-footer.xml" position="after"/>
+    </xmltask>
+    <xmltask source="index.html" todir="${build}">
+      <insert path="/:html/:head/:title" position="after">
 	<![CDATA[
-<div xmlns="http://www.w3.org/1999/xhtml" class="nist-header">
-  <h1>
-    <a class="nist-logo" target="_blank" href="http://www.nist.gov/" title="Go to nist.gov">National Institute of Standards and Technology</a>
-  </h1>
-  <div class="nist-links">
-    <a class="nist-links-button" target="_blank" href="http://www.nist.gov">NIST Website</a>
-    <a class="nist-links-button mobile-hide"  target="_blank" href="http://www.nist.gov/public_affairs/nandyou.cfm">About NIST</a>
-    <a class="nist-links-button mobile-hide" target="_blank" href="https://github.com/usnistgov">usnistgov on Github</a>
-  </div>
-</div>
+<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
 	]]>
       </insert>
-      <insert path="/:html/:body/*[last()]" position="after">
-	<![CDATA[
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <hr/>
-  <p style="color:#777">
-PLEASE NOTE: This is an experimental website. NIST does not endorse the views expressed, or necessarily concur with the information presented on these sites. Further, NIST does not endorse any commercial products that may be mentioned on these sites. All the material on this website is in the public domain and is intended for unrestricted use by interested parties, including any text, diagrams, or images, unless indicated explicitly.</p>
-  <p style="color:#777">This website represents components defined in the NIST Framework for Improving Critical Infrastructure Cybersecurity and security controls and associated assessment procedures defined in NIST SP 800-53 Revision 4 Recommended Security Controls for Federal Information Systems and Organizations. For any discrepancies noted in the content between this website and the latest published NIST Cybersecurity Framework or Special Publication SP 800-53 Revision 4, please defer to the official published documents that are posted on <a href="http://csrc.nist.gov" target="_blank">http://csrc.nist.gov</a>.</p>
-  <p style="color:#777">Certain commercial equipment, instruments, materials, systems, software, and trade names may be identified throughout this site in order to specify or identify technologies adequately. Such identification is not intended to imply recommendation or endorsement by NIST or any other party, nor is it intended to imply that the systems or products identified are necessarily the best available for the purpose. All data and other information posted on this site is provided as a public service and is provided &apos;AS IS.&apos;  NIST MAKES NO WARRANTY OF ANY KIND, EXPRESS, IMPLIED OR STATUTORY, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT AND DATA ACCURACY.</p>  
-  <p style="color:#777">By selecting external links, you will be leaving NIST webspace. Links to other websites are provided because they may have information that would be of interest to you. No inferences should be drawn on account of other sites being referenced, or not, from this page. There may be other websites that are more appropriate for your purpose.</p>
-  <br/><a target="_blank" href="http://www.nist.gov/public_affairs/privacy.cfm#privpolicy">Privacy Policy</a> | <a target="_blank" href="http://www.nist.gov/public_affairs/privacy.cfm#secnot">Security Notice</a> | <a target="_blank" href="http://www.nist.gov/public_affairs/privacy.cfm#accesstate">Accessibility Statement</a> | <a href="mailto:inquiries@nist.gov?subject=Feedback%20on%20NISTGithubPages">Send feedback</a>
-</div>
-	]]>
-      </insert>
+      <insert path="/:html/:body/:p[1]" file="insert/nist-header.xml" position="before"/>
+      <insert path="/:html/:body/:p[last()]" file="insert/nist-footer.xml" position="after"/>
     </xmltask>
     <copy todir="${build}" preservelastmodified="true">
-      <fileset dir="." includes="bt.xml *.png *.css bt-model/** images/** xsltforms/**"/>
+      <fileset dir="." includes="*.png *.css bt-model/** images/** xsltforms/**"/>
     </copy>
   </target>
 
