@@ -44,7 +44,7 @@
       <insert path="/:html/:body/:p[last()]" file="insert/nist-footer.xml" position="after"/>
     </xmltask>
     <copy todir="${build}" preservelastmodified="true">
-      <fileset dir="." includes="*.png *.css bt-model/** images/** xsltforms/**"/>
+      <fileset dir="." includes=" LICENSE.txt *.png *.css bt-model/** images/** xsltforms/**"/>
     </copy>
   </target>
 
