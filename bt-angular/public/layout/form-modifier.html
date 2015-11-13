@@ -1,0 +1,110 @@
+<md-toolbar layout="row" layout-align"space between center" class="md-primary">
+  <h2 flex="20" class="md-toolbar-tools">
+    <span>Modification <span ng-bind="mod.state.id"></span> </span>
+  </h2>
+    
+ <span flex="10">
+	  <md-select ng-model="mod.overlays" ng-change="mod.setOverlay()" style="margin-top: 1em;" ng-show="mod.srcOverlays().length>0">
+	     <md-select-label>{{'Overlay'}}</md-select-label>
+	    <md-option ng-value="opt" ng-repeat="opt in mod.srcOverlays()">{{ opt }}</md-option>
+	  </md-select>
+	</span>
+</md-toolbar>
+
+<form name="modificationForm">
+
+	<md-content class = "md-padding">
+		<div layout="row" layout-align="space-between start">
+		
+
+			<div flex="10">
+
+				<md-radio-group ng-model="mod.state.status" ng-change="mod.clearMod()">
+			        <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['base']" value="base">Baseline</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['scope']" value="scope">Scoped</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['add']" value="add">Added</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['comp']" value="comp">Compensating</md-radio-button>
+				    <md-radio-button  ng-disabled="!mod.state.id || !mod.changeChart[mod.state.status]['not']" value="not" >N/A</md-radio-button>
+			    </md-radio-group>
+
+			</div>
+			
+			<div flex="40">
+				<div layout="row" layout-wrap>
+					
+					<div flex> 
+						<md-input-container>
+							<label>Implementation Detail</label>
+							<textarea ng-model="mod.state.guidance" rows="2" ng-disabled="!mod.state.id"></textarea>
+						</md-input-container>
+					</div>
+
+					<div flex> 
+						<md-input-container>
+							<label>Rationale</label>
+							<textarea ng-required="mod.modDelta()" ng-disabled="!mod.modDelta()" ng-model="mod.state.rationale" rows="2" name="rationale"></textarea>
+						</md-input-container>
+					</div>
+
+
+				</div>
+				
+				<div layout="row" layout-align="space-between center" >
+				
+					<md-button flex="20" align="left" class="md-primary" ng-click="mod.submitMod()" ng-disabled="modificationForm.$invalid || !mod.state.id" style="height: 50px;">Add</md-button>
+
+					<md-button flex="20" align="left" class="md-warn" ng-disabled="!mod.modContains()" ng-click="mod.deleteMod()" style="height: 50px;">Delete</md-button>
+
+					
+
+					<md-select flex="30" align="left" ng-disabled="!(mod.state.status==='comp' || mod.state.status==='scope')" ng-model="mod.state.scopeMeasure" ng-change="mod.unsetEnhance()" ng-required="mod.state.status==='comp' || mod.state.status==='scope'" style="margin-top: 1em;">
+						<md-select-label>For {{mod.state.status==='scope'?'Compensating' + ' Control ' + (mod.state.scopeMeasure?mod.state.scopeMeasure:'') : 'Scoped' + ' Control ' + (mod.state.scopeMeasure?mod.state.scopeMeasure:'') }}</md-select-label>
+						<md-option ng-value="key" ng-repeat="(key, val) in mod.recordDict() | parentFilter">{{key}}</md-option>
+					</md-select>
+
+					<md-select flex="30" align="left" ng-disabled="!((mod.state.status==='comp' || mod.state.status==='scope') && mod.state.scopeMeasure && mod.getEnhance().length > 0)" ng-model="mod.state.enhanceMeasure" style="margin-top: 1em;">
+						<md-select-label>{{mod.state.enhanceMeasure===mod.state.scopeMeasure ? 'No Enhancement' : ( 'Enhancement '+ mod.state.enhanceMeasure)}}</md-select-label>
+						<md-option ng-value="key" ng-repeat="key in mod.getEnhance()">{{key}}</md-option>
+					</md-select>
+					
+
+				</div>	
+
+
+			</div>
+			<div flex layout="row" layout-align="space-between center" layout-wrap>
+				<md-select flex="100" ng-model="mod.inheritedTailoring" style="margin-top: 1em;" multiple>
+			     <md-select-label>{{'Inherited Controls: '+(mod.inheritedTailoring?mod.inheritedTailoring:'nothing')}}</md-select-label>
+			    <md-option ng-value="opt.profile.name" ng-repeat="opt in mod.inherited()">{{ (opt.profile.name.length>0)?opt.profile.name:'nothing' }}</md-option>
+			  </md-select>
+
+				<md-content flex class="md-padding" layout-align="space-between center" style="overflow-y:scroll">
+					<md-list>
+						<md-item ng-repeat=" inh in mod.inheritedTailoring">
+	
+
+							<md-item-content layout="row" layout-align="space-around center">
+							<div ng-switch on="mod.inheritedDict[inh][mod.state.id].state">			
+						        <div ng-switch-when="base" class="md-tile-icon glyphicon glyphicon-record" flex="5"><md-tooltip>Baseline</md-tooltip></div>
+								<div ng-switch-when="scope" class="md-tile-icon glyphicon glyphicon-remove-circle" flex="5"><md-tooltip>Scoped</md-tooltip></div>
+								<div ng-switch-when="add" class="md-tile-icon glyphicon glyphicon-ok-circle" flex="5"><md-tooltip>Added</md-tooltip></div>
+								<div ng-switch-when="comp" class="md-tile-icon glyphicon glyphicon-adjust" flex="5"><md-tooltip>Compensating</md-tooltip></div>
+								<div ng-switch-when="not" class="md-tile-icon glyphicon glyphicon-ban-circle" flex="5"><md-tooltip>Not Included</md-tooltip></div>
+							</div>
+					        <div class="md-tile-content" flex>
+								
+								 <history-item modification="mod.inheritedDict[inh][mod.state.id]" uid="inh" ng-class="{'border: black':true}"></history-item>
+
+							</div>
+
+
+						<md-item>
+					</md-list>
+
+				</md-content>
+
+			</div>
+		</div>
+	</md-content>
+
+</form>
