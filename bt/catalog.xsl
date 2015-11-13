@@ -6,7 +6,7 @@
     xmlns:c="http://scap.nist.gov/schema/sp800-53/2.0"
     xmlns:controls="http://scap.nist.gov/schema/sp800-53/feed/2.0">
 
-  <xsl:output method="xml"/>
+  <xsl:output method="xml" indent="yes"/>
 
   <xsl:template match="controls:controls">
     <controls>

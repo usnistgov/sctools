@@ -17,9 +17,9 @@
 
   <target name="transform">
     <!-- run XSLTs to generate catalog, families, and cyberframework core instances -->
-    <xslt in="${SP800-53}" out="bt-model/families.xml" style="families.xsl"/>
     <xslt in="${SP800-53}" out="bt-model/catalog.xml" style="catalog.xsl"/>
     <xslt in="${cybercore-exported}" out="bt-model/core.xml" style="core.xsl"/>
+    <xslt in="${SP800-53}" out="bt-model/families.xml" style="families.xsl"/>
     <xslt in="bt-model/core.xml" out="bt-model/subcategories.xml" style="subcategories.xsl"/>
   </target>
     
