@@ -41,7 +41,7 @@
          <default>4</default>
       </enhancement>
       <enhancement number="9">
-         <title>RESTRICTIONS ON USE OF SHARED GROUPS / ACCOUNTS</title>
+         <title>RESTRICTIONS ON USE OF SHARED / GROUP ACCOUNTS</title>
          <default>4</default>
       </enhancement>
       <enhancement number="10">
@@ -788,10 +788,6 @@
          <title>INDEPENDENT ASSESSMENT</title>
          <default>2</default>
       </enhancement>
-      <enhancement number="2">
-         <title>TYPES OF ASSESSMENTS</title>
-         <default>4</default>
-      </enhancement>
       <enhancement number="3">
          <title>TREND ANALYSES</title>
          <default>4</default>
@@ -1366,7 +1362,7 @@
          <default>1</default>
       </enhancement>
       <enhancement number="12">
-         <title>BIOMETRIC AUTHENTICATION</title>
+         <title>BIOMETRIC-BASED AUTHENTICATION</title>
          <default>4</default>
       </enhancement>
       <enhancement number="13">
@@ -2253,7 +2249,7 @@
          <default>4</default>
       </enhancement>
       <enhancement number="5">
-         <title>PENETRATION TESTING / ANALYSIS</title>
+         <title>PENETRATION TESTING</title>
          <default>4</default>
       </enhancement>
       <enhancement number="6">
@@ -3068,7 +3064,7 @@
          <default>4</default>
       </enhancement>
       <enhancement number="20">
-         <title>PRIVILEGED USER</title>
+         <title>PRIVILEGED USERS</title>
          <default>4</default>
       </enhancement>
       <enhancement number="21">
