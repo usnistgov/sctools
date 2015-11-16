@@ -26,7 +26,7 @@
 	<default>
 	  <xsl:choose>
 	    <xsl:when test="c:baseline-impact">
-	      <xsl:apply-templates select="c:baseline-impact"/>
+	      <xsl:apply-templates select="c:baseline-impact[1]"/>
 	    </xsl:when>
 	    <xsl:otherwise>4</xsl:otherwise>
 	  </xsl:choose>
@@ -61,7 +61,7 @@
 	<default>
 	  <xsl:choose>
 	    <xsl:when test="c:baseline-impact">
-	      <xsl:apply-templates select="c:baseline-impact"/>
+	      <xsl:apply-templates select="c:baseline-impact[1]"/>
 	    </xsl:when>
 	    <xsl:otherwise>4</xsl:otherwise>
 	  </xsl:choose>
