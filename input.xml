@@ -1,0 +1,25 @@
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options debug="no"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://www.w3.org/1999/xhtml"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+<head>
+	<title>Input</title>
+	<style type="text/css">
+	body { font-family: sans-serif}
+	label { display: inline-block; width: 8em; margin: 0 1em; text-align: right }
+	</style> 
+	<model xmlns="http://www.w3.org/2002/xforms">
+	   <instance><data xmlns=""><firstname/><secondname/></data></instance>
+	</model>
+</head>
+<body>
+    <group  xmlns="http://www.w3.org/2002/xforms">
+	<input ref="firstname"><label>First name:</label></input><h:br/>
+	<input ref="secondname"><label>Second name:</label></input><h:br/>
+	Your name is: <output value="concat(firstname, ' ', secondname)"/>
+    </group>
+</body>
+</html>
