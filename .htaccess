@@ -1,2 +1,1 @@
-AddType application/xml .xsl
-AddType application/xml .xml
+AddType application/xml .xml .xsl
