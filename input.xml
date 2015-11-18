@@ -5,7 +5,8 @@
       xmlns:ev="http://www.w3.org/2001/xml-events"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 >
-<head>
+  <head>
+    <meta http-equiv="content-type" content="application/xml"/>
 	<title>Input</title>
 	<style type="text/css">
 	body { font-family: sans-serif}
