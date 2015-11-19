@@ -44,8 +44,9 @@
       <insert path="/:html/:body/:p[last()]" file="insert/nist-footer.xml" position="after"/>
     </xmltask>
     <copy todir="${build}" preservelastmodified="true">
-      <fileset dir="." includes="*.png *.css bt-model/** images/** xsltforms/**"/>
+      <fileset dir="." includes="*.png *.css bt-model/** images/** xsltforms/**" excludes="bt-model/matrix.xml"/>
     </copy>
+    <xmltask source="bt-model/matrix.xml" todir="${build}/bt-model"/>
   </target>
 
   <target name="sch" description="validate tailoring against a schematron schema">
