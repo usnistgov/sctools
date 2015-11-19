@@ -1,90 +1,82 @@
-<!-- $Id: matrix.xml,v 1.1 2014/12/12 18:08:54 lubell Exp $-->
-
-<!DOCTYPE matrix [
-<!ENTITY A "Added">
-<!ENTITY R "Removed">
-<!ENTITY S "Selected">
-<!ENTITY blank "&#x2002;">
-]>
 <matrix>
   <row value="11">
-    <l>&S;</l>
-    <m>&S;</m>
-    <h>&S;</h>
+    <l>Selected</l>
+    <m>Selected</m>
+    <h>Selected</h>
   </row>
   <row value="12">
-    <l>&R;</l>
-    <m>&S;</m>
-    <h>&S;</h>
+    <l>Removed</l>
+    <m>Selected</m>
+    <h>Selected</h>
   </row>
   <row value="13">
-    <l>&R;</l>
-    <m>&R;</m>
-    <h>&S;</h>
+    <l>Removed</l>
+    <m>Removed</m>
+    <h>Selected</h>
   </row>
   <row value="14">
-    <l>&R;</l>
-    <m>&R;</m>
-    <h>&R;</h>
+    <l>Removed</l>
+    <m>Removed</m>
+    <h>Removed</h>
   </row>
   <row value="21">
-    <l>&A;</l>
-    <m>&S;</m>
-    <h>&S;</h>
+    <l>Added</l>
+    <m>Selected</m>
+    <h>Selected</h>
   </row>
   <row value="22">
-    <l>&blank;</l>
-    <m>&S;</m>
-    <h>&S;</h>
+    <l>&#x2002;</l>
+    <m>Selected</m>
+    <h>Selected</h>
   </row>
   <row value="23">
-    <l>&blank;</l>
-    <m>&R;</m>
-    <h>&S;</h>
+    <l>&#x2002;</l>
+    <m>Removed</m>
+    <h>Selected</h>
   </row>
   <row value="24">
-    <l>&blank;</l>
-    <m>&R;</m>
-    <h>&R;</h>
+    <l>&#x2002;</l>
+    <m>Removed</m>
+    <h>Removed</h>
   </row>
   <row value="31">
-    <l>&A;</l>
-    <m>&A;</m>
-    <h>&S;</h>
+    <l>Added</l>
+    <m>Added</m>
+    <h>Selected</h>
   </row>
   <row value="32">
-    <l>&blank;</l>
-    <m>&A;</m>
-    <h>&S;</h>
+    <l>&#x2002;</l>
+    <m>Added</m>
+    <h>Selected</h>
   </row>
   <row value="33">
-    <l>&blank;</l>
-    <m>&blank;</m>
-    <h>&S;</h>
+    <l>&#x2002;</l>
+    <m>&#x2002;</m>
+    <h>Selected</h>
   </row>
   <row value="34">
-    <l>&blank;</l>
-    <m>&blank;</m>
-    <h>&R;</h>
+    <l>&#x2002;</l>
+    <m>&#x2002;</m>
+    <h>Removed</h>
   </row>
   <row value="41">
-    <l>&A;</l>
-    <m>&A;</m>
-    <h>&A;</h>
+    <l>Added</l>
+    <m>Added</m>
+    <h>Added</h>
   </row>
   <row value="42">
-    <l>&blank;</l>
-    <m>&A;</m>
-    <h>&A;</h>
+    <l>&#x2002;</l>
+    <m>Added</m>
+    <h>Added</h>
   </row>
   <row value="43">
-    <l>&blank;</l>
-    <m>&blank;</m>
-    <h>&A;</h>
+    <l>&#x2002;</l>
+    <m>&#x2002;</m>
+    <h>Added</h>
   </row>
   <row value="44">
-    <l>&blank;</l>
-    <m>&blank;</m>
-    <h>&blank;</h>
+    <l>&#x2002;</l>
+    <m>&#x2002;</m>
+    <h>&#x2002;</h>
   </row>
 </matrix>
