@@ -22,9 +22,8 @@
     <xslt in="${SP800-53}" out="bt-model/families.xml" style="families.xsl"/>
     <xslt in="bt-model/core.xml" out="bt-model/subcategories.xml" style="subcategories.xsl"/>
   </target>
-    
-  <target name="copy" depends="init, transform, clean"
-          description="generate the distribution">
+
+  <target name="bt" description="create bt.xml in the build directory, with NIST header/footer and XSLTForms delay attributes inserted">
     <xmltask source="bt.xml" todir="${build}">
       <insert path="/:html/:head/:link[1]" position="after">
 	<![CDATA[
@@ -32,8 +31,12 @@
 	]]>
       </insert>
       <insert path="/:html/:body/*[1]" file="insert/nist-header.xml" position="before"/>
+      <attr path="//xf:textarea[@class='Guidance']" attr="delay" value="500"/>
       <insert path="/:html/:body/*[last()]" file="insert/nist-footer.xml" position="after"/>
     </xmltask>
+  </target>
+
+  <target name="index" description="create index.html in the build directory, with NIST header/footer inserted">
     <xmltask source="index.html" todir="${build}">
       <insert path="/:html/:head/:title" position="after">
 	<![CDATA[
@@ -43,6 +46,10 @@
       <insert path="/:html/:body/:p[1]" file="insert/nist-header.xml" position="before"/>
       <insert path="/:html/:body/:p[last()]" file="insert/nist-footer.xml" position="after"/>
     </xmltask>
+  </target>
+    
+  <target name="copy" depends="init, transform, bt, index, clean"
+          description="generate the distribution">
     <copy todir="${build}" preservelastmodified="true">
       <fileset dir="." includes="*.png *.css bt-model/** images/** xsltforms/**"/>
     </copy>
