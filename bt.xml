@@ -1901,7 +1901,7 @@
                         		
                         <div>
                            		  
-                           <xf:textarea class="Guidance" incremental="true" ref="instance('i-settings')/control/guidance">
+                           <xf:textarea class="Guidance" delay="500" incremental="true" ref="instance('i-settings')/control/guidance">
                               		    
                               <xf:label>Additional Supplemental Guidance:<br /></xf:label>
                               		  
@@ -1924,7 +1924,7 @@
                                     		      
                                  </xf:label>
                                  		      
-                                 <xf:textarea class="Guidance" incremental="true" ref=".">
+                                 <xf:textarea class="Guidance" delay="500" incremental="true" ref=".">
                                     			
                                     <xf:label></xf:label>
                                     		      
@@ -1939,7 +1939,7 @@
                         		
                         <div>
                            		  
-                           <xf:textarea class="Guidance" incremental="true" ref="instance('i-settings')/rationale">
+                           <xf:textarea class="Guidance" delay="500" incremental="true" ref="instance('i-settings')/rationale">
                               		    
                               <xf:label>Rationale for changing the baseline:<br /></xf:label>
                               		  
