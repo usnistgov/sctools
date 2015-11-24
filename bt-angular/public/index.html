@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width">
+
+  <title>SP 800-53</title>
+
+  <!-- Required CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/angular-material.css">
+  <link rel="stylesheet" href="lib/ui-grid.css">
+  <link rel="stylesheet" href="lib/ui-layout.css">
+
+  <!-- My CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Required javascript -->
+  
+  <script src="lib/angular.js"></script>
+
+  <script src="lib/angular-aria.js"></script>
+  <script src="lib/angular-material.js"></script>
+  <script src="lib/angular-animate.js"></script>
+
+  <script src="lib/ui-grid.js"></script>
+  <script src="lib/ui-layout.js"></script>
+  <script src="lib/release/angular-ui-router.js"></script>
+  <script src="lib/angular-file-upload.js"></script>
+  <script src="lib_static/FileSaver.js"></script>
+
+  
+
+
+
+  <!-- My Javascript-->
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="model/form.controller.js"></script>
+  <script type="text/javascript" src="model/profile.controller.js"></script>
+  <script type="text/javascript" src="model/mod.controller.js"></script>
+  <script type="text/javascript" src="model/history.controller.js"></script>
+  <script type="text/javascript" src="model/grid.controller.js"></script>
+  <script type="text/javascript" src="model/history-item.directive.js"></script>
+  <script type="text/javascript" src="services/userRecords.factory.js"></script>
+  <script type="text/javascript" src="services/securityMeasuresJSON.factory.js"></script>
+  <script type="text/javascript" src="services/family.filter.js"></script>
+  <script type="text/javascript" src="services/measure.filter.js"></script>
+  <script type="text/javascript" src="services/dirty.filter.js"></script>
+  <script type="text/javascript" src="services/parent.filter.js"></script>
+</head>
+
+<body ng-app="app">
+
+  <section layout="row" layout-align="space-around center">
+    
+
+    <div  ui-layout="{dividerSize: '8px;'}" ng-controller="FormCtrl as form" style="position:absolute; z-index: 10;">
+
+      <div ui-layout-container size="65px" min-size="65px" max-size="65px" style="z-index: 10;">
+
+        <div ng-controller="ProfileCtrl as profile" ui-view="header"></div>
+
+      </div>
+      
+      <div ui-layout-container> 
+        <div ui-layout="{flow : 'column', dividerSize: '8px;'}" style="z-index: 10;">
+
+
+          <div ui-layout-container size="80%" min-size="40%" style="z-index: 10;">
+           
+           <div ng-controller="GridCtrl as catalog" ui-view="selector"></div>
+           
+         </div>
+
+
+         <div ui-layout-container min-size="" class="" style="z-index: 10;">
+
+           <div ng-controller="HistoryCtrl as hist" ui-view="history"></div>
+
+         </div>
+
+       </div>
+
+     </div>
+     
+     <div ui-layout-container size="325px" max-size="500px" class="">
+
+      <div ng-controller="ModCtrl as mod" ui-view="modifier"></div>
+
+    </div>
+  </div>
+
+</section>
+
+
+</body>
+
+</html>

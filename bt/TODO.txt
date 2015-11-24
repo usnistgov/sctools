@@ -1,0 +1,22 @@
+$Id: TODO.txt,v 1.12 2015/01/09 15:31:18 lubell Exp $
+
+Fix CVS keywords - don't work with Git
+
+Decide whether/how to support PM control family
+
+In IE, get selected|added|removed values to update properly in i-settings
+
+Merge families and catalog into one transformation/instance
+
+Implement aggregation of overlay XML to file
+
+Fix focus problems
+
+Add ability to upload an overlay XML file
+
+Fix CONTROL BASELINES values displayed for CM-7 whitelisting/blacklisting
+
+Write users guide document
+
+Implement cool 'AJAX-y' UI for baseline and priority filtering
+

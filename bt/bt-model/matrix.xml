@@ -1,0 +1,82 @@
+<matrix>
+  <row value="11">
+    <l>Selected</l>
+    <m>Selected</m>
+    <h>Selected</h>
+  </row>
+  <row value="12">
+    <l>Removed</l>
+    <m>Selected</m>
+    <h>Selected</h>
+  </row>
+  <row value="13">
+    <l>Removed</l>
+    <m>Removed</m>
+    <h>Selected</h>
+  </row>
+  <row value="14">
+    <l>Removed</l>
+    <m>Removed</m>
+    <h>Removed</h>
+  </row>
+  <row value="21">
+    <l>Added</l>
+    <m>Selected</m>
+    <h>Selected</h>
+  </row>
+  <row value="22">
+    <l>&#x2002;</l>
+    <m>Selected</m>
+    <h>Selected</h>
+  </row>
+  <row value="23">
+    <l>&#x2002;</l>
+    <m>Removed</m>
+    <h>Selected</h>
+  </row>
+  <row value="24">
+    <l>&#x2002;</l>
+    <m>Removed</m>
+    <h>Removed</h>
+  </row>
+  <row value="31">
+    <l>Added</l>
+    <m>Added</m>
+    <h>Selected</h>
+  </row>
+  <row value="32">
+    <l>&#x2002;</l>
+    <m>Added</m>
+    <h>Selected</h>
+  </row>
+  <row value="33">
+    <l>&#x2002;</l>
+    <m>&#x2002;</m>
+    <h>Selected</h>
+  </row>
+  <row value="34">
+    <l>&#x2002;</l>
+    <m>&#x2002;</m>
+    <h>Removed</h>
+  </row>
+  <row value="41">
+    <l>Added</l>
+    <m>Added</m>
+    <h>Added</h>
+  </row>
+  <row value="42">
+    <l>&#x2002;</l>
+    <m>Added</m>
+    <h>Added</h>
+  </row>
+  <row value="43">
+    <l>&#x2002;</l>
+    <m>&#x2002;</m>
+    <h>Added</h>
+  </row>
+  <row value="44">
+    <l>&#x2002;</l>
+    <m>&#x2002;</m>
+    <h>&#x2002;</h>
+  </row>
+</matrix>
