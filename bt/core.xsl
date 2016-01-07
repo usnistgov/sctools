@@ -39,12 +39,12 @@ generate-id() = generate-id(key('categories', &cID;)[1])]">
 	      <name>
 		<xsl:value-of select="&cName;"/>
 	      </name>
-	      <dropDownLabel>
+<!--	      <dropDownLabel>
 		<xsl:value-of select="&cName;"/>
 		<xsl:text> (</xsl:text>
 		<xsl:value-of select="$cID"/>
 		<xsl:text>)</xsl:text>
-	      </dropDownLabel>
+	      </dropDownLabel>-->
 	      <description>
 		<xsl:value-of select="&cDesc;"/>
 	      </description>

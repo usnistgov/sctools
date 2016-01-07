@@ -21,6 +21,7 @@
     <xslt in="${cybercore-exported}" out="bt-model/core.xml" style="core.xsl"/>
     <xslt in="${SP800-53}" out="bt-model/families.xml" style="families.xsl"/>
     <xslt in="bt-model/core.xml" out="bt-model/subcategories.xml" style="subcategories.xsl"/>
+    <xslt in="bt-model/core.xml" out="bt-model/cat-dropdown.xml" style="cat-dropdown.xsl"/>
   </target>
 
   <target name="bt" description="create bt.xml in the build directory, with NIST header/footer and XSLTForms delay attributes inserted">
@@ -53,11 +54,11 @@
     <copy todir="${build}" preservelastmodified="true">
       <fileset dir="." includes="*.png *.css bt-model/** images/** xsltforms/**"/>
     </copy>
-    <xmltask outputter="simple" source="${build}/bt-model/core.xml" dest="${build}/core.xml">
+<!--    <xmltask outputter="simple" source="${build}/bt-model/core.xml" dest="${build}/core.xml">
       <remove path="//dropDownLabel"/>
-    </xmltask>
+    </xmltask>-->
     <!-- workaround for xmltask bug -->
-    <replace file="${build}/core.xml" token="UTF-8standalone=&quot;null&quot;" value="encoding=&quot;UTF-8&quot;"/>
+<!--    <replace file="${build}/core.xml" token="UTF-8standalone=&quot;null&quot;" value="encoding=&quot;UTF-8&quot;"/>-->
   </target>
 
   <target name="sch" description="validate tailoring against a schematron schema">

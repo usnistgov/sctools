@@ -135,6 +135,7 @@
     <xf:model>
 
       <xf:instance id="i-core" src="bt-model/core.xml" xmlns=""/>
+      <xf:instance id="i-cat-dropdown" src="bt-model/cat-dropdown.xml" xmlns=""/>
       <xf:instance id="i-catalog" src="bt-model/catalog.xml" xmlns=""/>
       <xf:instance id="i-families" src="bt-model/families.xml"/>
       <xf:instance id="i-subcats" src="bt-model/subcategories.xml"/>
@@ -391,10 +392,9 @@
 		      <td class="Cell">
 		      <xf:select1 ref="category@id" appearance="&CategoriesAppearance;">
 			<xf:label>Category:<br/></xf:label>
-			<xf:itemset nodeset=
-"instance('i-core')//category[..@id=instance('i-browse')/function@id]">
-			  <xf:label ref="dropDownLabel"/>
-			  <xf:value ref="@id"/>
+			<xf:itemset nodeset="instance('i-cat-dropdown')//cat[substring-before(id, '.')=instance('i-browse')/function@id]">
+			  <xf:label ref="label"/> 
+			  <xf:value ref="id"/>
 			</xf:itemset>
 			<xf:action ev:event="xforms-value-changed" if="instance('i-browse')/crossRef@flag=false()">
 			  <xf:setvalue ref="instance('i-browse')/subcategory@id" value="instance('i-core')//subCategory@id[../..@id=instance('i-browse')/category@id]"/>
