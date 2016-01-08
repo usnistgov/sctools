@@ -18,6 +18,8 @@
          
          <xf:instance xmlns="" id="i-core" src="bt-model/core.xml"></xf:instance>
          
+         <xf:instance xmlns="" id="i-cat-dropdown" src="bt-model/cat-dropdown.xml"></xf:instance>
+         
          <xf:instance xmlns="" id="i-catalog" src="bt-model/catalog.xml"></xf:instance>
          
          <xf:instance id="i-families" src="bt-model/families.xml"></xf:instance>
@@ -501,11 +503,11 @@
                                        			
                                        <xf:label>Category:<br /></xf:label>
                                        			
-                                       <xf:itemset nodeset="instance('i-core')//category[..@id=instance('i-browse')/function@id]">
+                                       <xf:itemset nodeset="instance('i-cat-dropdown')//cat[substring-before(id, '.')=instance('i-browse')/function@id]">
                                           			  
-                                          <xf:label ref="dropDownLabel"></xf:label>
+                                          <xf:label ref="label"></xf:label> 
                                           			  
-                                          <xf:value ref="@id"></xf:value>
+                                          <xf:value ref="id"></xf:value>
                                           			
                                        </xf:itemset>
                                        			
