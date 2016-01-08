@@ -4,7 +4,6 @@
       <name>IDENTIFY</name>
       <category id="ID.GV">
          <name>Governance</name>
-         <dropDownLabel>Governance (ID.GV)</dropDownLabel>
          <description>The policies, procedures, and processes to manage and monitor the organization’s regulatory, legal, risk, environmental, and operational requirements are understood and inform the management of cybersecurity risk.</description>
          <subCategory id="ID.GV-1">
             <description>Organizational information security policy is established</description>
@@ -33,7 +32,6 @@
       </category>
       <category id="ID.AM">
          <name>Asset Management</name>
-         <dropDownLabel>Asset Management (ID.AM)</dropDownLabel>
          <description>The data, personnel, devices, systems, and facilities that enable the organization to achieve business purposes are identified and managed consistent with their relative importance to business objectives and the organization’s risk strategy.</description>
          <subCategory id="ID.AM-1">
             <description>Physical devices and systems within the organization are inventoried</description>
@@ -82,7 +80,6 @@
       </category>
       <category id="ID.RA">
          <name>Risk Assessment</name>
-         <dropDownLabel>Risk Assessment (ID.RA)</dropDownLabel>
          <description>The organization understands the cybersecurity risk to organizational operations (including mission, functions, image, or reputation), organizational assets, and individuals.</description>
          <subCategory id="ID.RA-1">
             <description>Asset vulnerabilities are identified and documented</description>
@@ -144,7 +141,6 @@
       </category>
       <category id="ID.BE">
          <name>Business Environment</name>
-         <dropDownLabel>Business Environment (ID.BE)</dropDownLabel>
          <description>The organization’s mission, objectives, stakeholders, and activities are understood and prioritized; this information is used to inform cybersecurity roles, responsibilities, and risk management decisions.</description>
          <subCategory id="ID.BE-1">
             <description>The organization’s role in the supply chain is identified and communicated</description>
@@ -187,7 +183,6 @@
       </category>
       <category id="ID.RM">
          <name>Risk Management Strategy</name>
-         <dropDownLabel>Risk Management Strategy (ID.RM)</dropDownLabel>
          <description>The organization’s priorities, constraints, risk tolerances, and assumptions are established and used to support operational risk decisions.</description>
          <subCategory id="ID.RM-1">
             <description>Risk management processes are established, managed, and agreed to by organizational stakeholders</description>
@@ -216,7 +211,6 @@
       <name>PROTECT</name>
       <category id="PR.AC">
          <name>Access Control</name>
-         <dropDownLabel>Access Control (PR.AC)</dropDownLabel>
          <description>Access to assets and associated facilities is limited to authorized users, processes, or devices, and to authorized activities and transactions.</description>
          <subCategory id="PR.AC-1">
             <description>Identities and credentials are managed for authorized devices and users</description>
@@ -264,7 +258,6 @@
       </category>
       <category id="PR.IP">
          <name>Information Protection Processes and Procedures</name>
-         <dropDownLabel>Information Protection Processes and Procedures (PR.IP)</dropDownLabel>
          <description>Security policies (that address purpose, scope, roles, responsibilities, management commitment, and coordination among organizational entities), processes, and procedures are maintained and used to manage protection of information systems and assets.</description>
          <subCategory id="PR.IP-1">
             <description>A baseline configuration of information technology/industrial control systems is created and maintained</description>
@@ -373,7 +366,6 @@
       </category>
       <category id="PR.PT">
          <name>Protective Technology</name>
-         <dropDownLabel>Protective Technology (PR.PT)</dropDownLabel>
          <description>Technical security solutions are managed to ensure the security and resilience of systems and assets, consistent with related policies, procedures, and agreements.</description>
          <subCategory id="PR.PT-1">
             <description>Audit/log records are determined, documented, implemented, and reviewed in accordance with policy</description>
@@ -410,7 +402,6 @@
       </category>
       <category id="PR.DS">
          <name>Data Security</name>
-         <dropDownLabel>Data Security (PR.DS)</dropDownLabel>
          <description>Information and records (data) are managed consistent with the organization’s risk strategy to protect the confidentiality, integrity, and availability of information.</description>
          <subCategory id="PR.DS-1">
             <description>Data-at-rest is protected</description>
@@ -471,7 +462,6 @@
       </category>
       <category id="PR.AT">
          <name>Awareness and Training</name>
-         <dropDownLabel>Awareness and Training (PR.AT)</dropDownLabel>
          <description>The organization’s personnel and partners are provided cybersecurity awareness education and are adequately trained to perform their information security-related duties and responsibilities consistent with related policies, procedures, and agreements.</description>
          <subCategory id="PR.AT-1">
             <description>All users are informed and trained</description>
@@ -511,7 +501,6 @@
       </category>
       <category id="PR.MA">
          <name>Maintenance</name>
-         <dropDownLabel>Maintenance (PR.MA)</dropDownLabel>
          <description>Maintenance and repairs of industrial control and information system components is performed consistent with policies and procedures.</description>
          <subCategory id="PR.MA-1">
             <description>Maintenance and repair of organizational assets is performed and logged in a timely manner, with approved and controlled tools</description>
@@ -533,7 +522,6 @@
       <name>DETECT</name>
       <category id="DE.CM">
          <name>Security Continuous Monitoring</name>
-         <dropDownLabel>Security Continuous Monitoring (DE.CM)</dropDownLabel>
          <description>The information system and assets are monitored at discrete intervals to identify cybersecurity events and verify the effectiveness of protective measures.</description>
          <subCategory id="DE.CM-1">
             <description>The network is monitored to detect potential cybersecurity events</description>
@@ -612,7 +600,6 @@
       </category>
       <category id="DE.AE">
          <name>Anomalies and Events</name>
-         <dropDownLabel>Anomalies and Events (DE.AE)</dropDownLabel>
          <description>Anomalous activity is detected in a timely manner and the potential impact of events is understood.</description>
          <subCategory id="DE.AE-1">
             <description>A baseline of network operations and expected data flows for users and systems is established and managed</description>
@@ -663,7 +650,6 @@
       </category>
       <category id="DE.DP">
          <name>Detection Processes</name>
-         <dropDownLabel>Detection Processes (DE.DP)</dropDownLabel>
          <description>Detection processes and procedures are maintained and tested to ensure timely and adequate awareness of anomalous events.</description>
          <subCategory id="DE.DP-1">
             <description>Roles and responsibilities for detection are well defined to ensure accountability</description>
@@ -721,7 +707,6 @@
       <name>RESPOND</name>
       <category id="RS.AN">
          <name>Analysis</name>
-         <dropDownLabel>Analysis (RS.AN)</dropDownLabel>
          <description>Analysis is conducted to ensure adequate response and support recovery activities.</description>
          <subCategory id="RS.AN-1">
             <description>Notifications from detection systems are investigated </description>
@@ -760,7 +745,6 @@
       </category>
       <category id="RS.CO">
          <name>Communications</name>
-         <dropDownLabel>Communications (RS.CO)</dropDownLabel>
          <description>Response activities are coordinated with internal and external stakeholders, as appropriate, to include external support from law enforcement agencies.</description>
          <subCategory id="RS.CO-1">
             <description>Personnel know their roles and order of operations when a response is needed</description>
@@ -810,7 +794,6 @@
       </category>
       <category id="RS.MI">
          <name>Mitigation</name>
-         <dropDownLabel>Mitigation (RS.MI)</dropDownLabel>
          <description>Activities are performed to prevent expansion of an event, mitigate its effects, and eradicate the incident.</description>
          <subCategory id="RS.MI-1">
             <description>Incidents are contained</description>
@@ -835,7 +818,6 @@
       </category>
       <category id="RS.RP">
          <name>Response Planning</name>
-         <dropDownLabel>Response Planning (RS.RP)</dropDownLabel>
          <description>Response processes and procedures are executed and maintained, to ensure timely response to detected cybersecurity events.</description>
          <subCategory id="RS.RP-1">
             <description>Response plan is executed during or after an event</description>
@@ -849,7 +831,6 @@
       </category>
       <category id="RS.IM">
          <name>Improvements</name>
-         <dropDownLabel>Improvements (RS.IM)</dropDownLabel>
          <description>Organizational response activities are improved by incorporating lessons learned from current and previous detection/response activities.</description>
          <subCategory id="RS.IM-1">
             <description>Response plans incorporate lessons learned</description>
@@ -873,7 +854,6 @@
       <name>RECOVER</name>
       <category id="RC.RP">
          <name>Recovery Planning</name>
-         <dropDownLabel>Recovery Planning (RC.RP)</dropDownLabel>
          <description>Recovery processes and procedures are executed and maintained to ensure timely restoration of systems or assets affected by cybersecurity events.</description>
          <subCategory id="RC.RP-1">
             <description>Recovery plan is executed during or after an event</description>
@@ -886,7 +866,6 @@
       </category>
       <category id="RC.CO">
          <name>Communications</name>
-         <dropDownLabel>Communications (RC.CO)</dropDownLabel>
          <description>Restoration activities are coordinated with internal and external parties, such as coordinating centers, Internet Service Providers, owners of attacking systems, victims, other CSIRTs, and vendors.</description>
          <subCategory id="RC.CO-3">
             <description>Recovery activities are communicated to internal stakeholders and executive and management teams</description>
@@ -898,7 +877,6 @@
       </category>
       <category id="RC.IM">
          <name>Improvements</name>
-         <dropDownLabel>Improvements (RC.IM)</dropDownLabel>
          <description>Recovery planning and processes are improved by incorporating lessons learned into future activities.</description>
          <subCategory id="RC.IM-1">
             <description>Recovery plans incorporate lessons learned</description>
