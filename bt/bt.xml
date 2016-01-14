@@ -157,6 +157,10 @@
 	<count/>
       </xf:instance>
 
+      <xf:instance id="i-xref" xmlns="">
+	<xref/>
+      </xf:instance>
+
       <xf:instance id="i-version" xmlns="">
 	<version>0.6</version>
       </xf:instance>
@@ -728,6 +732,7 @@
 		      <span>.</span>
 		    </xf:hint>
 		    <xf:action ev:event="DOMActivate">
+		      <xf:setvalue ref="instance('i-xref')" value="instance('i-settings')/control@number"/>
 		      <xf:dispatch targetid="tab-xref" name="DOMActivate"/>
 		    </xf:action>
 		  </xf:trigger>
@@ -946,8 +951,9 @@
 	    <span>Framework Core subcategories referencing control </span>
 	    <xf:output ref="instance('i-settings')/control@number"/>
 	    <span>:</span><br/>
-<!--	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number or sp800-53/family=substring-before(instance('i-settings')/control@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control@number))]@id">-->
-	    <xf:repeat nodeset="instance('i-families')//subcategory@number[../..@number=instance('i-settings')/control@number]">
+<!--	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number or sp800-53/family=substring-before(instance('i-settings')/control@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control@number))]@id">
+	    <xf:repeat nodeset="instance('i-families')//subcategory@number[../..@number=instance('i-settings')/control@number]"> -->
+	    <xf:repeat nodeset="instance('i-families')//subcategory@number[../..@number=instance('i-xref')]">
 	      <xf:trigger>
 		<xf:label ref="."/>
 		<xf:hint>
