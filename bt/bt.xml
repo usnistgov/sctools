@@ -158,7 +158,7 @@
       </xf:instance>
 
       <xf:instance id="i-xref" xmlns="">
-	<xref/>
+	<xref>AC-1</xref>
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
@@ -507,7 +507,7 @@
 		      </xf:action>
 		    </xf:trigger>
 		  </td>
-		  <td>
+		  <td class="ControlButton">
 		    <xf:trigger>
 		      <xf:label>
 			<img src="images/favicon.ico" alt="needle and thread image"/>
@@ -521,6 +521,20 @@
 			<xf:setvalue ref="instance('i-settings')/family" value="instance('i-families')/family@name[starts-with(../control@number, substring-before(context(), '-'))]"/>
 			<xf:setvalue ref="instance('i-settings')/control@number" value="context()"/>
 			<xf:dispatch targetid="tab-tailor" name="DOMActivate"/>
+		      </xf:action>
+		    </xf:trigger>
+		  </td>
+		  <td class="ControlButton">
+		    <xf:trigger>
+		      <xf:label>xref</xf:label>
+		      <xf:hint>
+			<span>Show Framework Core subcategories referencing </span>
+			<xf:output ref="context()"/>
+			<span>.</span>
+		      </xf:hint>
+		      <xf:action ev:event="DOMActivate">
+			<xf:setvalue ref="instance('i-xref')" value="context()"/>
+			<xf:dispatch targetid="tab-xref" name="DOMActivate"/>
 		      </xf:action>
 		    </xf:trigger>
 		  </td>
@@ -949,7 +963,7 @@
 	<div id="div-xref">
 	  <xf:group class="Cell">
 	    <span>Framework Core subcategories referencing control </span>
-	    <xf:output ref="instance('i-settings')/control@number"/>
+	    <xf:output ref="instance('i-xref')"/>
 	    <span>:</span><br/>
 <!--	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number or sp800-53/family=substring-before(instance('i-settings')/control@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control@number))]@id">
 	    <xf:repeat nodeset="instance('i-families')//subcategory@number[../..@number=instance('i-settings')/control@number]"> -->
