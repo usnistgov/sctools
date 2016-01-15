@@ -162,11 +162,11 @@
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
-	<version>0.6</version>
+	<version>0.7</version>
       </xf:instance>
 
       <xf:instance id="i-updated" xmlns="">
-	<updated>2015/11/20</updated>
+	<updated>2016/01/15</updated>
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
