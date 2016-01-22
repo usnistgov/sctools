@@ -170,13 +170,17 @@
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
-	<controlURL/>
+	<data>
+	  <nvd/>
+	  <ics/>
+	</data>
       </xf:instance>
 
       <xf:instance id="i-core-url" xmlns="">
 	<data>
 	  <control/>
 	  <family/>
+	  <ics/>
 	  <all>http://web.nvd.nist.gov/view/800-53/Rev4/home</all>
 	</data>
       </xf:instance>
@@ -298,7 +302,9 @@
 
       <xf:bind nodeset="instance('i-browse')/function@id" calculate="substring-before(instance('i-browse')/category@id, '.')"/>-->
 
-      <xf:bind nodeset="instance('i-url')" calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)"/>
+      <xf:bind nodeset="instance('i-url')/nvd" calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)"/>
+
+      <xf:bind nodeset="instance('i-url')/ics" calculate="concat('ics/', instance('i-settings')/control@number, '.html')"/>
 
       <xf:bind nodeset="instance('i-settings')/enhancement/xRefLabel" calculate="concat('(',..@number,')')"/>
 
@@ -504,6 +510,20 @@
 		      <xf:action ev:event="DOMActivate">
 			<xf:setvalue ref="instance('i-core-url')/control" value="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', context())"/>
 			<xf:load show="new" ref="instance('i-core-url')/control"/>
+		      </xf:action>
+		    </xf:trigger>
+		  </td>
+		  <td class="ControlButton">
+		    <xf:trigger>
+		      <xf:label>ICS</xf:label>
+		      <xf:hint>
+			<span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
+			<xf:output ref="."/>
+			<span> definition in a new browser tab.</span>
+		      </xf:hint>
+		      <xf:action ev:event="DOMActivate">
+			<xf:setvalue ref="instance('i-core-url')/ics" value="concat('ics/', context(), '.html')"/>
+			<xf:load show="new" ref="instance('i-core-url')/ics"/>
 		      </xf:action>
 		    </xf:trigger>
 		  </td>
@@ -784,7 +804,16 @@
 		      <xf:output ref="&CXPath;@number"/>
 		      <span> definition in a new browser tab.</span>
 		    </xf:hint>
-		    <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')"/>
+		    <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')/nvd"/>
+		  </xf:trigger>
+		  <xf:trigger>
+		    <xf:label>ICS</xf:label>
+		    <xf:hint>
+		      <span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
+		      <xf:output ref="&CXPath;@number"/>
+		      <span> definition in a new browser tab.</span>
+		    </xf:hint>
+		    <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')/ics"/>
 		  </xf:trigger>
 		</div>
 		<xf:repeat nodeset="instance('i-settings')/enhancement">
