@@ -162,11 +162,11 @@
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
-	<version>0.7</version>
+	<version>0.8</version>
       </xf:instance>
 
       <xf:instance id="i-updated" xmlns="">
-	<updated>2016/01/15</updated>
+	<updated>2016/01/23</updated>
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
@@ -338,7 +338,16 @@
   </head>
   <body>
 
-    <h1><img alt="needle and thread image" width="50px" height="50px" src="images/Needle_and_thread_silhouette.png"/><span class="SWTitle">Baseline Tailor</span> <span class="SWSubTitle">Version <xf:output ref="instance('i-version')"/></span></h1>
+    <h1>
+      <img alt="needle and thread image" width="50px" height="50px" src="images/Needle_and_thread_silhouette.png"/>
+      <span class="SWTitle">Baseline Tailor</span>
+      <span class="SWSubTitle">Version
+      <xf:output ref="instance('i-version')"/>
+      </span>
+      <span class="Links">
+	<a href="index.html" target="_blank">Security Content and Tools</a>
+      </span>
+    </h1>
 
     <div id="horizontal-tab-menu">
       <xf:trigger id="tab-tailor" appearance="minimal">
@@ -515,7 +524,7 @@
 		  </td>
 		  <td class="ControlButton">
 		    <xf:trigger>
-		      <xf:label>ICS</xf:label>
+		      <xf:label><img src="images/factory.ico" alt="factory"/></xf:label>
 		      <xf:hint>
 			<span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
 			<xf:output ref="."/>
@@ -524,6 +533,20 @@
 		      <xf:action ev:event="DOMActivate">
 			<xf:setvalue ref="instance('i-core-url')/ics" value="concat('ics/', context(), '.html')"/>
 			<xf:load show="new" ref="instance('i-core-url')/ics"/>
+		      </xf:action>
+		    </xf:trigger>
+		  </td>
+		  <td class="ControlButton">
+		    <xf:trigger>
+		      <xf:label><img src="images/link.ico" alt="link"/></xf:label>
+		      <xf:hint>
+			<span>Show Framework Core subcategories referencing </span>
+			<xf:output ref="context()"/>
+			<span>.</span>
+		      </xf:hint>
+		      <xf:action ev:event="DOMActivate">
+			<xf:setvalue ref="instance('i-xref')" value="context()"/>
+			<xf:dispatch targetid="tab-xref" name="DOMActivate"/>
 		      </xf:action>
 		    </xf:trigger>
 		  </td>
@@ -541,20 +564,6 @@
 			<xf:setvalue ref="instance('i-settings')/family" value="instance('i-families')/family@name[starts-with(../control@number, substring-before(context(), '-'))]"/>
 			<xf:setvalue ref="instance('i-settings')/control@number" value="context()"/>
 			<xf:dispatch targetid="tab-tailor" name="DOMActivate"/>
-		      </xf:action>
-		    </xf:trigger>
-		  </td>
-		  <td class="ControlButton">
-		    <xf:trigger>
-		      <xf:label>xref</xf:label>
-		      <xf:hint>
-			<span>Show Framework Core subcategories referencing </span>
-			<xf:output ref="context()"/>
-			<span>.</span>
-		      </xf:hint>
-		      <xf:action ev:event="DOMActivate">
-			<xf:setvalue ref="instance('i-xref')" value="context()"/>
-			<xf:dispatch targetid="tab-xref" name="DOMActivate"/>
 		      </xf:action>
 		    </xf:trigger>
 		  </td>
@@ -807,7 +816,7 @@
 		    <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')/nvd"/>
 		  </xf:trigger>
 		  <xf:trigger>
-		    <xf:label>ICS</xf:label>
+		    <xf:label><img src="images/factory.ico" alt="factory"/></xf:label>
 		    <xf:hint>
 		      <span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
 		      <xf:output ref="&CXPath;@number"/>

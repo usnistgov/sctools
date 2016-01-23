@@ -52,7 +52,7 @@
   <target name="copy" depends="init, transform, bt, index, clean"
           description="generate the distribution">
     <copy todir="${build}" preservelastmodified="true">
-      <fileset dir="." includes="*.png *.css bt-model/** images/** xsltforms/**"/>
+      <fileset dir="." includes="*.png *.css bt-model/** images/** ics/** xsltforms/**"/>
     </copy>
 <!--    <xmltask outputter="simple" source="${build}/bt-model/core.xml" dest="${build}/core.xml">
       <remove path="//dropDownLabel"/>
