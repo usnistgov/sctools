@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:c="http://www.nist.gov/sp800-53">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>ICS: SI-13</title>
+      <link href="ics.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body>
+      <p class="s44" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">SI-13       PREDICTABLE FAILURE PREVENTION</p>
+      
+      <p style="text-indent: 0pt;text-align: left;">
+         <br />
+         
+      </p>
+      
+      <table style="border-collapse:collapse;margin-left:4.734pt" cellspacing="0">
+         
+         <tr style="height:24pt">
+            
+            <td style="width:419pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-right-style:solid;border-right-width:1pt" colspan="3" bgcolor="#CCCCCC">
+               
+               <p class="s72" style="padding-left: 12pt;text-indent: 0pt;line-height: 11pt;text-align: left;">
+                  <span class="s84">CNTL</span>                                         <span class="s85">CONTROL</span>
+                  <span class="s73"> NAME                                           </span>SUPPLEMENTED
+               </p>
+               
+               <p class="s72" style="padding-left: 15pt;text-indent: 0pt;line-height: 12pt;text-align: left;">
+                  <span class="s86">NO.</span>                                     <i>Control Enhancement Name                                         </i>CONTROL BASELINES
+               </p>
+               
+            </td>
+            
+         </tr>
+         
+         <tr style="height:13pt">
+            
+            <td style="width:183pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt" bgcolor="#CCCCCC"></td>
+            
+            <td style="width:150pt;border-bottom-style:solid;border-bottom-width:1pt" bgcolor="#CCCCCC">
+               
+               <p class="s81" style="padding-top: 1pt;padding-right: 18pt;text-indent: 0pt;text-align: right;">LOW</p>
+               
+            </td>
+            
+            <td style="width:86pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" bgcolor="#CCCCCC">
+               
+               <p class="s81" style="padding-top: 1pt;padding-left: 9pt;text-indent: 0pt;text-align: left;">MOD              HIGH</p>
+               
+            </td>
+            
+         </tr>
+         
+         <tr style="height:13pt">
+            
+            <td style="width:183pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt" bgcolor="#F3F3F3">
+               
+               <p class="s72" style="padding-top: 1pt;padding-left: 13pt;text-indent: 0pt;text-align: left;">SI-13        Predictable Failure Prevention</p>
+               
+            </td>
+            
+            <td style="width:150pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt" bgcolor="#F3F3F3"></td>
+            
+            <td style="width:86pt;border-top-style:solid;border-top-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt" bgcolor="#F3F3F3">
+               
+               <p class="s69" style="padding-left: 51pt;text-indent: 0pt;text-align: left;">Added</p>
+               
+            </td>
+            
+         </tr>
+         
+      </table>
+      
+      <p style="text-indent: 0pt;text-align: left;">
+         <br />
+         
+      </p>
+      
+      <p class="s77" style="padding-top: 3pt;padding-left: 5pt;text-indent: 35pt;text-align: left;">ICS Supplemental Guidance: <span class="s2">Failures in ICS can be stochastic or deterministic. Stochastic failures can be analyzed
+            using probability theory, while analysis of deterministic failures is based on non-random
+            properties of the system. Known ICS failure modes and causes are considered. The calculation
+            and use of statistical descriptors, such as Mean Time To Failure (MTTF), should incorporate
+            additional analysis to determine how those failures manifest within the cyber and
+            physical domains. Knowledge of these possible manifestations may be necessary to detect
+            whether a failure has occurred within the ICS, as failures of the information systems
+            may not be easily identifiable. Emergent properties, which may arise both within the
+            information systems and physical processes, can potentially cause system failures
+            should be incorporated into the analysis. For example, cumulative effects of resource
+            exhaustion (e.g., memory leakage) or errors (e.g., rounding and truncation) can occur
+            when ICS processes execute for unexpectedly long periods. Deterministic failures (e.g.,
+            integer counter overflow), once identified, are preventable.</span>
+         
+      </p>
+      
+      <p class="s2" style="padding-left: 5pt;text-indent: 35pt;text-align: left;">Often substitute components may not be available or may not be sufficient to protect
+         against faults occurring before predicted failure. Non-automated mechanisms or physical
+         safeguards should be in place in order to protect against these failures.
+      </p>
+      
+      <p class="s2" style="padding-left: 5pt;text-indent: 35pt;text-align: left;">In addition to information concerning newly discovered vulnerabilities (i.e., latent
+         flaws) potentially affecting the system/applications that are discovered by forensic
+         studies, new vulnerabilities may be identified by organizations with responsibility
+         for disseminating vulnerability information (e.g., ICS-CERT) based upon an analysis
+         of a similar pattern of incidents reported to them or vulnerabilities reported by
+         other researchers.
+      </p>
+      
+      <p class="s77" style="padding-left: 41pt;text-indent: 0pt;line-height: 11pt;text-align: left;">Related controls<span class="s78">: </span>
+         <span class="s2">IR-5, IR-6, RA-5, SI-2, SI-5, SI-11.</span>
+         
+      </p>
+      
+      <p class="s77" style="padding-left: 5pt;text-indent: 35pt;text-align: left;">Rationale for adding control to baseline<span class="s78">: </span>
+         <span class="s2">ICS are designed and built with certain boundary conditions, design parameters, and
+            assumptions about their environment and mode of operation. ICS may run much longer
+            than conventional systems, allowing latent flaws to become effective that are not
+            manifest in other environments. For example, integer overflow might never occur in
+            systems that are re-initialized more frequently than the occurrence of the overflow.
+            Experience and forensic studies of anomalies and incidents in ICS can lead to identification
+            of emergent properties that were previously unknown, unexpected, or unanticipated.
+            Preventative and restorative</span>
+         
+      </p>
+      
+      <p class="s2" style="padding-top: 2pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">actions (e.g., re-starting the system or application) are prudent but may not be acceptable
+         for operational reasons in ICS.
+      </p>
+      
+      <p style="text-indent: 0pt;text-align: left;">
+         <br />
+         
+      </p>
+      
+   </body>
+</html>
