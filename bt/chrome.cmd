@@ -1,1 +1,0 @@
-start "" "c:\Program Files (x86)\google\chrome\application\chrome.exe" --allow-file-access-from-files

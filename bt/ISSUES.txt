@@ -1,5 +1,0 @@
-$Id: ISSUES.txt,v 1.2 2015/01/06 15:16:52 lubell Exp $
-
-In IE, get selected|added|removed don't update properly in i-settings, resulting in CONTROL BASELINES values not being displayed in the UI
-
-CONTROL BASELINES values display incorrectly for CM-7 (4) and (5) (blacklisting/whitelisting)
