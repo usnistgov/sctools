@@ -181,10 +181,17 @@
 	  <control/>
 	  <family/>
 	  <ics/>
+	  <icsFlag>false</icsFlag>
 	  <all>http://web.nvd.nist.gov/view/800-53/Rev4/home</all>
 	</data>
       </xf:instance>
 
+      <xf:instance id="i-editor" xmlns="">
+	<data>
+	  <tab/>
+	  <flag>true</flag>
+	</data>
+      </xf:instance>
 
       <xf:instance id="i-ceTemplate" xmlns="">
 	<data>
@@ -333,6 +340,12 @@
 
       <xf:bind nodeset="instance('i-restrict')/profileFlag" type="xs:boolean"/>
 
+      <xf:bind nodeset="instance('i-core-url')/ics" relevant="../icsFlag=true()"/>
+      <xf:bind nodeset="instance('i-core-url')/icsFlag" type="xs:boolean"/>
+
+      <xf:bind nodeset="instance('i-editor')/tab" relevant="../flag=true()"/>
+      <xf:bind nodeset="instance('i-editor')/flag" type="xs:boolean"/>
+
     </xf:model>
 
   </head>
@@ -349,8 +362,20 @@
       </span>
     </h1>
 
+    <div class="Cell">
+      <xf:input ref="instance('i-editor')/flag" appearance="full">
+	<xf:label><img src="images/favicon.ico" alt="needle and thread"/> Show Security Control Editor tab: </xf:label>
+      </xf:input>
+    </div>
+    <div class="Cell">
+      <xf:input ref="instance('i-core-url')/icsFlag" appearance="full">
+	<xf:label><img src="images/factory.ico" alt="factory"/> Show NIST SP 800-82 Industrial Control Systems overlay specifications: </xf:label>
+      </xf:input>
+    </div>
+    <br/>
+    
     <div id="horizontal-tab-menu">
-      <xf:trigger id="tab-tailor" appearance="minimal">
+      <xf:trigger id="tab-tailor" ref="instance('i-editor')/tab" appearance="minimal">
 	<xf:label class="TabText">Security Control Editor</xf:label>
 	<xf:toggle case="case-tailor" ev:event="DOMActivate"/>
       </xf:trigger>
@@ -369,7 +394,7 @@
     </div>
 
     <xf:switch>
-      <xf:case id="case-core" selected="false">
+      <xf:case id="case-core" selected="true">
 	<div id="div-core">
 	  <xf:group ref="instance('i-browse')">
 	    <table>
@@ -505,7 +530,7 @@
 		</xf:action>
 	      </xf:trigger>
 	    </xf:repeat>
-	    <xf:repeat nodeset="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory@id]/sp800-53/control">
+	    <xf:repeat id="reference-repeat" nodeset="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory@id]/sp800-53/control">
 	      <table>
 		<tr>
 		  <td class="ControlButton">
@@ -522,21 +547,23 @@
 		      </xf:action>
 		    </xf:trigger>
 		  </td>
-		  <td class="ControlButton">
-		    <xf:trigger>
+		  <td>
+		    <xf:trigger ref="instance('i-core-url')/ics">
 		      <xf:label><img src="images/factory.ico" alt="factory"/></xf:label>
+		      <xf:hint>Open NIST SP 800-82 ICS Overlay tailoring for security control definition in a new browser tab.</xf:hint>
+		      <!-- can't get this to work right )-:
 		      <xf:hint>
 			<span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
-			<xf:output ref="."/>
+			<xf:output ref="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory@id]/sp800-53/control[index('reference-repeat')]"/>
 			<span> definition in a new browser tab.</span>
-		      </xf:hint>
+		      </xf:hint>-->
 		      <xf:action ev:event="DOMActivate">
-			<xf:setvalue ref="instance('i-core-url')/ics" value="concat('ics/', context(), '.html')"/>
+			<xf:setvalue ref="instance('i-core-url')/ics" value="concat('ics/', instance('i-core')//subCategory[@id=instance('i-browse')/subcategory@id]/sp800-53/control[index('reference-repeat')], '.html')"/>
 			<xf:load show="new" ref="instance('i-core-url')/ics"/>
 		      </xf:action>
 		    </xf:trigger>
 		  </td>
-		  <td class="ControlButton">
+		  <td>
 		    <xf:trigger>
 		      <xf:label><img src="images/link.ico" alt="link"/></xf:label>
 		      <xf:hint>
@@ -550,19 +577,17 @@
 		      </xf:action>
 		    </xf:trigger>
 		  </td>
-		  <td class="ControlButton">
-		    <xf:trigger>
+		  <td>
+		    <xf:trigger ref="instance('i-editor')/tab">
 		      <xf:label>
-			<img src="images/favicon.ico" alt="needle and thread image"/>
+			<img src="images/favicon.ico" alt="needle and thread"/>
 		      </xf:label>
-		      <xf:hint>
-			<span>Tailor security control </span>
-			<xf:output ref="context()"/>
-			<span>.</span>
-		      </xf:hint>
+		      <xf:hint>Tailor security control.</xf:hint>
 		      <xf:action ev:event="DOMActivate">
-			<xf:setvalue ref="instance('i-settings')/family" value="instance('i-families')/family@name[starts-with(../control@number, substring-before(context(), '-'))]"/>
-			<xf:setvalue ref="instance('i-settings')/control@number" value="context()"/>
+<!--			<xf:setvalue ref="instance('i-settings')/family" value="instance('i-families')/family@name[starts-with(../control@number, substring-before(context(), '-'))]"/>
+			<xf:setvalue ref="instance('i-settings')/control@number" value="context()"/>-->
+			<xf:setvalue ref="instance('i-settings')/family" value="instance('i-families')/family@name[starts-with(../control@number, substring-before(instance('i-core')//subCategory[@id=instance('i-browse')/subcategory@id]/sp800-53/control[index('reference-repeat')], '-'))]"/>
+			<xf:setvalue ref="instance('i-settings')/control@number" value="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory@id]/sp800-53/control[index('reference-repeat')]"/>
 			<xf:dispatch targetid="tab-tailor" name="DOMActivate"/>
 		      </xf:action>
 		    </xf:trigger>
@@ -676,7 +701,7 @@
 	</div>
       </xf:case>
       
-      <xf:case id="case-tailor" selected="true">
+      <xf:case id="case-tailor" selected="false">
 	<div id="div-tailor">
 	  <xf:group ref="instance('i-settings')">
 
@@ -815,7 +840,7 @@
 		    </xf:hint>
 		    <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')/nvd"/>
 		  </xf:trigger>
-		  <xf:trigger>
+		  <xf:trigger ref="instance('i-core-url')/ics">
 		    <xf:label><img src="images/factory.ico" alt="factory"/></xf:label>
 		    <xf:hint>
 		      <span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
