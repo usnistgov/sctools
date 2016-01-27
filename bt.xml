@@ -65,14 +65,14 @@
          
          <xf:instance xmlns="" id="i-version">
             	
-            <version>0.8</version>
+            <version>0.9</version>
             
          </xf:instance>
          
          
          <xf:instance xmlns="" id="i-updated">
             	
-            <updated>2016/01/23</updated>
+            <updated>2016/01/27</updated>
             
          </xf:instance>
          
@@ -436,7 +436,7 @@
          
          <xf:input appearance="full" ref="instance('i-editor')/flag">
             	
-            <xf:label><img alt="needle and thread" src="images/favicon.ico" /> Show Security Control Editor tab: 
+            <xf:label><img alt="needle and thread" src="images/favicon.ico" /> Security Control Editor tab: 
             </xf:label>
             
          </xf:input>
@@ -447,7 +447,7 @@
          
          <xf:input appearance="full" ref="instance('i-core-url')/icsFlag">
             	
-            <xf:label><img alt="factory" src="images/factory.ico" /> Show NIST SP 800-82 Industrial Control Systems overlay specifications: 
+            <xf:label><img alt="factory" src="images/factory.ico" /> NIST SP 800-82 (Revision 2) Industrial Control Systems overlay: 
             </xf:label>
             
          </xf:input>
@@ -474,19 +474,19 @@
             
          </xf:trigger>
          
-         <xf:trigger appearance="minimal" id="tab-profile">
-            	
-            <xf:label class="TabText">Framework Profile</xf:label>
-            	
-            <xf:toggle case="case-profile" ev:event="DOMActivate"></xf:toggle>
-            
-         </xf:trigger>
-         
          <xf:trigger appearance="minimal" id="tab-xref">
             	
             <xf:label class="TabText">Cross References</xf:label>
             	
             <xf:toggle case="case-xref" ev:event="DOMActivate"></xf:toggle>
+            
+         </xf:trigger>
+         
+         <xf:trigger appearance="minimal" id="tab-profile">
+            	
+            <xf:label class="TabText">Framework Profile</xf:label>
+            	
+            <xf:toggle case="case-profile" ev:event="DOMActivate"></xf:toggle>
             
          </xf:trigger>
          
