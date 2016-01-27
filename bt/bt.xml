@@ -162,11 +162,11 @@
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
-	<version>0.8</version>
+	<version>0.9</version>
       </xf:instance>
 
       <xf:instance id="i-updated" xmlns="">
-	<updated>2016/01/23</updated>
+	<updated>2016/01/27</updated>
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
@@ -364,12 +364,12 @@
 
     <div class="Cell">
       <xf:input ref="instance('i-editor')/flag" appearance="full">
-	<xf:label><img src="images/favicon.ico" alt="needle and thread"/> Show Security Control Editor tab: </xf:label>
+	<xf:label><img src="images/favicon.ico" alt="needle and thread"/> Security Control Editor tab: </xf:label>
       </xf:input>
     </div>
     <div class="Cell">
       <xf:input ref="instance('i-core-url')/icsFlag" appearance="full">
-	<xf:label><img src="images/factory.ico" alt="factory"/> Show NIST SP 800-82 Industrial Control Systems overlay specifications: </xf:label>
+	<xf:label><img src="images/factory.ico" alt="factory"/> NIST SP 800-82 (Revision 2) Industrial Control Systems overlay: </xf:label>
       </xf:input>
     </div>
     <br/>
@@ -383,13 +383,13 @@
 	<xf:label class="TabText">Cyber Framework Browser</xf:label>
 	<xf:toggle case="case-core" ev:event="DOMActivate"/>
       </xf:trigger>
-      <xf:trigger id="tab-profile" appearance="minimal">
-	<xf:label class="TabText">Framework Profile</xf:label>
-	<xf:toggle case="case-profile" ev:event="DOMActivate"/>
-      </xf:trigger>
       <xf:trigger id="tab-xref" appearance="minimal">
 	<xf:label class="TabText">Cross References</xf:label>
 	<xf:toggle case="case-xref" ev:event="DOMActivate"/>
+      </xf:trigger>
+      <xf:trigger id="tab-profile" appearance="minimal">
+	<xf:label class="TabText">Framework Profile</xf:label>
+	<xf:toggle case="case-profile" ev:event="DOMActivate"/>
       </xf:trigger>
     </div>
 
