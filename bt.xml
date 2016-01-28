@@ -72,7 +72,7 @@
          
          <xf:instance xmlns="" id="i-updated">
             	
-            <updated>2016/01/27</updated>
+            <updated>2016/01/28</updated>
             
          </xf:instance>
          
@@ -432,27 +432,67 @@
       </h1>
       
       
-      <div class="Cell">
+      <xf:switch>
          
-         <xf:input appearance="full" ref="instance('i-editor')/flag">
+         <xf:case id="case-hide-prefs" selected="true">
             	
-            <xf:label><img alt="needle and thread" src="images/favicon.ico" /> Security Control Editor tab: 
-            </xf:label>
+            <div class="Cell">
+               	  
+               <xf:trigger>
+                  	    
+                  <xf:label>Preferences</xf:label>
+                  	    
+                  <xf:hint>Change user preferences.</xf:hint>
+                  	    
+                  <xf:toggle case="case-prefs" ev:event="DOMActivate"></xf:toggle>
+                  	  
+               </xf:trigger>
+               	
+            </div>
             
-         </xf:input>
+         </xf:case>
          
-      </div>
-      
-      <div class="Cell">
-         
-         <xf:input appearance="full" ref="instance('i-core-url')/icsFlag">
+         <xf:case id="case-prefs" selected="false">
             	
-            <xf:label><img alt="factory" src="images/factory.ico" /> NIST SP 800-82 (Revision 2) Industrial Control Systems overlay: 
-            </xf:label>
+            <div class="Cell">
+               	  
+               <xf:input appearance="full" ref="instance('i-editor')/flag">
+                  	    
+                  <xf:label><img alt="needle and thread" src="images/favicon.ico" /> Security Control Editor tab: 
+                  </xf:label>
+                  	  
+               </xf:input>
+               	
+            </div>
+            	
+            <div class="Cell">
+               	  
+               <xf:input appearance="full" ref="instance('i-core-url')/icsFlag">
+                  	    
+                  <xf:label><img alt="factory" src="images/factory.ico" /> NIST SP 800-82 (Revision 2) Industrial Control Systems overlay: 
+                  </xf:label>
+                  	  
+               </xf:input>
+               	
+            </div>
+            	
+            <div class="Cell">
+               	  
+               <xf:trigger>
+                  	    
+                  <xf:label>OK</xf:label>
+                  	    
+                  <xf:hint>Accept selections.</xf:hint>
+                  	    
+                  <xf:toggle case="case-hide-prefs" ev:event="DOMActivate"></xf:toggle>
+                  	  
+               </xf:trigger>
+               	
+            </div>
             
-         </xf:input>
+         </xf:case>
          
-      </div>
+      </xf:switch>
       <br />
       
       
