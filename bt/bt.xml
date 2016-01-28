@@ -166,7 +166,7 @@
       </xf:instance>
 
       <xf:instance id="i-updated" xmlns="">
-	<updated>2016/01/27</updated>
+	<updated>2016/01/28</updated>
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
@@ -362,16 +362,36 @@
       </span>
     </h1>
 
-    <div class="Cell">
-      <xf:input ref="instance('i-editor')/flag" appearance="full">
-	<xf:label><img src="images/favicon.ico" alt="needle and thread"/> Security Control Editor tab: </xf:label>
-      </xf:input>
-    </div>
-    <div class="Cell">
-      <xf:input ref="instance('i-core-url')/icsFlag" appearance="full">
-	<xf:label><img src="images/factory.ico" alt="factory"/> NIST SP 800-82 (Revision 2) Industrial Control Systems overlay: </xf:label>
-      </xf:input>
-    </div>
+    <xf:switch>
+      <xf:case id="case-hide-prefs" selected="true">
+	<div class="Cell">
+	  <xf:trigger>
+	    <xf:label>Preferences</xf:label>
+	    <xf:hint>Change user preferences.</xf:hint>
+	    <xf:toggle case="case-prefs" ev:event="DOMActivate"/>
+	  </xf:trigger>
+	</div>
+      </xf:case>
+      <xf:case id="case-prefs" selected="false">
+	<div class="Cell">
+	  <xf:input ref="instance('i-editor')/flag" appearance="full">
+	    <xf:label><img src="images/favicon.ico" alt="needle and thread"/> Security Control Editor tab: </xf:label>
+	  </xf:input>
+	</div>
+	<div class="Cell">
+	  <xf:input ref="instance('i-core-url')/icsFlag" appearance="full">
+	    <xf:label><img src="images/factory.ico" alt="factory"/> NIST SP 800-82 (Revision 2) Industrial Control Systems overlay: </xf:label>
+	  </xf:input>
+	</div>
+	<div class="Cell">
+	  <xf:trigger>
+	    <xf:label>OK</xf:label>
+	    <xf:hint>Accept selections.</xf:hint>
+	    <xf:toggle case="case-hide-prefs" ev:event="DOMActivate"/>
+	  </xf:trigger>
+	</div>
+      </xf:case>
+    </xf:switch>
     <br/>
     
     <div id="horizontal-tab-menu">
