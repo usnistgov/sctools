@@ -7,8 +7,12 @@
 <!ENTITY cDesc "normalize-space(substring-after(f:COL[2]/f:DATA,':'))">
 <!ENTITY subCatID "substring-before(f:COL[3]/f:DATA,':')">
 <!ENTITY subCatDesc "normalize-space(substring-after(f:COL[3]/f:DATA,':'))">
+
+<!-- handle PR.IP-10 CSF typo -->
 <!ENTITY sp800-53 "normalize-space
-(substring-after(f:COL[4]/f:DATA,'NIST SP 800-53 Rev. 4'))">
+(substring-after(
+substring-after(f:COL[4]/f:DATA,'NIST SP 800-53 Rev.'),
+'4'))">
 ]>
 <xsl:stylesheet 
     version="2.0"
@@ -39,12 +43,6 @@ generate-id() = generate-id(key('categories', &cID;)[1])]">
 	      <name>
 		<xsl:value-of select="&cName;"/>
 	      </name>
-<!--	      <dropDownLabel>
-		<xsl:value-of select="&cName;"/>
-		<xsl:text> (</xsl:text>
-		<xsl:value-of select="$cID"/>
-		<xsl:text>)</xsl:text>
-	      </dropDownLabel>-->
 	      <description>
 		<xsl:value-of select="&cDesc;"/>
 	      </description>
