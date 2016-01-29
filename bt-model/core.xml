@@ -274,7 +274,11 @@
          </subCategory>
          <subCategory id="PR.IP-10">
             <description>Response and recovery plans are tested</description>
-            <sp800-53/>
+            <sp800-53>
+               <control>CP-4</control>
+               <control>IR-3</control>
+               <control>PM-14</control>
+            </sp800-53>
          </subCategory>
          <subCategory id="PR.IP-11">
             <description>Cybersecurity is included in human resources practices (e.g., deprovisioning, personnel screening)</description>

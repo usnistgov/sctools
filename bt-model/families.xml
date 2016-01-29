@@ -530,6 +530,7 @@
          <dropDownLabel>CP-4 - CONTINGENCY PLAN TESTING</dropDownLabel>
          <default>1</default>
          <priority>2</priority>
+         <subcategory number="PR.IP-10"/>
          <subcategory number="PR.IP-4"/>
       </control>
       <control number="CP-6">
@@ -685,6 +686,7 @@
          <dropDownLabel>IR-3 - INCIDENT RESPONSE TESTING</dropDownLabel>
          <default>2</default>
          <priority>2</priority>
+         <subcategory number="PR.IP-10"/>
          <subcategory number="RS.CO-1"/>
       </control>
       <control number="IR-4">
@@ -1795,6 +1797,7 @@
          <dropDownLabel>PM-14 - TESTING, TRAINING, AND MONITORING</dropDownLabel>
          <default>4</default>
          <priority/>
+         <subcategory number="PR.IP-10"/>
          <subcategory number="DE.DP-1"/>
          <subcategory number="DE.DP-2"/>
          <subcategory number="DE.DP-3"/>
