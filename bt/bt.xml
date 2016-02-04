@@ -139,8 +139,8 @@
       <xf:instance id="i-catalog" src="bt-model/catalog.xml" xmlns=""/>
       <xf:instance id="i-families" src="bt-model/families.xml"/>
       <xf:instance id="i-subcats" src="bt-model/subcategories.xml"/>
-<!--      <xf:instance id="i-stylesheet" src="bt-model/stylesheet.xsl"/>
-      <xf:instance id="i-stylesheet-profile" src="bt-model/stylesheet-profile.xsl"/>-->
+      <xf:instance id="i-stylesheet" src="bt-model/stylesheet.xsl"/>
+      <xf:instance id="i-stylesheet-profile" src="bt-model/stylesheet-profile.xsl"/>
 
       <!-- This model instance helps with determining where to say 'selected', 'added', 'removed' in the UI -->
       <xf:instance id="i-matrix" src="bt-model/matrix.xml"/>
@@ -334,9 +334,9 @@
 
       <xf:bind nodeset="instance('i-settings')/rationale" relevant= "@flag=true()"/>
 
-      <xf:bind nodeset="instance('i-pretty-tailored')" calculate="transform(instance('i-settings'), 'bt-model/stylesheet.xsl', false())"/>
+      <xf:bind nodeset="instance('i-pretty-tailored')" calculate="transform(instance('i-settings'), serialize(instance('i-stylesheet')), true())"/>
 
-      <xf:bind nodeset="instance('i-pretty-profile')" calculate="transform(&Profile;, 'bt-model/stylesheet-profile.xsl', false())"/>
+      <xf:bind nodeset="instance('i-pretty-profile')" calculate="transform(&Profile;, serialize(instance('i-stylesheet-profile')), true())"/>
 
       <xf:bind nodeset="instance('i-restrict')/profileFlag" type="xs:boolean"/>
 
