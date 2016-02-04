@@ -760,7 +760,9 @@
                      	    
                   </table>
                   	    
-                  <p>Informative References to NIST SP 800-53:</p>
+                  <p>
+                     <xf:output ref="instance('i-browse')/subcategory@id"></xf:output> Informative References to NIST SP 800-53:
+                  </p>
                   	    
                   <xf:repeat nodeset="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory@id]/sp800-53/family">
                      	      
