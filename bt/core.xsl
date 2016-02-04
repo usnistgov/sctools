@@ -77,7 +77,7 @@ generate-id() = generate-id(key('categories', &cID;)[1])]">
 	  </xsl:if>
 	</xsl:when>
 	<xsl:otherwise>
-	  <xsl:for-each select="fn:tokenize($sp800-53, '(,)')">
+	  <xsl:for-each select="fn:tokenize($sp800-53, '(,)|(\.)')">
 	    <xsl:choose>
 	      <xsl:when test="contains(., 'Family')">
 		<family>
