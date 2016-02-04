@@ -1,554 +1,554 @@
  * {margin:0; padding:0; text-indent:0; }
- h1 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 28pt; }
- h4 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 10pt; }
- .s1 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 14pt; }
- .s2 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 10pt; }
- .s3 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 10pt; }
- .s4 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 28pt; }
- .s5 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 10pt; }
- .p, p { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; margin:0pt; }
- .s6 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 10pt; }
- .s7 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s8 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 10pt; }
- .s9 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 10pt; }
- .s10 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 11pt; }
- .s11 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s12 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
- .s13 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 10pt; }
- .s14 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
- .s15 { color: black; font-family:"Arial Black", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
- .s16 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .h2 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
- .a, a { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s17 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
- h3 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
- .s18 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 11pt; }
- .s19 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s20 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
- .s21 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 7pt; vertical-align: 5pt; }
- .s22 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 6pt; vertical-align: 4pt; }
- .s23 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 6pt; }
- .s24 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 9pt; }
- .s25 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
- .s27 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 9pt; }
- .s28 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 9pt; }
- .s29 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 9pt; }
- .s30 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
- .s31 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s32 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 7pt; }
- .s33 { color: #333; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s36 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s37 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
- .s38 { color: black; font-family:"Cambria Math", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s40 { color: #242424; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s41 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
- .s42 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 10pt; }
- .s43 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; }
- .s44 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; }
- .s45 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 11pt; }
- .s46 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
- .s47 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s48 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s49 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s50 { color: #242424; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s51 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 7pt; vertical-align: 5pt; }
- .s52 { color: #292425; font-family:Cambria, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s53 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: underline; font-size: 11pt; }
- .s55 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
- .s56 { color: #242424; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
- .s57 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
- .s58 { color: #333; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 7pt; vertical-align: 5pt; }
- .s59 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s60 { color: #292929; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s61 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 11pt; }
- .s62 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 10.5pt; }
- .s64 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 10.5pt; }
- .s65 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 9pt; }
- .s66 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 7pt; }
- .s67 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 11pt; }
- .s69 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8pt; }
- .s70 { color: black; font-family:"Arial Black", sans-serif; font-style: normal; font-weight: bold; text-decoration: underline; font-size: 8pt; }
- .s71 { color: black; font-family:"Arial Black", sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; }
- .s72 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; }
- .s73 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 9.5pt; }
- .s74 { color: black; font-family:Wingdings; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
- .s75 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8pt; }
- .s77 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 8pt; }
- .s78 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8pt; }
- .s79 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
- .s80 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 8pt; }
- .s81 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 7pt; }
- .s82 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 7pt; }
- .s83 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 6.5pt; }
- .s84 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; vertical-align: 2pt; }
- .s85 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 9.5pt; vertical-align: -2pt; }
- .s86 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; vertical-align: 4pt; }
- .s87 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 10pt; }
- .s88 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 10pt; }
- .s89 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 8pt; vertical-align: 5pt; }
- .s90 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 8pt; }
- .s91 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal; text-decoration: none; font-size: 7pt; }
- .s92 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 10pt; }
- .s94 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 10pt; }
+ h1 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold;   }
+ h4 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold;   }
+ .s1 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s2 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s3 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s4 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s5 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal;   }
+ .p, p { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   margin:0pt; }
+ .s6 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s7 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s8 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s9 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s10 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s11 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s12 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s13 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s14 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s15 { color: black; font-family:"Arial Black", sans-serif; font-style: normal; font-weight: bold;   }
+ .s16 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal;   }
+ .h2 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .a, a { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s17 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ h3 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold;   }
+ .s18 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s19 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s20 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s21 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   vertical-align: 5pt; }
+ .s22 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   vertical-align: 4pt; }
+ .s23 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s24 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s25 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s27 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s28 { color: #FFF; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s29 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s30 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s31 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal;   }
+ .s32 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s33 { color: #333; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s36 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal;   }
+ .s37 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s38 { color: black; font-family:"Cambria Math", serif; font-style: normal; font-weight: normal;   }
+ .s40 { color: #242424; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s41 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s42 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold;   }
+ .s43 { color: black; font-family:"Arial Narrow", sans-serif; font-style: normal; font-weight: bold;   }
+ .s44 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s45 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: bold;   }
+ .s46 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold;   }
+ .s47 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s48 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s49 { color: black; font-family:"Times New Roman", serif; font-style: italic; font-weight: normal;   }
+ .s50 { color: #242424; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s51 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold;   vertical-align: 5pt; }
+ .s52 { color: #292425; font-family:Cambria, serif; font-style: normal; font-weight: normal;   }
+ .s53 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold;   }
+ .s55 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold;   }
+ .s56 { color: #242424; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold;   }
+ .s57 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: bold;   }
+ .s58 { color: #333; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   vertical-align: 5pt; }
+ .s59 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s60 { color: #292929; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s61 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s62 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s64 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s65 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold;   }
+ .s66 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold;   }
+ .s67 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold;   }
+ .s69 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s70 { color: black; font-family:"Arial Black", sans-serif; font-style: normal; font-weight: bold;   }
+ .s71 { color: black; font-family:"Arial Black", sans-serif; font-style: normal; font-weight: bold;   }
+ .s72 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s73 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s74 { color: black; font-family:Wingdings; font-style: normal; font-weight: normal;   }
+ .s75 { color: black; font-family:Calibri, sans-serif; font-style: normal; font-weight: normal;   }
+ .s77 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s78 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s79 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s80 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal;   }
+ .s81 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
+ .s82 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s83 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal;   }
+ .s84 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   vertical-align: 2pt; }
+ .s85 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   vertical-align: -2pt; }
+ .s86 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   vertical-align: 4pt; }
+ .s87 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s88 { color: black; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s89 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   vertical-align: 5pt; }
+ .s90 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
+ .s91 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: normal;   }
+ .s92 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
+ .s94 { color: #00F; font-family:"Times New Roman", serif; font-style: normal; font-weight: normal;   }
  li {display: block; }
  #l1 {padding-left: 0pt;counter-reset: c1 0; }
- #l1> li:before {counter-increment: c1; content: counter(c1, decimal)". "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 12pt; }
+ #l1> li:before {counter-increment: c1; content: counter(c1, decimal)". "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l2 {padding-left: 0pt;counter-reset: c2 0; }
- #l2> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l2> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l3 {padding-left: 0pt;counter-reset: c2 0; }
- #l3> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l3> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l4 {padding-left: 0pt;counter-reset: c3 0; }
- #l4> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l4> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l5 {padding-left: 0pt;counter-reset: c3 0; }
- #l5> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l5> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l6 {padding-left: 0pt;counter-reset: c2 0; }
- #l6> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l6> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l7 {padding-left: 0pt;counter-reset: c3 0; }
- #l7> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l7> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l8 {padding-left: 0pt;counter-reset: c2 0; }
- #l8> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l8> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l9 {padding-left: 0pt;counter-reset: c3 0; }
- #l9> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l9> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l10 {padding-left: 0pt;counter-reset: c3 0; }
- #l10> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l10> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l11 {padding-left: 0pt;counter-reset: c2 0; }
- #l11> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l11> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l12 {padding-left: 0pt;counter-reset: c3 0; }
- #l12> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l12> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l13 {padding-left: 0pt;counter-reset: c3 0; }
- #l13> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l13> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l14 {padding-left: 0pt;counter-reset: c3 0; }
- #l14> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l14> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l15 {padding-left: 0pt;counter-reset: c3 0; }
- #l15> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l15> li:before {counter-increment: c3; content: counter(c1, decimal)"."counter(c2, decimal)"."counter(c3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l16 {padding-left: 0pt;counter-reset: c2 0; }
- #l16> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l16> li:before {counter-increment: c2; content: counter(c1, decimal)"."counter(c2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  li {display: block; }
  #l17 {padding-left: 0pt;counter-reset: d1 6; }
- #l17> li:before {counter-increment: d1; content: counter(d1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l17> li:before {counter-increment: d1; content: counter(d1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l18 {padding-left: 0pt;counter-reset: d2 1; }
- #l18> li:before {counter-increment: d2; content: counter(d1, decimal)"."counter(d2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l18> li:before {counter-increment: d2; content: counter(d1, decimal)"."counter(d2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l19 {padding-left: 0pt;counter-reset: d3 1; }
- #l19> li:before {counter-increment: d3; content: counter(d1, decimal)"."counter(d2, decimal)"."counter(d3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l19> li:before {counter-increment: d3; content: counter(d1, decimal)"."counter(d2, decimal)"."counter(d3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  li {display: block; }
  #l20 {padding-left: 0pt;counter-reset: e1 6; }
- #l20> li:before {counter-increment: e1; content: counter(e1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l20> li:before {counter-increment: e1; content: counter(e1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l21 {padding-left: 0pt;counter-reset: e2 1; }
- #l21> li:before {counter-increment: e2; content: counter(e1, decimal)"."counter(e2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l21> li:before {counter-increment: e2; content: counter(e1, decimal)"."counter(e2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l22 {padding-left: 0pt;counter-reset: e3 0; }
- #l22> li:before {counter-increment: e3; content: counter(e1, decimal)"."counter(e2, decimal)"."counter(e3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l22> li:before {counter-increment: e3; content: counter(e1, decimal)"."counter(e2, decimal)"."counter(e3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  li {display: block; }
  #l23 {padding-left: 0pt; }
- #l23> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l23> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l24 {padding-left: 0pt; }
- #l24> li:before {content: " "; color: black; font-family:Wingdings; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l24> li:before {content: " "; color: black; font-family:Wingdings; font-style: normal; font-weight: normal;   }
  #l25 {padding-left: 0pt;counter-reset: g1 1; }
- #l25> li:before {counter-increment: g1; content: counter(g1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l25> li:before {counter-increment: g1; content: counter(g1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l26 {padding-left: 0pt;counter-reset: g2 0; }
- #l26> li:before {counter-increment: g2; content: counter(g1, decimal)"."counter(g2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l26> li:before {counter-increment: g2; content: counter(g1, decimal)"."counter(g2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l27 {padding-left: 0pt;counter-reset: g1 1; }
- #l27> li:before {counter-increment: g1; content: counter(g1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l27> li:before {counter-increment: g1; content: counter(g1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l28 {padding-left: 0pt;counter-reset: g2 2; }
- #l28> li:before {counter-increment: g2; content: counter(g1, decimal)"."counter(g2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l28> li:before {counter-increment: g2; content: counter(g1, decimal)"."counter(g2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l29 {padding-left: 0pt;counter-reset: h1 2; }
- #l29> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l29> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l30 {padding-left: 0pt;counter-reset: h2 0; }
- #l30> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l30> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l31 {padding-left: 0pt;counter-reset: h3 0; }
- #l31> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l31> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l32 {padding-left: 0pt;counter-reset: h1 2; }
- #l32> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l32> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l33 {padding-left: 0pt;counter-reset: h2 1; }
- #l33> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l33> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l34 {padding-left: 0pt;counter-reset: h3 1; }
- #l34> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l34> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l35 {padding-left: 0pt;counter-reset: i1 2; }
- #l35> li:before {counter-increment: i1; content: counter(i1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l35> li:before {counter-increment: i1; content: counter(i1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l36 {padding-left: 0pt;counter-reset: i2 2; }
- #l36> li:before {counter-increment: i2; content: counter(i1, decimal)"."counter(i2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l36> li:before {counter-increment: i2; content: counter(i1, decimal)"."counter(i2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l37 {padding-left: 0pt;counter-reset: i3 0; }
- #l37> li:before {counter-increment: i3; content: counter(i1, decimal)"."counter(i2, decimal)"."counter(i3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l37> li:before {counter-increment: i3; content: counter(i1, decimal)"."counter(i2, decimal)"."counter(i3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l38 {padding-left: 0pt;counter-reset: i1 2; }
- #l38> li:before {counter-increment: i1; content: counter(i1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l38> li:before {counter-increment: i1; content: counter(i1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l39 {padding-left: 0pt;counter-reset: i2 3; }
- #l39> li:before {counter-increment: i2; content: counter(i1, decimal)"."counter(i2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l39> li:before {counter-increment: i2; content: counter(i1, decimal)"."counter(i2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l40 {padding-left: 0pt;counter-reset: i3 1; }
- #l40> li:before {counter-increment: i3; content: counter(i1, decimal)"."counter(i2, decimal)"."counter(i3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l40> li:before {counter-increment: i3; content: counter(i1, decimal)"."counter(i2, decimal)"."counter(i3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l41 {padding-left: 0pt;counter-reset: j1 2; }
- #l41> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l41> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l42 {padding-left: 0pt;counter-reset: j2 3; }
- #l42> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l42> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l43 {padding-left: 0pt; }
- #l43> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l43> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l44 {padding-left: 0pt;counter-reset: j1 2; }
- #l44> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l44> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l45 {padding-left: 0pt;counter-reset: j2 4; }
- #l45> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l45> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l46 {padding-left: 0pt; }
- #l46> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l46> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l47 {padding-left: 0pt;counter-reset: m1 3; }
- #l47> li:before {counter-increment: m1; content: counter(m1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l47> li:before {counter-increment: m1; content: counter(m1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l48 {padding-left: 0pt;counter-reset: m2 0; }
- #l48> li:before {counter-increment: m2; content: counter(m1, decimal)"."counter(m2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l48> li:before {counter-increment: m2; content: counter(m1, decimal)"."counter(m2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l49 {padding-left: 0pt;counter-reset: m1 3; }
- #l49> li:before {counter-increment: m1; content: counter(m1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l49> li:before {counter-increment: m1; content: counter(m1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l50 {padding-left: 0pt;counter-reset: m2 1; }
- #l50> li:before {counter-increment: m2; content: counter(m1, decimal)"."counter(m2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l50> li:before {counter-increment: m2; content: counter(m1, decimal)"."counter(m2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l51 {padding-left: 0pt;counter-reset: m3 0; }
- #l51> li:before {counter-increment: m3; content: counter(m1, decimal)"."counter(m2, decimal)"."counter(m3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l51> li:before {counter-increment: m3; content: counter(m1, decimal)"."counter(m2, decimal)"."counter(m3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l52 {padding-left: 0pt;counter-reset: m1 3; }
- #l52> li:before {counter-increment: m1; content: counter(m1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l52> li:before {counter-increment: m1; content: counter(m1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l53 {padding-left: 0pt;counter-reset: m2 1; }
- #l53> li:before {counter-increment: m2; content: counter(m1, decimal)"."counter(m2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l53> li:before {counter-increment: m2; content: counter(m1, decimal)"."counter(m2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l54 {padding-left: 0pt;counter-reset: m3 4; }
- #l54> li:before {counter-increment: m3; content: counter(m1, decimal)"."counter(m2, decimal)"."counter(m3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l54> li:before {counter-increment: m3; content: counter(m1, decimal)"."counter(m2, decimal)"."counter(m3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l55 {padding-left: 0pt; }
- #l55> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l55> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l56 {padding-left: 0pt; }
- #l56> li:before {content: "o "; color: black; font-family:"Courier New", monospace; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l56> li:before {content: "o "; color: black; font-family:"Courier New", monospace; font-style: normal; font-weight: normal;   }
  #l57 {padding-left: 0pt;counter-reset: n1 4; }
- #l57> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l57> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l58 {padding-left: 0pt;counter-reset: n2 0; }
- #l58> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l58> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l59 {padding-left: 0pt;counter-reset: n1 4; }
- #l59> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l59> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l60 {padding-left: 0pt;counter-reset: n2 1; }
- #l60> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l60> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l61 {padding-left: 0pt;counter-reset: n3 0; }
- #l61> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l61> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l62 {padding-left: 0pt;counter-reset: n1 4; }
- #l62> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l62> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l63 {padding-left: 0pt;counter-reset: n2 1; }
- #l63> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l63> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l64 {padding-left: 0pt;counter-reset: n3 1; }
- #l64> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l64> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l65 {padding-left: 0pt;counter-reset: n1 4; }
- #l65> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l65> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l66 {padding-left: 0pt;counter-reset: n2 1; }
- #l66> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l66> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l67 {padding-left: 0pt;counter-reset: n3 2; }
- #l67> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l67> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l68 {padding-left: 0pt;counter-reset: n1 4; }
- #l68> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l68> li:before {counter-increment: n1; content: counter(n1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l69 {padding-left: 0pt;counter-reset: n2 1; }
- #l69> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l69> li:before {counter-increment: n2; content: counter(n1, decimal)"."counter(n2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l70 {padding-left: 0pt;counter-reset: n3 3; }
- #l70> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l70> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l71 {padding-left: 0pt;counter-reset: n3 0; }
- #l71> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l71> li:before {counter-increment: n3; content: counter(n1, decimal)"."counter(n2, decimal)"."counter(n3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l72 {padding-left: 0pt;counter-reset: o1 5; }
- #l72> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l72> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l73 {padding-left: 0pt;counter-reset: o2 0; }
- #l73> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l73> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l74 {padding-left: 0pt; }
- #l74> li:before {content: "o "; color: black; font-family:"Courier New", monospace; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l74> li:before {content: "o "; color: black; font-family:"Courier New", monospace; font-style: normal; font-weight: normal;   }
  #l75 {padding-left: 0pt; }
- #l75> li:before {content: "o "; color: black; font-family:"Courier New", monospace; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l75> li:before {content: "o "; color: black; font-family:"Courier New", monospace; font-style: normal; font-weight: normal;   }
  #l76 {padding-left: 0pt;counter-reset: o1 5; }
- #l76> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l76> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l77 {padding-left: 0pt;counter-reset: o2 1; }
- #l77> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l77> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l78 {padding-left: 0pt;counter-reset: o1 5; }
- #l78> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l78> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l79 {padding-left: 0pt;counter-reset: o2 2; }
- #l79> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l79> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l80 {padding-left: 0pt;counter-reset: o1 5; }
- #l80> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l80> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l81 {padding-left: 0pt;counter-reset: o2 3; }
- #l81> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l81> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l82 {padding-left: 0pt;counter-reset: o1 5; }
- #l82> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l82> li:before {counter-increment: o1; content: counter(o1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l83 {padding-left: 0pt;counter-reset: o2 4; }
- #l83> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l83> li:before {counter-increment: o2; content: counter(o1, decimal)"."counter(o2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l84 {padding-left: 0pt;counter-reset: o3 0; }
- #l84> li:before {counter-increment: o3; content: counter(o1, decimal)"."counter(o2, decimal)"."counter(o3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l84> li:before {counter-increment: o3; content: counter(o1, decimal)"."counter(o2, decimal)"."counter(o3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l85 {padding-left: 0pt;counter-reset: r1 5; }
- #l85> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l85> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l86 {padding-left: 0pt;counter-reset: r2 5; }
- #l86> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l86> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l87 {padding-left: 0pt;counter-reset: r1 5; }
- #l87> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l87> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l88 {padding-left: 0pt;counter-reset: r2 6; }
- #l88> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l88> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l89 {padding-left: 0pt;counter-reset: r1 5; }
- #l89> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l89> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l90 {padding-left: 0pt;counter-reset: r2 7; }
- #l90> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l90> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l91 {padding-left: 0pt;counter-reset: r3 0; }
- #l91> li:before {counter-increment: r3; content: counter(r1, decimal)"."counter(r2, decimal)"."counter(r3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l91> li:before {counter-increment: r3; content: counter(r1, decimal)"."counter(r2, decimal)"."counter(r3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l92 {padding-left: 0pt;counter-reset: r1 5; }
- #l92> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l92> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l93 {padding-left: 0pt;counter-reset: r2 6; }
- #l93> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l93> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l94 {padding-left: 0pt;counter-reset: r3 2; }
- #l94> li:before {counter-increment: r3; content: counter(r1, decimal)"."counter(r2, decimal)"."counter(r3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l94> li:before {counter-increment: r3; content: counter(r1, decimal)"."counter(r2, decimal)"."counter(r3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l95 {padding-left: 0pt;counter-reset: s1 5; }
- #l95> li:before {counter-increment: s1; content: counter(s1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l95> li:before {counter-increment: s1; content: counter(s1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l96 {padding-left: 0pt;counter-reset: s2 8; }
- #l96> li:before {counter-increment: s2; content: counter(s1, decimal)"."counter(s2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l96> li:before {counter-increment: s2; content: counter(s1, decimal)"."counter(s2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l97 {padding-left: 0pt;counter-reset: s3 0; }
- #l97> li:before {counter-increment: s3; content: counter(s1, decimal)"."counter(s2, decimal)"."counter(s3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l97> li:before {counter-increment: s3; content: counter(s1, decimal)"."counter(s2, decimal)"."counter(s3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l98 {padding-left: 0pt;counter-reset: t1 5; }
- #l98> li:before {counter-increment: t1; content: counter(t1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l98> li:before {counter-increment: t1; content: counter(t1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l99 {padding-left: 0pt;counter-reset: t2 10; }
- #l99> li:before {counter-increment: t2; content: counter(t1, decimal)"."counter(t2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l99> li:before {counter-increment: t2; content: counter(t1, decimal)"."counter(t2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l100 {padding-left: 0pt;counter-reset: t1 5; }
- #l100> li:before {counter-increment: t1; content: counter(t1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l100> li:before {counter-increment: t1; content: counter(t1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l101 {padding-left: 0pt;counter-reset: t2 14; }
- #l101> li:before {counter-increment: t2; content: counter(t1, decimal)"."counter(t2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l101> li:before {counter-increment: t2; content: counter(t1, decimal)"."counter(t2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l102 {padding-left: 0pt;counter-reset: u1 5; }
- #l102> li:before {counter-increment: u1; content: counter(u1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l102> li:before {counter-increment: u1; content: counter(u1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l103 {padding-left: 0pt;counter-reset: u2 15; }
- #l103> li:before {counter-increment: u2; content: counter(u1, decimal)"."counter(u2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l103> li:before {counter-increment: u2; content: counter(u1, decimal)"."counter(u2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l104 {padding-left: 0pt; }
- #l104> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l104> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l105 {padding-left: 0pt;counter-reset: v1 6; }
- #l105> li:before {counter-increment: v1; content: counter(v1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l105> li:before {counter-increment: v1; content: counter(v1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l106 {padding-left: 0pt;counter-reset: v2 1; }
- #l106> li:before {counter-increment: v2; content: counter(v1, decimal)"."counter(v2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l106> li:before {counter-increment: v2; content: counter(v1, decimal)"."counter(v2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l107 {padding-left: 0pt;counter-reset: v3 0; }
- #l107> li:before {counter-increment: v3; content: counter(v1, decimal)"."counter(v2, decimal)"."counter(v3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l107> li:before {counter-increment: v3; content: counter(v1, decimal)"."counter(v2, decimal)"."counter(v3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l108 {padding-left: 0pt; }
- #l108> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l108> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l109 {padding-left: 0pt; }
- #l109> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l109> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l110 {padding-left: 0pt; }
- #l110> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l110> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l111 {padding-left: 0pt; }
- #l111> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l111> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l112 {padding-left: 0pt; }
- #l112> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l112> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l113 {padding-left: 0pt; }
- #l113> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l113> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l114 {padding-left: 0pt; }
- #l114> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l114> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l115 {padding-left: 0pt; }
- #l115> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l115> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l116 {padding-left: 0pt; }
- #l116> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l116> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l117 {padding-left: 0pt;counter-reset: h1 6; }
- #l117> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l117> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l118 {padding-left: 0pt;counter-reset: h2 1; }
- #l118> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l118> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l119 {padding-left: 0pt;counter-reset: h1 6; }
- #l119> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l119> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l120 {padding-left: 0pt;counter-reset: h2 2; }
- #l120> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l120> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l121 {padding-left: 0pt;counter-reset: h3 0; }
- #l121> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l121> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l122 {padding-left: 0pt;counter-reset: h1 6; }
- #l122> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l122> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l123 {padding-left: 0pt;counter-reset: h2 2; }
- #l123> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l123> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l124 {padding-left: 0pt;counter-reset: h3 1; }
- #l124> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l124> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l125 {padding-left: 0pt;counter-reset: h4 0; }
- #l125> li:before {counter-increment: h4; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)"."counter(h4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l125> li:before {counter-increment: h4; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)"."counter(h4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l126 {padding-left: 0pt;counter-reset: h1 6; }
- #l126> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l126> li:before {counter-increment: h1; content: counter(h1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l127 {padding-left: 0pt;counter-reset: h2 2; }
- #l127> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l127> li:before {counter-increment: h2; content: counter(h1, decimal)"."counter(h2, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l128 {padding-left: 0pt;counter-reset: h3 1; }
- #l128> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l128> li:before {counter-increment: h3; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l129 {padding-left: 0pt;counter-reset: h4 3; }
- #l129> li:before {counter-increment: h4; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)"."counter(h4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l129> li:before {counter-increment: h4; content: counter(h1, decimal)"."counter(h2, decimal)"."counter(h3, decimal)"."counter(h4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l130 {padding-left: 0pt; }
- #l130> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l130> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l131 {padding-left: 0pt; }
- #l131> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l131> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l132 {padding-left: 0pt;counter-reset: j1 6; }
- #l132> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l132> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l133 {padding-left: 0pt;counter-reset: j2 2; }
- #l133> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l133> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l134 {padding-left: 0pt;counter-reset: j3 1; }
- #l134> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l134> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l135 {padding-left: 0pt;counter-reset: j1 6; }
- #l135> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l135> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l136 {padding-left: 0pt;counter-reset: j2 2; }
- #l136> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l136> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l137 {padding-left: 0pt;counter-reset: j3 2; }
- #l137> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l137> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l138 {padding-left: 0pt; }
- #l138> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l138> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l139 {padding-left: 0pt;counter-reset: j1 6; }
- #l139> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l139> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l140 {padding-left: 0pt;counter-reset: j2 2; }
- #l140> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l140> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l141 {padding-left: 0pt;counter-reset: j3 3; }
- #l141> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l141> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l142 {padding-left: 0pt;counter-reset: j1 6; }
- #l142> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l142> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l143 {padding-left: 0pt;counter-reset: j2 2; }
- #l143> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l143> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l144 {padding-left: 0pt;counter-reset: j3 4; }
- #l144> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l144> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l145 {padding-left: 0pt;counter-reset: j1 6; }
- #l145> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l145> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l146 {padding-left: 0pt;counter-reset: j2 2; }
- #l146> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l146> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l147 {padding-left: 0pt;counter-reset: j3 5; }
- #l147> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l147> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l148 {padding-left: 0pt;counter-reset: j1 6; }
- #l148> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l148> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l149 {padding-left: 0pt;counter-reset: j2 2; }
- #l149> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l149> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l150 {padding-left: 0pt;counter-reset: j3 2; }
- #l150> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l150> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l151 {padding-left: 0pt;counter-reset: j4 0; }
- #l151> li:before {counter-increment: j4; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)"."counter(j4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l151> li:before {counter-increment: j4; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)"."counter(j4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l152 {padding-left: 0pt; }
- #l152> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l152> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l153 {padding-left: 0pt;counter-reset: j1 6; }
- #l153> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l153> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l154 {padding-left: 0pt;counter-reset: j2 2; }
- #l154> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l154> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l155 {padding-left: 0pt;counter-reset: j3 2; }
- #l155> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l155> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l156 {padding-left: 0pt;counter-reset: j4 0; }
- #l156> li:before {counter-increment: j4; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)"."counter(j4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l156> li:before {counter-increment: j4; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)"."counter(j4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l157 {padding-left: 0pt; }
- #l157> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l157> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l158 {padding-left: 0pt;counter-reset: j1 6; }
- #l158> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l158> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l159 {padding-left: 0pt;counter-reset: j2 2; }
- #l159> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l159> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l160 {padding-left: 0pt;counter-reset: j3 2; }
- #l160> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l160> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l161 {padding-left: 0pt;counter-reset: j4 3; }
- #l161> li:before {counter-increment: j4; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)"."counter(j4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l161> li:before {counter-increment: j4; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)"."counter(j4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l162 {padding-left: 0pt;counter-reset: j1 6; }
- #l162> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l162> li:before {counter-increment: j1; content: counter(j1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l163 {padding-left: 0pt;counter-reset: j2 2; }
- #l163> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l163> li:before {counter-increment: j2; content: counter(j1, decimal)"."counter(j2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l164 {padding-left: 0pt;counter-reset: j3 2; }
- #l164> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l164> li:before {counter-increment: j3; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l165 {padding-left: 0pt;counter-reset: j4 4; }
- #l165> li:before {counter-increment: j4; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)"."counter(j4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l165> li:before {counter-increment: j4; content: counter(j1, decimal)"."counter(j2, decimal)"."counter(j3, decimal)"."counter(j4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l166 {padding-left: 0pt;counter-reset: l1 6; }
- #l166> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l166> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l167 {padding-left: 0pt;counter-reset: l2 2; }
- #l167> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l167> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l168 {padding-left: 0pt;counter-reset: l3 7; }
- #l168> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l168> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l169 {padding-left: 0pt; }
- #l169> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l169> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l170 {padding-left: 0pt; }
- #l170> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l170> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l171 {padding-left: 0pt;counter-reset: l1 6; }
- #l171> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l171> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l172 {padding-left: 0pt;counter-reset: l2 2; }
- #l172> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l172> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l173 {padding-left: 0pt;counter-reset: l3 8; }
- #l173> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l173> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l174 {padding-left: 0pt;counter-reset: l1 6; }
- #l174> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l174> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l175 {padding-left: 0pt;counter-reset: l2 2; }
- #l175> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l175> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l176 {padding-left: 0pt;counter-reset: l3 9; }
- #l176> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l176> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l177 {padding-left: 0pt;counter-reset: l1 6; }
- #l177> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l177> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l178 {padding-left: 0pt;counter-reset: l2 2; }
- #l178> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l178> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l179 {padding-left: 0pt;counter-reset: l3 10; }
- #l179> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l179> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l180 {padding-left: 0pt; }
- #l180> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l180> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l181 {padding-left: 0pt; }
- #l181> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l181> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l182 {padding-left: 0pt;counter-reset: l1 6; }
- #l182> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l182> li:before {counter-increment: l1; content: counter(l1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l183 {padding-left: 0pt;counter-reset: l2 2; }
- #l183> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l183> li:before {counter-increment: l2; content: counter(l1, decimal)"."counter(l2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l184 {padding-left: 0pt;counter-reset: l3 8; }
- #l184> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l184> li:before {counter-increment: l3; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l185 {padding-left: 0pt;counter-reset: l4 0; }
- #l185> li:before {counter-increment: l4; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)"."counter(l4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l185> li:before {counter-increment: l4; content: counter(l1, decimal)"."counter(l2, decimal)"."counter(l3, decimal)"."counter(l4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l186 {padding-left: 0pt;counter-reset: q1 6; }
- #l186> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l186> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l187 {padding-left: 0pt;counter-reset: q2 2; }
- #l187> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l187> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l188 {padding-left: 0pt;counter-reset: q3 11; }
- #l188> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l188> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l189 {padding-left: 0pt;counter-reset: q1 6; }
- #l189> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l189> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l190 {padding-left: 0pt;counter-reset: q2 2; }
- #l190> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l190> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l191 {padding-left: 0pt;counter-reset: q3 12; }
- #l191> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l191> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l192 {padding-left: 0pt;counter-reset: q1 6; }
- #l192> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l192> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l193 {padding-left: 0pt;counter-reset: q2 2; }
- #l193> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l193> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l194 {padding-left: 0pt;counter-reset: q3 13; }
- #l194> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l194> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l195 {padding-left: 0pt;counter-reset: q1 6; }
- #l195> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l195> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l196 {padding-left: 0pt;counter-reset: q2 2; }
- #l196> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l196> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l197 {padding-left: 0pt;counter-reset: q3 14; }
- #l197> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l197> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l198 {padding-left: 0pt;counter-reset: q1 6; }
- #l198> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l198> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l199 {padding-left: 0pt;counter-reset: q2 2; }
- #l199> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l199> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l200 {padding-left: 0pt;counter-reset: q3 15; }
- #l200> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l200> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l201 {padding-left: 0pt;counter-reset: q1 6; }
- #l201> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l201> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l202 {padding-left: 0pt;counter-reset: q2 2; }
- #l202> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l202> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l203 {padding-left: 0pt;counter-reset: q3 12; }
- #l203> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l203> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l204 {padding-left: 0pt;counter-reset: q4 0; }
- #l204> li:before {counter-increment: q4; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)"."counter(q4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l204> li:before {counter-increment: q4; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)"."counter(q4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l205 {padding-left: 0pt; }
- #l205> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l205> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l206 {padding-left: 0pt;counter-reset: q1 6; }
- #l206> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l206> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l207 {padding-left: 0pt;counter-reset: q2 2; }
- #l207> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l207> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l208 {padding-left: 0pt;counter-reset: q3 16; }
- #l208> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l208> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l209 {padding-left: 0pt;counter-reset: q1 6; }
- #l209> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l209> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l210 {padding-left: 0pt;counter-reset: q2 2; }
- #l210> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l210> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l211 {padding-left: 0pt;counter-reset: q3 12; }
- #l211> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l211> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l212 {padding-left: 0pt;counter-reset: q4 0; }
- #l212> li:before {counter-increment: q4; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)"."counter(q4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l212> li:before {counter-increment: q4; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)"."counter(q4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l213 {padding-left: 0pt; }
- #l213> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l213> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  #l214 {padding-left: 0pt;counter-reset: q1 6; }
- #l214> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l214> li:before {counter-increment: q1; content: counter(q1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l215 {padding-left: 0pt;counter-reset: q2 2; }
- #l215> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l215> li:before {counter-increment: q2; content: counter(q1, decimal)"."counter(q2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l216 {padding-left: 0pt;counter-reset: q3 12; }
- #l216> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l216> li:before {counter-increment: q3; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l217 {padding-left: 0pt;counter-reset: q4 2; }
- #l217> li:before {counter-increment: q4; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)"."counter(q4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l217> li:before {counter-increment: q4; content: counter(q1, decimal)"."counter(q2, decimal)"."counter(q3, decimal)"."counter(q4, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l218 {padding-left: 0pt;counter-reset: r1 6; }
- #l218> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l218> li:before {counter-increment: r1; content: counter(r1, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l219 {padding-left: 0pt;counter-reset: r2 2; }
- #l219> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-style: normal; font-weight: normal; text-decoration: none; }
+ #l219> li:before {counter-increment: r2; content: counter(r1, decimal)"."counter(r2, decimal)" "; color: black; font-style: normal; font-weight: normal;  }
  #l220 {padding-left: 0pt;counter-reset: r3 17; }
- #l220> li:before {counter-increment: r3; content: counter(r1, decimal)"."counter(r2, decimal)"."counter(r3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 11pt; }
+ #l220> li:before {counter-increment: r3; content: counter(r1, decimal)"."counter(r2, decimal)"."counter(r3, decimal)" "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold;   }
  #l221 {padding-left: 0pt; }
- #l221> li:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l221> li:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l222 {padding-left: 0pt; }
- #l222> li:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l222> li:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l223 {padding-left: 0pt; }
- #l223> li:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l223> li:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l224 {padding-left: 0pt; }
- #l224> li:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l224> li:before {content: "- "; color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: normal;   }
  #l225 {padding-left: 0pt; }
- #l225> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l225> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l226 {padding-left: 0pt; }
- #l226> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 9pt; }
+ #l226> li:before {content: " "; color: black; font-family:Symbol, serif; font-style: normal; font-weight: normal;   }
  #l227 {padding-left: 0pt; }
- #l227> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l227> li:before {content: "■ "; color: black; font-family:Webdings, serif; font-style: normal; font-weight: normal;   }
  li {display: block; }
  #l228 {padding-left: 0pt; }
- #l228> li:before {content: " "; color: black; font-family:Wingdings; font-style: normal; font-weight: normal; text-decoration: none; font-size: 11pt; }
+ #l228> li:before {content: " "; color: black; font-family:Wingdings; font-style: normal; font-weight: normal;   }
  table, tbody {vertical-align: top; overflow: visible; }

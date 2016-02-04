@@ -569,7 +569,8 @@
             <description>Unauthorized mobile code is detected</description>
             <sp800-53>
                <control>SC-18</control>
-               <control>SI-4. SC-44</control>
+               <control>SI-4</control>
+               <control>SC-44</control>
             </sp800-53>
          </subCategory>
          <subCategory id="DE.CM-6">
