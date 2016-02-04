@@ -697,7 +697,6 @@
          <subCategory id="DE.DP-5">
             <description>Detection processes are continuously improved</description>
             <sp800-53>
-               <control/>
                <control>CA-2</control>
                <control>CA-7</control>
                <control>PL-2</control>
