@@ -8,11 +8,8 @@
 <!ENTITY subCatID "substring-before(f:COL[3]/f:DATA,':')">
 <!ENTITY subCatDesc "normalize-space(substring-after(f:COL[3]/f:DATA,':'))">
 
-<!-- handle PR.IP-10 CSF typo -->
-<!ENTITY sp800-53 "normalize-space
-(substring-after(
-substring-after(f:COL[4]/f:DATA,'NIST SP 800-53 Rev.'),
-'4'))">
+<!-- handle CSF typos -->
+<!ENTITY sp800-53 "normalize-space(fn:replace(f:COL[4]/f:DATA, '.*NIST\s+SP\s+800-53\s+Rev.\s*4,?\s*(.*)', '$1'))">
 ]>
 <xsl:stylesheet 
     version="2.0"
