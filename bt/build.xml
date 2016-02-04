@@ -9,6 +9,7 @@
   <property name="build" location=".."/>
   <property name="SP800-53" location="../../standards/NIST/SP800-53/800-53-controls.xml"/>
   <property name="cybercore-exported" location="../../doc/2015Balisage/data/cyber.xml"/>
+  <property name="SP800-82" location="doc/NIST.SP.800-82r2.html"/>
   
   <target name="init">
     <!-- Create the time stamp -->
@@ -22,6 +23,12 @@
     <xslt in="${SP800-53}" out="bt-model/families.xml" style="families.xsl"/>
     <xslt in="bt-model/core.xml" out="bt-model/subcategories.xml" style="subcategories.xsl"/>
     <xslt in="bt-model/core.xml" out="bt-model/cat-dropdown.xml" style="cat-dropdown.xsl"/>
+  </target>
+
+  <target name="ics">
+    <!-- generate ICS overlay HTML files -->
+    <delete file="temp.html"/>
+    <xslt in="${SP800-82}" out="temp.html" style="ics.xsl"/>
   </target>
 
   <target name="bt" description="create bt.xml in the build directory, with NIST header/footer and XSLTForms delay attributes inserted">
@@ -49,7 +56,7 @@
     </xmltask>
   </target>
 
-  <target name="copy" depends="init, transform, bt, index, clean"
+  <target name="copy" depends="init, transform, ics, bt, index, clean"
           description="generate the distribution">
     <copy todir="${build}" preservelastmodified="true">
       <fileset dir="." includes="*.png *.css bt-model/** images/** ics/** xsltforms/**"/>
