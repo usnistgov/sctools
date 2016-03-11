@@ -166,7 +166,7 @@
       </xf:instance>
 
       <xf:instance id="i-updated" xmlns="">
-	<updated>2016/02/04</updated>
+	<updated>2016/03/11</updated>
       </xf:instance>
 
       <xf:instance id="i-url" xmlns="">
@@ -358,6 +358,8 @@
       <xf:output ref="instance('i-version')"/>
       </span>
       <span class="Links">
+	<a href="UserGuide.pdf" target="_blank">User Guide (PDF)</a> |
+	<a href="LICENSE.txt" target="_blank">License</a> | 
 	<a href="index.html" target="_blank">Security Content and Tools</a>
       </span>
     </h1>

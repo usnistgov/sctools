@@ -2,28 +2,67 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Security Content and Tools</title>
+    <link rel="stylesheet" href="styles.css" type="text/css"/>
   </head>
   <body>
     <!-- empty p needed for xmltask -->
     <p/>
-    <h2>Security Content and Tools</h2>
+    <h1>Security Content and Tools</h1>
     <p>This site contains a collection of free and publicly available software and data resources created from the <a href="https://github.com/usnistgov/sctools">sctools</a> GitHub repository. These resources supplement and complement those available from the <a href="https://nvd.nist.gov">National Vulnerability Database</a>.</p>
-    <h3>Software</h3>
+    <h2>Software</h2>
     <dl>
       <dt><a href="bt.xml"><img src="images/Needle_and_thread_silhouette.svg" alt="needle and thread"/>Baseline Tailor</a></dt>
-      <dd>A tool for using the <a href="http://www.nist.gov/cyberframework/">Cybersecurity Framework</a> and for tailoring <a href="http://csrc.nist.gov/groups/SMA/fisma/controls.html">Special Publication 800-53 security controls</a>
+      <dd>A tool for using the <a href="http://www.nist.gov/cyberframework/">Cybersecurity Framework</a> and for tailoring <a href="http://csrc.nist.gov/groups/SMA/fisma/controls.html">Special Publication 800-53 security controls</a>. Documentation is <a href="UserGuide.pdf">here</a>.
       </dd>
     </dl>
-    <h3>Data and Schemas</h3>
-    <ul>
-      <li><a href="bt-model/core.xml">XML</a> representing the Cybersecurity Framework Core</li>
-      <li>Framework Core Schemas
-      <ul title="Framework Core Schemas">
-	<li>World Wide Web Consortium XML Schema Definition (XSD) syntax</li>
-	<li>ISO/IEC 19757 RELAX NG compact syntax</li>
-      </ul>
-      </li>
-    </ul>
+    <h2>Data and Schemas</h2>
+    <table border="1" cellpadding="2">
+      <thead>
+	<tr>
+	  <td/>
+	  <td><strong>Data</strong></td>
+	  <td><strong><a href="http://www.w3.org/TR/xmlschema-0/">XML Schema</a></strong></td>
+	  <td><strong><a href="http://relaxng.org/">RELAX NG</a> Schema</strong></td>
+	</tr>
+      </thead>
+      <tbody>
+	<tr>
+	  <td><strong>Cybersecurity Framework Core</strong></td>
+	  <td><a href="bt-model/core.xml">core.xml</a></td>
+	  <td>core.xsd</td>
+	  <td>core.rnc</td>
+	</tr>
+	<tr>
+	  <td><strong>Framework Profile</strong></td>
+	  <td/>
+	  <td>profile.xsd</td>
+	  <td>profile.rnc</td>
+	</tr>
+	<tr>
+	  <td><strong>NIST Special Publication 800-53<br/>Security Controls</strong></td>
+	  <td><a href="https://nvd.nist.gov/800-53">Database and<br/>XML Downloads</a></td>
+	  <td/>
+	  <td/>
+	</tr>
+	<tr>
+	  <td><strong>Tailored Security Control</strong></td>
+	  <td/>
+	  <td>tailored.xsd</td>
+	  <td>tailored.rnc</td>
+	</tr>
+      </tbody>
+    </table>
+    <div class="footer">
+      <p>
+
+	Last updated: 2016/03/11<br/>
+
+Contact: <strong><a href="mailto:lubell@nist.gov">Joshua
+Lubell</a></strong>
+
+      </p>
+    </div>
     <p/>
+
   </body>
 </html>
