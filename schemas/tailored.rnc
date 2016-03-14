@@ -1,0 +1,56 @@
+default namespace = ""
+
+start =
+   ## An entire tailored baseline.
+element tailoredBaseline {
+   ## Tailoring for a security control from the SP 800-53 catalog.
+   element tailoredControl {
+      ## Name of the control's family.
+      element family { text },
+      ## Justification for change the baseline. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored.
+      element rationale {
+         booleanFlag,
+         text
+      },
+      ## Information specific to a control.
+      element control {
+         ## Control identifier. Consists of two-letter abbreviation of family name + '-' + positive integer.
+         attribute number { xsd:NCName },
+         title,
+         \default,
+         impact,
+         ## Additional supplemental guidance for a control. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored.
+         element guidance {
+            booleanFlag,
+            text
+         }
+      },
+      ## Information specific to a control enhancement.
+      element enhancement {
+         ## Enhancement number. When combined with the enhancement's control number, uniquely identifies the control enhancement.
+         attribute number { xsd:integer },
+         title,
+         \default,
+         impact,
+         ## Additional supplemental guidance for a control enhancement. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored. Otherwise, booleanFlag cross-references the guidance of another  control enhancement within the parent tailoredControl element.
+         element guidance {
+            (booleanFlag | posIntFlag),
+            text
+         }
+   }*
+}+
+}
+## Title of a control or control enhancement.
+title = element title { text }
+\default =
+## Baseline impact. 1 represents 'LOW', 2 represents 'MODERATE', 3 represents 'HIGH', and 4 represents 'N/A' (i.e. not in a baseline).
+   element default {
+      attribute value { "1"|"2"|"3"|"4" }
+   }
+impact =
+## Tailored impact. 1 represents 'LOW', 2 represents 'MODERATE', 3 represents 'HIGH', and 4 represents 'N/A' (i.e. not included in the baseline).
+   element impact {
+      attribute value {  "1"|"2"|"3"|"4" }
+   }
+booleanFlag = attribute flag {xsd:boolean}
+posIntFlag = attribute flag {xsd:positiveInteger}

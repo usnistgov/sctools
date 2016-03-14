@@ -1,0 +1,8 @@
+default namespace = ""
+
+start =
+## Framework Profile.
+  element frameworkProfile {
+    ## Subcategory identifier. Two-character function ID, then a period, then a two-character category ID, then a hyphen, then one or more digits.
+     element id { xsd:NCName { pattern='[A-Z][A-Z]\.[A-Z][A-Z]-\d+' } }*
+  }

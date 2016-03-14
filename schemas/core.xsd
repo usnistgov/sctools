@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="core">
+    <xs:annotation>
+      <xs:documentation>Framework Core.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="function"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="function">
+    <xs:annotation>
+      <xs:documentation>Core function.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name">
+          <xs:annotation>
+            <xs:documentation>Core function name in all caps.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:NCName">
+              <xs:pattern value="[A-Z]+"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" ref="category"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required">
+        <xs:annotation>
+          <xs:documentation>Two-character identifier.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NCName">
+            <xs:pattern value="[A-Z][A-Z]"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="category">
+    <xs:annotation>
+      <xs:documentation>Core category.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Category name.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="description"/>
+        <xs:element maxOccurs="unbounded" ref="subCategory"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required">
+        <xs:annotation>
+          <xs:documentation>Two-character function ID, then a period, then a two-character category ID. Function ID must be the same as that of the containing function's id attribute.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NCName">
+            <xs:pattern value="[A-Z][A-Z]\.[A-Z][A-Z]"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subCategory">
+    <xs:annotation>
+      <xs:documentation>Core subcategory.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="description"/>
+        <xs:element ref="sp800-53"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required">
+        <xs:annotation>
+          <xs:documentation>Category ID, followed by a hyphen, then one or more digits. Category ID must be the same as that of the containing category's id attribute.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NCName">
+            <xs:pattern value="[A-Z][A-Z]\.[A-Z][A-Z]-\d+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sp800-53">
+    <xs:annotation>
+      <xs:documentation>Informative references to NIST SP 800-53 security controls. Contains a list of controls, a control family or, if 'all' flag is true, a '-1' control exception. This content model may need to change for future CSF versions.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="control"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="except"/>
+          <xs:element ref="family"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="all" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>True if all '-1' controls are informatively referenced.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="control" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Security control identifier (two-letter family id, then a hyphen, then one or more digits)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="except" type="xs:NCName"/>
+  <xs:element name="family" type="xs:NCName"/>
+  <xs:element name="description" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Outcome describing a category or subcategory.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>

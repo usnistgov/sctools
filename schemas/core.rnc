@@ -1,0 +1,39 @@
+default namespace = ""
+
+start =
+## Framework Core.
+  element core {
+    ## Core function.
+    element function {
+      ## Two-character identifier.
+      attribute id { xsd:NCName { pattern='[A-Z][A-Z]' } },
+      ## Core function name in all caps.
+      element name { xsd:NCName { pattern='[A-Z]+' } },
+      ## Core category.
+      element category {
+        ## Two-character function ID, then a period, then a two-character category ID. Function ID must be the same as that of the containing function's id attribute.
+        attribute id { xsd:NCName { pattern='[A-Z][A-Z]\.[A-Z][A-Z]' } },
+        ## Category name.
+        element name { text },
+        description,
+        ## Core subcategory.
+        element subCategory {
+        ## Category ID, followed by a hyphen, then one or more digits. Category ID must be the same as that of the containing category's id attribute.
+          attribute id { xsd:NCName { pattern='[A-Z][A-Z]\.[A-Z][A-Z]-\d+' } },
+          description,
+          ## Informative references to NIST SP 800-53 security controls. Contains a list of controls, a control family or, if 'all' flag is true, a '-1' control exception. This content model may need to change for future CSF versions.
+          element sp800-53 {
+            ## True if all '-1' controls are informatively referenced.
+            attribute all { xsd:boolean }?,
+            ## Security control identifier (two-letter family id, then a hyphen, then one or more digits)
+            element control { text }*,
+            (element except { xsd:NCName }
+             | element family { xsd:NCName })?
+          }
+        }+
+      }+
+    }+
+  }
+description = 
+## Outcome describing a category or subcategory.
+element description { text }

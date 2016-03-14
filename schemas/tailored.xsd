@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="tailoredBaseline">
+    <xs:annotation>
+      <xs:documentation>An entire tailored baseline.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="tailoredControl"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tailoredControl">
+    <xs:annotation>
+      <xs:documentation>Tailoring for a security control from the SP 800-53 catalog.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="family"/>
+        <xs:element ref="rationale"/>
+        <xs:element ref="control"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="enhancement"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="family" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Name of the control's family.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="rationale">
+    <xs:annotation>
+      <xs:documentation>Justification for change the baseline. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="booleanFlag"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="control">
+    <xs:annotation>
+      <xs:documentation>Information specific to a control.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="default"/>
+        <xs:element ref="impact"/>
+        <xs:element name="guidance">
+          <xs:annotation>
+            <xs:documentation>Additional supplemental guidance for a control. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType mixed="true">
+            <xs:attributeGroup ref="booleanFlag"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="number" use="required" type="xs:NCName">
+        <xs:annotation>
+          <xs:documentation>Control identifier. Consists of two-letter abbreviation of family name + '-' + positive integer.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="enhancement">
+    <xs:annotation>
+      <xs:documentation>Information specific to a control enhancement.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="default"/>
+        <xs:element ref="impact"/>
+        <xs:element name="guidance">
+          <xs:annotation>
+            <xs:documentation>Additional supplemental guidance for a control enhancement. If booleanFlag is true, then guidance should be provided as text content. If booleanFlag is false, then content should be ignored. Otherwise, booleanFlag cross-references the guidance of another  control enhancement within the parent tailoredControl element.</xs:documentation>
+          </xs:annotation>
+          <xs:complexType mixed="true">
+            <xs:attribute name="flag" use="required">
+              <xs:simpleType>
+                <xs:union memberTypes="xs:boolean xs:positiveInteger"/>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="number" use="required" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Enhancement number. When combined with the enhancement's control number, uniquely identifies the control enhancement.</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="default">
+    <xs:annotation>
+      <xs:documentation>Baseline impact. 1 represents 'LOW', 2 represents 'MODERATE', 3 represents 'HIGH', and 4 represents 'N/A' (i.e. not in a baseline).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="value" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="impact">
+    <xs:annotation>
+      <xs:documentation>Tailored impact. 1 represents 'LOW', 2 represents 'MODERATE', 3 represents 'HIGH', and 4 represents 'N/A' (i.e. not included in the baseline).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute name="value" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="booleanFlag">
+    <xs:attribute name="flag" use="required" type="xs:boolean"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="posIntFlag">
+    <xs:attribute name="flag" use="required" type="xs:positiveInteger"/>
+  </xs:attributeGroup>
+</xs:schema>
