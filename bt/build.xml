@@ -16,6 +16,12 @@
     <tstamp/>
   </target>
 
+  <target name="lastmodified">
+    <tstamp>
+      <format property="TODAY_US" pattern="YYYY/MM/dd" locale="en,US"/>
+    </tstamp>
+  </target>
+
   <target name="transform">
     <!-- run XSLTs to generate catalog, families, and cyberframework core instances -->
     <xslt in="${SP800-53}" out="bt-model/catalog.xml" style="catalog.xsl"/>
@@ -31,8 +37,9 @@
     <xslt in="${SP800-82}" out="temp.html" style="ics.xsl"/>
   </target>
 
-  <target name="bt" description="create bt.xml in the build directory, with NIST header/footer and XSLTForms delay attributes inserted">
+  <target name="bt" depends="lastmodified" description="create bt.xml in the build directory, with NIST header/footer and XSLTForms delay attributes inserted">
     <xmltask source="bt.xml" todir="${build}">
+      <insert path="//updated">${TODAY_US}</insert>
       <insert path="/:html/:head/:link[1]" position="after">
 	<![CDATA[
 <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
@@ -44,13 +51,14 @@
     </xmltask>
   </target>
 
-  <target name="index" description="create index.html in the build directory, with NIST header/footer inserted">
+  <target name="index" depends="lastmodified" description="create index.html in the build directory, with NIST header/footer inserted">
     <xmltask source="index.html" todir="${build}">
       <insert path="/:html/:head/:title" position="after">
 	<![CDATA[
 <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
 	]]>
       </insert>
+      <insert path="//:span[@class='updated']">${TODAY_US}</insert>
       <insert path="/:html/:body/:p[1]" file="insert/nist-header.xml" position="before"/>
       <insert path="/:html/:body/:p[last()]" file="insert/nist-footer.xml" position="after"/>
     </xmltask>
