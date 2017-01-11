@@ -47,7 +47,7 @@
       </insert>
       <insert path="/:html/:head/:link[last()]" position="after">
 	<![CDATA[
-	<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" id="_fed_an_js_tag" src="//www.nist.gov/js/federated-analytics.all.min.js?agency=NIST&amp;subagency=github&amp;pua=UA-42404149-54&amp;yt=true&amp;exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c"/>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-42404149-54&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c"/>
 	]]>
       </insert>
       <insert path="/:html/:body/*[1]" file="insert/nist-header.xml" position="before"/>
@@ -67,7 +67,7 @@
       <insert path="/:html/:body/:p[1]" file="insert/nist-header.xml" position="before"/>
       <insert path="/:html/:head/:link[last()]" position="after">
 	<![CDATA[
-	<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" id="_fed_an_js_tag" src="//www.nist.gov/js/federated-analytics.all.min.js?agency=NIST&amp;subagency=github&amp;pua=UA-42404149-54&amp;yt=true&amp;exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c"/>
+<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-42404149-54&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c"/>
 	]]>
       </insert>
       <insert path="/:html/:body/:p[last()]" file="insert/nist-footer.xml" position="after"/>
