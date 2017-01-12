@@ -45,11 +45,7 @@
 <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
 	]]>
       </insert>
-      <insert path="/:html/:head/:link[last()]" position="after">
-	<![CDATA[
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-42404149-54&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c"/>
-	]]>
-      </insert>
+      <insert path="/:html/:head/:link[last()]" position="after" file="analytics.xml"/>
       <insert path="/:html/:body/*[1]" file="insert/nist-header.xml" position="before"/>
       <attr path="//xf:textarea[@class='Guidance']" attr="delay" value="500"/>
       <insert path="/:html/:body/*[last()]" file="insert/nist-footer.xml" position="after"/>
@@ -65,11 +61,7 @@
       </insert>
       <insert path="//:span[@class='updated']">${TODAY_US}</insert>
       <insert path="/:html/:body/:p[1]" file="insert/nist-header.xml" position="before"/>
-      <insert path="/:html/:head/:link[last()]" position="after">
-	<![CDATA[
-<script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NIST&subagency=github&pua=UA-42404149-54&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c"/>
-	]]>
-      </insert>
+      <insert path="/:html/:head/:link[last()]" position="after" file="analytics.xml"/>
       <insert path="/:html/:body/:p[last()]" file="insert/nist-footer.xml" position="after"/>
     </xmltask>
   </target>
