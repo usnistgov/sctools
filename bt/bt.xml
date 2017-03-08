@@ -7,6 +7,11 @@
 
 <!DOCTYPE html [
 
+<!-- User Guide URL -->
+<!ENTITY doiurl "http://dx.doi.org/">
+<!ENTITY btugdoi "10.6028/NIST.IR.8130">
+<!ENTITY userguide "&doiurl;&btugdoi;">
+
 <!-- XForms 'appearance' attribute values -->
 <!ENTITY ImpactAppearance "minimal">
 <!ENTITY FunctionsAppearance "full">
@@ -358,7 +363,7 @@
       <xf:output ref="instance('i-version')"/>
       </span>
       <span class="Links">
-	<a href="UserGuide.pdf" target="_blank">User Guide (PDF)</a> |
+	<a href="&userguide;" target="_blank">User Guide (PDF)</a> |
 	<a href="LICENSE.txt" target="_blank">License</a> | 
 	<a href="index.html" target="_blank">Security Content and Tools</a>
       </span>
