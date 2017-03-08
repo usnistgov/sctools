@@ -72,7 +72,7 @@
          
          <xf:instance xmlns="" id="i-updated">
             	
-            <updated>2017/01/12</updated>
+            <updated>2017/03/08</updated>
             
          </xf:instance>
          
@@ -426,7 +426,7 @@
             <xf:output ref="instance('i-version')"></xf:output>
             </span>
          <span class="Links">
-            	<a href="UserGuide.pdf" target="_blank">User Guide (PDF)</a> |
+            	<a href="http://dx.doi.org/10.6028/NIST.IR.8130" target="_blank">User Guide (PDF)</a> |
             	<a href="LICENSE.txt" target="_blank">License</a> | 
             	<a href="index.html" target="_blank">Security Content and Tools</a>
             </span>
