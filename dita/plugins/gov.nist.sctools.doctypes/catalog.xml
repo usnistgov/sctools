@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <!-- NOTE: The following catalog entries will be added to the Toolkit's
+             top-level catalog-dita.xml without modification, so they
+             need to work as they will be in that catalog, not as they
+             exist within the plugin's directory.
+    -->
+  
+  <nextCatalog catalog="doctypes/catalog.xml"/>
+  
+</catalog>

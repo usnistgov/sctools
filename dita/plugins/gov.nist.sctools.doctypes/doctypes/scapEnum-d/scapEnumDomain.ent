@@ -1,0 +1,16 @@
+<!-- ====================================================
+     SCAP Enumeration Domain Module
+    
+     Author: Joshua Lubell
+
+     ==================================================== -->
+     
+<!ENTITY % scapEnum-d-keyword
+  "cveID | 
+   cpeID | 
+   cceID
+  "                 
+  >
+  
+<!ENTITY   scapEnum-d-att     "(topic scapEnum-d)"
+>

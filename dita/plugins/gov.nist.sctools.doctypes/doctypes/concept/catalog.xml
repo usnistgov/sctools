@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+
+  <public publicId="urn:pubid:sctools.nist.gov:doctypes:dita:concept"
+    uri="concept.dtd"
+  />
+  <system systemId="urn:pubid:sctools.nist.gov:doctypes:dita:concept.dtd"
+    uri="concept.dtd"
+  />
+</catalog>
