@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:sctools.nist.gov:doctypes:dita:concept" "concept.dtd">
+<concept id="concept_${id}">
+    <title>${caret}</title>
+    <shortdesc></shortdesc>
+    <conbody>
+        <p></p>
+    </conbody>
+</concept>
