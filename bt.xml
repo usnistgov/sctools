@@ -65,14 +65,14 @@
          
          <xf:instance xmlns="" id="i-version">
             	
-            <version>0.9</version>
+            <version>0.10</version>
             
          </xf:instance>
          
          
          <xf:instance xmlns="" id="i-updated">
             	
-            <updated>2017/03/08</updated>
+            <updated>2017/08/31</updated>
             
          </xf:instance>
          
@@ -102,7 +102,7 @@
                	  
                <icsFlag>false</icsFlag>
                	  
-               <all>http://web.nvd.nist.gov/view/800-53/Rev4/home</all>
+               <nvdurl>http://nvd.nist.gov/800-53/Rev4</nvdurl>
                	
             </data>
             
@@ -338,7 +338,7 @@
       <xf:bind nodeset="instance('i-browse')/function@id" calculate="substring-before(instance('i-browse')/category@id, '.')"/>-->
          
          
-         <xf:bind calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)" nodeset="instance('i-url')/nvd"></xf:bind>
+         <xf:bind calculate="concat(instance('i-core-url')/nvdurl, '/control/', instance('i-settings')/control@number)" nodeset="instance('i-url')/nvd"></xf:bind>
          
          
          <xf:bind calculate="concat('ics/', instance('i-settings')/control@number, '.html')" nodeset="instance('i-url')/ics"></xf:bind>
@@ -786,7 +786,7 @@
                         		
                         <xf:action ev:event="DOMActivate">
                            		  
-                           <xf:setvalue ref="instance('i-core-url')/family" value="concat('http://web.nvd.nist.gov/view/800-53/Rev4/family?familyName=', instance('i-families')/family@name[starts-with(../control@number, context())])"></xf:setvalue>
+                           <xf:setvalue ref="instance('i-core-url')/family" value="concat(instance('i-core-url')/nvdurl, '/family/', instance('i-families')/family@name[starts-with(../control@number, context())])"></xf:setvalue>
                            		  
                            <xf:load ref="instance('i-core-url')/family" show="new"></xf:load>
                            		
@@ -818,7 +818,7 @@
                                  		      
                                  <xf:action ev:event="DOMActivate">
                                     			
-                                    <xf:setvalue ref="instance('i-core-url')/control" value="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', context())"></xf:setvalue>
+                                    <xf:setvalue ref="instance('i-core-url')/control" value="concat(instance('i-core-url')/nvdurl, '/control/', context())"></xf:setvalue>
                                     			
                                     <xf:load ref="instance('i-core-url')/control" show="new"></xf:load>
                                     		      
@@ -925,7 +925,7 @@
                         		
                         <xf:hint>Open security control catalog in a new browser tab.</xf:hint>
                         		
-                        <xf:load ev:event="DOMActivate" ref="instance('i-core-url')/all" show="new"></xf:load>
+                        <xf:load ev:event="DOMActivate" ref="instance('i-core-url')/nvdurl" show="new"></xf:load>
                         	      
                      </xf:trigger>
                      	      

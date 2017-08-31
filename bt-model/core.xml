@@ -233,7 +233,7 @@
          <subCategory id="PR.AC-3">
             <description>Remote access is managed</description>
             <sp800-53>
-               <control>AC‑17</control>
+               <control>AC-17</control>
                <control>AC-19</control>
                <control>AC-20</control>
             </sp800-53>

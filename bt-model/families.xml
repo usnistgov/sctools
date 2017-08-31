@@ -107,6 +107,7 @@
          <dropDownLabel>AC-17 - REMOTE ACCESS</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="PR.AC-3"/>
          <subcategory number="PR.PT-4"/>
       </control>
       <control number="AC-18">
@@ -1694,7 +1695,7 @@
          <priority>4</priority>
       </control>
    </family>
-   <family name="Program Management">
+   <family name="PROGRAM MANAGEMENT">
       <control number="PM-1">
          <title>INFORMATION SECURITY PROGRAM PLAN</title>
          <dropDownLabel>PM-1 - INFORMATION SECURITY PROGRAM PLAN</dropDownLabel>
