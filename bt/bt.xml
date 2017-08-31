@@ -167,7 +167,7 @@
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
-	<version>0.9</version>
+	<version>0.10</version>
       </xf:instance>
 
       <xf:instance id="i-updated" xmlns="">
@@ -187,7 +187,7 @@
 	  <family/>
 	  <ics/>
 	  <icsFlag>false</icsFlag>
-	  <all>http://web.nvd.nist.gov/view/800-53/Rev4/home</all>
+	  <all>http://nvd.nist.gov/800-53/Rev4</all>
 	</data>
       </xf:instance>
 
@@ -314,7 +314,7 @@
 
       <xf:bind nodeset="instance('i-browse')/function@id" calculate="substring-before(instance('i-browse')/category@id, '.')"/>-->
 
-      <xf:bind nodeset="instance('i-url')/nvd" calculate="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', instance('i-settings')/control@number)"/>
+      <xf:bind nodeset="instance('i-url')/nvd" calculate="concat('http://nvd.nist.gov/800-53/Rev4/control/', instance('i-settings')/control@number)"/>
 
       <xf:bind nodeset="instance('i-url')/ics" calculate="concat('ics/', instance('i-settings')/control@number, '.html')"/>
 
@@ -552,7 +552,7 @@
 		  <span> in a new browser tab.</span>
 		</xf:hint>
 		<xf:action ev:event="DOMActivate">
-		  <xf:setvalue ref="instance('i-core-url')/family" value="concat('http://web.nvd.nist.gov/view/800-53/Rev4/family?familyName=', instance('i-families')/family@name[starts-with(../control@number, context())])"/>
+		  <xf:setvalue ref="instance('i-core-url')/family" value="concat('http://nvd.nist.gov/800-53/Rev4/family/', instance('i-families')/family@name[starts-with(../control@number, context())])"/>
 		  <xf:load show="new" ref="instance('i-core-url')/family"/>
 		</xf:action>
 	      </xf:trigger>
@@ -569,7 +569,7 @@
 			<span> definition in a new browser tab.</span>
 		      </xf:hint>
 		      <xf:action ev:event="DOMActivate">
-			<xf:setvalue ref="instance('i-core-url')/control" value="concat('http://web.nvd.nist.gov/view/800-53/Rev4/control?controlName=', context())"/>
+			<xf:setvalue ref="instance('i-core-url')/control" value="concat('http://nvd.nist.gov/800-53/Rev4/control/', context())"/>
 			<xf:load show="new" ref="instance('i-core-url')/control"/>
 		      </xf:action>
 		    </xf:trigger>
