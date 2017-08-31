@@ -187,7 +187,7 @@
 	  <family/>
 	  <ics/>
 	  <icsFlag>false</icsFlag>
-	  <all>http://nvd.nist.gov/800-53/Rev4</all>
+	  <nvdurl>http://nvd.nist.gov/800-53/Rev4</nvdurl>
 	</data>
       </xf:instance>
 
@@ -314,7 +314,7 @@
 
       <xf:bind nodeset="instance('i-browse')/function@id" calculate="substring-before(instance('i-browse')/category@id, '.')"/>-->
 
-      <xf:bind nodeset="instance('i-url')/nvd" calculate="concat('http://nvd.nist.gov/800-53/Rev4/control/', instance('i-settings')/control@number)"/>
+      <xf:bind nodeset="instance('i-url')/nvd" calculate="concat(instance('i-core-url')/nvdurl, '/control/', instance('i-settings')/control@number)"/>
 
       <xf:bind nodeset="instance('i-url')/ics" calculate="concat('ics/', instance('i-settings')/control@number, '.html')"/>
 
@@ -552,7 +552,7 @@
 		  <span> in a new browser tab.</span>
 		</xf:hint>
 		<xf:action ev:event="DOMActivate">
-		  <xf:setvalue ref="instance('i-core-url')/family" value="concat('http://nvd.nist.gov/800-53/Rev4/family/', instance('i-families')/family@name[starts-with(../control@number, context())])"/>
+		  <xf:setvalue ref="instance('i-core-url')/family" value="concat(instance('i-core-url')/nvdurl, '/family/', instance('i-families')/family@name[starts-with(../control@number, context())])"/>
 		  <xf:load show="new" ref="instance('i-core-url')/family"/>
 		</xf:action>
 	      </xf:trigger>
@@ -569,7 +569,7 @@
 			<span> definition in a new browser tab.</span>
 		      </xf:hint>
 		      <xf:action ev:event="DOMActivate">
-			<xf:setvalue ref="instance('i-core-url')/control" value="concat('http://nvd.nist.gov/800-53/Rev4/control/', context())"/>
+			<xf:setvalue ref="instance('i-core-url')/control" value="concat(instance('i-core-url')/nvdurl, '/control/', context())"/>
 			<xf:load show="new" ref="instance('i-core-url')/control"/>
 		      </xf:action>
 		    </xf:trigger>
@@ -626,7 +626,7 @@
 	      <xf:trigger>
 		<xf:label ref="."/>
 		<xf:hint>Open security control catalog in a new browser tab.</xf:hint>
-		<xf:load ev:event="DOMActivate" show="new" ref="instance('i-core-url')/all"/>
+		<xf:load ev:event="DOMActivate" show="new" ref="instance('i-core-url')/nvdurl"/>
 	      </xf:trigger>
 	      <xf:repeat nodeset="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory@id]/sp800-53/except">
 		<span>(except </span>
