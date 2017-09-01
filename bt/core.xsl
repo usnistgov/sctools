@@ -84,7 +84,15 @@ select="normalize-space(substring-before(., 'Family'))"/>
 	      </xsl:when>
 	      <xsl:otherwise>
 		<control>
-		  <xsl:value-of select="normalize-space(.)"/>
+		  <xsl:choose>
+		    <!-- test for screwed up dash character for AC-17 in CSF Excel -->
+		    <xsl:when test="contains(., 'AC&#x2011;17')">
+		      <xsl:text>AC-17</xsl:text>
+		    </xsl:when>
+		    <xsl:otherwise>
+		      <xsl:value-of select="normalize-space(.)"/>
+		    </xsl:otherwise>
+		  </xsl:choose>
 		</control>
 	      </xsl:otherwise>
 	    </xsl:choose>
