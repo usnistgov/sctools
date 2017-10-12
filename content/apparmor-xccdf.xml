@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Benchmark xmlns="http://checklists.nist.gov/xccdf/1.2" resolved="1" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 xsd/xccdf_1.2.xsd
+    http://www.w3.org/XML/1998/namespace xsd/xml.xsd"    
+    id="xccdf_gov.nist_benchmark_generated-xccdf">
+    <status>incomplete</status>
+    <title>AppArmor Rules for Ubuntu</title>
+    <description>This file was derived from the CIS Benchmark XCCDF.</description>
+    <version time="2017-09-22T04:42:14"/>
+    <Rule id="xccdf_org.cisecurity.benchmarks_rule_1.6.2.1_Ensure_AppArmor_is_not_disabled_in_bootloader_configuration" role="full" selected="true" weight="1.0">
+        <title xml:lang="en">Ensure AppArmor is not disabled in bootloader configuration</title>
+        <description xml:lang="en">
+            <p xmlns="http://www.w3.org/1999/xhtml">Configure AppArmor to be enabled at boot time and verify that it has not been overwritten by the bootloader boot parameters.</p>
+        </description>
+        <metadata>
+            
+            <p xmlns="http://www.w3.org/1999/xhtml">This recommendation is designed around the grub bootloader, if LILO or another bootloader is in use in your environment enact equivalent settings.</p>
+            
+        </metadata>
+        <rationale xml:lang="en">
+            <p xmlns="http://www.w3.org/1999/xhtml">AppArmor must be enabled at boot time in your bootloader configuration to ensure that the controls it provides are not overridden.</p>
+        </rationale>
+        <fixtext xml:lang="en">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>
+                    <p>Edit <span class="inline_block">/etc/default/grub</span> and remove all instances of <span class="inline_block">apparmor=0</span> from all CMDLINE_LINUX parameters:</p>
+                    <code class="code_block">GRUB_CMDLINE_LINUX_DEFAULT="quiet"<br/>GRUB_CMDLINE_LINUX=""</code>
+                    <p>Run the following command to update the <span class="inline_block">grub2</span> configuration:</p>
+                    <code class="code_block"># update-grub</code>
+                    <p> </p>
+                </p>
+            </div>
+        </fixtext>
+        <complex-check operator="OR">
+            <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+                <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1065"/>
+            </check>
+            <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+                <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1066"/>
+            </check>
+        </complex-check>
+    </Rule>
+    <Rule id="xccdf_org.cisecurity.benchmarks_rule_1.6.2.2_Ensure_all_AppArmor_Profiles_are_enforcing" role="full" selected="true" weight="1.0">
+        <title xml:lang="en">Ensure all AppArmor Profiles are enforcing</title>
+        <description xml:lang="en">
+            <p xmlns="http://www.w3.org/1999/xhtml">AppArmor profiles define what resources applications are able to access.</p>
+        </description>
+        <rationale xml:lang="en">
+            <p xmlns="http://www.w3.org/1999/xhtml">Security configuration requirements vary from site to site. Some sites may mandate a policy that is stricter than the default policy, which is perfectly acceptable. This item is intended to ensure that any policies that exist on the system are activated.</p>
+        </rationale>
+        <fixtext xml:lang="en">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <p>
+                    <p>Run the following command to set all profiles to enforce mode:</p>
+                    <code class="code_block"># aa-enforce /etc/apparmor.d/* </code>
+                    <p>Any unconfined processes may need to have a profile created or activated for them and then be restarted.</p>
+                    <p> </p>
+                </p>
+            </div>
+        </fixtext>
+        <complex-check operator="OR">
+            <complex-check operator="AND">
+                <complex-check operator="AND">
+                    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+                        <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1067"/>
+                    </check>
+                    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+                        <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1068"/>
+                    </check>
+                </complex-check>
+                <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+                    <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1069"/>
+                </check>
+            </complex-check>
+            <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+                <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1070"/>
+            </check>
+        </complex-check>
+    </Rule>
+<Rule id="xccdf_org.cisecurity.benchmarks_rule_1.6.3_Ensure_AppArmor_is_installed" role="unscored" selected="true" weight="0.0">
+    <title xml:lang="en">Ensure AppArmor is installed</title>
+    <description xml:lang="en">
+        <p xmlns="http://www.w3.org/1999/xhtml">AppArmor provides Mandatory Access Controls.</p>
+    </description>
+    <rationale xml:lang="en">
+        <p xmlns="http://www.w3.org/1999/xhtml">Without a Mandatory Access Control system installed only the default Discretionary Access Control system will be available.</p>
+    </rationale>
+    <fixtext xml:lang="en">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+                <p>Run the following command to install apparmor:</p>
+                <code class="code_block"># apt-get install apparmor</code>
+                <p> </p>
+            </p>
+        </div>
+    </fixtext>
+    <complex-check operator="OR">
+        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+            <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1071"/>
+        </check>
+        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+            <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1072"/>
+        </check>
+    </complex-check>
+</Rule>
+</Benchmark>

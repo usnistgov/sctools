@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><Benchmark xmlns="http://checklists.nist.gov/xccdf/1.2" resolved="1" id="xccdf_gov.nist_benchmark_generated-xccdf">
+  <status>incomplete</status>
+  <title>Automatically generated XCCDF from OVAL file: test-oval.xml</title>
+  <description>This file has been generated automatically from oval definitions file.</description>
+  <version time="2017-09-22T04:42:14">None, generated from OVAL file.</version>
+  <Rule selected="true" id="xccdf_gov.nist_rule_oval-gov.nist.unix-def-1">
+    <title>Ensure that /etc/passwd has correct attributes</title>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="test-oval.xml" name="oval:gov.nist.unix:def:1"/>
+    </check>
+  </Rule>
+</Benchmark>

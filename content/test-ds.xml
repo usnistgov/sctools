@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-stream-collection xsi:schemaLocation="
+  http://scap.nist.gov/schema/scap/source/1.2 scap-source-data-stream_1.3.xsd
+  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  
+  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  
+  http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://scap.nist.gov/schema/scap/source/1.2" xmlns:xlink="http://www.w3.org/1999/xlink" id="scap_gov.nist_collection_dsc1" schematron-version ="1.2">
+  <data-stream id="scap_gov.nist_datastream_ds1" scap-version="1.2" use-case="CONFIGURATION">
+    <checklists>
+      <component-ref id="scap_gov.nist_cref_xccdf" xlink:href="#scap_gov.nist._comp_xccdf"/>
+    </checklists>
+    <checks>
+      <component-ref id="scap_gov.nist_cref_oval" xlink:href="#scap_gov.nist._comp_oval"/>
+    </checks>
+  </data-stream>
+    <component id="scap_gov.nist._comp_xccdf" timestamp="2017-09-22T04:42:14">
+<Benchmark xmlns="http://checklists.nist.gov/xccdf/1.2" resolved="1" id="xccdf_gov.nist_benchmark_generated-xccdf">
+  <status>incomplete</status>
+  <title>Automatically generated XCCDF from OVAL file: test-oval.xml</title>
+  <description>This file has been generated automatically from oval definitions file.</description>
+  <version time="2017-09-22T04:42:14">None, generated from OVAL file.</version>
+  <Rule selected="true" id="xccdf_gov.nist_rule_oval-gov.nist.unix-def-1">
+    <title>Ensure that /etc/passwd has correct attributes</title>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="test-oval.xml" name="oval:gov.nist.unix:def:1"/>
+    </check>
+  </Rule>
+</Benchmark>
+    </component>
+    <component id="scap_gov.nist._comp_oval" timestamp="2017-09-22T04:42:14">
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd">
+  <generator>
+    <oval:product_name>VMware SCAP Edit</oval:product_name>
+    <oval:product_version>1.0.0</oval:product_version>
+    <oval:schema_version>5.11</oval:schema_version>
+    <oval:timestamp>2017-09-22T04:42:14</oval:timestamp>
+  </generator>
+  <!--generated.oval.base.identifier=gov.nist.unix-->
+  <definitions>
+    <definition id="oval:gov.nist.unix:def:1" version="1" class="compliance">
+      <metadata>
+        <title>Ensure that /etc/passwd has correct attributes</title>
+        <affected family="unix">
+          <platform>cpe:2.3:o:canonical:ubuntu_linux:16.04:*:*:*:lts:*:*:*</platform>
+        </affected>
+        <description>This rule verifies that the /etc/passwd is owned and group-owned by root and has permissions of 644</description>
+      </metadata>
+      <criteria operator="AND" negate="false" comment="Test for /etc/passwd">
+        <criterion comment="Verity that /etc/passwd file is owned and group-owned by root and as permissions 644" test_ref="oval:gov.nist.unix:tst:1" />
+      </criteria>
+    </definition>
+  </definitions>
+  <tests>
+    <file_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:gov.nist.unix:tst:1" version="1" check="all" comment="Verity that /etc/passwd file is owned and group-owned by root and as permissions 644" check_existence="at_least_one_exists">
+      <object object_ref="oval:gov.nist.unix:obj:1" />
+      <state state_ref="oval:gov.nist.unix:ste:1" />
+    </file_test>
+  </tests>
+  <objects>
+    <file_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:gov.nist.unix:obj:1" version="1" comment="/etc/passwd">
+      <filepath datatype="string" operation="equals">/etc/passwd</filepath>
+    </file_object>
+  </objects>
+  <states>
+    <file_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:gov.nist.unix:ste:1" version="1" comment="Ownerships root. Permissions 644">
+      <group_id datatype="int" operation="equals" entity_check="all" var_check="all">0</group_id>
+      <user_id datatype="int" operation="equals" entity_check="all" var_check="all">0</user_id>
+      <uexec datatype="boolean" operation="equals" entity_check="all" var_check="all">false</uexec>
+      <gwrite datatype="boolean" operation="equals" entity_check="all" var_check="all">false</gwrite>
+      <gexec datatype="boolean" operation="equals" entity_check="all" var_check="all">false</gexec>
+      <owrite datatype="boolean" operation="equals" entity_check="all" var_check="all">false</owrite>
+      <oexec datatype="boolean" operation="equals" entity_check="all" var_check="all">false</oexec>
+    </file_state>
+  </states>
+</oval_definitions>
+    </component>
+</data-stream-collection>

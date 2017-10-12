@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" 
+    xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" 
+    xmlns:common="http://oval.mitre.org/XMLSchema/oval-common-5"
+    xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-definitions-5 xsd/oval-definitions-schema.xsd
+    http://oval.mitre.org/XMLSchema/oval-definitions-5#independent xsd/independent-definitions-schema.xsd 
+    http://oval.mitre.org/XMLSchema/oval-common-5 xsd/oval-common-schema.xsd 
+    http://oval.mitre.org/XMLSchema/oval-definitions-5#linux xsd/linux-definitions-schema.xsd">
+    <generator>
+        <common:product_name>VMware SCAP Edit</common:product_name>
+        <common:product_version>1.0.0</common:product_version>
+        <common:schema_version>5.11</common:schema_version>
+        <common:timestamp>2017-09-22T04:42:14</common:timestamp>
+    </generator>
+    <definitions>
+<definition class="compliance" id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1065" version="1">
+    <metadata>
+        <title>Ensure AppArmor is not disabled in bootloader configuration</title>
+        <affected family="unix">
+            <product>Ubuntu Linux 16.04</product>
+        </affected>
+        <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.6.2.1_Ensure_AppArmor_is_not_disabled_in_bootloader_configuration" 
+            ref_url="http://benchmarks.cisecurity.org" 
+            source="xccdf_org.cisecurity.benchmarks_benchmark_1.0.0_CIS_Ubuntu_Linux_16.04_LTS_Benchmark"/>
+        <description>Ensure AppArmor is not disabled in bootloader configuration</description>
+    </metadata>
+    <criteria operator="AND">
+        <criterion negate="true" test_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10066"/>
+    </criteria>
+</definition>
+<definition class="compliance" id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1066" version="1">
+    <metadata>
+        <title>Ensure AppArmor is not disabled in bootloader configuration</title>
+        <affected family="unix">
+            <product>Ubuntu Linux 16.04</product>
+        </affected>
+        <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.6.2.1_Ensure_AppArmor_is_not_disabled_in_bootloader_configuration" 
+            ref_url="http://benchmarks.cisecurity.org" 
+            source="xccdf_org.cisecurity.benchmarks_benchmark_1.0.0_CIS_Ubuntu_Linux_16.04_LTS_Benchmark"/>
+        <description>Ensure AppArmor is not disabled in bootloader configuration</description>
+    </metadata>
+    <criteria operator="AND">
+        <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10067"/>
+    </criteria>
+</definition>
+<definition class="compliance" id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1067" version="1">
+    <metadata>
+        <title>Ensure all AppArmor Profiles are enforcing</title>
+        <affected family="unix">
+            <product>Ubuntu Linux 16.04</product>
+        </affected>
+        <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.6.2.2_Ensure_all_AppArmor_Profiles_are_enforcing" 
+            ref_url="http://benchmarks.cisecurity.org" 
+            source="xccdf_org.cisecurity.benchmarks_benchmark_1.0.0_CIS_Ubuntu_Linux_16.04_LTS_Benchmark"/>
+        <description>Ensure all AppArmor Profiles are enforcing</description>
+    </metadata>
+    <criteria operator="AND">
+        <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10068"/>
+    </criteria>
+</definition>
+<definition class="compliance" id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1068" version="1">
+    <metadata>
+        <title>Ensure all AppArmor Profiles are enforcing</title>
+        <affected family="unix">
+            <product>Ubuntu Linux 16.04</product>
+        </affected>
+        <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.6.2.2_Ensure_all_AppArmor_Profiles_are_enforcing" 
+            ref_url="http://benchmarks.cisecurity.org" 
+            source="xccdf_org.cisecurity.benchmarks_benchmark_1.0.0_CIS_Ubuntu_Linux_16.04_LTS_Benchmark"/>
+        <description>Ensure all AppArmor Profiles are enforcing</description>
+    </metadata>
+    <criteria operator="AND">
+        <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10069"/>
+    </criteria>
+</definition>
+<definition class="compliance" id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1069" version="1">
+    <metadata>
+        <title>Ensure all AppArmor Profiles are enforcing</title>
+        <affected family="unix">
+            <product>Ubuntu Linux 16.04</product>
+        </affected>
+        <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.6.2.2_Ensure_all_AppArmor_Profiles_are_enforcing" 
+            ref_url="http://benchmarks.cisecurity.org" 
+            source="xccdf_org.cisecurity.benchmarks_benchmark_1.0.0_CIS_Ubuntu_Linux_16.04_LTS_Benchmark"/>
+        <description>Ensure all AppArmor Profiles are enforcing</description>
+    </metadata>
+    <criteria operator="AND">
+        <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10070"/>
+    </criteria>
+</definition>
+<definition class="compliance" id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1070" version="1">
+    <metadata>
+        <title>Ensure all AppArmor Profiles are enforcing</title>
+        <affected family="unix">
+            <product>Ubuntu Linux 16.04</product>
+        </affected>
+        <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.6.2.2_Ensure_all_AppArmor_Profiles_are_enforcing" 
+            ref_url="http://benchmarks.cisecurity.org" 
+            source="xccdf_org.cisecurity.benchmarks_benchmark_1.0.0_CIS_Ubuntu_Linux_16.04_LTS_Benchmark"/>
+        <description>Ensure all AppArmor Profiles are enforcing</description>
+    </metadata>
+    <criteria operator="AND">
+        <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10071"/>
+    </criteria>
+</definition>
+<definition class="compliance" id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1071" version="1">
+    <metadata>
+        <title>Ensure SELinux or AppArmor are installed</title>
+        <affected family="unix">
+            <product>Ubuntu Linux 16.04</product>
+        </affected>
+        <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.6.3_Ensure_SELinux_or_AppArmor_are_installed" 
+            ref_url="http://benchmarks.cisecurity.org" 
+            source="xccdf_org.cisecurity.benchmarks_benchmark_1.0.0_CIS_Ubuntu_Linux_16.04_LTS_Benchmark"/>
+        <description>Ensure SELinux or AppArmor are installed</description>
+    </metadata>
+    <criteria operator="AND">
+        <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10072"/>
+    </criteria>
+</definition>
+<definition class="compliance" id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1072" version="1">
+    <metadata>
+        <title>Ensure SELinux or AppArmor are installed</title>
+        <affected family="unix">
+            <product>Ubuntu Linux 16.04</product>
+        </affected>
+        <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.6.3_Ensure_SELinux_or_AppArmor_are_installed" 
+            ref_url="http://benchmarks.cisecurity.org" 
+            source="xccdf_org.cisecurity.benchmarks_benchmark_1.0.0_CIS_Ubuntu_Linux_16.04_LTS_Benchmark"/>
+        <description>Ensure SELinux or AppArmor are installed</description>
+    </metadata>
+    <criteria operator="AND">
+        <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10073"/>
+    </criteria>
+</definition>
+</definitions>
+
+<tests>
+<ind:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment=
+    "Ensure at least one file named /boot/grub/grub.cfg exists and does not match pattern ^\s*linux\S*(\s+\S+)+\s+apparmor=0" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10066" version="1">
+    <ind:object object_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10066"/>
+</ind:textfilecontent54_test>
+<linux:dpkginfo_test check="all" check_existence="none_exist" comment=
+    "Ensure package name equals 'apparmor' is not installed" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10067" version="1">
+    <linux:object object_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10067"/>
+</linux:dpkginfo_test>
+<linux:apparmorstatus_test check="all" check_existence="at_least_one_exists" comment=
+    "Linux Custom Object &quot;AppArmor has loaded profiles&quot;" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10068" version="2">
+    <linux:object object_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10068"/>
+    <linux:state state_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:ste:10039"/>
+</linux:apparmorstatus_test>
+<linux:apparmorstatus_test check="all" check_existence="at_least_one_exists" comment=
+    "Linux Custom Object &quot;No AppArmor Profiles Are In Complain Mode&quot;" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10069" version="2">
+    <linux:object object_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10069"/>
+    <linux:state state_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:ste:10040"/>
+</linux:apparmorstatus_test>
+<linux:apparmorstatus_test check="all" check_existence="at_least_one_exists" comment=
+    "Linux Custom Object &quot;No AppArmor Processes Are Unconfined&quot;" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10070" version="2">
+    <linux:object object_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10070"/>
+    <linux:state state_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:ste:10041"/>
+</linux:apparmorstatus_test>
+<linux:dpkginfo_test check="all" check_existence="none_exist" comment="Ensure package name equals 'apparmor' is not installed" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10071" version="1">
+    <linux:object object_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10071"/>
+</linux:dpkginfo_test>
+<linux:dpkginfo_test check="all" check_existence="at_least_one_exists" comment="Ensure package name equals 'selinux' is installed" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10072" version="1">
+    <linux:object object_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10072"/>
+</linux:dpkginfo_test>
+<linux:dpkginfo_test check="all" check_existence="at_least_one_exists" comment="Ensure package name equals 'apparmor' is installed" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:tst:10073" version="1">
+    <linux:object object_ref="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10073"/>
+</linux:dpkginfo_test>
+</tests>
+
+<objects>
+<ind:textfilecontent54_object comment=
+    "Ensure at least one file named /boot/grub/grub.cfg exists and does not match pattern ^\s*linux\S*(\s+\S+)+\s+apparmor=0" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10066" version="1">
+    <ind:filepath>/boot/grub/grub.cfg</ind:filepath>
+    <ind:pattern datatype="string" operation="pattern match">^\s*linux\S*(\s+\S+)+\s+apparmor=0</ind:pattern>
+    <ind:instance datatype="int" operation="equals">1</ind:instance>
+</ind:textfilecontent54_object>
+<linux:dpkginfo_object comment="Ensure package name equals 'apparmor' is not installed" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10067" version="1">
+    <linux:name operation="equals">apparmor</linux:name>
+</linux:dpkginfo_object>
+<linux:apparmorstatus_object comment="Linux Custom Object &quot;AppArmor has loaded profiles&quot;" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10068" version="2"/>
+<linux:apparmorstatus_object comment="Linux Custom Object &quot;No AppArmor Profiles Are In Complain Mode&quot;" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10069" version="2"/>
+<linux:apparmorstatus_object comment="Linux Custom Object &quot;No AppArmor Processes Are Unconfined&quot;" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10070" version="2"/>
+<linux:dpkginfo_object comment="Ensure package name equals 'apparmor' is not installed" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10071" version="1">
+    <linux:name operation="equals">apparmor</linux:name>
+</linux:dpkginfo_object>
+<linux:dpkginfo_object comment="Ensure package name equals 'selinux' is installed" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10072" version="1">
+    <linux:name operation="equals">selinux</linux:name>
+</linux:dpkginfo_object>
+<linux:dpkginfo_object comment="Ensure package name equals 'apparmor' is installed" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:obj:10073" version="1">
+    <linux:name operation="equals">apparmor</linux:name>
+</linux:dpkginfo_object>
+</objects>
+
+<states>
+<linux:apparmorstatus_state comment="Linux Custom Object &quot;AppArmor has loaded profiles&quot;" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:ste:10039" version="2">
+    <linux:loaded_profiles_count datatype="int" operation="greater than">0</linux:loaded_profiles_count>
+</linux:apparmorstatus_state>
+<linux:apparmorstatus_state comment="Linux Custom Object &quot;No AppArmor Profiles Are In Complain Mode&quot;" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:ste:10040" version="2">
+    <linux:complain_mode_profiles_count datatype="int" operation="equals">0</linux:complain_mode_profiles_count>
+</linux:apparmorstatus_state>
+<linux:apparmorstatus_state comment="Linux Custom Object &quot;No AppArmor Processes Are Unconfined&quot;" 
+    id="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:ste:10041" version="2">
+    <linux:unconfined_processes_with_profiles_count datatype="int" operation="equals">0</linux:unconfined_processes_with_profiles_count>
+</linux:apparmorstatus_state>
+</states>
+</oval_definitions>
