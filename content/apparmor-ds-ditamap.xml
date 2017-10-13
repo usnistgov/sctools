@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data-stream-collection SYSTEM "data-stream-collection.dtd">
+<data-stream-collection id="scap_gov.nist_collection_dsc1" schematron-version ="1.2">
+    <title>AppArmor SCAP Data Stream Collection</title>
+    <data-stream id="scap_gov.nist_datastream_ds1" scap-version="1.2" use-case="CONFIGURATION">
+        <checklists>
+            <benchmark-ref href="apparmor-xccdf.xml"/>
+        </checklists>
+        <checks>
+            <oval-ref href="apparmor-oval.xml"/>
+        </checks>
+    </data-stream>
+</data-stream-collection>

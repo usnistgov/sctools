@@ -34,10 +34,10 @@
         </fixtext>
         <complex-check operator="OR">
             <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-                <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1065"/>
+                <check-content-ref href="apparmor-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1065"/>
             </check>
             <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-                <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1066"/>
+                <check-content-ref href="apparmor-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1066"/>
             </check>
         </complex-check>
     </Rule>
@@ -63,18 +63,18 @@
             <complex-check operator="AND">
                 <complex-check operator="AND">
                     <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-                        <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1067"/>
+                        <check-content-ref href="apparmor-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1067"/>
                     </check>
                     <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-                        <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1068"/>
+                        <check-content-ref href="apparmor-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1068"/>
                     </check>
                 </complex-check>
                 <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-                    <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1069"/>
+                    <check-content-ref href="apparmor-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1069"/>
                 </check>
             </complex-check>
             <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-                <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1070"/>
+                <check-content-ref href="apparmor-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1070"/>
             </check>
         </complex-check>
     </Rule>
@@ -97,10 +97,10 @@
     </fixtext>
     <complex-check operator="OR">
         <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1071"/>
+            <check-content-ref href="apparmor-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1071"/>
         </check>
         <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <check-content-ref href="CIS_Ubuntu_Linux_16.04_LTS_Benchmark_v1.0.0-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1072"/>
+            <check-content-ref href="apparmor-oval.xml" name="oval:org.cisecurity.benchmarks.o_canonical_ubuntu_linux:def:1072"/>
         </check>
     </complex-check>
 </Rule>
