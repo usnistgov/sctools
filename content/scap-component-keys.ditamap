@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+    <title>External URIs Within SCAP Components</title>
+    <topicset id="keys">
+        <keydef keys="oval" href="family_validation_content-oval.xml" scope="external"/>
+        <keydef keys="xccdf" href="family_validation_content-xccdf.xml" scope="external"/>
+        <keydef keys="cpe-oval" href="family_validation_content-cpe-oval.xml" scope="external"/>
+        <keydef keys="cpe-dictionary" href="family_validation_content-cpe-dictionary.xml" scope="external"/>
+    </topicset>
+</map>

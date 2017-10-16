@@ -4,28 +4,30 @@
     id="scap_gov.nist_collection_ind_family_test-datastream.zip" 
     schematron-version="1.3">  
     <title>Data Stream Collection Sample from scap.nist.gov</title>
+    <topicset id="keys">
+        <keydef keys="oval" href="family_validation_content-oval.xml" scope="external"/>
+        <keydef keys="xccdf" href="family_validation_content-xccdf.xml" scope="external"/>
+        <keydef keys="cpe-oval" href="family_validation_content-cpe-oval.xml" scope="external"/>
+        <keydef keys="cpe-dictionary" href="family_validation_content-cpe-dictionary.xml" scope="external"/>
+    </topicset>
     <data-stream id="scap_gov.nist_datastream_ind_family_test-datastream.zip" scap-version="1.3" use-case="CONFIGURATION">
         <dictionaries>
-            <cpe-list-ref id="scap_gov.nist_cref_family_validation_content-cpe-dictionary.xml" xlink:href="#scap_gov.nist_comp_family_validation_content-cpe-dictionary.xml">
-                <cat:catalog>
-                    <cat:uri 
-                        name="family_validation_content-cpe-oval.xml" 
-                        uri="#scap_gov.nist_cref_family_validation_content-cpe-oval.xml"/>
-                </cat:catalog>
+            <cpe-list-ref keyref="cpe-dictionary">
+                <external-links>
+                    <uri keyref="cpe-oval"/>
+                </external-links>
             </cpe-list-ref>
         </dictionaries>
         <checklists>
-            <benchmark-ref id="scap_gov.nist_cref_family_validation_content-xccdf.xml" xlink:href="#scap_gov.nist_comp_family_validation_content-xccdf.xml">
-                <cat:catalog>
-                    <cat:uri 
-                        name="family_validation_content-oval.xml" 
-                        uri="#scap_gov.nist_cref_family_validation_content-oval.xml"/>
-                </cat:catalog>
+            <benchmark-ref keyref="xccdf">
+                <external-links>
+                    <uri keyref="oval"/>
+                </external-links>
             </benchmark-ref>
         </checklists>
         <checks>
-            <oval-ref id="family_validation_content-oval.xml" href="family_validation_content-oval.xml"/>
-            <oval-ref id="family_validation_content-cpe-oval.xml" href="family_validation_content-cpe-oval.xml"/>
+            <oval-ref keyref="oval"/>
+            <oval-ref keyref="cpe-oval"/>
         </checks>
     </data-stream>
 </data-stream-collection>
