@@ -6,6 +6,6 @@
              exist within the plugin's directory.
     -->
   
-  <nextCatalog catalog="doctypes/catalog.xml"/>
+  <nextCatalog catalog="dtd/catalog.xml"/>
   
 </catalog>
