@@ -3,10 +3,6 @@
    <nextCatalog catalog="base/catalog.xml"/>
    <nextCatalog catalog="concept/catalog.xml"/>
    <nextCatalog catalog="ditaval/catalog.xml"/>
-   <nextCatalog catalog="reference/catalog.xml"/>
    <nextCatalog catalog="rule/catalog.xml"/>
-   <nextCatalog catalog="task/catalog.xml"/>
    <nextCatalog catalog="technicalContent/catalog.xml"/>
-   <nextCatalog catalog="topic/catalog.xml"/>
-   <nextCatalog catalog="xml-d/catalog.xml"/>
 </catalog>
