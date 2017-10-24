@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-   <nextCatalog catalog="base/catalog.xml"/>
-   <nextCatalog catalog="concept/catalog.xml"/>
-   <nextCatalog catalog="ditaval/catalog.xml"/>
-   <nextCatalog catalog="rule/catalog.xml"/>
-   <nextCatalog catalog="technicalContent/catalog.xml"/>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+   <public publicId="urn:pubid:sctools.nist.gov:doctypes:dita:modules.scapEnumeration.entities" 
+      uri="scapEnumDomain.ent"/>
+   <public publicId="urn:pubid:sctools.nist.gov:doctypes:dita:modules.scapEnumeration.declarations" 
+      uri="scapEnumDomain.mod"/>
+   <public publicId="urn:pubid:sctools.nist.gov:doctypes:dita:topic" uri="topic.dtd"/>
+   <system systemId="urn:pubid:sctools.nist.gov:doctypes:dita:topic" uri="topic.dtd"/>
 </catalog>
