@@ -1,0 +1,38 @@
+rule>title:before {
+  content: 'Rule: ';
+  color: green;
+}
+description:before {
+  content: 'Description: ';
+  font-weight: bold;
+  color: green;
+}
+rationale:before {
+  content: 'Rationale: ';
+  font-weight: bold;
+  color: green;
+}
+check:before {
+  content: 'Check: ';
+  font-weight: bold;
+  color: green;  
+}
+AND:before {
+  content: '(AND ';
+  color: maroon;
+}
+AND:after {
+  content: ')';
+  color: maroon;
+}
+OR:before {
+  content: '(OR ';
+  color: maroon;
+}
+OR:after {
+  content: ')';
+  color: maroon;
+}
+oval {
+  content: attr(href);
+}

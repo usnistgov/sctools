@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rule PUBLIC "urn:pubid:sctools.nist.gov:doctypes:dita:rule" "rule.dtd">
+<rule id="rule_${id}">
+    <title>${caret}</title>
+    <rulebody>
+        <description/>
+        <rationale/>
+	<check>
+	    <oval href="oval_${id}.xml"><?oxy-placeholder content="Replace @href value with OVAL content URL"?></oval>
+	</check>
+    </rulebody>
+</rule>
