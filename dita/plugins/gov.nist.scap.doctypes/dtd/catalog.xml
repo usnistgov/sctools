@@ -4,6 +4,12 @@
       uri="scapEnumDomain.ent"/>
    <public publicId="urn:pubid:scap.nist.gov:doctypes:dita:modules.scapEnumeration.declarations" 
       uri="scapEnumDomain.mod"/>
+   <public publicId="urn:pubid:scap.nist.gov:doctypes:dita:concept" uri="concept.dtd"/>
+   <system systemId="urn:pubid:scap.nist.gov:doctypes:dita:concept" uri="concept.dtd"/>
+   <public publicId="urn:pubid:scap.nist.gov:doctypes:dita:reference" uri="reference.dtd"/>
+   <system systemId="urn:pubid:scap.nist.gov:doctypes:dita:reference" uri="reference.dtd"/>
+   <public publicId="urn:pubid:scap.nist.gov:doctypes:dita:task" uri="task.dtd"/>
+   <system systemId="urn:pubid:scap.nist.gov:doctypes:dita:task" uri="task.dtd"/>
    <public publicId="urn:pubid:scap.nist.gov:doctypes:dita:topic" uri="topic.dtd"/>
    <system systemId="urn:pubid:scap.nist.gov:doctypes:dita:topic" uri="topic.dtd"/>
 </catalog>
