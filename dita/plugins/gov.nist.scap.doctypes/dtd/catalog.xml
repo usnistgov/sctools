@@ -12,4 +12,6 @@
    <system systemId="urn:pubid:scap.nist.gov:doctypes:dita:task" uri="task.dtd"/>
    <public publicId="urn:pubid:scap.nist.gov:doctypes:dita:topic" uri="topic.dtd"/>
    <system systemId="urn:pubid:scap.nist.gov:doctypes:dita:topic" uri="topic.dtd"/>
+   <public publicId="urn:pubid:scap.nist.gov:doctypes:dita:map" uri="map.dtd"/>
+   <system systemId="urn:pubid:scap.nist.gov:doctypes:dita:map" uri="map.dtd"/>
 </catalog>
