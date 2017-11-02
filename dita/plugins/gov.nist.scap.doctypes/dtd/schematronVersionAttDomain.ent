@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % schematronVersionAtt-d-attribute 
+  "schematronVersion 
+    NMTOKEN 
+    #IMPLIED
+  "
+>
+<!ENTITY schematronVersionAtt-d-att
+   "a(props  schematronVersion)"
+>

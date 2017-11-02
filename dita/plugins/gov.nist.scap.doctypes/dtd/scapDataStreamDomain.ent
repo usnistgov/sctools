@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ==================================
+     SCAP Data Stream Map Domain
+
+     Joshua Lubell
+
+     ================================== -->
+     
+<!-- ============================================================= -->
+<!--                    ELEMENT EXTENSION ENTITY DECLARATIONS      -->
+<!-- ============================================================= -->
+
+<!ENTITY % scapDataStream-d-topicref 
+  "scapDataStream |
+  scapDictionaries |
+  scapCpeListRef |
+  scapExternalLinks |
+  scapUri |
+  scapChecklists |
+  scapBenchmarkRef |
+  scapTailoringRef |
+  scapChecks |
+  scapOvalRef
+  "                     
+>
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATION                  -->
+<!-- ============================================================= -->
+
+<!ENTITY scapDataStream-d-att 
+  "(map scapDataStream-d)"                           
+>

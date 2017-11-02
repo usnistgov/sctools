@@ -4,12 +4,10 @@
     id="scap_gov.nist_collection_ind_family_test-datastream.zip" 
     schematron-version="1.3">  
     <title>Data Stream Collection Sample from scap.nist.gov</title>
-    <topicset id="keys">
-        <keydef keys="oval" href="family_validation_content-oval.xml" scope="external"/>
-        <keydef keys="xccdf" href="family_validation_content-xccdf.xml" scope="external"/>
-        <keydef keys="cpe-oval" href="family_validation_content-cpe-oval.xml" scope="external"/>
-        <keydef keys="cpe-dictionary" href="family_validation_content-cpe-dictionary.xml" scope="external"/>
-    </topicset>
+    <keydef keys="oval" href="family_validation_content-oval.xml" scope="external"/>
+    <keydef keys="xccdf" href="family_validation_content-xccdf.xml" scope="external"/>
+    <keydef keys="cpe-oval" href="family_validation_content-cpe-oval.xml" scope="external"/>
+    <keydef keys="cpe-dictionary" href="family_validation_content-cpe-dictionary.xml" scope="external"/>
     <data-stream id="scap_gov.nist_datastream_ind_family_test-datastream.zip" scap-version="1.3" use-case="CONFIGURATION">
         <dictionaries>
             <cpe-list-ref keyref="cpe-dictionary">

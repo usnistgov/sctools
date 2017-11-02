@@ -1,41 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:map" "map.dtd">
-<?xml-stylesheet type="text/css" href="../dita/plugins/gov.nist.scap.doctypes/css/scapEnum-d.css"?>
-<map id="scap_gov.nist_collection_ind_family_test-datastream.zip" props="1.3">
+<!DOCTYPE scapDataStreamCollection SYSTEM "../dita/plugins/gov.nist.scap.doctypes/dtd/scapDataStreamCollection.dtd">
+<scapDataStreamCollection
+    id="scap_gov.nist_collection_ind_family_test-datastream.zip" 
+    schematronVersion="1.3">  
     <title>Data Stream Collection Sample from scap.nist.gov</title>
-    <topicmeta>
-        <keywords>
-            <xmlelement>foo</xmlelement>
-            <xmlatt>bar</xmlatt>
-            <cceID>555</cceID>
-            <cpeID>666</cpeID>
-            <cveID>777</cveID>
-        </keywords>
-    </topicmeta>
-    <topicset id="keys">
-        <keydef keys="oval" href="family_validation_content-oval.xml" scope="external"/>
-        <keydef keys="xccdf" href="family_validation_content-xccdf.xml" scope="external"/>
-        <keydef keys="cpe-oval" href="family_validation_content-cpe-oval.xml" scope="external"/>
-        <keydef keys="cpe-dictionary" href="family_validation_content-cpe-dictionary.xml" scope="external"/>
-    </topicset>
-    <topicset id="scap_gov.nist_datastream_ind_family_test-datastream.zip" props="1.3" otherprops="CONFIGURATION">
-        <topicref>
-            <topicref keyref="cpe-dictionary">
-                <topicref>
-                    <topicref keyref="cpe-oval"/>
-                </topicref>
-            </topicref>
-        </topicref>
-        <topicref>
-            <topicref keyref="xccdf">
-                <topicref>
-                    <topicref keyref="oval"/>
-                </topicref>
-            </topicref>
-        </topicref>
-        <topicref>
-            <topicref keyref="oval"/>
-            <topicref keyref="cpe-oval"/>
-        </topicref>
-    </topicset>
-</map>
+    <keydef keys="oval" href="family_validation_content-oval.xml" scope="external"/>
+    <keydef keys="xccdf" href="family_validation_content-xccdf.xml" scope="external"/>
+    <keydef keys="cpe-oval" href="family_validation_content-cpe-oval.xml" scope="external"/>
+    <keydef keys="cpe-dictionary" href="family_validation_content-cpe-dictionary.xml" scope="external"/>
+    <scapDataStream id="scap_gov.nist_datastream_ind_family_test-datastream.zip" scapVersion="1.3" useCase="CONFIGURATION">
+        <scapDictionaries>
+            <scapCpeListRef keyref="cpe-dictionary">
+                <scapExternalLinks>
+                    <scapUri keyref="cpe-oval"/>
+                </scapExternalLinks>
+            </scapCpeListRef>
+        </scapDictionaries>
+        <scapChecklists>
+            <scapBenchmarkRef keyref="xccdf">
+                <scapExternalLinks>
+                    <scapUri keyref="oval"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
+        <scapChecks>
+            <scapOvalRef keyref="oval"/>
+            <scapOvalRef keyref="cpe-oval"/>
+        </scapChecks>
+    </scapDataStream>
+</scapDataStreamCollection>
