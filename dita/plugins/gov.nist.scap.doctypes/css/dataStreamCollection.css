@@ -1,0 +1,4 @@
+scapDataStreamCollection>title:before {
+  content: 'Data Stream Collection: ';
+  color: green;
+}

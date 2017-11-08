@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/css" href="../dita/plugins/gov.nist.scap.doctypes/css/dataStreamCollection.css"?>
 <!DOCTYPE scapDataStreamCollection PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" "scapDataStreamCollection.dtd">
 <scapDataStreamCollection
+    chunk="to-content"
     id="scap_gov.nist_collection_ind_family_test-datastream.zip" 
     schematronVersion="1.3">  
     <title>NIST SP 800-126 Example</title>

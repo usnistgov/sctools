@@ -1,0 +1,273 @@
+    <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+      xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="
+      http://oval.mitre.org/XMLSchema/oval-definitions-5#windows 
+      https://raw.githubusercontent.com/OVALProject/Language/5.11.2/schemas/windows-definitions-schema.xsd
+      http://oval.mitre.org/XMLSchema/oval-definitions-5#independent 
+      https://raw.githubusercontent.com/OVALProject/Language/5.11.2/schemas/independent-definitions-schema.xsd
+      http://oval.mitre.org/XMLSchema/oval-definitions-5
+      https://raw.githubusercontent.com/OVALProject/Language/5.11.2/schemas/oval-definitions-schema.xsd
+      http://oval.mitre.org/XMLSchema/oval-common-5 https://raw.githubusercontent.com/OVALProject/Language/5.11.2/schemas/oval-common-schema.xsd
+      ">
+      <generator>
+        <oval:product_name>NIST Validation Content Generation Script</oval:product_name>
+        <oval:product_version>1.0</oval:product_version>
+        <oval:schema_version>5.11.2</oval:schema_version> <!-- if @platform is omited, it indicates the core version -->
+        <oval:schema_version platform="Unix">5.11.1:1.2</oval:schema_version>
+        <oval:timestamp>2016-05-25T14:00:00-05:00</oval:timestamp>
+      </generator>
+      <definitions>
+        <definition class="compliance" id="oval:nist.validation.family:def:1" version="1">
+          <metadata>
+            <title>Test the family entity with the equals operation</title>
+            <affected family="unix">
+              <platform>Red Hat Enterprise Linux 3</platform>
+              <product>sudo</product>
+            </affected>
+            <reference ref_id="CVE-2005-1993" ref_url="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1993" source="CVE" />
+            <description>Make sure the family entity properly supports the equals operation.</description>
+            <expected_results>
+              <result configuration="1">PASS</result>
+              <result configuration="2">FAIL</result>
+              <result configuration="3">FAIL</result>
+              <result configuration="4">FAIL</result>
+              <result configuration="5">FAIL</result>
+              <result configuration="6">FAIL</result>
+              <result configuration="7">FAIL</result>
+              <result configuration="8">FAIL</result>
+            </expected_results>
+            <oval_repository>
+              <dates>
+                <submitted date="2005-07-18T12:00:00.000-04:00">
+                  <contributor organization="Organization">Developer 1</contributor>
+                </submitted>
+                <status_change date="2005-07-27T10:36:00.000-04:00">DRAFT</status_change>
+                <status_change date="2005-08-18T07:37:00.000-04:00">INTERIM</status_change>
+                <status_change date="2005-09-21T01:33:00.000-04:00">ACCEPTED</status_change>
+              </dates>
+              <status>ACCEPTED</status>
+              <min_schema_version>5.11.1</min_schema_version>
+            </oval_repository>
+          </metadata>
+          <criteria>
+            <criterion comment="Test to see that the family equals catos." test_ref="oval:nist.validation.family:tst:1"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:nist.validation.family:def:2" version="1">
+          <metadata>
+            <title>Test the family entity with the equals operation</title>
+            <description>Make sure the family entity properly supports the equals operation.</description>
+            <expected_results>
+              <result configuration="1">FAIL</result>
+              <result configuration="2">PASS</result>
+              <result configuration="3">FAIL</result>
+              <result configuration="4">FAIL</result>
+              <result configuration="5">FAIL</result>
+              <result configuration="6">FAIL</result>
+              <result configuration="7">FAIL</result>
+              <result configuration="8">FAIL</result>
+            </expected_results>
+          </metadata>
+          <criteria>
+            <criterion comment="Test to see that the family equals ios." test_ref="oval:nist.validation.family:tst:2"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:nist.validation.family:def:3" version="1">
+          <metadata>
+            <title>Test the family entity with the equals operation</title>
+            <description>Make sure the family entity properly supports the equals operation.</description>
+            <expected_results>
+              <result configuration="1">FAIL</result>
+              <result configuration="2">FAIL</result>
+              <result configuration="3">PASS</result>
+              <result configuration="4">FAIL</result>
+              <result configuration="5">FAIL</result>
+              <result configuration="6">FAIL</result>
+              <result configuration="7">FAIL</result>
+              <result configuration="8">FAIL</result>
+            </expected_results>
+          </metadata>
+          <criteria>
+            <criterion comment="Test to see that the family equals macos." test_ref="oval:nist.validation.family:tst:3"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:nist.validation.family:def:4" version="1">
+          <metadata>
+            <title>Test the family entity with the equals operation</title>
+            <description>Make sure the family entity properly supports the equals operation.</description>
+            <expected_results>
+              <result configuration="1">FAIL</result>
+              <result configuration="2">FAIL</result>
+              <result configuration="3">FAIL</result>
+              <result configuration="4">PASS</result>
+              <result configuration="5">FAIL</result>
+              <result configuration="6">FAIL</result>
+              <result configuration="7">FAIL</result>
+              <result configuration="8">FAIL</result>
+            </expected_results>
+          </metadata>
+          <criteria>
+            <criterion comment="Test to see that the family equals pixos." test_ref="oval:nist.validation.family:tst:4"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:nist.validation.family:def:5" version="1">
+          <metadata>
+            <title>Test the family entity with the equals operation</title>
+            <description>Make sure the family entity properly supports the equals operation.</description>
+            <expected_results>
+              <result configuration="1">FAIL</result>
+              <result configuration="2">FAIL</result>
+              <result configuration="3">FAIL</result>
+              <result configuration="4">FAIL</result>
+              <result configuration="5">PASS</result>
+              <result configuration="6">FAIL</result>
+              <result configuration="7">FAIL</result>
+              <result configuration="8">FAIL</result>
+            </expected_results>
+          </metadata>
+          <criteria>
+            <criterion comment="Test to see that the family equals undefined." test_ref="oval:nist.validation.family:tst:5"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:nist.validation.family:def:6" version="1">
+          <metadata>
+            <title>Test the family entity with the equals operation</title>
+            <description>Make sure the family entity properly supports the equals operation.</description>
+            <expected_results>
+              <result configuration="1">FAIL</result>
+              <result configuration="2">FAIL</result>
+              <result configuration="3">FAIL</result>
+              <result configuration="4">FAIL</result>
+              <result configuration="5">FAIL</result>
+              <result configuration="6">PASS</result>
+              <result configuration="7">FAIL</result>
+              <result configuration="8">FAIL</result>
+            </expected_results>
+          </metadata>
+          <criteria>
+            <criterion comment="Test to see that the family equals unix." test_ref="oval:nist.validation.family:tst:6"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:nist.validation.family:def:7" version="1">
+          <metadata>
+            <title>Test the family entity with the equals operation</title>
+            <description>Make sure the family entity properly supports the equals operation.</description>
+            <expected_results>
+              <result configuration="1">FAIL</result>
+              <result configuration="2">FAIL</result>
+              <result configuration="3">FAIL</result>
+              <result configuration="4">FAIL</result>
+              <result configuration="5">FAIL</result>
+              <result configuration="6">FAIL</result>
+              <result configuration="7">PASS</result>
+              <result configuration="8">FAIL</result>
+            </expected_results>
+          </metadata>
+          <criteria>
+            <criterion comment="Test to see that the family equals vmware_infrastructure." test_ref="oval:nist.validation.family:tst:7"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:nist.validation.family:def:8" version="1">
+          <metadata>
+            <title>Test the family entity with the equals operation</title>
+            <description>Make sure the family entity properly supports the equals operation.</description>
+            <expected_results>
+              <result configuration="1">FAIL</result>
+              <result configuration="2">FAIL</result>
+              <result configuration="3">FAIL</result>
+              <result configuration="4">FAIL</result>
+              <result configuration="5">FAIL</result>
+              <result configuration="6">FAIL</result>
+              <result configuration="7">FAIL</result>
+              <result configuration="8">PASS</result>
+            </expected_results>
+          </metadata>
+          <criteria>
+            <criterion comment="Test to see that the family equals windows." test_ref="oval:nist.validation.family:tst:8"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:nist.validation.family:def:9" version="1">
+          <metadata>
+            <title>Test the extend_definition construct with the negate property</title>
+            <description>Make sure the extend_definition construct properly supports the negate property.</description>
+            <expected_results>
+              <result configuration="1">FAIL</result>
+              <result configuration="2">PASS</result>
+              <result configuration="3">PASS</result>
+              <result configuration="4">PASS</result>
+              <result configuration="5">PASS</result>
+              <result configuration="6">PASS</result>
+              <result configuration="7">PASS</result>
+              <result configuration="8">PASS</result>
+            </expected_results>
+          </metadata>
+          <criteria>
+            <extend_definition comment="Test the negate property using definition 1" definition_ref="oval:nist.validation.family:def:1" negate="true"/>
+          </criteria>
+        </definition>
+      </definitions>
+      <tests>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Test to see that the family equals catos." id="oval:nist.validation.family:tst:1" version="1">
+          <object object_ref="oval:nist.validation.family:obj:1"/>
+          <state state_ref="oval:nist.validation.family:ste:1"/>
+        </family_test>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Test to see that the family equals ios." id="oval:nist.validation.family:tst:2" version="1">
+          <object object_ref="oval:nist.validation.family:obj:1"/>
+          <state state_ref="oval:nist.validation.family:ste:2"/>
+        </family_test>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Test to see that the family equals macos." id="oval:nist.validation.family:tst:3" version="1">
+          <object object_ref="oval:nist.validation.family:obj:1"/>
+          <state state_ref="oval:nist.validation.family:ste:3"/>
+        </family_test>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Test to see that the family equals pixos." id="oval:nist.validation.family:tst:4" version="1">
+          <object object_ref="oval:nist.validation.family:obj:1"/>
+          <state state_ref="oval:nist.validation.family:ste:4"/>
+        </family_test>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Test to see that the family equals undefined." id="oval:nist.validation.family:tst:5" version="1">
+          <object object_ref="oval:nist.validation.family:obj:1"/>
+          <state state_ref="oval:nist.validation.family:ste:5"/>
+        </family_test>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Test to see that the family equals unix." id="oval:nist.validation.family:tst:6" version="1">
+          <object object_ref="oval:nist.validation.family:obj:1"/>
+          <state state_ref="oval:nist.validation.family:ste:6"/>
+        </family_test>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Test to see that the family equals vmware_infrastructure." id="oval:nist.validation.family:tst:7" version="1">
+          <object object_ref="oval:nist.validation.family:obj:1"/>
+          <state state_ref="oval:nist.validation.family:ste:7"/>
+        </family_test>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Test to see that the family equals windows." id="oval:nist.validation.family:tst:8" version="1">
+          <object object_ref="oval:nist.validation.family:obj:1"/>
+          <state state_ref="oval:nist.validation.family:ste:8"/>
+        </family_test>
+      </tests>
+      <objects>
+        <family_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:nist.validation.family:obj:1" version="1"/>
+      </objects>
+      <states>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:nist.validation.family:ste:1" version="1">
+          <family datatype="string" operation="equals">catos</family>
+        </family_state>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:nist.validation.family:ste:2" version="1">
+          <family datatype="string" operation="equals">ios</family>
+        </family_state>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:nist.validation.family:ste:3" version="1">
+          <family datatype="string" operation="equals">macos</family>
+        </family_state>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:nist.validation.family:ste:4" version="1">
+          <family datatype="string" operation="equals">pixos</family>
+        </family_state>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:nist.validation.family:ste:5" version="1">
+          <family datatype="string" operation="equals">undefined</family>
+        </family_state>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:nist.validation.family:ste:6" version="1">
+          <family datatype="string" operation="equals">unix</family>
+        </family_state>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:nist.validation.family:ste:7" version="1">
+          <family datatype="string" operation="equals">vmware_infrastructure</family>
+        </family_state>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:nist.validation.family:ste:8" version="1">
+          <family datatype="string" operation="equals">windows</family>
+        </family_state>
+      </states>
+    </oval_definitions>
