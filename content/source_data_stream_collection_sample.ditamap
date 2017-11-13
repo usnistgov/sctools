@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="../dita/plugins/gov.nist.scap.doctypes/css/dataStreamCollection.css"?>
-<!DOCTYPE scapDataStreamCollection PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" "scapDataStreamCollection.dtd">
+<!DOCTYPE scapDataStreamCollection SYSTEM 
+"../dita/plugins/gov.nist.scap.doctypes/dtd/scapDataStreamCollection.dtd">
+<!--<!DOCTYPE scapDataStreamCollection PUBLIC 
+"urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
+"scapDataStreamCollection.dtd">-->
 <scapDataStreamCollection
     chunk="to-content"
     id="scap_gov.nist_collection_ind_family_test-datastream.zip" 

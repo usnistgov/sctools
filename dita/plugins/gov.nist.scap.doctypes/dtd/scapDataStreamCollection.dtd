@@ -84,6 +84,11 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
 <!--             DOMAIN ATTRIBUTES DECLARATIONS                    -->
 <!-- ============================================================= -->
 
+<!ENTITY % schematronVersion-d-dec     
+  SYSTEM "schematronVersionAttDomain.ent"                                                
+>
+%schematronVersion-d-dec;
+
 <!ENTITY % deliveryTargetAtt-d-dec
   PUBLIC "-//OASIS//ENTITIES DITA 1.3 Delivery Target Attribute Domain//EN"
          "deliveryTargetAttDomain.ent"
@@ -120,7 +125,8 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
 <!-- ============================================================= -->
 
 <!ENTITY % props-attribute-extensions
-  "%deliveryTargetAtt-d-attribute;"
+  "%schematronVersion-d-attribute;
+  %deliveryTargetAtt-d-attribute;"
 >
 <!ENTITY % base-attribute-extensions
   ""
@@ -139,12 +145,18 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
                            &hazard-d-att;
                            &hi-d-att;
                            &ut-d-att;
+                           &schematronVersion-d-att;
+                           &scapDataStreamCollection-constraints;
   "
 >
 
 <!-- ============================================================= -->
 <!--                    CONTENT CONSTRAINT INTEGRATION             -->
 <!-- ============================================================= -->
+
+<!ENTITY % schematronVersionAtt-c-def  
+  SYSTEM "scapDataStreamCollectionConstraints.mod">
+%schematronVersionAtt-c-def;
 
 <!-- ============================================================= -->
 <!--                      MAP ELEMENT INTEGRATION                  -->

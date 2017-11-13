@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % schematronVersion-d-attribute 
+  "schematronVersion 
+    CDATA 
+    #IMPLIED
+  "
+>
+<!ENTITY schematronVersion-d-att
+   "a(props  schematronVersion)"
+>

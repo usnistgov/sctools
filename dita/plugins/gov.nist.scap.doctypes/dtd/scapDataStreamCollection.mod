@@ -34,7 +34,6 @@
                %localization-atts;
                %topicref-atts;
                %select-atts;
-               schematronVersion NMTOKEN #REQUIRED
                "
 >
 <!ELEMENT  scapDataStreamCollection %scapDataStreamCollection.content;>
