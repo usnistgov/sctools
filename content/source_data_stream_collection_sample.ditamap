@@ -14,7 +14,10 @@
     <keydef keys="xccdf" href="family_validation_content-xccdf.xml" scope="external"/>
     <keydef keys="cpe-oval" href="family_validation_content-cpe-oval.xml" scope="external"/>
     <keydef keys="cpe-dictionary" href="family_validation_content-cpe-dictionary.xml" scope="external"/>
-    <scapDataStream id="scap_gov.nist_datastream_ind_family_test-datastream.zip" scapVersion="1.3" useCase="CONFIGURATION">
+    <scapDataStream 
+        id="scap_gov.nist_datastream_ind_family_test-datastream.zip" 
+        scapVersion="1.3" 
+        useCase="CONFIGURATION">
         <scapDictionaries>
             <scapCpeListRef keyref="cpe-dictionary">
                 <scapExternalLinks>
