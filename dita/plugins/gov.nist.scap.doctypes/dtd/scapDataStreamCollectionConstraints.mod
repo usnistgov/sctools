@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ======================================
      Constraint Domain: Require schematronVersion and id attributes for 
-     SCAP scapDataStreamCollection element.
+     SCAP scapDataStreamCollection element. Require scapVersion, useCase, 
+     and id attributes for SCAP scapDataStream element.
      
      Joshua Lubell
      
      ====================================== -->
      
-<!ENTITY scapDataStreamCollection-constraints "(scapDataStreamCollection schematronVersionAtt-c)" >
+<!ENTITY scapDataStreamCollection-constraints "(scapDataStreamCollection scapDataStreamCollection-c)" >
 
 <!ENTITY % filter-atts
               "props
@@ -61,6 +62,37 @@
                            ltr |
                            rlo |
                            rtl |
+                           -dita-use-conref-target)
+                                    #IMPLIED"
+>
+
+<!ENTITY % select-atts
+              "%filter-atts;
+               base
+                          CDATA
+                                    #IMPLIED
+               %base-attribute-extensions;
+               importance
+                          (default |
+                           deprecated |
+                           high |
+                           low |
+                           normal |
+                           obsolete |
+                           optional |
+                           recommended |
+                           required |
+                           urgent |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               rev
+                          CDATA
+                                    #IMPLIED
+               status
+                          (changed |
+                           deleted |
+                           new |
+                           unchanged |
                            -dita-use-conref-target)
                                     #IMPLIED"
 >
@@ -129,35 +161,17 @@
                                     #IMPLIED"
 >
 
-<!ENTITY % select-atts
-              "%filter-atts;
-               base
-                          CDATA
+<!ENTITY % id-atts
+              "id
+                          NMTOKEN
                                     #IMPLIED
-               %base-attribute-extensions;
-               importance
-                          (default |
-                           deprecated |
-                           high |
-                           low |
-                           normal |
-                           obsolete |
-                           optional |
-                           recommended |
-                           required |
-                           urgent |
-                           -dita-use-conref-target)
-                                    #IMPLIED
-               rev
-                          CDATA
-                                    #IMPLIED
-               status
-                          (changed |
-                           deleted |
-                           new |
-                           unchanged |
-                           -dita-use-conref-target)
-                                    #IMPLIED"
+               %conref-atts;"
+>
+
+<!ENTITY % univ-atts
+              "%id-atts;
+               %select-atts;
+               %localization-atts;"
 >
 
 <!ENTITY % scapDataStreamCollection.attributes
@@ -180,5 +194,35 @@
                %select-atts;
                "
 >
-     
+<!ENTITY % scapDataStream.attributes
+              "id
+                          ID
+                                    #REQUIRED
+               scapVersion ( 1.3 | 1.2 | 1.1 | 1.0 )  #REQUIRED
+               useCase ( CONFIGURATION | VULNERABILITY | INVENTORY | OTHER ) #REQUIRED
+               navtitle
+                          CDATA
+                                    #IMPLIED
+               href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               keys
+                          CDATA
+                                    #IMPLIED
+               query
+                          CDATA
+                                    #IMPLIED
+               copy-to
+                          CDATA
+                                    #IMPLIED
+               outputclass
+                          CDATA
+                                    #IMPLIED
+               %topicref-atts;
+               %univ-atts;"
+>
+
 <!-- ============ End of constraint module -->

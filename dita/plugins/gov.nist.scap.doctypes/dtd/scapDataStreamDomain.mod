@@ -45,8 +45,6 @@
                outputclass
                           CDATA
                                     #IMPLIED
-               scapVersion ( 1.3 | 1.2 | 1.1 | 1.0 ) #REQUIRED
-               useCase ( CONFIGURATION | VULNERABILITY | INVENTORY | OTHER ) #REQUIRED
                %topicref-atts;
                %univ-atts;"
 >

@@ -89,6 +89,16 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
 >
 %schematronVersion-d-dec;
 
+<!ENTITY % useCase-d-dec     
+  SYSTEM "useCaseAttDomain.ent"                                                
+>
+%useCase-d-dec;
+
+<!ENTITY % scapVersion-d-dec     
+  SYSTEM "scapVersionAttDomain.ent"                                                
+>
+%scapVersion-d-dec;
+
 <!ENTITY % deliveryTargetAtt-d-dec
   PUBLIC "-//OASIS//ENTITIES DITA 1.3 Delivery Target Attribute Domain//EN"
          "deliveryTargetAttDomain.ent"
@@ -126,6 +136,8 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
 
 <!ENTITY % props-attribute-extensions
   "%schematronVersion-d-attribute;
+  %useCase-d-attribute;
+  %scapVersion-d-attribute;
   %deliveryTargetAtt-d-attribute;"
 >
 <!ENTITY % base-attribute-extensions
@@ -146,6 +158,8 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
                            &hi-d-att;
                            &ut-d-att;
                            &schematronVersion-d-att;
+                           &useCase-d-att;
+                           &scapVersion-d-att;
                            &scapDataStreamCollection-constraints;
   "
 >
@@ -154,9 +168,9 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
 <!--                    CONTENT CONSTRAINT INTEGRATION             -->
 <!-- ============================================================= -->
 
-<!ENTITY % schematronVersionAtt-c-def  
+<!ENTITY % scapDataStreamCollection-c-def  
   SYSTEM "scapDataStreamCollectionConstraints.mod">
-%schematronVersionAtt-c-def;
+%scapDataStreamCollection-c-def;
 
 <!-- ============================================================= -->
 <!--                      MAP ELEMENT INTEGRATION                  -->

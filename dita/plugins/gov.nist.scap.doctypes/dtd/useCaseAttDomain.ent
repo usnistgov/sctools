@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % useCase-d-attribute 
+  "useCase 
+    ( CONFIGURATION | VULNERABILITY | INVENTORY | OTHER ) 
+    #IMPLIED
+  "
+>
+<!ENTITY useCase-d-att
+   "a(props  useCase)"
+>
