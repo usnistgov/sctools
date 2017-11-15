@@ -11,11 +11,12 @@
     
     <xsl:output indent="yes" method="xml"/>
     
+    <!-- DataStreamCollection -->
     <xsl:template match="*[contains(
         @class, 
         ' scapDataStreamCollection/scapDataStreamCollection ')]">
         <sds:data-stream-collection 
-            id="{@id}" 
+            id="scap_{@reverseDNS}_collection_{@id}" 
             schematron-version="{@schematronVersion}">
             <xsl:apply-templates select="*[contains(
                 @class,
@@ -23,11 +24,12 @@
         </sds:data-stream-collection>
     </xsl:template>
     
+    <!-- DataStream -->
     <xsl:template match="*[contains(
         @class,
         ' scapDataStream-d/scapDataStream ')]">
         <sds:data-stream 
-            id="scap_gov.nist_datastream_ind_family_test-datastream.zip" 
+            id="scap_{../@reverseDNS}_datastream_{@id}" 
             scap-version="{@scapVersion}" 
             timestamp="{fn:current-dateTime()}" 
             use-case="{@useCase}">
@@ -35,6 +37,7 @@
         </sds:data-stream>
     </xsl:template>
     
+    <!-- Dictionaries -->
     <xsl:template match="*[contains(
         @class,
         ' scapDataStream-d/scapDictionaries ')]">
@@ -43,6 +46,7 @@
         </sds:dictionaries>
     </xsl:template>
     
+    <!-- Checklists -->
     <xsl:template match="*[contains(
         @class,
         ' scapDataStream-d/scapChecklists ')]">
@@ -50,13 +54,26 @@
             <xsl:apply-templates/>
         </sds:checklists>
     </xsl:template>
-    
+
+    <!-- Checks -->
     <xsl:template match="*[contains(
         @class,
         ' scapDataStream-d/scapChecks ')]">
         <sds:checks> 
             <xsl:apply-templates/>
         </sds:checks>
+    </xsl:template>
+    
+    <!-- OvalRef -->
+    <xsl:template match="*[contains(
+        @class,
+        ' scapDataStream-d/scapOvalRef ')]">
+        <xsl:variable name="cref-id" 
+            select="fn:string-join(('scap', ../../../@reverseDNS, 'cref', @keyref), '_')"/>
+        <sds:component-ref
+            id="{$cref-id}"
+            xlink:href="#{$cref-id}"
+            />
     </xsl:template>
     
     <!-- Identity transform -->

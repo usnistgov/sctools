@@ -7,7 +7,8 @@
 "scapDataStreamCollection.dtd">-->
 <scapDataStreamCollection
     chunk="to-content"
-    id="scap_gov.nist_collection_ind_family_test-datastream.zip" 
+    reverseDNS="gov.nist"
+    id="ind_family_test-bundle.zip" 
     schematronVersion="1.3">  
     <title>NIST SP 800-126 Example</title>
     <topicmeta>
@@ -18,8 +19,8 @@
     <keydef keys="xccdf" href="family_validation_content-xccdf.xml" scope="external"/>
     <keydef keys="cpe-oval" href="family_validation_content-cpe-oval.xml" scope="external"/>
     <keydef keys="cpe-dictionary" href="family_validation_content-cpe-dictionary.xml" scope="external"/>
-    <scapDataStream 
-        id="scap_gov.nist_datastream_ind_family_test-datastream.zip" 
+    <scapDataStream  
+        id="ind_family_test-datastream.zip" 
         scapVersion="1.3" 
         useCase="CONFIGURATION">
         <scapDictionaries>
