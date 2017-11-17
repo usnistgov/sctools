@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:fn="http://www.w3.org/2005/xpath-functions"
+    xmlns:nist="http://www.nist.gov"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:sds="http://scap.nist.gov/schema/scap/source/1.2" 
     xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog"
@@ -11,14 +12,20 @@
     
     <xsl:output indent="yes" method="xml"/>
     
-    <xsl:variable name="reverse-dns" select="@reverseDNS"/>
+    <xsl:variable name="reverse-dns" select="//@reverseDNS"/>
+    
+    <xsl:function name="nist:scap-id" as="xs:string">
+        <xsl:param name="type" as="xs:string"/>
+        <xsl:param name="short-id" as="xs:string"/>
+        <xsl:value-of select="fn:string-join(('scap', $reverse-dns, $type, $short-id), '_')"/>
+    </xsl:function>
     
     <!-- DataStreamCollection -->
     <xsl:template match="*[contains(
         @class, 
         ' scapDataStreamCollection/scapDataStreamCollection ')]">
         <sds:data-stream-collection 
-            id="scap_{$reverse-dns}_collection_{@id}" 
+            id="{nist:scap-id('collection', @id)}"
             schematron-version="{@schematronVersion}">
             <xsl:apply-templates select="*[contains(
                 @class,
@@ -34,7 +41,7 @@
         @class,
         ' scapDataStream-d/scapDataStream ')]">
         <sds:data-stream 
-            id="scap_{$reverse-dns}_datastream_{@id}" 
+            id="{nist:scap-id('datastream', @id)}"
             scap-version="{@scapVersion}" 
             timestamp="{fn:current-dateTime()}" 
             use-case="{@useCase}">
@@ -71,11 +78,9 @@
     
     <!-- Named template for component references -->
     <xsl:template name="cref">
-        <xsl:variable name="cref-id" 
-            select="fn:string-join(('scap', $reverse-dns, 'cref', @keyref), '_')"/>
-        <xsl:variable name="comp-id" 
-            select="fn:string-join(('scap', $reverse-dns, 'comp', @keyref), '_')"/>
-        <sds:component-ref id="{$cref-id}" xlink:href="#{$comp-id}">
+        <sds:component-ref 
+            id="{nist:scap-id('cref', @keyref)}" 
+            xlink:href="#{nist:scap-id('comp', @keyref)}">
             <xsl:apply-templates select="*[contains(
                 @class,
                 ' scapDataStream-d/scapExternalLinks ')]"/>
@@ -118,14 +123,16 @@
         ' scapDataStream-d/scapUri ')]">
         <cat:uri 
             name="{@href}" 
-            uri="#{fn:string-join(('scap', $reverse-dns, 'cref', @keyref), '_')}"/>
+            uri="#{nist:scap-id('cref', @keyref)}"/>
     </xsl:template>
     
     <!-- keydef referencing a data stream component -->
     <xsl:template match="*[contains(
         @class,
         ' mapgroup-d/keydef ') and @scope='external']">
-        <sds:component id="{fn:string-join(('scap', $reverse-dns, 'comp', @keyref, @keys), '_')}" timestamp="{fn:current-dateTime()}">
+        <sds:component 
+            id="{nist:scap-id('comp', @keys)}" 
+            timestamp="{fn:current-dateTime()}">
             <xsl:apply-templates select="document(@href)"/>
         </sds:component>
     </xsl:template>
