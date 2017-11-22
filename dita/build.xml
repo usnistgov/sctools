@@ -1,0 +1,67 @@
+<project name="DITA-OT Plugins" basedir="." default="copy-toolkit-plugins">
+	
+  <property file="build.properties"/>
+  <property file="${user.home}/.build.properties"/>
+  <property file="${user.home}/build.properties"/>
+
+	
+  <property name="dist" location="${basedir}/dist"/>
+  <property name="plugin.dist" location="${dist}/plugins"/>
+  <property name="dita-ot-dir"
+	    location="c:/Program Files/Oxygen XML Editor 19/frameworks/dita/DITA-OT2.x"/>
+  <property name="plugin-src" location="${basedir}/plugins"/>
+  <property name="plugin-copy_target" location="${dita-ot-dir}/plugins"/>
+  <property name="ot-plugins-base-name" value="gov.nist.scap"/>
+
+  <!--<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
+-->
+
+  <target name="init">
+  <tstamp/>
+  </target>
+
+  <tstamp>
+	<format property="package.date" pattern="yyyy-MM-dd"/>
+  </tstamp>
+
+  <target name="clean">
+  </target>
+	
+	
+  <target name="dist-toolkit-plugins" 
+      description="Packages the DITA Open Toolkit plugins for copying to a working Toolkit instance"
+	  depends="dist-init"
+  >
+    <delete includeemptydirs="true" failonerror="false">
+      <fileset dir="${plugin.dist}"/>
+    </delete>
+	<copy todir="${plugin.dist}">
+		<fileset dir="${plugin-src}">
+		</fileset>
+	</copy>
+  </target>
+	
+  <target name="copy-toolkit-plugins" depends="dist-toolkit-plugins"
+     description="Copy plugins to local DITA Open Toolkit">
+    <delete failonerror="true" includeemptydirs="true">
+      <fileset dir="${plugin-copy_target}" includes="${ot-plugins-base-name}.*/**"/>
+    </delete>
+    <mkdir dir="${plugin-copy_target}"/>
+    <copy todir="${plugin-copy_target}"> 
+      <fileset dir="${plugin.dist}">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+    <!-- Integrate the deployed plugins: -->
+    <!--<antcall target="integrate"/>-->
+
+  </target>
+	
+  <target name="dist-init">
+    <delete failonerror="false" includeemptydirs="true">
+      <fileset dir="${dist}" includes="*/**"/>
+    </delete>
+	<mkdir dir="${dist}"/>
+  </target>
+
+</project>

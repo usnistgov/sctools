@@ -32,7 +32,7 @@
                 ' scapDataStream-d/scapDataStream ')]"/>
             <xsl:apply-templates select="*[contains(
                 @class,
-                ' mapgroup-d/keydef ') and @scope='external']"/>
+                ' mapgroup-d/keydef ') and @format='xml']"/>
         </sds:data-stream-collection>
     </xsl:template>
     
@@ -129,7 +129,7 @@
     <!-- keydef referencing a data stream component -->
     <xsl:template match="*[contains(
         @class,
-        ' mapgroup-d/keydef ') and @scope='external']">
+        ' mapgroup-d/keydef ') and @format='xml']">
         <sds:component 
             id="{nist:scap-id('comp', @keys)}" 
             timestamp="{fn:current-dateTime()}">

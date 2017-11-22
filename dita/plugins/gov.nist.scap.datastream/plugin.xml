@@ -2,7 +2,8 @@
 <?xml-model href="dita-ot/plugin.rnc" type="application/relax-ng-compact-syntax"?>
 <plugin id="gov.nist.scap.datastream">
     <require plugin="gov.nist.scap.doctypes"/>
+    <transtype name="sds" desc="SCAP Data Stream Collection"/>
     <feature extension="dita.conductor.transtype.check" value="sds"/>
-    <transtype name="sds" desc="Convert SCAP Data Stream Collection DITA map into SP 800-126 format"/>
-    <feature extension="dita.conductor.target.relative" file="build.xml"/>
+    <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+    <feature extension="dita.specialization.catalog.relative" file="catalog-dita.xml"/>
 </plugin>

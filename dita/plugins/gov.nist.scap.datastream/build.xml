@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     
-    <target name="dita2sds" depends="sds.init, build-init, preprocess, sds.transform"/>       
+    <target name="dita2sds" depends="build-init, preprocess, sds.transform"/>       
        
-    <target name="sds.init"/>
-    
     <target name="sds.transform">
-        <!-- This one too -->
-    </target>
-  
+        <pipeline message="Convert scapDataStreamCollection DITA map into SP 800-126-conforming XML file" 
+            taskname="xslt">
+            <xslt basedir="${dita.temp.dir}" 
+                destdir="${output.dir}"
+                style="${dita.plugin.gov.nist.scap.dir}/xsl/sds.xsl"
+                >
+                <ditaFileset format="ditamap" processingRole="normal"/>
+                <xmlcatalog refid="dita.catalog"/>
+            </xslt>
+        </pipeline>
+    </target>  
 </project>
