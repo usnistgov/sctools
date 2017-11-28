@@ -133,7 +133,8 @@
         <sds:component 
             id="{nist:scap-id('comp', @keys)}" 
             timestamp="{fn:current-dateTime()}">
-            <xsl:apply-templates select="document(@href)"/>
+             <xsl:apply-templates 
+                select="document(@href)"/>
         </sds:component>
     </xsl:template>
     

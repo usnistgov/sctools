@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><Benchmark xmlns="http://checklists.nist.gov/xccdf/1.2" resolved="1" id="xccdf_gov.nist_benchmark_generated-xccdf">
+  <status>incomplete</status>
+  <title>Automatically generated XCCDF from OVAL file: cisco-sa-20170726-anidos_692.xml</title>
+  <description>This file has been generated automatically from oval definitions file.</description>
+  <version time="2017-07-31T02:35:04.1528439-05:00">None, generated from OVAL file.</version>
+  <Rule selected="true" id="xccdf_gov.nist_rule_oval-cisco.oval-def-41178">
+    <title>CVE-2017-6663</title>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="cisco-sa-20170726-anidos_692.xml" name="oval:cisco.oval:def:41178"/>
+    </check>
+  </Rule>
+</Benchmark>
