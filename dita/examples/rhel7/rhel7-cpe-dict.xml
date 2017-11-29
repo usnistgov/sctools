@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:cpe-list xmlns:ns0="http://cpe.mitre.org/dictionary/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd">
+    <ns0:cpe-item name="cpe:/o:redhat:enterprise_linux:7">
+        <ns0:title xml:lang="en-us">Red Hat Enterprise Linux 7</ns0:title>
+        <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</ns0:check>
+    </ns0:cpe-item>
+    <ns0:cpe-item name="cpe:/o:redhat:enterprise_linux:7::server">
+        <ns0:title xml:lang="en-us">Red Hat Enterprise Linux 7 Server</ns0:title>
+        <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</ns0:check>
+    </ns0:cpe-item>
+    <ns0:cpe-item name="cpe:/o:redhat:enterprise_linux:7::client">
+        <ns0:title xml:lang="en-us">Red Hat Enterprise Linux 7 Client</ns0:title>
+        <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</ns0:check>
+    </ns0:cpe-item>
+    <ns0:cpe-item name="cpe:/o:redhat:enterprise_linux:7::computenode">
+        <ns0:title xml:lang="en-us">Red Hat Enterprise Linux 7 ComputeNode</ns0:title>
+        <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</ns0:check>
+    </ns0:cpe-item>
+    <ns0:cpe-item name="cpe:/o:redhat:enterprise_linux:7::workstation">
+        <ns0:title xml:lang="en-us">Red Hat Enterprise Linux 7 Workstation</ns0:title>
+        <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</ns0:check>
+    </ns0:cpe-item>
+    <ns0:cpe-item name="cpe:/o:centos:centos:7">
+        <ns0:title xml:lang="en-us">CentOS 7</ns0:title>
+        <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_centos7:def:1</ns0:check>
+    </ns0:cpe-item>
+    <ns0:cpe-item name="cpe:/o:scientificlinux:scientificlinux:7">
+        <ns0:title xml:lang="en-us">Scientific Linux 7</ns0:title>
+        <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_sl7:def:1</ns0:check>
+    </ns0:cpe-item>
+    <ns0:cpe-item name="cpe:/a:container">
+        <ns0:title xml:lang="en-us">Container</ns0:title>
+        <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_is_a_container:def:1</ns0:check>
+    </ns0:cpe-item>
+    <ns0:cpe-item name="cpe:/a:machine">
+        <ns0:title xml:lang="en-us">Bare-metal or Virtual Machine</ns0:title>
+        <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_is_a_machine:def:1</ns0:check>
+    </ns0:cpe-item>
+</ns0:cpe-list>
