@@ -16,6 +16,7 @@
 <!ENTITY % scapTailoringRef "scapTailoringRef" >
 <!ENTITY % scapChecks "scapChecks" >
 <!ENTITY % scapOvalRef "scapOvalRef" >
+<!ENTITY % scapOcilRef "scapOcilRef" >
 
 <!ENTITY % scapDataStream.content 
     "((%scapDictionaries;)?,
@@ -116,7 +117,7 @@
 <!ATTLIST  scapChecklists %scapChecklists.attributes;>
 
 <!ENTITY % scapChecks.content 
-    "(%scapOvalRef;)+"
+    "(%scapOvalRef; | %scapOcilRef;)+"
     >
 
 <!ENTITY % scapChecks.attributes
@@ -275,6 +276,38 @@
 <!ELEMENT  scapOvalRef %scapOvalRef.content;>
 <!ATTLIST  scapOvalRef %scapOvalRef.attributes;>
 
+<!ENTITY % scapOcilRef.content 
+    "(%scapExternalLinks;)?"
+    >
+
+<!ENTITY % scapOcilRef.attributes
+              "navtitle
+                          CDATA
+                                    #IMPLIED
+               href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               keys
+                          CDATA
+                                    #IMPLIED
+               query
+                          CDATA
+                                    #IMPLIED
+               copy-to
+                          CDATA
+                                    #IMPLIED
+               outputclass
+                          CDATA
+                                    #IMPLIED
+               %topicref-atts;
+               %univ-atts;"
+>
+<!ELEMENT  scapOcilRef %scapOcilRef.content;>
+<!ATTLIST  scapOcilRef %scapOcilRef.attributes;>
+
 <!ENTITY % scapExternalLinks.content 
     "(%scapUri;)+"
     >
@@ -349,3 +382,4 @@
 <!ATTLIST  scapTailoringRef     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapTailoringRef "     >
 <!ATTLIST  scapChecks     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapChecks "     >
 <!ATTLIST  scapOvalRef     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapOvalRef "     >
+<!ATTLIST  scapOcilRef     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapOcilRef "     >

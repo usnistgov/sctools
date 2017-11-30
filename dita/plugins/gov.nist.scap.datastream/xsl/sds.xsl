@@ -101,10 +101,12 @@
         <xsl:call-template name="cref"/>
     </xsl:template>
     
-    <!-- OvalRef -->
+    <!-- OvalRef or OcilRef -->
     <xsl:template match="*[contains(
         @class,
-        ' scapDataStream-d/scapOvalRef ')]">
+        ' scapDataStream-d/scapOvalRef ') or contains(
+        @class,
+        ' scapDataStream-d/scapOcilRef ')]">
         <xsl:call-template name="cref"/>
     </xsl:template>
     

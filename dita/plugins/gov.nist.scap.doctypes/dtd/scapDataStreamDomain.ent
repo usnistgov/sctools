@@ -20,7 +20,8 @@
   scapBenchmarkRef |
   scapTailoringRef |
   scapChecks |
-  scapOvalRef
+  scapOvalRef |
+  scapOcilRef
   "                     
 >
 

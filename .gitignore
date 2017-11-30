@@ -12,3 +12,6 @@
 
 scap-schematron-rules-1.2.6-website
 xsd
+/dita/dist
+/dita/examples/rhel7/out
+/content/out

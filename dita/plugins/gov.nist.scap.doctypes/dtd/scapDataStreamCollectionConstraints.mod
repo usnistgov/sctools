@@ -226,4 +226,90 @@
                %univ-atts;"
 >
 
+<!ENTITY % keydef.attributes
+              "navtitle
+                          CDATA
+                                    'SCAP Component'
+               href
+                          CDATA
+                                    #IMPLIED
+               keyref
+                          CDATA
+                                    #IMPLIED
+               keys
+                          CDATA
+                                    #REQUIRED
+               keyscope
+                          CDATA
+                                    #IMPLIED
+               query
+                          CDATA
+                                    #IMPLIED
+               copy-to
+                          CDATA
+                                    #IMPLIED
+               outputclass
+                          CDATA
+                                    #IMPLIED
+               collection-type
+                          (choice |
+                           family |
+                           sequence |
+                           unordered |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               processing-role
+                          (normal |
+                           resource-only |
+                           -dita-use-conref-target)
+                                    'resource-only'
+               type
+                          CDATA
+                                    #IMPLIED
+               cascade
+                          CDATA
+                                    #IMPLIED
+               scope
+                          (external |
+                           local |
+                           peer |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               locktitle
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               format
+                          CDATA
+                                    'xml'
+               linking
+                          (none |
+                           normal |
+                           sourceonly |
+                           targetonly |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               toc
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               print
+                          (no |
+                           printonly |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               search
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               chunk
+                          CDATA
+                                    #IMPLIED
+               %univ-atts;"
+>
+
 <!-- ============ End of constraint module -->
