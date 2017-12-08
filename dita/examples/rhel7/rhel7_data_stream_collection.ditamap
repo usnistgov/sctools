@@ -4,6 +4,7 @@
 "scapDataStreamCollection.dtd">
 <scapDataStreamCollection format="ditamap" reverseDNS="org.open-scap" id="ssg_rhel7" 
     schematronVersion="1.2">
+    <title>RHEL7 SCAP Data Stream Collection</title>
     <keydef keys="cpe_dictionary" href="rhel7-cpe-dict.xml"/>
     <keydef keys="cpe_oval" href="rhel7-cpe-oval.xml"/>
     <keydef keys="xccdf" href="rhel7-xccdf.xml"/>
