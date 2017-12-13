@@ -5,7 +5,12 @@
   <title>Automatically generated XCCDF from OVAL file: xenial-apparmor-oval.xml</title>
   <description>This file has been generated automatically from oval definitions file.</description>
   <version time="2017-12-12T19:23:02">None, generated from OVAL file.</version>
-  <Rule selected="true" id="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-100">
+  <Profile id="xccdf_gov.nist_profile_apparmor">
+        <title xml:lang="en-US">Xenial AppArmor Profile</title>
+        <select idref="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-100" selected="true"/>
+        <select idref="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-20176507000" selected="true"/>
+      </Profile>
+  <Rule selected="false" id="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-100">
     <title>Check that Ubuntu 16.04 LTS (xenial) is installed.</title>
     <description>Confirm that the host is part of the unix family and is running Ubuntu xenial.
     </description>
@@ -13,8 +18,8 @@
       <check-content-ref href="xenial-apparmor-oval.xml" name="oval:com.ubuntu.xenial:def:100"/>
     </check>
   </Rule>
-  <Rule selected="true" id="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-20176507000">
-    <title>Check that the AppArmor version is 2.12 or greater.</title>
+  <Rule selected="false" id="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-20176507000">
+    <title>Confirm that a version of AppArmor older than 2.12 is not present.</title>
     <description>Earlier versions incorrectly handle unknown AppArmor profiles in AppArmor init scripts, 
       upstart jobs, and/or systemd unit files.</description>
     <ident system="http://cve.mitre.org">CVE-2017-6507</ident>

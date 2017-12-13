@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scapDataStreamCollection PUBLIC 
+"urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
+"scapDataStreamCollection.dtd">
+<scapDataStreamCollection format="ditamap" reverseDNS="com.example" id="apparmor" 
+    schematronVersion="1.2">
+    <keydef keys="xccdf_apparmor" href="xenial-apparmor/xenial-apparmor-xccdf.xml"/>
+    <keydef keys="oval_apparmor" href="xenial-apparmor/xenial-apparmor-oval.xml"/>
+    <scapDataStream id="xenial_apparmor" scapVersion="1.3" useCase="CONFIGURATION">
+        <scapChecklists>
+            <scapBenchmarkRef keyref="xccdf_apparmor">
+                <scapExternalLinks>
+                    <scapUri keyref="oval_apparmor"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
+        <scapChecks>
+            <scapOvalRef keyref="oval_apparmor"/>
+        </scapChecks>
+    </scapDataStream>
+</scapDataStreamCollection>
