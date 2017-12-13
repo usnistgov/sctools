@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scapDataStreamCollection PUBLIC 
+"urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
+"scapDataStreamCollection.dtd">
+<scapDataStreamCollection format="ditamap" reverseDNS="com.example" id="kitchen_sink" 
+    schematronVersion="1.2">
+    <title>RHEL7 SCAP Data Stream Collection</title>
+    <keydef keys="cpe_dictionary" href="rhel7/rhel7-cpe-dict.xml"/>
+    <keydef keys="cpe_oval" href="rhel7/rhel7-cpe-oval.xml"/>
+    <keydef keys="xccdf" href="rhel7/rhel7-xccdf.xml"/>
+    <keydef keys="oval" href="rhel7/rhel7-oval.xml"/>
+    <keydef keys="ocil" href="rhel7/rhel7-ocil.xml"/>
+    <keydef keys="xccdf_pcidss" href="rhel7/rhel7-pcidss-xccdf.xml"/>
+    <keydef keys="oval000" href="rhel7/rhel7-oval000.xml"/>
+    <keydef keys="ocil000" href="rhel7/rhel7-ocil000.xml"/>
+    <keydef keys="xccdf_apparmor" href="xenial-apparmor/xenial-apparmor-xccdf.xml"/>
+    <keydef keys="oval_apparmor" href="xenial-apparmor/xenial-apparmor-oval.xml"/>
+    <scapDataStream id="datastream_from_xccdf_ssg_rhel7_xccdf_1.2.xml" scapVersion="1.2" useCase="OTHER">
+        <scapDictionaries>
+            <scapCpeListRef keyref="cpe_dictionary">
+                <scapExternalLinks>
+                    <scapUri keyref="cpe_oval"/>
+                </scapExternalLinks>
+            </scapCpeListRef>
+        </scapDictionaries>
+        <scapChecklists>
+            <scapBenchmarkRef keyref="xccdf">
+                <scapExternalLinks>
+                    <scapUri keyref="oval"/>
+                    <scapUri keyref="ocil"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+            <scapBenchmarkRef keyref="xccdf_pcidss">
+                <scapExternalLinks>
+                    <scapUri keyref="oval000"/>
+                    <scapUri keyref="ocil000"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
+        <scapChecks>
+            <scapOvalRef keyref="oval"/>
+            <scapOcilRef keyref="ocil"/>
+            <scapOvalRef keyref="cpe_oval"/>
+            <scapOvalRef keyref="oval000"/>
+            <scapOcilRef keyref="ocil000"/>
+        </scapChecks>
+    </scapDataStream>
+    <scapDataStream id="xenial_apparmor" scapVersion="1.3" useCase="CONFIGURATION">
+        <scapChecklists>
+            <scapBenchmarkRef keyref="xccdf_apparmor">
+                <scapExternalLinks>
+                    <scapUri keyref="oval_apparmor"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
+        <scapChecks>
+            <scapOvalRef keyref="oval_apparmor"/>
+        </scapChecks>
+    </scapDataStream>
+</scapDataStreamCollection>

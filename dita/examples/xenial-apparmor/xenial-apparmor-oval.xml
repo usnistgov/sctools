@@ -1,0 +1,125 @@
+<oval_definitions
+    xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+    xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+    xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5"
+    xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix"
+    xmlns:linux-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd   
+    http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd   
+    http://oval.mitre.org/XMLSchema/oval-definitions-5#independent 
+    independent-definitions-schema.xsd   
+    http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd   
+    http://oval.mitre.org/XMLSchema/oval-definitions-5#macos linux-definitions-schema.xsd">
+
+    <generator>
+        <oval:product_name>Canonical CVE OVAL Generator</oval:product_name>
+        <oval:product_version>1</oval:product_version>
+        <oval:schema_version>5.11.1</oval:schema_version>
+        <oval:timestamp>2017-12-12T19:23:02</oval:timestamp>
+    </generator>
+
+    <definitions>
+        <definition class="inventory" id="oval:com.ubuntu.xenial:def:100" version="1">
+            <metadata>
+                <title>Check that Ubuntu 16.04 LTS (xenial) is installed.</title>
+                <description></description>
+            </metadata>
+            <criteria>
+                <criterion test_ref="oval:com.ubuntu.xenial:tst:100" 
+                    comment="The host is part of the unix family." />
+                <criterion test_ref="oval:com.ubuntu.xenial:tst:101" 
+                    comment="The host is running Ubuntu xenial." />
+            </criteria>
+        </definition>        
+        <definition class="vulnerability" id="oval:com.ubuntu.xenial:def:20176507000" version="1">
+            <metadata>
+                <title>CVE-2017-6507 on Ubuntu 16.04 LTS (xenial) - medium.</title>
+                <description>An issue was discovered in AppArmor before 2.12. Incorrect handling 
+                    of unknown AppArmor profiles in AppArmor init scripts, upstart jobs, and/or 
+                    systemd unit files allows an attacker to possibly have increased attack 
+                    surfaces of processes that were intended to be confined by AppArmor. This 
+                    is due to the common logic to handle 'restart' operations removing AppArmor 
+                    profiles that aren't found in the typical filesystem locations, such as 
+                    /etc/apparmor.d/. Userspace projects that manage their own AppArmor profiles 
+                    in atypical directories, such as what's done by LXD and Docker, are affected 
+                    by this flaw in the AppArmor init script logic.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 16.04 LTS</platform>
+                </affected>
+                <reference source="CVE" ref_id="CVE-2017-6507" 
+                    ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6507" />
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2017 Canonical Ltd.</rights>
+                    <public_date>2017-03-24</public_date>
+                    <public_date_at_usn>2017-03-24</public_date_at_usn>
+                    <assigned_to>tyhicks</assigned_to>
+                    <discovered_by>Stéphane Graber</discovered_by>
+                    <crd>2017-03-24</crd>
+                    <bug>https://launchpad.net/bugs/1668892</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2017/CVE-2017-6507.html</ref>
+                    <ref>http://www.ubuntu.com/usn/usn-3247-1</ref>
+                </advisory>
+            </metadata>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.xenial:def:100" 
+                    comment="Ubuntu 16.04 LTS (xenial) is installed." applicability_check="true" />
+                <criterion test_ref="oval:com.ubuntu.xenial:tst:20176507000" 
+                    comment=
+"The 'apparmor' package in xenial was vulnerable but has been fixed (note: '2.10.95-0ubuntu2.6')." />
+            </criteria>
+        </definition>
+      </definitions>
+      <tests>
+        <ind-def:family_test id="oval:com.ubuntu.xenial:tst:100" check="at least one" 
+            check_existence="at_least_one_exists" version="1" 
+            comment="Is the host part of the unix family?">
+            <ind-def:object object_ref="oval:com.ubuntu.xenial:obj:100"/>
+            <ind-def:state state_ref="oval:com.ubuntu.xenial:ste:100"/>
+        </ind-def:family_test>
+        <unix-def:uname_test id="oval:com.ubuntu.xenial:tst:101" check="at least one" 
+            check_existence="at_least_one_exists" version="1" 
+            comment="Is the host running Ubuntu xenial?">
+            <unix-def:object object_ref="oval:com.ubuntu.xenial:obj:101"/>
+            <unix-def:state state_ref="oval:com.ubuntu.xenial:ste:101"/>
+        </unix-def:uname_test>
+        <linux-def:dpkginfo_test id="oval:com.ubuntu.xenial:tst:20176507000" version="1" 
+            check_existence="at_least_one_exists" check="all" 
+            comment=
+"Does the 'apparmor' package exist and is the version less than '2.10.95-0ubuntu2.6'?">
+            <linux-def:object object_ref="oval:com.ubuntu.xenial:obj:20161585000" />
+            <linux-def:state state_ref="oval:com.ubuntu.xenial:ste:20176507000" />
+        </linux-def:dpkginfo_test>
+      </tests>
+      <objects>
+        <ind-def:family_object id="oval:com.ubuntu.xenial:obj:100" version="1" 
+            comment="The singleton family object."/>
+        <unix-def:uname_object id="oval:com.ubuntu.xenial:obj:101" version="1" 
+            comment="The singleton uname object."/>
+        <linux-def:dpkginfo_object id="oval:com.ubuntu.xenial:obj:20161585000" version="1" 
+            comment="The 'apparmor' package.">
+            <linux-def:name>apparmor</linux-def:name>
+        </linux-def:dpkginfo_object>
+      </objects>
+      <states>
+        <ind-def:family_state id="oval:com.ubuntu.xenial:ste:100" version="1" 
+            comment="The singleton family object.">
+            <ind-def:family>unix</ind-def:family>
+        </ind-def:family_state>
+        <unix-def:uname_state id="oval:com.ubuntu.xenial:ste:101" version="1" 
+            comment="Ubuntu 16.04 LTS">
+            <unix-def:os_name>Linux</unix-def:os_name>
+            <unix-def:os_release operation="pattern match">^4\.4\.</unix-def:os_release>
+            <unix-def:os_version operation="pattern match">Ubuntu</unix-def:os_version>
+        </unix-def:uname_state>
+        <linux-def:dpkginfo_state id="oval:com.ubuntu.xenial:ste:20176507000" version="1" 
+            comment=
+            "The package name is 'apparmor' and the version is less than '2.10.95-0ubuntu2.6'.">
+            <linux-def:name>apparmor</linux-def:name>
+            <linux-def:evr 
+                datatype="debian_evr_string" 
+                operation="less than">2.10.95-0ubuntu2.6</linux-def:evr>
+        </linux-def:dpkginfo_state>
+      </states>
+</oval_definitions>

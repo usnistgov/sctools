@@ -15,3 +15,5 @@ xsd
 /dita/dist
 /dita/examples/rhel7/out
 /content/out
+/dita/examples/temp
+/dita/examples/out
