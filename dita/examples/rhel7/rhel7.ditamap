@@ -2,7 +2,7 @@
 <!DOCTYPE scapDataStreamCollection PUBLIC 
 "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
 "scapDataStreamCollection.dtd">
-<scapDataStreamCollection format="ditamap" reverseDNS="org.open-scap" id="ssg_rhel7" 
+<scapDataStreamCollection format="ditamap" reverseDNS="com.example" id="rhel7" 
     schematronVersion="1.2">
     <title>RHEL7 SCAP Data Stream Collection</title>
     <keydef keys="cpe_dictionary" href="rhel7-cpe-dict.xml"/>

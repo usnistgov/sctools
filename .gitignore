@@ -17,3 +17,7 @@ xsd
 /content/out
 /dita/examples/temp
 /dita/examples/out
+/dita/examples/usgcb-w7/out
+/dita/examples/usgcb-w7/temp
+/dita/examples/xenial-apparmor/out
+/dita/examples/xenial-apparmor/temp

@@ -1,0 +1,256 @@
+    <ocil xmlns="http://scap.nist.gov/schema/ocil/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" >
+      <generator>
+        <schema_version>2.0</schema_version>
+        <timestamp>2015-04-07T10:00:00</timestamp>  
+      </generator>
+      <document>
+        <title>USGCB Windows 7 User Settings Checklist</title>
+      </document>
+      <questionnaires>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:1">
+          <title>USGCB Windows 7 User Settings: Question 1</title>
+          <description>Enable screen saver</description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-10051-1</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:1</test_action_ref>
+          </actions>
+        </questionnaire>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:2">
+          <title>USGCB Windows 7 User Settings: Question 2</title>
+          <description>Password protect the screen saver</description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-9730-3</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:2</test_action_ref>
+          </actions>
+        </questionnaire>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:3">
+          <title>USGCB Windows 7 User Settings: Question 3</title>
+          <description>Screen Saver timeout
+          </description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-10148-5</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:3</test_action_ref>
+          </actions>
+        </questionnaire>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:4">
+          <title>USGCB Windows 7 User Settings: Question 4</title>
+          <description>Turn off Help Ratings</description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-10295-4</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:4</test_action_ref>
+          </actions>
+        </questionnaire>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:5">
+          <title>USGCB Windows 7 User Settings: Question 5</title>
+          <description>Do not preserve zone information in file attachments</description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-10166-7</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:5</test_action_ref>
+          </actions>
+        </questionnaire>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:6">
+          <title>USGCB Windows 7 User Settings: Question 6</title>
+          <description>Hide mechanisms to remove zone information</description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-9684-2</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:6</test_action_ref>
+          </actions>
+        </questionnaire>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:7">
+          <title>USGCB Windows 7 User Settings: Question 7</title>
+          <description>Notify antivirus programs when opening attachments</description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-10076-8</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:7</test_action_ref>
+          </actions>
+        </questionnaire>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:8">
+          <title>USGCB Windows 7 User Settings: Question 8</title>
+          <description>Prevent users from sharing files within their profile.</description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-10644-3</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:8</test_action_ref>
+          </actions>
+        </questionnaire>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:9">
+          <title>USGCB Windows 7 Security Options Settings: Question 9</title>
+          <description>Network access: Named Pipes that can be accessed anonymously</description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-9218-9</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:9</test_action_ref>
+          </actions>
+        </questionnaire>
+        <questionnaire id="ocil:usgcb.win7.checklist:questionnaire:10">
+          <title>USGCB Windows 7 Security Options Settings: Question 10</title>
+          <description>Network access: Shares that can be accessed anonymously</description>
+          <references>
+            <reference href="http://cce.mitre.org">CCE-9196-7</reference>
+          </references>
+          <actions>
+            <test_action_ref>ocil:usgcb.win7.checklist:testaction:10</test_action_ref>
+          </actions>
+        </questionnaire>
+      </questionnaires>
+      <test_actions>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:1" question_ref="ocil:usgcb.win7.checklist:question:1">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:2" question_ref="ocil:usgcb.win7.checklist:question:2">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:3" question_ref="ocil:usgcb.win7.checklist:question:3">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:4" question_ref="ocil:usgcb.win7.checklist:question:4">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:5" question_ref="ocil:usgcb.win7.checklist:question:5">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:6" question_ref="ocil:usgcb.win7.checklist:question:6">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:7" question_ref="ocil:usgcb.win7.checklist:question:7">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:8" question_ref="ocil:usgcb.win7.checklist:question:8">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:9" question_ref="ocil:usgcb.win7.checklist:question:9">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+        <boolean_question_test_action id="ocil:usgcb.win7.checklist:testaction:10" question_ref="ocil:usgcb.win7.checklist:question:10">
+          <when_true>
+            <result>PASS</result>
+          </when_true>
+          <when_false>
+            <result>FAIL</result>
+          </when_false>
+        </boolean_question_test_action>
+      </test_actions>
+      <questions>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:1" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Enable screen saver" located at "User
+            Configuration\Administrative Templates\Control Panel\Personalization" have the value
+            Enabled?</question_text>
+        </boolean_question>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:2" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Password protect the screen saver" located at
+            "User Configuration\Administrative Templates\Control Panel\Personalization" have the
+            value Enabled?</question_text>
+        </boolean_question>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:3" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Screen Saver timeout" located at "User
+            Configuration\Administrative Templates\Control Panel\Personalization" have the value
+            Enabled:900 seconds?</question_text>
+        </boolean_question>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:4" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Turn off Help Ratings" located at "User
+            Configuration\Administrative Templates\System\Internet Communication
+            Management\Internet Communication Settings" have the value Enabled?</question_text>
+        </boolean_question>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:5" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Do not preserve zone information in file
+            attachments" located at "User Configuration\Administrative Templates\Windows
+            Components\Attachment Manager" have the value Disabled?</question_text>
+        </boolean_question>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:6" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Hide mechanisms to remove zone information"
+            located at "User Configuration\Administrative Templates\Windows
+            Components\Attachment Manager" have the value Enabled?</question_text>
+        </boolean_question>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:7" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Notify antivirus programs when opening
+            attachments" located at "User Configuration\Administrative Templates\Windows
+            Components\Attachment Manager" have the value Enabled?</question_text>
+        </boolean_question>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:8" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Prevent users from sharing files within their
+            profile." located at "User Configuration\Administrative Templates\Windows
+            Components\Network Sharing" have the value Enabled?</question_text>
+        </boolean_question>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:9" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Network access: Named Pipes that can be accessed anonymously" 
+            located at "Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options" 
+            have no value (None)?</question_text>
+        </boolean_question>
+        <boolean_question default_answer="false" id="ocil:usgcb.win7.checklist:question:10" model="MODEL_TRUE_FALSE">
+          <notes/>
+          <question_text>Does the Windows setting "Network access: Shares that can be accessed anonymously
+            located at "Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options" 
+            have no value (None)?</question_text>
+        </boolean_question>
+      </questions>
+    </ocil>

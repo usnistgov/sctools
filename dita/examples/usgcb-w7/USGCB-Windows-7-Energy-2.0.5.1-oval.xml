@@ -1,0 +1,368 @@
+    <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" >
+      <generator>
+        <oval:product_name>National Institute of Standards and Technology</oval:product_name>
+        <oval:schema_version>5.8</oval:schema_version>
+        <oval:timestamp>2015-04-07T10:00:00.000-04:00</oval:timestamp>
+      </generator>
+      <!-- ==================================================================================================== -->
+      <!-- ==========================================  DEFINITIONS  =========================================== -->
+      <!-- ==================================================================================================== -->
+      <definitions>            
+        <definition class="compliance" id="oval:gov.nist.usgcb.windowsseven:def:20020" version="2">
+          <metadata>
+            <title>Specify the System Hibernate Timeout (On Battery)</title>
+            <affected family="windows">
+              <platform>Microsoft Windows 7</platform>
+            </affected>
+            <reference ref_id="CCE-13091-4" source="http://cce.mitre.org"/>
+            <description>Specifies the period of inactivity before Windows transitions the system to hibernate.</description>
+          </metadata>
+          <criteria operator="AND">
+            <extend_definition comment="Microsoft Windows 7 is installed" definition_ref="oval:gov.nist.cpe.oval:def:1"/>
+            <criterion comment="Specify the System Hibernate Timeout (On Battery)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:20020"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:gov.nist.usgcb.windowsseven:def:20021" version="2">
+          <metadata>
+            <title>Specify the System Hibernate Timeout (Plugged In)</title>
+            <affected family="windows">
+              <platform>Microsoft Windows 7</platform>
+            </affected>
+            <reference ref_id="CCE-13668-9" source="http://cce.mitre.org"/>
+            <description>Specifies the period of inactivity before Windows transitions the system to hibernate.</description>
+          </metadata>
+          <criteria operator="AND">
+            <extend_definition comment="Microsoft Windows 7 is installed" definition_ref="oval:gov.nist.cpe.oval:def:1"/>
+            <criterion comment="Specify the System Hibernate Timeout (Plugged In)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:20021"/>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:gov.nist.usgcb.windowsseven:def:20022" version="3">
+          <metadata>
+            <title>Turn off the Display (On Battery)</title>
+            <affected family="windows">
+              <platform>Microsoft Windows 7</platform>
+            </affected>
+            <reference ref_id="CCE-12924-7" source="http://cce.mitre.org"/>
+            <description>Specifies the period of inactivity before Windows turns off the display.</description>
+          </metadata>
+          <criteria operator="AND">
+            <extend_definition comment="Microsoft Windows 7 is installed" definition_ref="oval:gov.nist.cpe.oval:def:1"/>
+            <criteria comment="checking GPO Power Profile and Active Profile settings" operator="OR">
+              <criterion comment="Turn off the Display (On Battery)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:20022"/>
+              <criterion comment="Active Power Scheme: Turn off the Display (On Battery)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002201"/>
+            </criteria>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:gov.nist.usgcb.windowsseven:def:20023" version="3">
+          <metadata>
+            <title>Turn off the Display (Plugged In)</title>
+            <affected family="windows">
+              <platform>Microsoft Windows 7</platform>
+            </affected>
+            <reference ref_id="CCE-12393-5" source="http://cce.mitre.org"/>
+            <description>Specifies the period of inactivity before Windows turns off the display.</description>
+          </metadata>
+          <criteria operator="AND">
+            <extend_definition comment="Microsoft Windows 7 is installed" definition_ref="oval:gov.nist.cpe.oval:def:1"/>
+            <criteria comment="checking GPO Power Profile and Active Profile settings" operator="OR">
+              <criterion comment="Turn off the Display (Plugged In)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:20023"/>
+              <criterion comment="Active Power Scheme: Turn off the Display (Plugged In)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002301"/>
+            </criteria>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:gov.nist.usgcb.windowsseven:def:20024" version="1">
+          <metadata>
+            <title>Specify the System Hibernate\Sleep Timeout (On Battery)</title>
+            <affected family="windows">
+              <platform>Microsoft Windows 7</platform>
+            </affected>
+            <reference ref_id="CCE-13091-4" source="http://cce.mitre.org"/>
+            <reference ref_id="CCE-79403-2" source="http://cce.mitre.org"/>
+            <description>Specifies the period of inactivity before Windows transitions the system to hibernate or sleep.</description>
+          </metadata>
+          <criteria operator="AND">
+            <extend_definition comment="Microsoft Windows 7 is installed" definition_ref="oval:gov.nist.cpe.oval:def:1"/>
+            <criteria comment="checking GPO Power Profile and Active Profile settings" operator="OR">
+              <criteria comment="Specify the System Hibernate Timeout (On Battery) or Specify the System Sleep Timeout (On Battery)." operator="OR">
+                <criterion comment="Specify the System Hibernate Timeout (On Battery)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002400"/>
+                <criterion comment="Specify the System Sleep Timeout (On Battery)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002401"/>
+              </criteria>
+              <criteria comment="Active Power Scheme Settings" operator="OR">
+                <criterion comment="Active Power Scheme: Specify the System Hibernate Timeout (On Battery)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002402"/>
+                <criterion comment="Active Power Scheme: Specify the System Sleep Timeout (On Battery)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002404"/>
+              </criteria>
+            </criteria>
+          </criteria>
+        </definition>
+        <definition class="compliance" id="oval:gov.nist.usgcb.windowsseven:def:20025" version="1">
+          <metadata>
+            <title>Specify the System Hibernate\Sleep Timeout (Plugged In)</title>
+            <affected family="windows">
+              <platform>Microsoft Windows 7</platform>
+            </affected>
+            <reference ref_id="CCE-13668-9" source="http://cce.mitre.org"/>
+            <reference ref_id="CCE-79402-4" source="http://cce.mitre.org"/>
+            <description>Specifies the period of inactivity before Windows transitions the system to hibernate or sleep.</description>
+          </metadata>
+          <criteria operator="AND">
+            <extend_definition comment="Microsoft Windows 7 is installed" definition_ref="oval:gov.nist.cpe.oval:def:1"/>
+            <criteria comment="checking GPO Power Profile and Active Profile settings" operator="OR">
+              <criteria comment="Specify the System Hibernate Timeout (Plugged In) or Specify the System Sleep Timeout (Plugged In)." operator="OR">
+                <criterion comment="Specify the System Hibernate Timeout (Plugged In)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002500"/>
+                <criterion comment="Specify the System Sleep Timeout (Plugged In)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002501"/>
+              </criteria>
+              <criteria comment="Active Power Scheme Settings" operator="OR">
+                <criterion comment="Active Power Scheme: Specify the System Hibernate Timeout (Plugged In)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002502"/>
+                <criterion comment="Active Power Scheme: Specify the System Sleep Timeout (Plugged In)." test_ref="oval:gov.nist.usgcb.windowsseven:tst:2002504"/>
+              </criteria>
+            </criteria>
+          </criteria>
+        </definition>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~  EXTENDED DEFINITIONS  ~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <definition class="inventory" id="oval:gov.nist.cpe.oval:def:1" version="3">
+          <metadata>
+            <title>Microsoft Windows 7 is installed</title>
+            <affected family="windows">
+              <platform>Microsoft Windows 7</platform>
+            </affected>
+            <reference ref_id="cpe:/o:microsoft:windows_7" source="CPE"/>
+            <description>The operating system installed on the system is Microsoft Windows 7</description>
+          </metadata>
+          <criteria>
+            <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:org.mitre.oval:tst:99"/>
+            <criterion comment="Windows 7 is installed" test_ref="oval:org.mitre.oval:tst:10792"/>
+          </criteria>
+        </definition>
+      </definitions>
+      <!-- ==================================================================================================== -->
+      <!-- =============================================  TESTS  ============================================== -->
+      <!-- ==================================================================================================== -->
+      <tests>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="only one" check_existence="at_least_one_exists" comment="the installed operating system is part of the Microsoft Windows family" id="oval:org.mitre.oval:tst:99" version="1">
+          <object object_ref="oval:org.mitre.oval:obj:99"/>
+          <state state_ref="oval:org.mitre.oval:ste:99"/>
+        </family_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="at least one" check_existence="at_least_one_exists" comment="Windows 7 is installed" id="oval:org.mitre.oval:tst:10792" version="4">
+          <object object_ref="oval:org.mitre.oval:obj:5590"/>
+          <state state_ref="oval:org.mitre.oval:ste:5027"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Specify the System Hibernate Timeout (On Battery)" id="oval:gov.nist.usgcb.windowsseven:tst:20020" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:20020"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:20020"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Specify the System Hibernate Timeout (Plugged In)" id="oval:gov.nist.usgcb.windowsseven:tst:20021" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:20021"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:20021"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Turn off the Display (On Battery)" id="oval:gov.nist.usgcb.windowsseven:tst:20022" state_operator="AND" version="2">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:20022"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:20022"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002200"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Active Power Scheme: Turn off the Display (On Battery)" id="oval:gov.nist.usgcb.windowsseven:tst:2002201" state_operator="AND" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002201"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:20022"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002200"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Turn off the Display (Plugged In)" id="oval:gov.nist.usgcb.windowsseven:tst:20023" state_operator="AND" version="2">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:20023"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:20023"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002200"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Active Power Scheme: Turn off the Display (Plugged In)" id="oval:gov.nist.usgcb.windowsseven:tst:2002301" state_operator="AND" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002301"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:20023"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002200"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Specify the System Hibernate Timeout (On Battery)" id="oval:gov.nist.usgcb.windowsseven:tst:2002400" state_operator="AND" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:20020"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002400"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002402"/>
+        </registry_test>        
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Specify the System Sleep Timeout (On Battery)" id="oval:gov.nist.usgcb.windowsseven:tst:2002401" state_operator="AND" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002401"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002400"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002402"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Active Power Scheme: Specify the System Hibernate Timeout (On Battery)." id="oval:gov.nist.usgcb.windowsseven:tst:2002402" state_operator="AND" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002402"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002400"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002402"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Active Power Scheme: Specify the System Sleep Timeout (On Battery)." id="oval:gov.nist.usgcb.windowsseven:tst:2002404" state_operator="AND" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002404"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002400"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002402"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Specify the System Hibernate Timeout (Plugged In)" id="oval:gov.nist.usgcb.windowsseven:tst:2002500" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:20021"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002500"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Specify the System Sleep Timeout (Plugged In)" id="oval:gov.nist.usgcb.windowsseven:tst:2002501" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:20025"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002500"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Active Power Scheme: Specify the System Hibernate Timeout (Plugged In)." id="oval:gov.nist.usgcb.windowsseven:tst:2002502" state_operator="AND" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002502"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002500"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002402"/>
+        </registry_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Active Power Scheme: Specify the System Sleep Timeout (Plugged In)." id="oval:gov.nist.usgcb.windowsseven:tst:2002504" state_operator="AND" version="1">
+          <object object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002504"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002500"/>
+          <state state_ref="oval:gov.nist.usgcb.windowsseven:ste:2002402"/>
+        </registry_test>
+      </tests>
+      <!-- ==================================================================================================== -->
+      <!-- ============================================  OBJECTS  ============================================= -->
+      <!-- ==================================================================================================== -->
+      <objects>
+        <family_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="This is the default family object. Only one family object should exist." id="oval:org.mitre.oval:obj:99" version="1"/>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" comment="This registry key identifies the Windows ProductName" id="oval:org.mitre.oval:obj:5590" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key>SOFTWARE\Microsoft\Windows NT\CurrentVersion</key>
+          <name>ProductName</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:20020" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key>Software\Policies\Microsoft\Power\PowerSettings\9D7815A6-7EE4-497E-8888-515A05F02364</key>
+          <name>DCSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:20021" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key>Software\Policies\Microsoft\Power\PowerSettings\9D7815A6-7EE4-497E-8888-515A05F02364</key>
+          <name>ACSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:20022" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key>Software\Policies\Microsoft\Power\PowerSettings\3C0BC021-C8A8-4E07-A973-6B14CBCB2B7E</key>
+          <name>DCSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:2002201" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key var_check="at least one" var_ref="oval:gov.nist.usgcb.windowsseven:var:2002201"/>
+          <name>DCSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:20023" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key>Software\Policies\Microsoft\Power\PowerSettings\3C0BC021-C8A8-4E07-A973-6B14CBCB2B7E</key>
+          <name>ACSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:2002301" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key var_check="at least one" var_ref="oval:gov.nist.usgcb.windowsseven:var:2002201"/>
+          <name>ACSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:2002401" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key>SOFTWARE\Policies\Microsoft\Power\PowerSettings\29F6C1DB-86DA-48C5-9FDB-F2B67B1F44DA</key>
+          <name>DCSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:20025" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key>SOFTWARE\Policies\Microsoft\Power\PowerSettings\29F6C1DB-86DA-48C5-9FDB-F2B67B1F44DA</key>
+          <name>ACSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" comment="ActivePowerScheme GUID" id="oval:gov.nist.usgcb.windowsseven:obj:2002403" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key>SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes</key>
+          <name>ActivePowerScheme</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:2002402" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key var_check="at least one" var_ref="oval:gov.nist.usgcb.windowsseven:var:2002402"/>
+          <name>DCSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:2002404" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key var_check="at least one" var_ref="oval:gov.nist.usgcb.windowsseven:var:2002404"/>
+          <name>DCSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:2002502" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key var_check="at least one" var_ref="oval:gov.nist.usgcb.windowsseven:var:2002402"/>
+          <name>ACSettingIndex</name>
+        </registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:obj:2002504" version="1">
+          <hive>HKEY_LOCAL_MACHINE</hive>
+          <key var_check="at least one" var_ref="oval:gov.nist.usgcb.windowsseven:var:2002404"/>
+          <name>ACSettingIndex</name>
+        </registry_object>
+      </objects>
+      <!-- ==================================================================================================== -->
+      <!-- =============================================  STATES  ============================================= -->
+      <!-- ==================================================================================================== -->
+      <states>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Microsoft Windows family" id="oval:org.mitre.oval:ste:99" version="2">
+          <family operation="case insensitive equals">windows</family>
+        </family_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" comment="The registry key matches with Windows 7" id="oval:org.mitre.oval:ste:5027" version="4">
+          <value operation="pattern match">^[a-zA-Z0-9\(\)\s]*[Ww][Ii][Nn][Dd][Oo][Ww][Ss] 7[a-zA-Z0-9\(\)\s]*$</value>
+        </registry_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:ste:20020" version="1">
+          <type>reg_dword</type>
+          <value datatype="int" operation="less than or equal" var_ref="oval:gov.nist.usgcb.windowsseven:var:20020"/>
+        </registry_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:ste:20021" version="1">
+          <type>reg_dword</type>
+          <value datatype="int" operation="less than or equal" var_ref="oval:gov.nist.usgcb.windowsseven:var:20021"/>
+        </registry_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:ste:20022" version="1">
+          <type>reg_dword</type>
+          <value datatype="int" operation="less than or equal" var_ref="oval:gov.nist.usgcb.windowsseven:var:20022"/>
+        </registry_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:ste:20023" version="1">
+          <type>reg_dword</type>
+          <value datatype="int" operation="less than or equal" var_ref="oval:gov.nist.usgcb.windowsseven:var:20023"/>
+        </registry_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:ste:2002400" version="1">
+          <type>reg_dword</type>
+          <value datatype="int" operation="less than or equal" var_ref="oval:gov.nist.usgcb.windowsseven:var:20024"/>
+        </registry_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:ste:2002500" version="1">
+          <type>reg_dword</type>
+          <value datatype="int" operation="less than or equal" var_ref="oval:gov.nist.usgcb.windowsseven:var:20025"/>
+        </registry_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:ste:2002402" version="1">
+          <value datatype="int" operation="greater than">0</value>
+        </registry_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:gov.nist.usgcb.windowsseven:ste:2002200" version="1">
+          <value datatype="int" operation="greater than">0</value>
+        </registry_state>
+      </states>
+      <!-- ==================================================================================================== -->
+      <!-- ===========================================  VARIABLES  ============================================ -->
+      <!-- ==================================================================================================== -->
+      <variables>
+        <external_variable comment="Specify the System Hibernate Timeout (On Battery)" datatype="int" id="oval:gov.nist.usgcb.windowsseven:var:20020" version="1"/>
+        <external_variable comment="Specify the System Hibernate Timeout (Plugged In)" datatype="int" id="oval:gov.nist.usgcb.windowsseven:var:20021" version="1"/>
+        <external_variable comment="Turn off the Display (On Battery)" datatype="int" id="oval:gov.nist.usgcb.windowsseven:var:20022" version="1"/>
+        <local_variable comment="Registry Key Name for Turn Off Display After - 7516b95f-f776-4464-8c53-06167f40cc99" datatype="string" id="oval:gov.nist.usgcb.windowsseven:var:2002201" version="1">
+          <concat>
+            <literal_component datatype="string">SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\</literal_component>
+            <object_component item_field="value" object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002403"/>
+            <literal_component>\7516b95f-f776-4464-8c53-06167f40cc99\3c0bc021-c8a8-4e07-a973-6b14cbcb2b7e</literal_component>
+          </concat>
+        </local_variable>
+        <external_variable comment="Turn off the Display (Plugged In)" datatype="int" id="oval:gov.nist.usgcb.windowsseven:var:20023" version="1"/>
+        <external_variable comment="Specify the System Hibernate\Sleep Timeout (On Battery)" datatype="int" id="oval:gov.nist.usgcb.windowsseven:var:20024" version="1"/>
+        <external_variable comment="Specify the System Hibernate\Sleep Timeout (Plugged In)" datatype="int" id="oval:gov.nist.usgcb.windowsseven:var:20025" version="1"/>
+        <local_variable comment="Registry Key Name for Hibernate timeout - 9d7815a6-7ee4-497e-8888-515a05f02364" datatype="string" id="oval:gov.nist.usgcb.windowsseven:var:2002402" version="1">
+          <concat>
+            <literal_component datatype="string">SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\</literal_component>
+            <object_component item_field="value" object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002403"/>
+            <literal_component>\238c9fa8-0aad-41ed-83f4-97be242c8f20\9d7815a6-7ee4-497e-8888-515a05f02364</literal_component>
+          </concat>
+        </local_variable>
+        <local_variable comment="Registry Key Name for Sleep timeout - 29f6c1db-86da-48c5-9fdb-f2b67b1f44da" datatype="string" id="oval:gov.nist.usgcb.windowsseven:var:2002404" version="1">
+          <concat>
+            <literal_component datatype="string">SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes\</literal_component>
+            <object_component item_field="value" object_ref="oval:gov.nist.usgcb.windowsseven:obj:2002403"/>
+            <literal_component>\238c9fa8-0aad-41ed-83f4-97be242c8f20\29f6c1db-86da-48c5-9fdb-f2b67b1f44da</literal_component>
+          </concat>
+        </local_variable>
+      </variables>
+      <!-- ==================================================================================================== -->
+      <!-- ==================================================================================================== -->
+      <!-- ==================================================================================================== -->
+    </oval_definitions>

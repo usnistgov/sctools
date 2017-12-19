@@ -1,0 +1,166 @@
+    <xccdf:Benchmark xmlns:cdf="http://checklists.nist.gov/xccdf/1.1" xmlns:cpe2="http://cpe.mitre.org/language/2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" id="xccdf_gov.nist_benchmark_USGCB-Windows-7-Energy" resolved="0" style="SCAP_1.2" xml:lang="en-US">
+      <xccdf:status date="2015-04-07">accepted</xccdf:status>
+      <xccdf:title>USGCB: Guidance for Securing Microsoft Windows 7 energy settings</xccdf:title>
+      <xccdf:description>This guide has been created to assist IT professionals, in effectively configuring energy conserving settings on systems with Microsoft Windows 7</xccdf:description>
+      <xccdf:notice id="terms-of-use" xml:lang="en-US">Do not attempt to implement any of the settings in this guide
+        without first testing them in a non-operational environment. NIST assumes no responsibility whatsoever for its
+        use by other parties, and makes no guarantees, expressed or implied, about its quality, reliability, or any
+        other characteristic. NIST would appreciate acknowledgement if the document and template are
+        used.</xccdf:notice>
+      <xccdf:front-matter xml:lang="en-US">The Federal CIO council created the Technology Information Subcommittee 
+        (TIS) at the direction of OMB to govern, among other federal activities, the FDCC iniatitive. The TIS, based on 
+        federal agency input, selects platforms and applcations for federal implementation. The TIS also is the Change 
+        Control Board (CCB) for configuration settings. As stated in the Federal CIO Council Memo to federal agencies, 
+        "The USGCB settings replace the Federal Desktop Core Configuration (FDCC) settings and provide the 
+        recommended security baselines for Information Technology products widely deployed across the agencies."
+      </xccdf:front-matter>
+      <xccdf:rear-matter xml:lang="en-US">
+        <xhtml:strong>Trademark Information</xhtml:strong>
+        <xhtml:br/>
+        <xhtml:br/>Microsoft, Windows, Windows 7, Windows XP, Windows 
+        Vista, Internet Explorer, and Windows Firewall are either registered trademarks or trademarks of Microsoft 
+        Corporation in the United States and other countries.<xhtml:br/>
+        <xhtml:br/>All other names are registered trademarks or trademarks of
+        their respective companies.</xccdf:rear-matter>
+      <xccdf:reference href="https://web.nvd.nist.gov/view/ncp/repository/checklistDetail?id=295">
+        <dc:publisher>National Institute of Standards and Technology</dc:publisher>
+        <dc:identifier>SP 800-68</dc:identifier>
+      </xccdf:reference>
+      <xccdf:platform idref="cpe:/o:microsoft:windows_7"/>
+      <xccdf:version time="2015-04-07T10:00:00" update="http://usgcb.nist.gov">v2.0.5.1</xccdf:version>
+      <xccdf:metadata>
+        <publisher xmlns="http://purl.org/dc/elements/1.1/">National Institute of Standards and Technology</publisher>
+        <dc:creator>National Institute of Standards and Technology</dc:creator>
+        <dc:contributor>National Institute of Standards and Technology</dc:contributor>
+        <dc:source>http://alpha.nist.gov</dc:source>
+      </xccdf:metadata>
+      <xccdf:model system="urn:xccdf:scoring:default"/>
+      <xccdf:model system="urn:xccdf:scoring:flat"/>
+      <!-- ==================================================================================================== -->
+      <!-- =========================================  USGCB PROFILES  ========================================== -->
+      <!-- ==================================================================================================== -->
+      <!--                                                                                                      -->
+      <!-- These profiles outline the specific guidance outlined by the United States Government Configuration Baseline.     -->
+      <!-- Each defines the set of XCCDF rules that are applicable for that guidance as well as specific values -->
+      <!-- to be used when determining complinace.                                                              -->
+      <!--                                                                                                      -->
+      <xccdf:Profile id="xccdf_gov.nist_profile_united_states_government_configuration_baseline_version_2.0.5.1">
+        <xccdf:title>United States Government Configuration Baseline version 2.0.5.1</xccdf:title>
+        <xccdf:description>This profile represents guidance for energy conservation for Windows 7 on desktop systems.</xccdf:description>
+        <!-- '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' -->
+        <!-- '''  2 - USGCB Energy Settings                                                               ''' -->
+        <!-- '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' -->
+        <xccdf:select idref="xccdf_gov.nist_rule_Specify_the_System_Hibernate_or_Sleep_Timeout_On_Battery" selected="true"/>
+        <xccdf:select idref="xccdf_gov.nist_rule_Specify_the_System_Hibernate_or_Sleep_Timeout_Plugged_in" selected="true"/>
+        <xccdf:select idref="xccdf_gov.nist_rule_Turn_off_the_Display_On_Battery" selected="true"/>
+        <xccdf:select idref="xccdf_gov.nist_rule_Turn_off_the_Display_Plugged_In" selected="true"/>
+        <!-- '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' -->
+        <!-- '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' -->
+        <!-- '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' -->
+        <xccdf:refine-value idref="xccdf_gov.nist_value_Specify_the_System_Hibernate_or_Sleep_Timeout_On_Battery_var" selector="3600_Seconds"/>
+        <xccdf:refine-value idref="xccdf_gov.nist_value_Specify_the_System_Hibernate_or_Sleep_Timeout_Plugged_in_var" selector="3600_Seconds"/>
+        <xccdf:refine-value idref="xccdf_gov.nist_value_Turn_off_the_Display_On_Battery_var" selector="1200_seconds"/>
+        <xccdf:refine-value idref="xccdf_gov.nist_value_Turn_off_the_Display_Plugged_In_var" selector="1200_seconds"/>
+      </xccdf:Profile>
+      <!-- ==================================================================================================== -->
+      <!-- =====================================  USGCB SECURITY GUIDANCE  ===================================== -->
+      <!-- ==================================================================================================== -->
+      <!--                                                                                                      -->
+      <!-- The following groups represent the collection of USGCB guidance for Microsoft Windows 7 Energy settings. -->
+      <!--                                                                                                      -->
+      <!-- **************************************************************************************************** -->
+      <!-- ***  1 - Introduction                                                                                            *** -->
+      <!-- **************************************************************************************************** -->
+      <xccdf:Group id="xccdf_gov.nist_group_introduction">
+        <xccdf:title>Introduction</xccdf:title>
+        <xccdf:description>This guide has been created to assist federal agencies in configuring systems running Microsoft Windows 7 with energy conservation recommended by the EPA.Under the direction of OMB and in collaboration with DHS, DISA, NSA, USAF, and Microsoft, NIST has provided the following baseline to help agencies test, implement, and deploy the Microsoft Windows 7 United States Government Configuration Baseline (USGCB) baseline. The United States Government Configuration Baseline (USGCB) is an OMB-mandated security configuration.Please refer to the USGCB home page for additional information. http://USGCB.nist.gov</xccdf:description>
+      </xccdf:Group>
+      <!-- **************************************************************************************************** -->
+      <!-- ***  2 - USGCB Energy Settings                                                                        *** -->
+      <!-- **************************************************************************************************** -->      
+      <xccdf:Group id="xccdf_gov.nist_group_USGCB_energy_settings">
+        <xccdf:title>USGCB Energy Settings</xccdf:title>
+        <xccdf:description>USGCB has identified the following additional controls that must be checked in order to verify compliance.</xccdf:description>
+        <xccdf:Value id="xccdf_gov.nist_value_Specify_the_System_Hibernate_or_Sleep_Timeout_On_Battery_var" operator="less than or equal" type="number">
+          <xccdf:title>Specify the System Hibernate\Sleep Timeout (On Battery)</xccdf:title>
+          <xccdf:description>Specifies the period of inactivity before Windows transitions the system to hibernate or sleep.</xccdf:description>
+          <xccdf:value>3600</xccdf:value>
+          <xccdf:value selector="3600_Seconds">3600</xccdf:value>
+        </xccdf:Value>
+        <xccdf:Value id="xccdf_gov.nist_value_Specify_the_System_Hibernate_or_Sleep_Timeout_Plugged_in_var" operator="less than or equal" type="number">
+          <xccdf:title>Specify the System Hibernate\Sleep Timeout (Plugged In)</xccdf:title>
+          <xccdf:description>Specifies the period of inactivity before Windows transitions the system to hibernate or sleep.</xccdf:description>
+          <xccdf:value>3600</xccdf:value>
+          <xccdf:value selector="3600_Seconds">3600</xccdf:value>
+        </xccdf:Value>
+        <xccdf:Value id="xccdf_gov.nist_value_Turn_off_the_Display_On_Battery_var" operator="less than or equal" type="number">
+          <xccdf:title>Turn off the Display (On Battery)</xccdf:title>
+          <xccdf:description>Specifies the period of inactivity before Windows turns off the display.</xccdf:description>
+          <xccdf:value>1200</xccdf:value>
+          <xccdf:value selector="1200_seconds">1200</xccdf:value>
+        </xccdf:Value>
+        <xccdf:Value id="xccdf_gov.nist_value_Turn_off_the_Display_Plugged_In_var" operator="less than or equal" type="number">
+          <xccdf:title>Turn off the Display (Plugged In)</xccdf:title>
+          <xccdf:description>Specifies the period of inactivity before Windows turns off the display.</xccdf:description>
+          <xccdf:value>1200</xccdf:value>
+          <xccdf:value selector="1200_seconds">1200</xccdf:value>
+        </xccdf:Value>
+        <xccdf:Rule id="xccdf_gov.nist_rule_Specify_the_System_Hibernate_or_Sleep_Timeout_On_Battery" selected="false" weight="10.0">
+          <xccdf:title>Specify the System Hibernate\Sleep Timeout (On Battery)</xccdf:title>
+          <xccdf:description>Specifies the period of inactivity before Windows transitions the system to hibernate or sleep.</xccdf:description>
+          <xccdf:reference>
+            <dc:type>GPO</dc:type>
+            <dc:source>Computer Configuration\Administrative Templates\System\Power Management\Sleep Settings</dc:source>
+          </xccdf:reference>
+          <xccdf:ident system="http://cce.mitre.org">CCE-13091-4</xccdf:ident>
+          <xccdf:ident system="http://cce.mitre.org">CCE-79403-2</xccdf:ident>
+          <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+            <xccdf:check-export export-name="oval:gov.nist.usgcb.windowsseven:var:20024" value-id="xccdf_gov.nist_value_Specify_the_System_Hibernate_or_Sleep_Timeout_On_Battery_var"/>
+            <xccdf:check-content-ref href="USGCB-Windows-7-Energy-2.0.5.1-oval.xml" name="oval:gov.nist.usgcb.windowsseven:def:20024"/>
+          </xccdf:check>
+        </xccdf:Rule>
+        <xccdf:Rule id="xccdf_gov.nist_rule_Specify_the_System_Hibernate_or_Sleep_Timeout_Plugged_in" selected="false" weight="10.0">
+          <xccdf:title>Specify the System Hibernate\Sleep Timeout (Plugged In)</xccdf:title>
+          <xccdf:description>Specifies the period of inactivity before Windows transitions the system to hibernate or sleep.</xccdf:description>
+          <xccdf:reference>
+            <dc:type>GPO</dc:type>
+            <dc:source>Computer Configuration\Administrative Templates\System\Power Management\Sleep Settings</dc:source>
+          </xccdf:reference>
+          <xccdf:ident system="http://cce.mitre.org">CCE-13668-9</xccdf:ident>
+          <xccdf:ident system="http://cce.mitre.org">CCE-79402-4</xccdf:ident>
+          <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+            <xccdf:check-export export-name="oval:gov.nist.usgcb.windowsseven:var:20025" value-id="xccdf_gov.nist_value_Specify_the_System_Hibernate_or_Sleep_Timeout_Plugged_in_var"/>
+            <xccdf:check-content-ref href="USGCB-Windows-7-Energy-2.0.5.1-oval.xml" name="oval:gov.nist.usgcb.windowsseven:def:20025"/>
+          </xccdf:check>
+        </xccdf:Rule>
+        <xccdf:Rule id="xccdf_gov.nist_rule_Turn_off_the_Display_On_Battery" selected="false" weight="10.0">
+          <xccdf:title>Turn off the Display (On Battery)</xccdf:title>
+          <xccdf:description>Specifies the period of inactivity before Windows transitions the system to hibernate.</xccdf:description>
+          <xccdf:reference>
+            <dc:type>GPO</dc:type>
+            <dc:source>Computer Configuration\Administrative Templates\System\Power Management\Video and Display Settings</dc:source>
+          </xccdf:reference>
+          <xccdf:ident system="http://cce.mitre.org">CCE-12924-7</xccdf:ident>
+          <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+            <xccdf:check-export export-name="oval:gov.nist.usgcb.windowsseven:var:20022" value-id="xccdf_gov.nist_value_Turn_off_the_Display_On_Battery_var"/>
+            <xccdf:check-content-ref href="USGCB-Windows-7-Energy-2.0.5.1-oval.xml" name="oval:gov.nist.usgcb.windowsseven:def:20022"/>
+          </xccdf:check>
+        </xccdf:Rule>
+        <xccdf:Rule id="xccdf_gov.nist_rule_Turn_off_the_Display_Plugged_In" selected="false" weight="10.0">
+          <xccdf:title>Turn off the Display (Plugged In)</xccdf:title>
+          <xccdf:description>Specifies the period of inactivity before Windows turns off the display.</xccdf:description>
+          <xccdf:reference>
+            <dc:type>GPO</dc:type>
+            <dc:source>Computer Configuration\Administrative Templates\System\Power Management\Video and Display Settings</dc:source>
+          </xccdf:reference>
+          <xccdf:ident system="http://cce.mitre.org">CCE-12393-5</xccdf:ident>
+          <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+            <xccdf:check-export export-name="oval:gov.nist.usgcb.windowsseven:var:20023" value-id="xccdf_gov.nist_value_Turn_off_the_Display_Plugged_In_var"/>
+            <xccdf:check-content-ref href="USGCB-Windows-7-Energy-2.0.5.1-oval.xml" name="oval:gov.nist.usgcb.windowsseven:def:20023"/>
+          </xccdf:check>
+        </xccdf:Rule>
+      </xccdf:Group>
+      <!-- ==================================================================================================== -->
+      <!-- ==================================================================================================== -->
+      <!-- ==================================================================================================== -->
+    </xccdf:Benchmark>

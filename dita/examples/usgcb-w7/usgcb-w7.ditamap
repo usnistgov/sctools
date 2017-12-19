@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scapDataStreamCollection PUBLIC 
+"urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
+"scapDataStreamCollection.dtd">
+<scapDataStreamCollection id="USGCB-Windows-7-2.0.5.1-Combined" schematronVersion="1.0" reverseDNS="gov.nist">
+    <keydef keys="xccdf" href="xccdf.xml"/>
+    <keydef keys="energy-xccdf" href="energy-xccdf.xml"/>
+    <keydef keys="oval" href="USGCB-Windows-7-2.0.5.1-oval.xml"/>
+    <keydef keys="energy-oval" href="USGCB-Windows-7-Energy-2.0.5.1-oval.xml"/>
+    <keydef keys="cpe-oval" href="USGCB-Windows-7-2.0.5.1-cpe-oval.xml"/>
+    <keydef keys="energy-cpe-oval" href="USGCB-Windows-7-Energy-2.0.5.1-cpe-oval.xml"/>
+    <keydef keys="ocil" href="USGCB-Windows-7-2.0.5.1-OCIL.xml"/>
+    <keydef keys="patches" href="USGCB-Windows-7-2.0.5.1-patches.xml"/>
+    <keydef keys="cpedict" href="cpe-dictionary.xml"/>
+    <keydef keys="energy-cpedict" href="energy-cpe-dictionary.xml"/>
+    <scapDataStream id="USGCB-Windows-7-Energy-2.0.5.1" scapVersion="1.2" useCase="CONFIGURATION">
+        <scapDictionaries>
+            <scapCpeListRef keyref="energy-cpedict">
+                <scapExternalLinks>
+                    <scapUri keyref="energy-cpe-oval"/>
+                </scapExternalLinks>
+            </scapCpeListRef>
+        </scapDictionaries>
+        <scapChecklists>
+            <scapBenchmarkRef keyref="energy-xccdf">
+                <scapExternalLinks>
+                    <scapUri keyref="energy-oval"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
+        <scapChecks>
+            <scapOvalRef keyref="energy-oval"/>
+            <scapOvalRef keyref="energy-cpe-oval"/>
+        </scapChecks>
+    </scapDataStream>
+    <scapDataStream id="USGCB-Windows-7-2.0.5.1" scapVersion="1.2" useCase="CONFIGURATION">
+        <scapDictionaries>
+            <scapCpeListRef keyref="cpedict">
+                <scapExternalLinks>
+                    <scapUri keyref="cpe-oval"/>
+                </scapExternalLinks>
+            </scapCpeListRef>
+        </scapDictionaries>
+        <scapChecklists>
+            <scapBenchmarkRef keyref="xccdf">
+                <scapExternalLinks>
+                    <scapUri keyref="oval"/>
+                    <scapUri keyref="patches"/>
+                    <scapUri keyref="ocil"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
+        <scapChecks>
+            <scapOcilRef keyref="ocil"/>
+            <scapOvalRef keyref="oval"/>
+            <scapOvalRef keyref="patches"/>
+            <scapOvalRef keyref="cpe-oval"/> 
+        </scapChecks>
+    </scapDataStream>
+</scapDataStreamCollection>

@@ -1,0 +1,44 @@
+    <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" >
+      <generator>
+        <oval:product_name>National Institute of Standards and Technology</oval:product_name>
+        <oval:schema_version>5.6</oval:schema_version>
+        <oval:timestamp>2015-04-07T10:00:00.000-04:00</oval:timestamp>
+      </generator>
+      <definitions>
+        <definition class="patch" id="oval:gov.nist.fdcc.patch:def:10000" version="2">
+          <metadata>
+            <title>Use the Windows Update Agent (WUA) to check for installed updates</title>
+            <affected family="windows">
+              <platform>Microsoft Windows XP</platform>
+              <platform>Microsoft Windows Server 2003</platform>
+              <platform>Microsoft Windows Vista</platform>
+              <platform>Microsoft Windows Server 2008</platform>
+              <platform>Microsoft Windows 7</platform>
+              <platform>Microsoft Windows Server 2008 R2</platform>
+            </affected>
+            <description>Use the Windows Update Agent (WUA) to check for installed updates</description>
+          </metadata>
+          <criteria operator="AND">
+            <criterion comment="Use the Windows Update Agent (WUA) to check for installed updates" test_ref="oval:gov.nist.fdcc.patch:tst:10000"/>
+          </criteria>
+        </definition>
+      </definitions>
+      <tests>
+        <wuaupdatesearcher_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="at least one" check_existence="at_least_one_exists" comment="Checks to see if updates are installed via WUA" id="oval:gov.nist.fdcc.patch:tst:10000" version="2">
+          <object object_ref="oval:gov.nist.fdcc.patch:obj:10000"/>
+          <state state_ref="oval:gov.nist.fdcc.patch:ste:10000"/>
+        </wuaupdatesearcher_test>
+      </tests>
+      <objects>
+        <wuaupdatesearcher_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" comment="This object checks for installed updates via  WUA" id="oval:gov.nist.fdcc.patch:obj:10000" version="2">
+          <!-- Note that the search critieria must be enclosed in paranthesis if you wish to include more than 1 parameter. Examples on MSDN show use of single quotes inside and outside of the paranthesis however this is the format that OVALdi will process-->
+          <!-- SecurityUpdates category has GUID: 0FA1201D-4330-4FA8-8AE9-B877473B6441 -->
+          <search_criteria>(IsInstalled=0 and IsHidden=0 and CategoryIDs contains '0FA1201D-4330-4FA8-8AE9-B877473B6441')</search_criteria>
+        </wuaupdatesearcher_object>
+      </objects>
+      <states>
+        <wuaupdatesearcher_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" comment="This state will search for all updates" id="oval:gov.nist.fdcc.patch:ste:10000" version="1">
+          <update_id entity_check="at least one" operation="pattern match">.*</update_id>
+        </wuaupdatesearcher_state>
+      </states>
+    </oval_definitions>
