@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xccdf:Tailoring xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 ../../../../../../OneDrive%20-%20National%20Institute%20of%20Standards%20and%20Technology%20(NIST)/doc/xccdf_1.2/xccdf_1.2.xsd"
+ xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" id="xccdf_scap-workbench_tailoring_default">
+  <!-- Benchmark component ref hard-coded because SCAP tools aren't required to do XML Catalog 
+  resolution -->
+  <xccdf:benchmark href="#scap_org.cisecurity.benchmarks_cref_xccdf"/>
+  <xccdf:version time="2017-12-20T15:10:48">1</xccdf:version>
+  <xccdf:Profile id="xccdf_org.cisecurity.benchmarks_profile_Level_1_customized" extends="xccdf_org.cisecurity.benchmarks_profile_Level_1">
+    <xccdf:title xmlns:xhtml="http://www.w3.org/1999/xhtml" xml:lang="en" override="true">Level 1 [CUSTOMIZED]</xccdf:title>
+    <xccdf:description xmlns:xhtml="http://www.w3.org/1999/xhtml" xml:lang="en" override="true">
+      <xhtml:p>This profile modifies the "Level 1" profile as follows:</xhtml:p>
+               <xhtml:ul>
+                  <xhtml:li>Minimum password length is 12 characters;</xhtml:li>
+                  <xhtml:li>OneDrive for file storage is enabled.</xhtml:li>
+               </xhtml:ul>
+            </xccdf:description>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_2.3.14_System_cryptography" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.5.5_Fonts" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.5.9_Link-Layer_Topology_Discovery" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.5.19.2_Parameters" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.5.20_Windows_Connect_Now" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.6.1_Device_Installation_Restrictions" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.6_Device_Installation" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.21.1_Internet_Communication_settings" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.21_Internet_Communication_Management" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.24_Kerberos" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.25_Locale_Services" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.41.5_Microsoft_Support_Diagnostic_Tool" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.41.11_Windows_Performance_PerfTrack" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.43_User_Profiles" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.46.1_Time_Providers" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.8.46_Windows_Time_Service" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.4_App_Package_Deployment" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.11.1_Fixed_Data_Drives" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.11.2_Operating_System_Drives" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.11.3_Removable_Data_Drives" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.11_BitLocker_Drive_Encryption" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.12_Camera" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.54.3.2_Connections" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.54.3.10_Session_Time_Limits" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.61_Software_Protection_Platform" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.72.3_MAPS" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.72.9_Reporting" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.92_Windows_Remote_Shell" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_19.6.5.1_Internet_Communication_settings" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_19.6.5_Internet_Communication_Management" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_19.7.44.2_Playback" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_rule_18.9.49.1_L1_Ensure_Prevent_the_usage_of_OneDrive_for_file_storage_is_set_to_Enabled" selected="false"/>
+    <xccdf:select idref="xccdf_org.cisecurity.benchmarks_group_18.9.49_OneDrive_formerly_SkyDrive" selected="false"/>
+    <xccdf:set-value idref="xccdf_org.cisecurity.benchmarks_value_1.1.4.1_var">12</xccdf:set-value>
+  </xccdf:Profile>
+</xccdf:Tailoring>

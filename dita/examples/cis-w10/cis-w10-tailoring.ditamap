@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scapDataStreamCollection PUBLIC 
+"urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
+"scapDataStreamCollection.dtd">
+<scapDataStreamCollection format="ditamap" reverseDNS="org.cisecurity.benchmarks" id="w10" 
+    schematronVersion="1.2">
+    <keydef keys="oval" 
+        href="CIS_Microsoft_Windows_10_Enterprise_Release_1703_Benchmark_v1.3.0-oval.xml"/>
+    <keydef keys="xccdf" 
+        href="CIS_Microsoft_Windows_10_Enterprise_Release_1703_Benchmark_v1.3.0-xccdf.xml"/>
+    <keydef keys="cpe-oval" 
+        href="CIS_Microsoft_Windows_10_Enterprise_Release_1703_Benchmark_v1.3.0-cpe-oval.xml"/>
+    <keydef keys="cpedict" 
+        href="CIS_Microsoft_Windows_10_Enterprise_Release_1703_Benchmark_v1.3.0-cpe-dictionary.xml"/>
+    <keydef keys="tailoring" href="cis-w10-tailoring.xml"/>
+    <scapDataStream id="datastream_w10" scapVersion="1.3" useCase="CONFIGURATION">
+        <scapDictionaries>
+            <scapCpeListRef keyref="cpedict">
+                <scapExternalLinks>
+                    <scapUri keyref="cpe-oval"/>
+                </scapExternalLinks>
+            </scapCpeListRef>
+        </scapDictionaries>
+        <scapChecklists>
+            <scapTailoringRef keyref="tailoring">
+                <scapExternalLinks>
+                    <scapUri keyref="xccdf"/>
+                </scapExternalLinks>
+            </scapTailoringRef>            
+            <scapBenchmarkRef keyref="xccdf">
+                <scapExternalLinks>
+                    <scapUri keyref="oval"/>
+                 </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
+        <scapChecks>
+            <scapOvalRef keyref="oval"/>
+            <scapOvalRef keyref="cpe-oval"/>
+         </scapChecks>
+    </scapDataStream>
+</scapDataStreamCollection>
