@@ -2,7 +2,7 @@
 <!DOCTYPE scapDataStreamCollection PUBLIC 
 "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
 "scapDataStreamCollection.dtd">
-<scapDataStreamCollection format="ditamap" reverseDNS="com.example" id="rhel7" 
+<scapDataStreamCollection format="ditamap" reverseDNS="com.example" scapName="rhel7" 
     schematronVersion="1.2">
     <title>RHEL7 SCAP Data Stream Collection</title>
     <keydef keys="cpe_dictionary" href="rhel7-cpe-dict.xml"/>
@@ -13,7 +13,7 @@
     <keydef keys="xccdf_pcidss" href="rhel7-pcidss-xccdf.xml"/>
     <keydef keys="oval000" href="rhel7-oval000.xml"/>
     <keydef keys="ocil000" href="rhel7-ocil000.xml"/>
-    <scapDataStream id="datastream_from_xccdf_ssg_rhel7_xccdf_1.2.xml" scapVersion="1.2" useCase="OTHER">
+    <scapDataStream scapName="datastream_from_xccdf_ssg_rhel7_xccdf_1.2.xml" scapVersion="1.2" useCase="OTHER">
         <scapDictionaries>
             <scapCpeListRef keyref="cpe_dictionary">
                 <scapExternalLinks>

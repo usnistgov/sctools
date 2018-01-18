@@ -2,11 +2,11 @@
 <!DOCTYPE scapDataStreamCollection PUBLIC 
 "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
 "scapDataStreamCollection.dtd">
-<scapDataStreamCollection format="ditamap" reverseDNS="com.example" id="apparmor" 
+<scapDataStreamCollection format="ditamap" reverseDNS="com.example" scapName="apparmor" 
     schematronVersion="1.2">
     <keydef keys="xccdf_apparmor" href="xenial-apparmor-xccdf.xml"/>
     <keydef keys="oval_apparmor" href="xenial-apparmor-oval.xml"/>
-    <scapDataStream id="xenial_apparmor" scapVersion="1.3" useCase="CONFIGURATION">
+    <scapDataStream scapName="xenial_apparmor" scapVersion="1.3" useCase="CONFIGURATION">
         <scapChecklists>
             <scapBenchmarkRef keyref="xccdf_apparmor">
                 <scapExternalLinks>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ======================================
-     Constraint Domain: Require schematronVersion, reverseDNS, and id attributes 
+     Constraint Domain: Require schematronVersion, reverseDNS, and scapName attributes 
      for scapDataStreamCollection element. Require scapVersion, useCase, 
-     and id attributes for scapDataStream element.
+     and scapName attributes for scapDataStream element.
      
      Joshua Lubell
      
@@ -178,8 +178,8 @@
               "title
                           CDATA
                                     #IMPLIED
-               id
-                          ID
+               scapName
+                          NMTOKEN
                                     #REQUIRED
                schematronVersion CDATA #REQUIRED
                reverseDNS NMTOKEN #REQUIRED
@@ -196,8 +196,8 @@
                "
 >
 <!ENTITY % scapDataStream.attributes
-              "id
-                          ID
+              "scapName
+                          NMTOKEN
                                     #REQUIRED
                scapVersion ( 1.3 | 1.2 | 1.1 | 1.0 )  #REQUIRED
                useCase ( CONFIGURATION | VULNERABILITY | INVENTORY | OTHER ) #REQUIRED

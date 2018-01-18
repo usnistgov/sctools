@@ -84,6 +84,11 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
 <!--             DOMAIN ATTRIBUTES DECLARATIONS                    -->
 <!-- ============================================================= -->
 
+<!ENTITY % scapName-d-dec     
+  SYSTEM "scapNameAttDomain.ent"                                                
+>
+%scapName-d-dec;
+
 <!ENTITY % reverseDNS-d-dec     
   SYSTEM "reverseDNSAttDomain.ent"                                                
 >
@@ -141,6 +146,7 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
 
 <!ENTITY % props-attribute-extensions
   "
+  %scapName-d-attribute;
   %reverseDNS-d-attribute;
   %schematronVersion-d-attribute;
   %useCase-d-attribute;
@@ -165,6 +171,7 @@ PUBLIC "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection"
                            &hazard-d-att;
                            &hi-d-att;
                            &ut-d-att;
+                           &scapName-d-att;
                            &reverseDNS-d-att;
                            &schematronVersion-d-att;
                            &useCase-d-att;

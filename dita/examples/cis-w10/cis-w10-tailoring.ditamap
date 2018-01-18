@@ -2,7 +2,7 @@
 <!DOCTYPE scapDataStreamCollection PUBLIC 
 "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
 "scapDataStreamCollection.dtd">
-<scapDataStreamCollection format="ditamap" reverseDNS="org.cisecurity.benchmarks" id="w10" 
+<scapDataStreamCollection format="ditamap" reverseDNS="org.cisecurity.benchmarks" scapName="w10" 
     schematronVersion="1.2">
     <keydef keys="oval" 
         href="CIS_Microsoft_Windows_10_Enterprise_Release_1703_Benchmark_v1.3.0-oval.xml"/>
@@ -13,7 +13,7 @@
     <keydef keys="cpedict" 
         href="CIS_Microsoft_Windows_10_Enterprise_Release_1703_Benchmark_v1.3.0-cpe-dictionary.xml"/>
     <keydef keys="tailoring" href="cis-w10-tailoring.xml"/>
-    <scapDataStream id="datastream_w10" scapVersion="1.3" useCase="CONFIGURATION">
+    <scapDataStream scapName="datastream_w10" scapVersion="1.3" useCase="CONFIGURATION">
         <scapDictionaries>
             <scapCpeListRef keyref="cpedict">
                 <scapExternalLinks>

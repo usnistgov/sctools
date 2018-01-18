@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % scapName-d-attribute 
+  "scapName 
+    NMTOKEN 
+    #IMPLIED
+  "
+>
+<!ENTITY scapName-d-att
+   "a(props  scapName)"
+>

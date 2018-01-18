@@ -25,7 +25,7 @@
         @class, 
         ' scapDataStreamCollection/scapDataStreamCollection ')]">
         <sds:data-stream-collection 
-            id="{nist:scap-id('collection', @id)}"
+            id="{nist:scap-id('collection', @scapName)}"
             schematron-version="{@schematronVersion}">
             <xsl:apply-templates select="*[contains(
                 @class,
@@ -41,7 +41,7 @@
         @class,
         ' scapDataStream-d/scapDataStream ')]">
         <sds:data-stream 
-            id="{nist:scap-id('datastream', @id)}"
+            id="{nist:scap-id('datastream', @scapName)}"
             scap-version="{@scapVersion}" 
             timestamp="{fn:current-dateTime()}" 
             use-case="{@useCase}">
