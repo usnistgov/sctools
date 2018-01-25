@@ -72,7 +72,7 @@ ORIGINAL CREATION DATE:
   <div>
       <a:documentation>ROOT ELEMENT DECLARATION</a:documentation>
       <start>
-         <ref name="map.element"/>
+         <ref name="scapDataStreamCollection.element"/>
       </start>
   </div>
   <div>
@@ -89,13 +89,28 @@ ORIGINAL CREATION DATE:
                          (topic indexing-d)
                          (map mapgroup-d)
                          (topic ut-d)
-                         a(props deliveryTarget)"/>
+                         (map scapDataStream-d)
+                         a(props deliveryTarget)
+                         a(props  reverseDNS)
+                         a(props  scapName)
+                         a(props  schematronVersion)
+                         a(props  useCase)
+                         a(props  scapVersion)
+                         (scapDataStreamCollection scapDataStreamCollection-c)"/>
          </optional>
       </define>
 
 
   </div>
-  <div>
+   <div>
+      <a:documentation>CONTENT CONSTRAINT INTEGRATION</a:documentation>
+      <include href="scapDataStreamCollectionConstraintsMod.rng">
+         <define name="task-info-types">
+            <ref name="task.element"/>
+         </define>            
+      </include>
+   </div>
+   <div>
       <a:documentation>MODULE INCLUSIONS</a:documentation>
 
      <include href="mapMod.rng"/>
@@ -107,6 +122,7 @@ ORIGINAL CREATION DATE:
      <include href="hazardstatementDomain.rng"/>
      <include href="highlightDomain.rng"/>
      <include href="utilitiesDomain.rng"/>
+     <include href="scapDataStreamDomainMod.rng"/>
   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
