@@ -59,11 +59,7 @@ ORIGINAL CREATION DATE:
          <moduleShortName>scapDataStreamCollection</moduleShortName>
          <shellPublicIds>
             <dtdShell>urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection</dtdShell>
-            <xsdShell>urn:oasis:names:tc:dita:xsd:scapDataStreamCollection.xsd<var presep=":" name="ditaver"/>
-            </xsdShell>
-            <rncShell>urn:oasis:names:tc:dita:rnc:scapDataStreamCollection.rnc<var presep=":" name="ditaver"/>
-            </rncShell>
-            <rngShell>urn:oasis:names:tc:dita:rng:scapDataStreamCollection.rng<var presep=":" name="ditaver"/>
+            <rngShell>urn:pubid:scap:nist:gov:rng:scapDataStreamCollection.rng<var presep=":" name="ditaver"/>
             </rngShell>
          </shellPublicIds>
       </moduleMetadata>
@@ -72,7 +68,7 @@ ORIGINAL CREATION DATE:
   <div>
       <a:documentation>ROOT ELEMENT DECLARATION</a:documentation>
       <start>
-         <ref name="map.element"/>
+         <ref name="scapDataStreamCollection.element"/>
       </start>
   </div>
   <div>
@@ -89,25 +85,40 @@ ORIGINAL CREATION DATE:
                          (topic indexing-d)
                          (map mapgroup-d)
                          (topic ut-d)
-                         a(props deliveryTarget)"/>
+                         (map scapDataStream-d)
+                         a(props deliveryTarget)
+                         a(props  reverseDNS)
+                         a(props  scapName)
+                         a(props  schematronVersion)
+                         a(props  useCase)
+                         a(props  scapVersion)
+                         (scapDataStreamCollection scapDataStreamCollection-c)"/>
          </optional>
       </define>
-
-
   </div>
-  <div>
+   <div>
+      <a:documentation>CONTENT CONSTRAINT INTEGRATION</a:documentation>
+      <include href="scapDataStreamCollectionConstraintsMod.rng"/>     
+   </div>
+   <div>
       <a:documentation>MODULE INCLUSIONS</a:documentation>
-
-     <include href="mapMod.rng"/>
-     <include href="mapGroupDomain.rng"/>
-     <include href="delayResolutionDomain.rng"/>
-     <include href="deliveryTargetAttDomain.rng" dita:since="1.3"/>
-     <include href="ditavalrefDomain.rng" dita:since="1.3"/>
-     <include href="indexingDomain.rng"/>
-     <include href="hazardstatementDomain.rng"/>
-     <include href="highlightDomain.rng"/>
-     <include href="utilitiesDomain.rng"/>
-  </div>
+      <include href="mapMod.rng"/>
+      <include href="mapGroupDomain.rng"/>
+      <include href="delayResolutionDomain.rng"/>
+      <include href="deliveryTargetAttDomain.rng" dita:since="1.3"/>
+      <include href="ditavalrefDomain.rng" dita:since="1.3"/>
+      <include href="indexingDomain.rng"/>
+      <include href="hazardstatementDomain.rng"/>
+      <include href="highlightDomain.rng"/>
+      <include href="utilitiesDomain.rng"/>
+      <include href="scapDataStreamCollectionMod.rng"/>
+      <include href="scapDataStreamDomainMod.rng"/>
+      <include href="reverseDNSAttDomainMod.rng"/>
+      <include href="scapNameAttDomainMod.rng"/>
+      <include href="schematronVersionAttDomainMod.rng"/>
+      <include href="useCaseAttDomainMod.rng"/>
+      <include href="scapVersionAttDomainMod.rng"/>
+   </div>
   <div>
       <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
 

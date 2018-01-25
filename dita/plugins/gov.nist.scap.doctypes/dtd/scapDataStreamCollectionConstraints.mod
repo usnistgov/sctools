@@ -2,7 +2,8 @@
 <!-- ======================================
      Constraint Domain: Require schematronVersion, reverseDNS, and scapName attributes 
      for scapDataStreamCollection element. Require scapVersion, useCase, 
-     and scapName attributes for scapDataStream element.
+     and scapName attributes for scapDataStream element. Constrain keydef attributes such
+     that navtitle defaults to 'SCAP Component' and format defaults to 'XML'.
      
      Joshua Lubell
      
