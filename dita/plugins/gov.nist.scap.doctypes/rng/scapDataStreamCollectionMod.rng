@@ -56,276 +56,40 @@ ORIGINAL CREATION DATE:
   </moduleDesc>
   <div>
     <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
-    <define name="abbrevlist">
-      <ref name="abbrevlist.element"/>
+    <define name="scapDataStreamCollection">
+      <ref name="scapDataStreamCollection.element"/>
     </define>
-    <define name="bookabstract">
-      <ref name="bookabstract.element"/>
-    </define>
-    <define name="amendments">
-      <ref name="amendments.element"/>
-    </define>
-    <define name="appendices">
-      <ref name="appendices.element"/>
-    </define>
-    <define name="appendix">
-      <ref name="appendix.element"/>
-    </define>
-    <define name="approved">
-      <ref name="approved.element"/>
-    </define>
-    <define name="backmatter">
-      <ref name="backmatter.element"/>
-    </define>
-    <define name="bibliolist">
-      <ref name="bibliolist.element"/>
-    </define>
-    <define name="bookchangehistory">
-      <ref name="bookchangehistory.element"/>
-    </define>
-    <define name="bookevent">
-      <ref name="bookevent.element"/>
-    </define>
-    <define name="bookeventtype">
-      <ref name="bookeventtype.element"/>
-    </define>
-    <define name="bookid">
-      <ref name="bookid.element"/>
-    </define>
-    <define name="booklibrary">
-      <ref name="booklibrary.element"/>
-    </define>
-    <define name="booklist">
-      <ref name="booklist.element"/>
-    </define>
-    <define name="booklists">
-      <ref name="booklists.element"/>
-    </define>
-    <define name="bookmeta">
-      <ref name="bookmeta.element"/>
-    </define>
-    <define name="booknumber">
-      <ref name="booknumber.element"/>
-    </define>
-    <define name="bookowner">
-      <ref name="bookowner.element"/>
-    </define>
-    <define name="bookpartno">
-      <ref name="bookpartno.element"/>
-    </define>
-    <define name="bookrestriction">
-      <ref name="bookrestriction.element"/>
-    </define>
-    <define name="bookrights">
-      <ref name="bookrights.element"/>
-    </define>
-    <define name="booktitle">
-      <ref name="booktitle.element"/>
-    </define>
-    <define name="booktitlealt">
-      <ref name="booktitlealt.element"/>
-    </define>
-    <define name="chapter">
-      <ref name="chapter.element"/>
-    </define>
-    <define name="colophon">
-      <ref name="colophon.element"/>
-    </define>
-    <define name="completed">
-      <ref name="completed.element"/>
-    </define>
-    <define name="copyrfirst">
-      <ref name="copyrfirst.element"/>
-    </define>
-    <define name="copyrlast">
-      <ref name="copyrlast.element"/>
-    </define>
-    <define name="day">
-      <ref name="day.element"/>
-    </define>
-    <define name="dedication">
-      <ref name="dedication.element"/>
-    </define>
-    <define name="draftintro">
-      <ref name="draftintro.element"/>
-    </define>
-    <define name="edited">
-      <ref name="edited.element"/>
-    </define>
-    <define name="edition">
-      <ref name="edition.element"/>
-    </define>
-    <define name="figurelist">
-      <ref name="figurelist.element"/>
-    </define>
-    <define name="frontmatter">
-      <ref name="frontmatter.element"/>
-    </define>
-    <define name="glossarylist">
-      <ref name="glossarylist.element"/>
-    </define>
-    <define name="indexlist">
-      <ref name="indexlist.element"/>
-    </define>
-    <define name="isbn">
-      <ref name="isbn.element"/>
-    </define>
-    <define name="mainbooktitle">
-      <ref name="mainbooktitle.element"/>
-    </define>
-    <define name="maintainer">
-      <ref name="maintainer.element"/>
-    </define>
-    <define name="month">
-      <ref name="month.element"/>
-    </define>
-    <define name="notices">
-      <ref name="notices.element"/>
-    </define>
-    <define name="organization">
-      <ref name="organization.element"/>
-    </define>
-    <define name="part">
-      <ref name="part.element"/>
-    </define>
-    <define name="person">
-      <ref name="person.element"/>
-    </define>
-    <define name="preface">
-      <ref name="preface.element"/>
-    </define>
-    <define name="printlocation">
-      <ref name="printlocation.element"/>
-    </define>
-    <define name="published">
-      <ref name="published.element"/>
-    </define>
-    <define name="publisherinformation">
-      <ref name="publisherinformation.element"/>
-    </define>
-    <define name="publishtype">
-      <ref name="publishtype.element"/>
-    </define>
-    <define name="reviewed">
-      <ref name="reviewed.element"/>
-    </define>
-    <define name="revisionid">
-      <ref name="revisionid.element"/>
-    </define>
-    <define name="started">
-      <ref name="started.element"/>
-    </define>
-    <define name="summary">
-      <ref name="summary.element"/>
-    </define>
-    <define name="tablelist">
-      <ref name="tablelist.element"/>
-    </define>
-    <define name="tested">
-      <ref name="tested.element"/>
-    </define>
-    <define name="trademarklist">
-      <ref name="trademarklist.element"/>
-    </define>
-    <define name="toc">
-      <ref name="toc.element"/>
-    </define>
-    <define name="volume">
-      <ref name="volume.element"/>
-    </define>
-    <define name="year">
-      <ref name="year.element"/>
-    </define>
-
-
+    <!-- ... -->
   </div>
   <div>
     <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
-    <define name="chapter-atts">
-      <optional>
-        <attribute name="navtitle"/>
-      </optional>
-      <optional>
-        <attribute name="href"/>
-      </optional>
-      <optional>
-        <attribute name="keyref"/>
-      </optional>
-      <optional>
-        <attribute name="keys"/>
-      </optional>
-      <optional>
-        <attribute name="copy-to"/>
-      </optional>
-      <optional>
-        <attribute name="outputclass"/>
-      </optional>
-      <ref name="topicref-atts"/>
-      <ref name="univ-atts"/>
-    </define>
-
   </div>
   <div>
     <a:documentation>ELEMENT TYPE PATTERNS</a:documentation>
-
     <div>
       <a:documentation>LONG NAME: SCAP Source Data Stream Collection</a:documentation>
-      <define name="scapSourceDataStreamCollection.content">
+      <define name="scapDataStreamCollection.content">
         <optional>
-          <choice>
-            <ref name="title"/>
-            <ref name="booktitle"/>
-          </choice>
-        </optional>
-        <optional>
-          <ref name="bookmeta"/>
-        </optional>
-        <optional>
-          <ref name="frontmatter"/>
+          <ref name="title"/>
         </optional>
         <zeroOrMore>
-          <ref name="chapter"/>
+          <ref name="keydef"/>
         </zeroOrMore>
-        <zeroOrMore>
-          <ref name="part"/>
-        </zeroOrMore>
-        <choice>
-          <optional>
-            <ref name="appendices"/>
-          </optional>
-          <zeroOrMore>
-            <ref name="appendix"/>
-          </zeroOrMore>
-        </choice>
-        <optional>
-          <ref name="backmatter"/>
-        </optional>
+        <oneOrMore>
+          <ref name="scapDataStream"/>
+        </oneOrMore>
         <zeroOrMore>
           <ref name="reltable"/>
         </zeroOrMore>
       </define>
       <define name="scapDataStreamCollection.attributes">
-        <optional>
-          <attribute name="id">
-            <data type="ID"/>
-          </attribute>
-        </optional>
-        <ref name="conref-atts"/>
-        <optional>
-          <attribute name="anchorref"/>
-        </optional>
-        <optional>
-          <attribute name="outputclass"/>
-        </optional>
-        <ref name="localization-atts"/>
-        <ref name="topicref-atts"/>
-        <ref name="select-atts"/>
+        
       </define>
       <define name="scapDataStreamCollection.element">
         <element name="scapDataStreamCollection" dita:longName="Book Map">
-          <a:documentation>The &lt;bookmap> element is a map file used to organize DITA content into a traditional book format. Category: Bookmap elements</a:documentation>
-          <ref name="bookmap.attlist"/>
-          <ref name="bookmap.content"/>
+          <a:documentation>The &lt;scapDataStreamCollection> element is the root element of 
+            a source data stream collection.</a:documentation>
+          <ref name="scapDataStreamCollection.content"/>
         </element>
       </define>
       <define name="bookmap.attlist" combine="interleave">
@@ -333,12 +97,10 @@ ORIGINAL CREATION DATE:
         <ref name="arch-atts"/>
         <ref name="domains-att"/>
       </define>
-
     </div>
   </div>
   <div>
     <a:documentation>SPECIALIZATION ATTRIBUTES</a:documentation>
-
     <define name="scapDataStreamCollection.attlist" combine="interleave">
       <ref name="global-atts"/>
       <optional>

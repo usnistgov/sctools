@@ -67,7 +67,7 @@ ORIGINAL CREATION DATE:
   
   <div>
       <a:documentation>ROOT ELEMENT DECLARATION</a:documentation>
-      <start>
+      <start combine="choice">
          <ref name="scapDataStreamCollection.element"/>
       </start>
   </div>
@@ -129,7 +129,7 @@ ORIGINAL CREATION DATE:
                <element>
                   <anyName>
                      <except>
-                        <name>map</name>
+                        <name>scapDataStreamCollection</name>
                         <name>anchor</name>
                      </except>
                   </anyName>
