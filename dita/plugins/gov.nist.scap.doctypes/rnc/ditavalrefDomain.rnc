@@ -1,0 +1,257 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace ditaarch = "http://dita.oasis-open.org/architecture/2005/"
+
+ditaarch:moduleDesc [
+  "\x{a}" ~
+  "    "
+  ditaarch:moduleTitle [ "DITAVAL Reference Domain" ]
+  "\x{a}" ~
+  "    "
+  ditaarch:headerComment [
+    " ============================================================= DITAVAL Reference\x{a}" ~
+    "      Domain ============================================================= "
+  ]
+  "\x{a}" ~
+  "    "
+  ditaarch:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    ditaarch:moduleType [ "elementdomain" ]
+    "\x{a}" ~
+    "      "
+    ditaarch:moduleShortName [ "ditavalref-d" ]
+    "\x{a}" ~
+    "      "
+    ditaarch:modulePublicIds [
+      "\x{a}" ~
+      "        "
+      ditaarch:dtdMod [
+        "-//OASIS//ELEMENTS DITA"
+        ditaarch:var [ presep = " " name = "ditaver" ]
+        " DITAVAL Ref Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      ditaarch:dtdEnt [
+        "-//OASIS//ENTITIES DITA"
+        ditaarch:var [ presep = " " name = "ditaver" ]
+        " DITAVAL Ref Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      ditaarch:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:ditavalrefDomain.xsd"
+        ditaarch:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      ditaarch:rncMod [
+        "urn:oasis:names:tc:dita:rnc:ditavalrefDomain.rnc"
+        ditaarch:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      ditaarch:rngMod [
+        "urn:oasis:names:tc:dita:rng:ditavalrefDomain.rng"
+        ditaarch:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    "\x{a}" ~
+    "      "
+    ditaarch:domainsContribution [ "(map ditavalref-d)" ]
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## DOMAIN EXTENSION PATTERNS
+div {
+  ditavalref-d-topicref = ditavalref.element
+  topicref |= ditavalref-d-topicref
+}
+
+## ELEMENT TYPE NAME PATTERNS
+div {
+  ditavalref = ditavalref.element
+  ditavalmeta = ditavalmeta.element
+  dvrResourcePrefix = dvrResourcePrefix.element
+  dvrResourceSuffix = dvrResourceSuffix.element
+  dvrKeyscopePrefix = dvrKeyscopePrefix.element
+  dvrKeyscopeSuffix = dvrKeyscopeSuffix.element
+}
+
+## ATTRIBUTE GROUP PATTERNS
+div {
+  
+  ## Omits @conkeyref from univ-atts pattern
+  ditavalref-univ-atts =
+    attribute id { xsd:NMTOKEN }?,
+    attribute conref { text }?,
+    attribute conrefend { text }?,
+    
+    ## This attribute enables users to push content into a new location.
+    attribute conaction {
+      
+      ## Marks the reference position.
+      "mark"
+      | 
+        ## Push after the marked position.
+        "pushafter"
+      | 
+        ## Push before the marked position.
+        "pushbefore"
+      | 
+        ## Push and replace content.
+        "pushreplace"
+      | 
+        ## Use the value from the conref target.
+        "-dita-use-conref-target"
+    }?,
+    select-atts,
+    localization-atts
+}
+
+## ELEMENT TYPE DECLARATIONS
+div {
+  
+  ## LONG NAME: DITAVAL Reference
+  div {
+    ditavalref.content = (ditavalmeta)*
+    ditavalref.attributes =
+      attribute navtitle { text }?,
+      attribute href { text }?,
+      attribute outputclass { text }?,
+      attribute scope {
+        "external" | "local" | "peer" | "-dita-use-conref-target"
+      }?,
+      [ a:defaultValue = "ditaval" ] attribute format { text }?,
+      [ a:defaultValue = "resource-only" ]
+      attribute processing-role { text }?,
+      ditavalref-univ-atts
+    ditavalref.element =
+      
+      ##
+      [ ditaarch:longName = "DITAVAL Reference" ]
+      element ditavalref { ditavalref.attlist, ditavalref.content }
+    ditavalref.attlist &= ditavalref.attributes
+  }
+}
+
+## LONG NAME: DITAVAL Ref Metadata
+div {
+  ditavalmeta.content =
+    navtitle?,
+    (dvrResourcePrefix?,
+     dvrResourceSuffix?,
+     dvrKeyscopePrefix?,
+     dvrKeyscopeSuffix?)
+  ditavalmeta.attributes =
+    attribute lockmeta { "no" | "yes" | "-dita-use-conref-target" }?,
+    ditavalref-univ-atts
+  
+  ## The <ditavalmeta> element ...
+  ditavalmeta.element =
+    [ a:longName = "DITAVAL Ref Metadata" ]
+    element ditavalmeta { ditavalmeta.attlist, ditavalmeta.content }
+  ditavalmeta.attlist &= ditavalmeta.attributes
+}
+
+## LONG NAME: DITVAL Ref Resource Prefix
+div {
+  dvrResourcePrefix.content = (text | \text)*
+  dvrResourcePrefix.attributes =
+    [ a:defaultValue = "dvrResourcePrefix" ]
+    attribute name { "dvrResourcePrefix" }?,
+    ditavalref-univ-atts
+  
+  ## The <dvrResourcePrefix> element ...
+  dvrResourcePrefix.element =
+    [ a:longName = "DITVAL Ref Resource Prefix" ]
+    element dvrResourcePrefix {
+      dvrResourcePrefix.attlist, dvrResourcePrefix.content
+    }
+  dvrResourcePrefix.attlist &= dvrResourcePrefix.attributes
+}
+
+## LONG NAME: DITVAL Ref Resource Suffix
+div {
+  dvrResourceSuffix.content = (text | \text)*
+  dvrResourceSuffix.attributes =
+    [ a:defaultValue = "dvrResourceSuffix" ]
+    attribute name { "dvrResourceSuffix" }?,
+    ditavalref-univ-atts
+  
+  ## The <dvrResourceSuffix> element ...
+  dvrResourceSuffix.element =
+    [ a:longName = "DITVAL Ref Resource Suffix" ]
+    element dvrResourceSuffix {
+      dvrResourceSuffix.attlist, dvrResourceSuffix.content
+    }
+  dvrResourceSuffix.attlist &= dvrResourceSuffix.attributes
+}
+
+## LONG NAME: DITVAL Ref Key Scope Prefix
+div {
+  dvrKeyscopePrefix.content = (text | \text)*
+  dvrKeyscopePrefix.attributes =
+    [ a:defaultValue = "dvrKeyscopePrefix" ]
+    attribute name { "dvrKeyscopePrefix" }?,
+    ditavalref-univ-atts
+  
+  ## The <dvrKeyscopePrefix> element ...
+  dvrKeyscopePrefix.element =
+    [ a:longName = "DITVAL Ref Key Scope Prefix" ]
+    element dvrKeyscopePrefix {
+      dvrKeyscopePrefix.attlist, dvrKeyscopePrefix.content
+    }
+  dvrKeyscopePrefix.attlist &= dvrKeyscopePrefix.attributes
+}
+
+## LONG NAME: DITVAL Ref Key Scope Suffix
+div {
+  dvrKeyscopeSuffix.content = (text | \text)*
+  dvrKeyscopeSuffix.attributes =
+    [ a:defaultValue = "dvrKeyscopeSuffix" ]
+    attribute name { "dvrKeyscopeSuffix" }?,
+    ditavalref-univ-atts
+  
+  ## The <dvrKeyscopeSuffix> element ...
+  dvrKeyscopeSuffix.element =
+    [ a:longName = "DITVAL Ref Resource Suffix" ]
+    element dvrKeyscopeSuffix {
+      dvrKeyscopeSuffix.attlist, dvrKeyscopeSuffix.content
+    }
+  dvrKeyscopeSuffix.attlist &= dvrKeyscopeSuffix.attributes
+}
+
+## SPECIALIZATION ATTRIBUTE DECLARATIONS
+div {
+  ditavalref.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ map/topicref ditavalref-d/ditavalref " ]
+    attribute class { text }?
+  ditavalmeta.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ map/topicmeta ditavalref-d/ditavalmeta " ]
+    attribute class { text }?
+  dvrResourcePrefix.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/data ditavalref-d/dvrResourcePrefix " ]
+    attribute class { text }?
+  dvrResourceSuffix.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/data ditavalref-d/dvrResourceSuffix " ]
+    attribute class { text }?
+  dvrKeyscopePrefix.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/data ditavalref-d/dvrKeyscopePrefix " ]
+    attribute class { text }?
+  dvrKeyscopeSuffix.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/data ditavalref-d/dvrKeyscopeSuffix " ]
+    attribute class { text }?
+}

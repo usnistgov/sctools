@@ -1,0 +1,443 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "    "
+  dita:moduleTitle [ "DITA Map Group Domain" ]
+  "\x{a}" ~
+  "    "
+  dita:headerComment [
+    xml:space = "preserve"
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   HEADER                                    \x{a}" ~
+    "=============================================================\x{a}" ~
+    " MODULE:    DITA Map Group Domain                            \x{a}" ~
+    " VERSION:   1.2                                              \x{a}" ~
+    " DATE:      November 2009                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "=============================================================\x{a}" ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   PUBLIC DOCUMENT TYPE DEFINITION           \x{a}" ~
+    "                   TYPICAL INVOCATION                        \x{a}" ~
+    "                                                             \x{a}" ~
+    " Refer to this file by the following public identifier or an \x{a}" ~
+    "      appropriate system identifier \x{a}" ~
+    'PUBLIC "-//OASIS//ELEMENTS DITA Map Group Domain//EN"\x{a}' ~
+    '      Delivered as file "mapGroup.mod"                            \x{a}' ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "SYSTEM:     Darwin Information Typing Architecture (DITA)    \x{a}" ~
+    "                                                             \x{a}" ~
+    "PURPOSE:    Define elements and specialization attributes    \x{a}" ~
+    "            for Map Group Domain                             \x{a}" ~
+    "                                                             \x{a}" ~
+    "ORIGINAL CREATION DATE:                                      \x{a}" ~
+    "            March 2001                                       \x{a}" ~
+    "                                                             \x{a}" ~
+    "            (C) Copyright OASIS Open 2005, 2009.             \x{a}" ~
+    "            (C) Copyright IBM Corporation 2001, 2004.        \x{a}" ~
+    "            All Rights Reserved.                             \x{a}" ~
+    "                                                             \x{a}" ~
+    " UPDATES:                                                    \x{a}" ~
+    '   2005.11.15 RDA: Corrected the "Delivered as" system ID    \x{a}' ~
+    "   2006.06.07 RDA: Make universal attributes universal       \x{a}" ~
+    "                     (DITA 1.1 proposal #12)                 \x{a}" ~
+    "   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       \x{a}" ~
+    "   2008.02.01 RDA: Added keydef element, keys attributes     \x{a}" ~
+    "   2008.02.12 RDA: Navtitle no longer required on topichead  \x{a}" ~
+    "   2008.02.13 RDA: Create .content and .attributes entities  \x{a}" ~
+    "   2010.09.20 RDA: Add copy-to to topichead                  \x{a}" ~
+    "=============================================================\x{a}" ~
+    "      \x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "    "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    dita:moduleType [ "elementdomain" ]
+    "\x{a}" ~
+    "      "
+    dita:moduleShortName [ "mapgroup-d" ]
+    "\x{a}" ~
+    "      "
+    dita:modulePublicIds [
+      "\x{a}" ~
+      "        "
+      dita:dtdMod [
+        "-//OASIS//ELEMENTS DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Map Group Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:dtdEnt [
+        "-//OASIS//ENTITIES DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Map Group Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:mapGroupMod.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rncMod [
+        "urn:oasis:names:tc:dita:rnc:mapGroupMod.rnc"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rngMod [
+        "urn:oasis:names:tc:dita:rng:mapGroupMod.rng"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    "\x{a}" ~
+    "      "
+    dita:domainsContribution [ "(map mapgroup-d)" ]
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## ELEMENT TYPE NAME PATTERNS
+div {
+  anchorref = anchorref.element
+  keydef = keydef.element
+  mapref = mapref.element
+  topicgroup = topicgroup.element
+  topichead = topichead.element
+  topicset = topicset.element
+  topicsetref = topicsetref.element
+}
+
+## Define domain extension patterns
+div {
+  mapgroup-d-topicref =
+    anchorref.element
+    | keydef.element
+    | mapref.element
+    | topicgroup.element
+    | topichead.element
+    | topicset.element
+    | topicsetref.element
+  topicref |= mapgroup-d-topicref
+}
+
+## Define elements content and attributes
+div {
+  
+  ## Topic Head
+  div {
+    topichead.content =
+      topicmeta?, (anchor | data.elements.incl | navref | topicref)*
+    topichead.attributes =
+      attribute navtitle { text }?,
+      attribute outputclass { text }?,
+      attribute keys { text }?,
+      attribute copy-to { text }?,
+      topicref-atts,
+      univ-atts
+    topichead.element =
+      
+      ## The <topichead> element provides a title-only entry in a navigation map, as an alternative to the fully-linked title provided by the <topicref> element. Category:
+      ##             Mapgroup elements
+      element topichead { topichead.attlist, topichead.content }
+    topichead.attlist &= topichead.attributes
+  }
+  
+  ## Topic Group
+  div {
+    topicgroup.content =
+      topicmeta?, (anchor | data.elements.incl | navref | topicref)*
+    topicgroup.attributes =
+      attribute outputclass { text }?,
+      topicref-atts,
+      univ-atts
+    topicgroup.element =
+      
+      ## The <topicgroup> element is for creating groups of <topicref> elements without affecting the hierarchy, as opposed to nested < topicref> elements within a
+      ##             <topicref>, which does imply a structural hierarchy. It is typically used outside a hierarchy to identify groups for linking without affecting the resulting toc/navigation output.
+      ##             Category: Mapgroup elements
+      element topicgroup { topicgroup.attlist, topicgroup.content }
+    topicgroup.attlist &= topicgroup.attributes
+  }
+  
+  ## Anchor Reference
+  div {
+    anchorref.content = topicmeta?, (data.elements.incl | topicref)*
+    anchorref.attributes =
+      attribute navtitle { text }?,
+      attribute href { text }?,
+      attribute keyref { text }?,
+      attribute keys { text }?,
+      [ dita:since = "1.3" ] attribute keyscope { text }?,
+      attribute query { text }?,
+      attribute copy-to { text }?,
+      attribute outputclass { text }?,
+      attribute collection-type {
+        "choice"
+        | "family"
+        | "sequence"
+        | "unordered"
+        | "-dita-use-conref-target"
+      }?,
+      attribute processing-role {
+        "normal" | "resource-only" | "-dita-use-conref-target"
+      }?,
+      [ a:defaultValue = "anchor" ] attribute type { text }?,
+      [ dita:since = "1.3" ] attribute cascade { text }?,
+      attribute scope {
+        "external" | "local" | "peer" | "-dita-use-conref-target"
+      }?,
+      attribute locktitle { "no" | "yes" | "-dita-use-conref-target" }?,
+      [ a:defaultValue = "ditamap" ] attribute format { text }?,
+      attribute linking {
+        "none"
+        | "normal"
+        | "sourceonly"
+        | "targetonly"
+        | "-dita-use-conref-target"
+      }?,
+      attribute toc { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute print {
+        "no" | "printonly" | "yes" | "-dita-use-conref-target"
+      }?,
+      attribute search { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute chunk { text }?,
+      univ-atts
+    anchorref.element =
+      
+      ## The contents of an <anchorref> element are rendered both in the original authored location and at the location of the referenced <anchor> element. The referenced
+      ##             <anchor> element can be defined in the current map or another map.
+      element anchorref { anchorref.attlist, anchorref.content }
+    anchorref.attlist &= anchorref.attributes
+  }
+  
+  ## Map Reference
+  div {
+    mapref.content = topicmeta?, data.elements.incl*
+    mapref.attributes =
+      attribute navtitle { text }?,
+      attribute href { text }?,
+      attribute keyref { text }?,
+      attribute keys { text }?,
+      attribute query { text }?,
+      attribute copy-to { text }?,
+      attribute outputclass { text }?,
+      [ a:defaultValue = "ditamap" ] attribute format { text }?,
+      topicref-atts-without-format,
+      univ-atts
+    mapref.element =
+      
+      ## The <mapref> element is a convenience element that has the same meaning as a <topicref> element that explicitly sets the format attribute to "ditamap". The
+      ##             hierarchy of the referenced map is merged into the container map at the position of the reference, and the relationship tables of the child map are added to the parent
+      ##             map.
+      [ dita:longName = "Map reference" ]
+      element mapref { mapref.attlist, mapref.content }
+    mapref.attlist &= mapref.attributes
+  }
+  
+  ## Topicset
+  div {
+    topicset.content =
+      topicmeta?, (anchor | data.elements.incl | navref | topicref)*
+    topicset.attributes =
+      attribute navtitle { text }?,
+      attribute href { text }?,
+      attribute keyref { text }?,
+      attribute keys { text }?,
+      [ dita:since = "1.3" ] attribute keyscope { text }?,
+      attribute query { text }?,
+      attribute copy-to { text }?,
+      attribute outputclass { text }?,
+      attribute collection-type {
+        "choice"
+        | "family"
+        | "sequence"
+        | "unordered"
+        | "-dita-use-conref-target"
+      }?,
+      attribute processing-role {
+        "normal" | "resource-only" | "-dita-use-conref-target"
+      }?,
+      attribute type { text }?,
+      [ dita:since = "1.3" ] attribute cascade { text }?,
+      attribute scope {
+        "external" | "local" | "peer" | "-dita-use-conref-target"
+      }?,
+      attribute locktitle { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute format { text }?,
+      attribute linking {
+        "none"
+        | "normal"
+        | "sourceonly"
+        | "targetonly"
+        | "-dita-use-conref-target"
+      }?,
+      attribute toc { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute print {
+        "no" | "printonly" | "yes" | "-dita-use-conref-target"
+      }?,
+      attribute search { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute chunk { text }?,
+      attribute id { xsd:NMTOKEN },
+      conref-atts,
+      select-atts,
+      localization-atts
+    topicset.element =
+      
+      ## The <topicset> element defines a complete unit of content that can be reused in other DITA maps or other <topicset> elements. The <topicset> element can be
+      ##             especially useful for task composition in which larger tasks that are composed indefinitely of smaller tasks. The id attribute on a <topicset> is required, which ensures that the
+      ##             complete unit is available for reuse in other contexts.
+      element topicset { topicset.attlist, topicset.content }
+    topicset.attlist &= topicset.attributes
+  }
+  
+  ## Topicset Reference
+  div {
+    topicsetref.content = topicmeta?, (data.elements.incl | topicref)*
+    topicsetref.attributes =
+      attribute navtitle { text }?,
+      attribute href { text }?,
+      attribute keyref { text }?,
+      attribute keys { text }?,
+      [ dita:since = "1.3" ] attribute keyscope { text }?,
+      attribute query { text }?,
+      attribute copy-to { text }?,
+      attribute outputclass { text }?,
+      attribute collection-type {
+        "choice"
+        | "family"
+        | "sequence"
+        | "unordered"
+        | "-dita-use-conref-target"
+      }?,
+      attribute processing-role {
+        "normal" | "resource-only" | "-dita-use-conref-target"
+      }?,
+      [ a:defaultValue = "topicset" ] attribute type { text }?,
+      [ dita:since = "1.3" ] attribute cascade { text }?,
+      attribute scope {
+        "external" | "local" | "peer" | "-dita-use-conref-target"
+      }?,
+      attribute locktitle { "no" | "yes" | "-dita-use-conref-target" }?,
+      [ a:defaultValue = "ditamap" ] attribute format { text }?,
+      attribute linking {
+        "none"
+        | "normal"
+        | "sourceonly"
+        | "targetonly"
+        | "-dita-use-conref-target"
+      }?,
+      attribute toc { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute print {
+        "no" | "printonly" | "yes" | "-dita-use-conref-target"
+      }?,
+      attribute search { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute chunk { text }?,
+      univ-atts
+    topicsetref.element =
+      
+      ## The <topicsetref> element references a <topicset> element. The referenced <topicset> element can be defined in the current map or in another map.
+      element topicsetref { topicsetref.attlist, topicsetref.content }
+    topicsetref.attlist &= topicsetref.attributes
+  }
+  
+  ## Key Definition
+  div {
+    keydef.content =
+      topicmeta?, (anchor | data.elements.incl | navref | topicref)*
+    keydef.attributes =
+      attribute navtitle { text }?,
+      attribute href { text }?,
+      attribute keyref { text }?,
+      attribute keys { text },
+      [ dita:since = "1.3" ] attribute keyscope { text }?,
+      attribute query { text }?,
+      attribute copy-to { text }?,
+      attribute outputclass { text }?,
+      attribute collection-type {
+        "choice"
+        | "family"
+        | "sequence"
+        | "unordered"
+        | "-dita-use-conref-target"
+      }?,
+      [ a:defaultValue = "resource-only" ]
+      attribute processing-role {
+        "normal" | "resource-only" | "-dita-use-conref-target"
+      }?,
+      attribute type { text }?,
+      [ dita:since = "1.3" ] attribute cascade { text }?,
+      attribute scope {
+        "external" | "local" | "peer" | "-dita-use-conref-target"
+      }?,
+      attribute locktitle { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute format { text }?,
+      attribute linking {
+        "none"
+        | "normal"
+        | "sourceonly"
+        | "targetonly"
+        | "-dita-use-conref-target"
+      }?,
+      attribute toc { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute print {
+        "no" | "printonly" | "yes" | "-dita-use-conref-target"
+      }?,
+      attribute search { "no" | "yes" | "-dita-use-conref-target" }?,
+      attribute chunk { text }?,
+      univ-atts
+    keydef.element =
+      
+      ## The <keydef> element is a convenience element that is used to define keys without any of the other effects that occur when using a <topicref> element: no content is
+      ##             included in output, no title is included in the table of contents, and no linking or other relationships are defined. The <keydef> element is not the only way to define keys; its
+      ##             purpose is to simplify the process by defaulting several attributes to achieve the described behaviors.
+      element keydef { keydef.attlist, keydef.content }
+    keydef.attlist &= keydef.attributes
+  }
+}
+
+## Specialization attributes. Global attributes and class defaults
+div {
+  anchorref.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ map/topicref mapgroup-d/anchorref " ]
+    attribute class { text }?
+  keydef.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ map/topicref mapgroup-d/keydef " ]
+    attribute class { text }?
+  mapref.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ map/topicref mapgroup-d/mapref " ]
+    attribute class { text }?
+  topicgroup.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ map/topicref mapgroup-d/topicgroup " ]
+    attribute class { text }?
+  topichead.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ map/topicref mapgroup-d/topichead " ]
+    attribute class { text }?
+  topicset.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ map/topicref mapgroup-d/topicset " ]
+    attribute class { text }?
+  topicsetref.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ map/topicref mapgroup-d/topicsetref " ]
+    attribute class { text }?
+}

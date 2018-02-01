@@ -1,0 +1,49 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+    dita:moduleTitle [ "XML Domain" ]
+    dita:moduleMetadata [
+        dita:moduleType [ "elementdomain" ]
+        dita:moduleShortName [ "xml-d" ]
+        dita:domainsContribution [ "(topic xml-d)" ]
+    ]
+]
+
+div {
+    ## DOMAIN EXTENSION PATTERNS
+    xml-d-keyword = xmlElem.element | xmlAtt.element
+    keyword |= xml-d-keyword
+    }
+    
+div {
+    ## ELEMENT TYPE DECLARATIONS
+    div {
+        ## Long name: XML Element
+        xmlElem.content = xsd:Name
+        xmlElem.attributes = univ-atts, attribute outputclass { text }?
+        xmlElem.element = 
+            element xmlElem { xmlElem.attlist, xmlElem.content }
+        xmlElem.attlist &= xmlElem.attributes
+        }
+    div {
+        ## Long name: XML Attribute
+        xmlAtt.content = xsd:Name
+        xmlAtt.attributes = univ-atts, attribute outputclass { text }?
+        xmlAtt.element = 
+            element xmlAtt { xmlAtt.attlist, xmlAtt.content }
+        }
+}
+
+div {
+    ## SPECIALIZATION ATTRIBUTES
+    xmlElem.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ topic/keyword xml-d/xmlElem " ] 
+        attribute class {text} ?
+    xmlAtt.attlist &= 
+        global-atts, 
+        [ a:defaultValue = "+ topic/keyword xml-d/xmlAtt " ]        
+        attribute class {text} ?
+}

@@ -1,0 +1,36 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "   "
+  dita:moduleTitle [ "Phase of Moon Attribute Domain " ]
+  "\x{a}" ~
+  "   "
+  "\x{a}" ~
+  "   "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "     "
+    dita:moduleType [ "attributedomain" ]
+    "\x{a}" ~
+    "     "
+    dita:moduleShortName [ "phaseOfMoonAtt-d" ]
+    "\x{a}" ~
+    "     "
+    "\x{a}" ~
+    "     "
+    dita:domainsContribution [ "a(props phaseOfMoon)" ]
+    "\x{a}" ~
+    "   "
+  ]
+  "\x{a}" ~
+  " "
+]
+
+## ATTRIBUTE DECLARATION PATTERN
+phaseOfMoonAtt-d-attribute =
+    attribute phaseOfMoon { text }?
+
+## ATTRIBUTE EXTENSION PATTERN
+props-attribute-extensions &= phaseOfMoonAtt-d-attribute

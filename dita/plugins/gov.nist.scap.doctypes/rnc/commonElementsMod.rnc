@@ -1,0 +1,1939 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+namespace sch = "http://purl.oclc.org/dsdl/schematron"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "    "
+  dita:moduleTitle [ "DITA Common Elements" ]
+  "\x{a}" ~
+  "    "
+  dita:headerComment [
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   HEADER                                    \x{a}" ~
+    "=============================================================\x{a}" ~
+    " MODULE:    DITA Common Elements                             \x{a}" ~
+    " VERSION:   1.2                                              \x{a}" ~
+    " DATE:      November 2009                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "=============================================================\x{a}" ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   PUBLIC DOCUMENT TYPE DEFINITION           \x{a}" ~
+    "                   TYPICAL INVOCATION                        \x{a}" ~
+    "                                                             \x{a}" ~
+    " Refer to this file by the following public identifier or an \x{a}" ~
+    "      appropriate system identifier \x{a}" ~
+    'PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN"\x{a}' ~
+    '      Delivered as file "commonElements.mod"                      \x{a}' ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "SYSTEM:     Darwin Information Typing Architecture (DITA)    \x{a}" ~
+    "                                                             \x{a}" ~
+    "PURPOSE:    Declaring the elements and specialization        \x{a}" ~
+    "            attributes for content elements used in both     \x{a}" ~
+    "            topics and maps.                                 \x{a}" ~
+    "                                                             \x{a}" ~
+    "ORIGINAL CREATION DATE:                                      \x{a}" ~
+    "            June 2006                                        \x{a}" ~
+    "                                                             \x{a}" ~
+    "            (C) Copyright OASIS Open 2005, 2009.             \x{a}" ~
+    "            (C) Copyright IBM Corporation 2001, 2004.        \x{a}" ~
+    "            All Rights Reserved.                             \x{a}" ~
+    "                                                             \x{a}" ~
+    " UPDATES:                                                    \x{a}" ~
+    "   2006.06.06 RDA: Add data element                          \x{a}" ~
+    "   2006.06.07 RDA: Add @scale to image                       \x{a}" ~
+    "   2006.06.07 RDA: Add index-base element                    \x{a}" ~
+    "   2006.06.07 RDA: Make universal attributes universal       \x{a}" ~
+    "                     (DITA 1.1 proposal #12)                 \x{a}" ~
+    "   2006.06.07 RDA: Add unknown element                       \x{a}" ~
+    "   2006.06.14 RDA: Add dir attribute to localization-atts    \x{a}" ~
+    "   2006.11.30 RDA: Add -dita-use-conref-target to enumerated \x{a}" ~
+    "                     attributes                              \x{a}" ~
+    "   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       \x{a}" ~
+    "   2008.01.28 RDA: Add draft-comment to shortdesc            \x{a}" ~
+    "   2008.01.28 RDA: Remove enumeration for @disposition on    \x{a}" ~
+    "                   draft-comment                             \x{a}" ~
+    "   2008.01.29 RDA: Extend content of figgroup                \x{a}" ~
+    "   2008.01.30 RDA: Add %conref-atts; and @conaction          \x{a}" ~
+    "   2008.02.01 RDA: Added keyref to data, data-about          \x{a}" ~
+    "                   Added conkeyref attr to conref attr entity\x{a}" ~
+    "   2008.02.12 RDA: Added text element, added to keyword, tm, \x{a}" ~
+    "                   term, ph. Added ph to alt.                \x{a}" ~
+    "   2008.02.12 RDA: Added longdescref; add to image, object   \x{a}" ~
+    "   2008.02.12 RDA: Modify imbeds to use specific 1.2 version \x{a}" ~
+    "   2008.02.12 RDA: Move navtitle decl. here from topic.mod   \x{a}" ~
+    "   2008.02.13 RDA: Create .content and .attributes entities  \x{a}" ~
+    "   2008.11.10 RDA: Make href optional on image               \x{a}" ~
+    "=============================================================     \x{a}" ~
+    " "
+  ]
+  "\x{a}" ~
+  "    "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    dita:moduleType [ "base" ]
+    "\x{a}" ~
+    "      "
+    dita:moduleShortName [ "commonElements" ]
+    "\x{a}" ~
+    "      "
+    dita:modulePublicIds [
+      "\x{a}" ~
+      "        "
+      dita:dtdMod [
+        "-//OASIS//ELEMENTS DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Common Elements//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:dtdEnt [
+        "-//OASIS//ENTITIES DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Common Elements//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:commonElementMod.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdGrp [
+        "urn:oasis:names:tc:dita:xsd:commonElementGrp.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rncMod [
+        "urn:oasis:names:tc:dita:rnc:commonElementsMod.rnc"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rngMod [
+        "urn:oasis:names:tc:dita:rng:commonElementsMod.rng"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    "\x{a}" ~
+    "      "
+    dita:domainsContribution [ ]
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## ELEMENT TYPE NAME PATTERNS
+div {
+  alt = alt.element
+  boolean = boolean.element
+  cite = cite.element
+  data = data.element
+  data-about = data-about.element
+  dd = dd.element
+  ddhd = ddhd.element
+  desc = desc.element
+  \div = div.element
+  dl = dl.element
+  dlentry = dlentry.element
+  dlhead = dlhead.element
+  draft-comment = draft-comment.element
+  dt = dt.element
+  dthd = dthd.element
+  fig = fig.element
+  figgroup = figgroup.element
+  fn = fn.element
+  foreign = foreign.element
+  image = image.element
+  indexterm = indexterm.element
+  index-base = index-base.element
+  indextermref = indextermref.element
+  itemgroup = itemgroup.element
+  keyword = keyword.element
+  li = li.element
+  lines = lines.element
+  longdescref = longdescref.element
+  longquoteref = longquoteref.element
+  lq = lq.element
+  navtitle = navtitle.element
+  note = note.element
+  object = object.element
+  ol = ol.element
+  p = p.element
+  param = param.element
+  ph = ph.element
+  pre = pre.element
+  q = q.element
+  required-cleanup = required-cleanup.element
+  sl = sl.element
+  sli = sli.element
+  simpletable = simpletable.element
+  state = state.element
+  stentry = stentry.element
+  sthead = sthead.element
+  strow = strow.element
+  term = term.element
+  \text = text.element
+  title = title.element
+  tm = tm.element
+  ul = ul.element
+  unknown = unknown.element
+  xref = xref.element
+  
+  ## Elements in tblDeclMod
+  div {
+    table = table.element
+    colspec = colspec.element
+    entry = entry.element
+    row = row.element
+    tbody = tbody.element
+    tgroup = tgroup.element
+    thead = thead.element
+  }
+  
+  ## Elements in metaDeclMod 
+  div {
+    audience = audience.element
+    author = author.element
+    brand = brand.element
+    category = category.element
+    component = component.element
+    copyrholder = copyrholder.element
+    copyright = copyright.element
+    copyryear = copyryear.element
+    created = created.element
+    critdates = critdates.element
+    featnum = featnum.element
+    keywords = keywords.element
+    metadata = metadata.element
+    othermeta = othermeta.element
+    permissions = permissions.element
+    platform = platform.element
+    prodinfo = prodinfo.element
+    prodname = prodname.element
+    prognum = prognum.element
+    publisher = publisher.element
+    resourceid = resourceid.element
+    revised = revised.element
+    series = series.element
+    source = source.element
+    vrm = vrm.element
+    vrmlist = vrmlist.element
+  }
+}
+
+## COMMENT ELEMENT SETS
+div {
+  
+  ## General-purpose content model fragments
+  div {
+    basic.ph =
+      boolean
+      | cite
+      | keyword
+      | ph
+      | q
+      | term
+      | [ dita:since = "1.3" ] \text
+      | tm
+      | xref
+      | state
+    
+    ## Elements common to most body-like contexts
+    basic.block =
+      dl
+      | [ dita:since = "1.3" ] \div
+      | fig
+      | image
+      | lines
+      | lq
+      | note
+      | object
+      | ol
+      | p
+      | pre
+      | simpletable
+      | sl
+      | table
+      | ul
+    
+    ## class groupings to preserve in a schema
+    basic.phandblock = basic.block | basic.ph
+    a:documentation [
+      "Exclusions: models modified by removing excluded content"
+    ]
+    [ dita:since = "1.3" ]
+    basic.ph.noxref.nocite =
+      boolean
+      | keyword
+      | ph
+      | q
+      | term
+      | [ dita:since = "1.3" ] \text
+      | tm
+      | state
+    basic.ph.noxref = basic.ph.noxref.nocite | cite
+    basic.ph.notm =
+      boolean
+      | cite
+      | keyword
+      | ph
+      | q
+      | term
+      | [ dita:since = "1.3" ] \text
+      | xref
+      | state
+    basic.block.notbl =
+      dl
+      | [ dita:since = "1.3" ] \div
+      | fig
+      | image
+      | lines
+      | lq
+      | note
+      | object
+      | ol
+      | p
+      | pre
+      | sl
+      | ul
+    basic.block.nonote =
+      dl
+      | [ dita:since = "1.3" ] \div
+      | fig
+      | image
+      | lines
+      | lq
+      | object
+      | ol
+      | p
+      | pre
+      | simpletable
+      | sl
+      | table
+      | ul
+    basic.block.nopara =
+      dl
+      | [ dita:since = "1.3" ] \div
+      | fig
+      | image
+      | lines
+      | lq
+      | note
+      | object
+      | ol
+      | pre
+      | simpletable
+      | sl
+      | table
+      | ul
+    basic.block.nolq =
+      dl
+      | [ dita:since = "1.3" ] \div
+      | fig
+      | image
+      | lines
+      | note
+      | object
+      | ol
+      | p
+      | pre
+      | simpletable
+      | sl
+      | table
+      | ul
+    basic.block.notbnofg =
+      dl
+      | [ dita:since = "1.3" ] \div
+      | image
+      | lines
+      | lq
+      | note
+      | object
+      | ol
+      | p
+      | pre
+      | sl
+      | ul
+    basic.block.notbfgobj =
+      dl
+      | [ dita:since = "1.3" ] \div
+      | image
+      | lines
+      | lq
+      | note
+      | ol
+      | p
+      | pre
+      | sl
+      | ul
+    
+    ## Inclusions: defined sets that can be added into appropriate models
+    txt.incl =
+      draft-comment | fn | indextermref | indexterm | required-cleanup
+    
+    ## Metadata elements intended for specialization
+    data.elements.incl = data | data-about
+    foreign.unknown.incl = foreign | unknown
+  }
+  
+  ##  Predefined content model groups, based on the previous, element-only categories: txt.incl is appropriate for any mixed content definitions (those that have PCDATA) the context
+  ##         for blocks is implicitly an InfoMaster "containing_division" 
+  div {
+    listitem.cnt =
+      text
+      | basic.block
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | itemgroup
+      | txt.incl
+    itemgroup.cnt =
+      text
+      | basic.block
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | txt.incl
+    title.cnt =
+      text
+      | basic.ph.noxref
+      | data.elements.incl
+      | [ dita:since = "1.3" ] draft-comment
+      | foreign.unknown.incl
+      | [ dita:since = "1.3" ] required-cleanup
+      | image
+    xreftext.cnt =
+      text
+      | basic.ph.noxref
+      | data.elements.incl
+      | [ dita:since = "1.3" ] draft-comment
+      | foreign.unknown.incl
+      | [ dita:since = "1.3" ] required-cleanup
+      | image
+    xrefph.cnt =
+      text
+      | basic.ph.noxref.nocite
+      | data.elements.incl
+      | [ dita:since = "1.3" ] draft-comment
+      | foreign.unknown.incl
+      | [ dita:since = "1.3" ] required-cleanup
+    shortquote.cnt =
+      text
+      | basic.ph
+      | data.elements.incl
+      | [ dita:since = "1.3" ] draft-comment
+      | foreign.unknown.incl
+      | [ dita:since = "1.3" ] required-cleanup
+    para.cnt =
+      text
+      | basic.block.nopara
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | txt.incl
+    note.cnt =
+      text
+      | basic.block.nonote
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | txt.incl
+    longquote.cnt =
+      text
+      | basic.block.nolq
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | longquoteref
+      | txt.incl
+    tblcell.cnt =
+      text
+      | basic.block.notbl
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | txt.incl
+    desc.cnt =
+      text
+      | basic.block.notbfgobj
+      | basic.ph
+      | data.elements.incl
+      | [ dita:since = "1.3" ] draft-comment
+      | foreign.unknown.incl
+      | [ dita:since = "1.3" ] required-cleanup
+    ph.cnt =
+      text
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | image
+      | txt.incl
+    fn.cnt =
+      text
+      | basic.block.notbl
+      | basic.ph
+      | data.elements.incl
+      | [ dita:since = "1.3" ] draft-comment
+      | foreign.unknown.incl
+      | [ dita:since = "1.3" ] required-cleanup
+    term.cnt =
+      text
+      | basic.ph
+      | data.elements.incl
+      | [ dita:since = "1.3" ] draft-comment
+      | foreign.unknown.incl
+      | [ dita:since = "1.3" ] required-cleanup
+      | image
+    defn.cnt =
+      text
+      | basic.block
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | itemgroup
+      | txt.incl
+    pre.cnt =
+      text
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | txt.incl
+    fig.cnt =
+      basic.block.notbnofg
+      | data.elements.incl
+      | fn
+      | foreign.unknown.incl
+      | simpletable
+      | xref
+    figgroup.cnt =
+      basic.block.notbnofg
+      | basic.ph
+      | data.elements.incl
+      | [ dita:since = "1.3" ] draft-comment
+      | fn
+      | foreign.unknown.incl
+      | [ dita:since = "1.3" ] required-cleanup
+    words.cnt =
+      text
+      | data.elements.incl
+      | foreign.unknown.incl
+      | keyword
+      | term
+      | [ dita:since = "1.3" ] \text
+    data.cnt =
+      [ dita:since = "1.3" ] text
+      | [ dita:since = "1.3" ] basic.ph
+      | data.elements.incl
+      | [ dita:since = "1.3" ] draft-comment
+      | foreign.unknown.incl
+      | image
+      | object
+      | [ dita:since = "1.3" ] required-cleanup
+      | title
+    [ dita:since = "1.3" ]
+    div.cnt =
+      text
+      | basic.block
+      | basic.ph
+      | data.elements.incl
+      | foreign.unknown.incl
+      | txt.incl
+  }
+  
+  ## Pattern for element types that declare @id attributes as type ID
+  ##       
+  ##       This pattern is required by RELAX NG matching rules as they apply to the <anyName/>
+  ##       pattern. Structural and domain modules that declare element types with an @id attribute
+  ##       of type ID must extend this pattern to add those element types.
+  ##       
+  ##       NOTE: This pattern does not have an XSD or DTD analog, it is only relevant to RELAX NG.
+  ##       
+  div {
+    idElements = empty
+  }
+}
+
+## COMMON ATTRIBUTE SETS
+div {
+  display-atts =
+    attribute scale {
+      "50"
+      | "60"
+      | "70"
+      | "80"
+      | "90"
+      | "100"
+      | "110"
+      | "120"
+      | "140"
+      | "160"
+      | "180"
+      | "200"
+      | "-dita-use-conref-target"
+    }?,
+    attribute frame {
+      "all"
+      | "bottom"
+      | "none"
+      | "sides"
+      | "top"
+      | "topbot"
+      | "-dita-use-conref-target"
+    }?,
+    attribute expanse {
+      "column"
+      | "page"
+      | "spread"
+      | "textline"
+      | "-dita-use-conref-target"
+    }?
+  
+  ## Provide a default of no attribute extensions
+  props-attribute-extensions = empty
+  
+  ## Provide a default of no attribute extensions
+  base-attribute-extensions = empty
+  filter-atts =
+    attribute props { text }?,
+    attribute platform { text }?,
+    attribute product { text }?,
+    attribute audience { text }?,
+    attribute otherprops { text }?,
+    props-attribute-extensions
+  select-atts =
+    filter-atts,
+    attribute base { text }?,
+    base-attribute-extensions,
+    attribute importance {
+      "default"
+      | "deprecated"
+      | "high"
+      | "low"
+      | "normal"
+      | "obsolete"
+      | "optional"
+      | "recommended"
+      | "required"
+      | "urgent"
+      | "-dita-use-conref-target"
+    }?,
+    attribute rev { text }?,
+    attribute status {
+      "changed"
+      | "deleted"
+      | "new"
+      | "unchanged"
+      | "-dita-use-conref-target"
+    }?
+  conref-atts =
+    attribute conref { text }?,
+    attribute conrefend { text }?,
+    
+    ## This attribute enables users to push content into a new location.
+    attribute conaction {
+      
+      ## Marks the reference position.
+      "mark"
+      | 
+        ## Push after the marked position.
+        "pushafter"
+      | 
+        ## Push before the marked position.
+        "pushbefore"
+      | 
+        ## Push and replace content.
+        "pushreplace"
+      | 
+        ## Use the value from the conref target.
+        "-dita-use-conref-target"
+    }?,
+    attribute conkeyref { text }?
+  id-atts =
+    attribute id { xsd:NMTOKEN }?,
+    conref-atts
+  
+  ## Attributes related to localization that are used everywhere
+  localization-atts =
+    attribute translate { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute xml:lang { text }?,
+    attribute dir {
+      "lro" | "ltr" | "rlo" | "rtl" | "-dita-use-conref-target"
+    }?
+  
+  ## This pattern should be used when defaulting a new element to translate="no", so that other (or new) localization attributes will always be included.
+  localization-atts-translate-no =
+    [ a:defaultValue = "no" ]
+    attribute translate { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute xml:lang { text }?,
+    attribute dir {
+      "lro" | "ltr" | "rlo" | "rtl" | "-dita-use-conref-target"
+    }?
+  univ-atts = id-atts, select-atts, localization-atts
+  univ-atts-translate-no =
+    id-atts, select-atts, localization-atts-translate-no
+  global-atts =
+    attribute xtrc { text }?,
+    attribute xtrf { text }?
+}
+
+## ELEMENT TYPE DECLARATIONS
+div {
+  
+  ## GENERAL ELEMENT TYPES OR SPECIALIZATION BASES
+  div {
+    
+    ## LONG NAME: Data About
+    div {
+      
+      ##
+      data-about.content = data, (data | data-about)*
+      data-about.attributes =
+        univ-atts,
+        attribute href { text }?,
+        attribute keyref { text }?,
+        attribute format { text }?,
+        attribute type { text }?,
+        attribute scope {
+          "external" | "local" | "peer" | "-dita-use-conref-target"
+        }?,
+        attribute outputclass { text }?
+      data-about.element =
+        
+        ## The <data-about> element identifies the subject of a property when the subject isn't associated with the context in which the property is specified. The property itself
+        ##               is expressed by the <data> element. The <data-about> element handles exception cases where a property must be expressed somewhere other than inside the actual subject of the
+        ##               property. The <data-about> element is particularly useful as a basis for specialization in combination with the <data> element. Category: Miscellaneous elements
+        [ dita:longName = "Data About" ]
+        element data-about { data-about.attlist, data-about.content }
+      data-about.attlist &= data-about.attributes
+      data-element-atts =
+        univ-atts,
+        attribute name { text }?,
+        attribute datatype { text }?,
+        attribute value { text }?,
+        attribute href { text }?,
+        attribute keyref { text }?,
+        attribute format { text }?,
+        attribute type { text }?,
+        attribute scope {
+          "external" | "local" | "peer" | "-dita-use-conref-target"
+        }?,
+        attribute outputclass { text }?
+    }
+    
+    ## LONG NAME: Data element
+    div {
+      data.content = data.cnt*
+      data.attributes = data-element-atts
+      data.element =
+        
+        ## The <data> element represents a property within a DITA topic or map. While the <data> element can be used directly to capture properties, it is particularly useful
+        ##               as a basis for specialization. Default processing treats the property values as an unknown kind of metadata, but custom processing can match the name attribute or specialized element to
+        ##               format properties as sidebars or other adornments or to harvest properties for automated processing. Category: Miscellaneous elements
+        [ dita:longName = "Data" ]
+        element data { data.attlist, data.content }
+      data.attlist &= data.attributes
+    }
+    
+    ## LONG NAME: Unknown element
+    div {
+      unknown.content = any
+      unknown.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      unknown.element =
+        
+        ## The <unknown> element is an open extension that allows information architects to incorporate xml fragments that do not necessarily fit into an existing DITA use case.
+        ##               The base processing for <unknown> is to suppress unless otherwise instructed. Category: Specialization elements
+        [ dita:longName = "Unknown" ]
+        element unknown { unknown.attlist, unknown.content }
+      unknown.attlist &= unknown.attributes
+    }
+    
+    ## LONG NAME: Foreign content element
+    div {
+      foreign.content = any
+      foreign.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      foreign.element =
+        
+        ## The <foreign> element is an open extension that allows information architects to incorporate existing standard vocabularies for non-textual content. like MathML and
+        ##               SVG, as inline objects. If <foreign> contains more than one alternative content element, they will all be processed. Specialization of <foreign> should be implemented as a domain,
+        ##               but for those looking for more control over the content can implement foreign vocabulary as an element specialization. Category: Specialization elements
+        [ dita:longName = "Foreign" ]
+        element foreign { foreign.attlist, foreign.content }
+      foreign.attlist &= foreign.attributes
+    }
+    
+    ## LONG NAME: Title
+    div {
+      
+      ## This is referenced inside CALS table
+      title.content = title.cnt*
+      title.attributes =
+        id-atts,
+        localization-atts,
+        attribute base { text }?,
+        base-attribute-extensions,
+        attribute outputclass { text }?,
+        [ dita:since = "1.3" ] attribute rev { text }?
+      title.element =
+        
+        ## The <title> element contains a heading or label for the main parts of a topic, including the topic as a whole, its sections and examples, and its labelled content, such
+        ##               as figures and tables. Beginning with DITA 1.1, the element may also be used to provide a title for a map. Category: Topic elements
+        [ dita:longName = "Title" ]
+        element title { title.attlist, title.content }
+      title.attlist &= title.attributes
+    }
+    
+    ## LONG NAME: Navigation Title
+    div {
+      navtitle.content =
+        (words.cnt
+         | ph
+         | [ dita:since = "1.3" ] draft-comment
+         | [ dita:since = "1.3" ] required-cleanup)*
+      navtitle.attributes = univ-atts
+      navtitle.element =
+        
+        ## The navigation title (<navtitle>) element is one of a set of alternate titles that can be included inside the <titlealts> element. This navigation title may differ
+        ##               from the first level heading that shows in the main browser window. Use <navtitle> when the actual title of the topic isn't appropriate for use in navigation panes or online contents
+        ##               (for example, because the actual title is too long). Category: Topic elements
+        [ dita:longName = "Navigation Title" ]
+        element navtitle { navtitle.attlist, navtitle.content }
+      navtitle.attlist &= navtitle.attributes
+    }
+    [
+      a:documentation [
+        xml:space = "preserve"
+        "LONG NAME: Description\x{a}" ~
+        "        \x{a}" ~
+        "    Desc is used in context with figure and \x{a}" ~
+        "    table titles and also for content models \x{a}" ~
+        "    within linkgroup and object (for \x{a}" ~
+        "    accessibility)\x{a}" ~
+        "        "
+      ]
+    ]
+    div {
+      desc.content = desc.cnt*
+      desc.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      desc.element =
+        
+        ## The <desc> element contains the description of the current element. A description should provide more information than the title. This is its behavior in
+        ##               fig/table/linklist, for example. In xref/link, it provides a description of the target; processors that support it may choose to display this as hover help. In object, it contains
+        ##               alternate content for use when in contexts that cannot display the object. Category: Body elements
+        [ dita:longName = "Description" ]
+        element desc { desc.attlist, desc.content }
+      desc.attlist &= desc.attributes
+    }
+  }
+  
+  ## BASIC DOCUMENT ELEMENT DECLARATIONS (rich text) 
+  div {
+    
+    ## LONG NAME: Paragraph
+    div {
+      p.content = para.cnt*
+      p.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      p.element =
+        
+        ## A paragraph element (<p>) is a block of text containing a single main idea. Category: Body elements
+        [ dita:longName = "Paragraph" ]
+        element p { p.attlist, p.content }
+      p.attlist &= p.attributes
+    }
+    
+    ## LONG NAME: Note
+    div {
+      note.content = note.cnt*
+      note.attributes =
+        attribute type {
+          "attention"
+          | "caution"
+          | "danger"
+          | "fastpath"
+          | "important"
+          | "note"
+          | "notice"
+          | "other"
+          | "remember"
+          | "restriction"
+          | "tip"
+          | [ dita:since = "1.3" ] "trouble"
+          | "warning"
+          | "-dita-use-conref-target"
+        }?,
+        attribute spectitle { text }?,
+        attribute othertype { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      note.element =
+        
+        ## A <note> element contains information, differentiated from the main text, which expands on or calls attention to a particular point. Category: Body
+        ##               elements
+        [ dita:longName = "Note" ]
+        element note { note.attlist, note.content }
+      note.attlist &= note.attributes
+    }
+    
+    ## LONG NAME: Long quote reference
+    div {
+      longquoteref.content = empty
+      longquoteref.attributes =
+        attribute href { text }?,
+        attribute keyref { text }?,
+        attribute type { text }?,
+        attribute format { text }?,
+        attribute scope {
+          "external" | "local" | "peer" | "-dita-use-conref-target"
+        }?,
+        univ-atts,
+        attribute outputclass { text }?
+      longquoteref.element =
+        
+        ## The <longquoteref> element provides a reference to the source of a long quote. The long quote (<lq>) element itself allows an href attribute to specify the source of
+        ##               a quote, but it does not allow other standard linking attributes such as keyref, scope, and format. The <longquoteref> element should be used for references that make use of these
+        ##               attributes. 
+        [ dita:longName = "Long Quote Reference" ]
+        element longquoteref {
+          longquoteref.attlist, longquoteref.content
+        }
+      longquoteref.attlist &= longquoteref.attributes
+    }
+    
+    ## LONG NAME: Long Quote (Excerpt)
+    div {
+      lq.content = longquote.cnt*
+      lq.attributes =
+        attribute href { text }?,
+        attribute keyref { text }?,
+        attribute format { text }?,
+        attribute type { text }?,
+        attribute scope {
+          "external" | "local" | "peer" | "-dita-use-conref-target"
+        }?,
+        attribute reftitle { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      lq.element =
+        
+        ## The long quote (<lq>) element indicates content quoted from another source. Use the quote element <q> for short, inline quotations, and long quote <lq> for
+        ##               quotations that are too long for inline use, following normal guidelines for quoting other sources. You can store a URL to the source of the quotation in the href attribute; the href
+        ##               value may point to a DITA topic. Category: Body elements
+        [ dita:longName = "Long Quote" ]
+        element lq { lq.attlist, lq.content }
+      lq.attlist &= lq.attributes
+    }
+    
+    ## LONG NAME: Quoted text
+    div {
+      q.content = shortquote.cnt*
+      q.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      q.element =
+        
+        ## A quotation element (<q>) indicates content quoted from another source. This element is used for short quotes which are displayed inline. Use the long quote element
+        ##               (<lq>) for quotations that should be set off from the surrounding text. Category: Body elements
+        [ dita:longName = "Quote" ] element q { q.attlist, q.content }
+      q.attlist &= q.attributes
+    }
+    
+    ## LONG NAME: Simple List
+    div {
+      sl.content = [ dita:since = "1.3" ] ((data | data-about)*), sli+
+      sl.attributes =
+        attribute compact { "no" | "yes" | "-dita-use-conref-target" }?,
+        attribute spectitle { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      sl.element =
+        
+        ## The simple list (<sl>) element contains a simple list of items of short, phrase-like content, such as in documenting the materials in a kit or package. Category: Body
+        ##               elements
+        [ dita:longName = "Simple List" ]
+        element sl { sl.attlist, sl.content }
+      sl.attlist &= sl.attributes
+    }
+    
+    ## LONG NAME: Simple List Item
+    div {
+      sli.content = ph.cnt*
+      sli.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      sli.element =
+        
+        ## A simple list item (<sli>) is a single item in a simple list <sl>. Simple list items have phrase or text content, adequate for describing package contents, for
+        ##               example. When a DITA topic is formatted for output, the items of a simple list are placed each on its own line, with no other prefix such as a number (as in an ordered list) or bullet
+        ##               (as in an unordered list). Category: Body elements
+        [ dita:longName = "Simple List Item" ]
+        element sli { sli.attlist, sli.content }
+      sli.attlist &= sli.attributes
+    }
+    
+    ## LONG NAME: Unordered List
+    div {
+      ul.content = [ dita:since = "1.3" ] ((data | data-about)*), li+
+      ul.attributes =
+        attribute compact { "no" | "yes" | "-dita-use-conref-target" }?,
+        attribute spectitle { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      ul.element =
+        
+        ## In an unordered list (<ul>), the order of the list items is not significant. List items are typically styled on output with a "bullet" character, depending on nesting
+        ##               level. Category: Body elements
+        [
+          dita:longName = "Unordered List"
+          sch:pattern [
+            name = "atLeastTwoChildren"
+            "\x{a}" ~
+            "              "
+            sch:rule [
+              context = "ul"
+              "\x{a}" ~
+              "                "
+              sch:assert [
+                test = "count(*) > 1"
+                role = "warning"
+                " Please make sure you have at least 2 items for this list! "
+              ]
+              "\x{a}" ~
+              "              "
+            ]
+            "\x{a}" ~
+            "            "
+          ]
+        ]
+        element ul { ul.attlist, ul.content }
+      ul.attlist &= ul.attributes
+    }
+    
+    ## LONG NAME: Ordered List
+    div {
+      ol.content = [ dita:since = "1.3" ] ((data | data-about)*), li+
+      ol.attributes =
+        attribute compact { "no" | "yes" | "-dita-use-conref-target" }?,
+        attribute spectitle { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      ol.element =
+        
+        ## An ordered list (<ol>) is a list of items sorted by sequence or order of importance. Category: List elements
+        [ dita:longName = "Ordered List" ]
+        element ol { ol.attlist, ol.content }
+      ol.attlist &= ol.attributes
+    }
+    
+    ## LONG NAME: List Item
+    div {
+      li.content = listitem.cnt*
+      li.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      li.element =
+        
+        ## A list (<li>) item is a single item in an ordered <ol> or unordered <ul> list. When a DITA topic is formatted for output, numbers and alpha characters are usually
+        ##               output with list items in ordered lists, while bullets and dashes are usually output with list items in unordered lists. Category: Body elements
+        [ dita:longName = "List Item" ]
+        element li { li.attlist, li.content }
+      li.attlist &= li.attributes
+    }
+    
+    ## LONG NAME: Item Group
+    div {
+      itemgroup.content = itemgroup.cnt*
+      itemgroup.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      itemgroup.element =
+        
+        ## The <itemgroup> element is reserved for use in specializations of DITA. As a container element, it can be used to sub-divide or organize elements that occur inside a
+        ##               list item, definition, or parameter definition. Category: Specialization elements
+        [ dita:longName = "Item Group" ]
+        element itemgroup { itemgroup.attlist, itemgroup.content }
+      itemgroup.attlist &= itemgroup.attributes
+    }
+    
+    ## LONG NAME: Definition List
+    div {
+      dl.content =
+        [ dita:since = "1.3" ] ((data | data-about)*), dlhead?, dlentry+
+      dl.attributes =
+        attribute compact { "no" | "yes" | "-dita-use-conref-target" }?,
+        attribute spectitle { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      dl.element =
+        
+        ## A definition list (<dl>) is a list of terms and corresponding definitions. The term (<dt>) is usually flush left. The description or definition (<dd>) is usually
+        ##               either indented and on the next line, or on the same line to the right of the term. Category: Body elements
+        [ dita:longName = "Definition List" ]
+        element dl { dl.attlist, dl.content }
+      dl.attlist &= dl.attributes
+    }
+    
+    ## LONG NAME: Definition List Head
+    div {
+      dlhead.content = dthd?, ddhd?
+      dlhead.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      dlhead.element =
+        
+        ## The <dlhead> element contains optional headings for the term and description columns in a definition list. The definition list heading contains a heading <dthd> for
+        ##               the column of terms and an optional heading <ddhd>for the column of descriptions. Category: Body elements
+        [ dita:longName = "Definition List Head" ]
+        element dlhead { dlhead.attlist, dlhead.content }
+      dlhead.attlist &= dlhead.attributes
+    }
+    
+    ## LONG NAME: Term Header
+    div {
+      dthd.content = title.cnt*
+      dthd.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      dthd.element =
+        
+        ## The definition term heading (<dthd>) element is contained in a definition list head (<dlhead>) and provides an optional heading for the column of terms in a
+        ##               description list. Category: Body elements
+        [ dita:longName = "Term Header" ]
+        element dthd { dthd.attlist, dthd.content }
+      dthd.attlist &= dthd.attributes
+    }
+    
+    ## LONG NAME: Definition Header
+    div {
+      ddhd.content = title.cnt*
+      ddhd.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      ddhd.element =
+        
+        ## The definition descriptions heading (<ddhd>) element contains an optional heading or title for a column of descriptions or definitions in a definition list. Category:
+        ##               Body elements
+        [ dita:longName = "Definition Header" ]
+        element ddhd { ddhd.attlist, ddhd.content }
+      ddhd.attlist &= ddhd.attributes
+    }
+    
+    ## LONG NAME: Definition List Entry
+    div {
+      dlentry.content = dt+, dd+
+      dlentry.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      dlentry.element =
+        
+        ## In a definition list, each list item is defined by the definition list entry (<dlentry>) element. The definition list entry element includes a term <dt> and one or
+        ##               more definitions or descriptions <dd> of that term. Category: Body elements
+        [ dita:longName = "Definition List Entry" ]
+        element dlentry { dlentry.attlist, dlentry.content }
+      dlentry.attlist &= dlentry.attributes
+    }
+    
+    ## LONG NAME: Definition Term
+    div {
+      dt.content = term.cnt*
+      dt.attributes =
+        attribute keyref { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      dt.element =
+        
+        ## The definition term <dt> element contains a term in a definition list entry. Category: Body elements
+        [ dita:longName = "Definition Term" ]
+        element dt { dt.attlist, dt.content }
+      dt.attlist &= dt.attributes
+    }
+    
+    ## LONG NAME: Definition Description
+    div {
+      dd.content = defn.cnt*
+      dd.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      dd.element =
+        
+        ## The definition description (<dd>) element contains the description of a term in a definition list entry. Category: Body elements
+        [ dita:longName = "Definition Description" ]
+        element dd { dd.attlist, dd.content }
+      dd.attlist &= dd.attributes
+    }
+    
+    ## LONG NAME: Figure
+    div {
+      fig.content = title?, desc?, (figgroup | fig.cnt)*
+      fig.attributes =
+        display-atts,
+        attribute spectitle { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      fig.element =
+        
+        ## The figure (<fig>) element is a display context (sometimes called an exhibit) with an optional title for a wide variety of content. Most commonly, the figure element
+        ##               contains an image element (a graphic or artwork), but it can contain several kinds of text objects as well. A title is placed inside the figure element to provide a caption to describe
+        ##               the content. Category: Body elements
+        [ dita:longName = "Figure" ]
+        element fig { fig.attlist, fig.content }
+      fig.attlist &= fig.attributes
+    }
+    
+    ## LONG NAME: Figure Group
+    div {
+      figgroup.content = title?, (figgroup | figgroup.cnt)*
+      figgroup.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      figgroup.element =
+        
+        ## The <figgroup> element is used only for specialization at this time. Figure groups can be used to contain multiple cross-references, footnotes or keywords, but not
+        ##               multipart images. Multipart images in DITA should be represented by a suitable media type displayed by the <object> element. Category: Body elements
+        [ dita:longName = "Figure Group" ]
+        element figgroup { figgroup.attlist, figgroup.content }
+      figgroup.attlist &= figgroup.attributes
+    }
+    
+    ## LONG NAME: Preformatted Text
+    div {
+      pre.content = pre.cnt*
+      pre.attributes =
+        display-atts,
+        attribute spectitle { text }?,
+        [ a:defaultValue = "preserve" ]
+        attribute xml:space { "preserve" }?,
+        univ-atts,
+        attribute outputclass { text }?
+      pre.element =
+        
+        ## The preformatted element (<pre>) preserves line breaks and spaces entered manually by the author in the content of the element, and also presents the content in a
+        ##               monospaced type font (depending on your output formatting processor). Do not use <pre> when a more semantically specific element is appropriate, such as <codeblock>. Category: Body
+        ##               elements
+        [ dita:longName = "Preformatted Text" ]
+        element pre { pre.attlist, pre.content }
+      pre.attlist &= pre.attributes
+    }
+    
+    ## LONG NAME: Line Respecting Text
+    div {
+      lines.content = pre.cnt*
+      lines.attributes =
+        display-atts,
+        attribute spectitle { text }?,
+        [ a:defaultValue = "preserve" ]
+        attribute xml:space { "preserve" }?,
+        univ-atts,
+        attribute outputclass { text }?
+      lines.element =
+        
+        ## The <lines> element may be used to represent dialogs, lists, text fragments, and so forth. The <lines> element is similar to <pre> in that hard line breaks are
+        ##               preserved, but the font style is not set to monospace, and extra spaces inside the lines are not preserved. Category: Body elements
+        [ dita:longName = "Line Respecting Text" ]
+        element lines { lines.attlist, lines.content }
+      lines.attlist &= lines.attributes
+    }
+    
+    ## LONG NAME: Division
+    div {
+      div.content = div.cnt*
+      div.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      div.element =
+        
+        ##  Category: Body elements
+        [ dita:longName = "Division" dita:since = "1.3" ]
+        element div { div.attlist, div.content }
+      div.attlist &= div.attributes
+    }
+  }
+  
+  ##  BASE FORM PHRASE TYPES
+  div {
+    
+    ## LONG NAME: Text
+    div {
+      text.content = (text | \text)*
+      text.attributes = univ-atts
+      text.element =
+        
+        ## The text element associates no semantics with its content. It exists to serve as a container for text where a container is needed (e.g., for conref, or for restricted
+        ##               content models in specializations). Unlike ph, text cannot contain images. Unlike keyword, text does not imply keyword-like semantics. The text element contains only text data, or nested
+        ##               text elements. All universal attributes are available on text.
+        [ dita:longName = "Text" ]
+        element text { text.attlist, text.content }
+      text.attlist &= text.attributes
+    }
+    
+    ## LONG NAME: Keyword
+    div {
+      keyword.content =
+        (text
+         | [ dita:since = "1.3" ] draft-comment
+         | [ dita:since = "1.3" ] required-cleanup
+         | \text
+         | tm)*
+      keyword.attributes =
+        attribute keyref { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      keyword.element =
+        
+        ## The <keyword> element identifies a keyword or token, such as a single value from an enumerated list, the name of a command or parameter, product name, or a lookup key
+        ##               for a message. Category: Body elements
+        [ dita:longName = "Keyword" ]
+        element keyword { keyword.attlist, keyword.content }
+      keyword.attlist &= keyword.attributes
+    }
+    
+    ## LONG NAME: Term
+    div {
+      term.content =
+        (text
+         | [ dita:since = "1.3" ] draft-comment
+         | [ dita:since = "1.3" ] required-cleanup
+         | \text
+         | tm)*
+      term.attributes =
+        attribute keyref { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      term.element =
+        
+        ## The <term> element identifies words that may have or require extended definitions or explanations. In future development of DITA, for example, terms might provide
+        ##               associative linking to matching glossary entries. Category: Specialization elements
+        [ dita:longName = "Term" ]
+        element term { term.attlist, term.content }
+      term.attlist &= term.attributes
+    }
+    
+    ## LONG NAME: Phrase
+    div {
+      ph.content = (ph.cnt)*
+      ph.attributes =
+        attribute keyref { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      ph.element =
+        
+        ## The phrase (<ph>) element is used to organize content for reuse or conditional processing (for example, when part of a paragraph applies to a particular audience). It
+        ##               can be used by specializations of DITA to create semantic markup for content at the phrase level, which then allows (but does not require) specific processing or formatting. Category:
+        ##               Body elements
+        [ dita:longName = "Phrase" ]
+        element ph { ph.attlist, ph.content }
+      ph.attlist &= ph.attributes
+    }
+    
+    ## LONG NAME: Trade Mark
+    div {
+      tm.content = (text | \text | tm)*
+      tm.attributes =
+        attribute trademark { text }?,
+        attribute tmowner { text }?,
+        attribute tmtype {
+          "reg" | "service" | "tm" | "-dita-use-conref-target"
+        },
+        attribute tmclass { text }?,
+        univ-atts
+      tm.element =
+        
+        ## The trademark (<tm>) element in DITA is used to markup and identify a term or phrase that is trademarked. Trademarks include registered trademarks, service marks,
+        ##               slogans and logos. Category: Miscellaneous elements
+        [ dita:longName = "Trade Mark" ]
+        element tm { tm.attlist, tm.content }
+      tm.attlist &= tm.attributes
+    }
+    
+    ## LONG NAME: Boolean (deprecated)
+    div {
+      boolean.content = empty
+      boolean.attributes =
+        attribute state { "no" | "yes" | "-dita-use-conref-target" },
+        univ-atts,
+        attribute outputclass { text }?
+      boolean.element =
+        
+        ## The <boolean> element is used to express one of two opposite values, such as yes or no, on or off, true or false, high or low, and so forth. The element itself is
+        ##               empty; the value of the element is stored in its state attribute, and the semantic associated with the value is typically in a specialized name derived from this element. Category:
+        ##               Specialization elements
+        [ dita:longName = "Boolean  (deprecated)" ]
+        element boolean { boolean.attlist, boolean.content }
+      boolean.attlist &= boolean.attributes
+    }
+    [
+      a:documentation [
+        xml:space = "preserve"
+        "LONG NAME: State\x{a}" ~
+        "        \x{a}" ~
+        "    A state can have a name and a string value, \x{a}" ~
+        "    even if empty or indeterminate\x{a}" ~
+        "        "
+      ]
+    ]
+    div {
+      state.content = empty
+      state.attributes =
+        attribute name { text },
+        attribute value { text },
+        univ-atts,
+        attribute outputclass { text }?
+      state.element =
+        
+        ## The <state> element specifies a name/value pair whenever it is necessary to represent a named state that has a variable value. The element is primarily intended for use
+        ##               in specializations to represent specific states (like logic circuit states, chemical reaction states, airplane instrumentation states, and so forth). Category: Specialization
+        ##               elements
+        [ dita:longName = "State" ]
+        element state { state.attlist, state.content }
+      state.attlist &= state.attributes
+    }
+    
+    ## LONG NAME: Image Data
+    div {
+      image.content = alt?, longdescref?
+      image.attributes =
+        attribute href { text }?,
+        attribute scope {
+          "external" | "local" | "peer" | "-dita-use-conref-target"
+        }?,
+        attribute keyref { text }?,
+        attribute alt { text }?,
+        attribute longdescref { text }?,
+        attribute height { xsd:NMTOKEN }?,
+        attribute width { xsd:NMTOKEN }?,
+        attribute align { text }?,
+        attribute scale { xsd:NMTOKEN }?,
+        attribute scalefit {
+          "yes" | "no" | "-dita-use-conref-target"
+        }?,
+        [ a:defaultValue = "inline" ]
+        attribute placement {
+          "break" | "inline" | "-dita-use-conref-target"
+        }?,
+        univ-atts,
+        attribute outputclass { text }?
+      image.element =
+        
+        ## Include artwork or images in a DITA topic by using the <image> element. The <image> element has optional attributes that indicate whether the placement of the
+        ##               included graphic or artwork should be inline (like a button or icon) or on a separate line for a larger image. There are also optional attributes that indicate the size to which the
+        ##               included graphic or artwork should be scaled. An href attribute is required on the image element, as this attribute creates a pointer to the image, and allows the output formatting
+        ##               processor to bring the image into the text flow. To make the intent of the image more accessible for users using screen readers or text-only readers, always include a description of the
+        ##               image's content in the alt element. Category: Body elements
+        [ dita:longName = "Image Data" ]
+        element image { image.attlist, image.content }
+      image.attlist &= image.attributes
+    }
+    
+    ## LONG NAME: Alternate text
+    div {
+      alt.content =
+        (words.cnt
+         | [ dita:since = "1.3" ] draft-comment
+         | [ dita:since = "1.3" ] required-cleanup
+         | ph)*
+      alt.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      alt.element =
+        
+        ## The alt element provides alternate text for an image. It is equivalent to the alt attribute on the image element; the attribute is deprecated, so the alt element should be
+        ##               used instead. As an element, alt provides direct text entry within an XML editor and is more easily accessed than an attribute for translation. Category: Body elements
+        [ dita:longName = "Alternate text" ]
+        element alt { alt.attlist, alt.content }
+      alt.attlist &= alt.attributes
+    }
+    
+    ## LONG NAME: Long description reference
+    div {
+      longdescref.content = empty
+      longdescref.attributes =
+        attribute href { text }?,
+        attribute keyref { text }?,
+        attribute type { text }?,
+        attribute format { text }?,
+        attribute scope {
+          "external" | "local" | "peer" | "-dita-use-conref-target"
+        }?,
+        univ-atts,
+        attribute outputclass { text }?
+      longdescref.element =
+        
+        ## A reference to a textual description of the graphic or object. This element is a replacement for the longdescref attribute on image and object elements.
+        [ dita:longName = "Long description reference" ]
+        element longdescref { longdescref.attlist, longdescref.content }
+      longdescref.attlist &= longdescref.attributes
+    }
+    [
+      a:documentation [
+        xml:space = "preserve"
+        "LONG NAME: Object (Streaming/Executable Data)\x{a}" ~
+        "        \x{a}" ~
+        "    The longdescre attribute is an error which appeared in the\x{a}" ~
+        "    original DTD implementation of OASIS DITA. It is an error that\x{a}" ~
+        "    is not part of the standard. It was left here to provide time\x{a}" ~
+        "    to change documents, but it will be removed at a later date.\x{a}" ~
+        "    The longdescref (with ending F) should be used instead.\x{a}" ~
+        "        "
+      ]
+    ]
+    div {
+      object.content =
+        desc?, longdescref?, param*, foreign.unknown.incl*
+      object.attributes =
+        attribute declare { "declare" }?,
+        attribute classid { text }?,
+        [ dita:since = "1.3" ] attribute classidkeyref { text }?,
+        attribute codebase { text }?,
+        [ dita:since = "1.3" ] attribute codebasekeyref { text }?,
+        attribute data { text }?,
+        [ dita:since = "1.3" ] attribute datakeyref { text }?,
+        attribute type { text }?,
+        attribute codetype { text }?,
+        attribute archive { text }?,
+        [ dita:since = "1.3" ] attribute archivekeyrefs { text }?,
+        attribute standby { text }?,
+        attribute height { xsd:NMTOKEN }?,
+        attribute width { xsd:NMTOKEN }?,
+        attribute usemap { text }?,
+        attribute name { text }?,
+        attribute tabindex { xsd:NMTOKEN }?,
+        attribute longdescref { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      object.element =
+        
+        ## DITA's <object> element corresponds to the HTML <object> element. Category: Body elements
+        [ dita:longName = "Object (Streaming/Executable Data)" ]
+        element object { object.attlist, object.content }
+      object.attlist &= object.attributes
+    }
+    
+    ## LONG NAME: Parameter
+    div {
+      param.content = empty
+      param.attributes =
+        univ-atts,
+        attribute name { text },
+        attribute value { text }?,
+        attribute valuetype {
+          "data" | "object" | "ref" | "-dita-use-conref-target"
+        }?,
+        attribute type { text }?,
+        [ dita:since = "1.3" ] attribute keyref { text }?
+      param.element =
+        
+        ## The parameter (<param>) element specifies a set of values that may be required by an <object> at runtime. Any number of <param> elements may appear in the content
+        ##               of an object in any order, but must be placed at the start of the content of the enclosing object. This element is comparable to the XHMTL <param> element. Category: Body
+        ##               elements
+        [ dita:longName = "Parameter" ]
+        element param { param.attlist, param.content }
+      param.attlist &= param.attributes
+    }
+    
+    ## LONG NAME: Simple Table
+    div {
+      simpletable.content = sthead?, strow+
+      simpletable.attributes =
+        attribute relcolwidth { text }?,
+        attribute keycol { xsd:NMTOKEN }?,
+        attribute refcols { xsd:NMTOKENS }?,
+        display-atts,
+        attribute spectitle { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      simpletable.element =
+        
+        ## The <simpletable> element is used for tables that are regular in structure and do not need a caption. Choose the simple table element when you want to show information
+        ##               in regular rows and columns. For example, multi-column tabular data such as phone directory listings or parts lists are good candidates for simpletable. Another good use of simpletable
+        ##               is for information that seems to beg for a "three-part definition list"—just use the keycol attribute to indicate which column represents the "key" or term-like column of your structure.
+        ##               Category: Table elements
+        [ dita:longName = "Simple Table" ]
+        element simpletable { simpletable.attlist, simpletable.content }
+      simpletable.attlist &= simpletable.attributes
+    }
+    
+    ## LONG NAME: Simple Table Head
+    div {
+      sthead.content = stentry+
+      sthead.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      sthead.element =
+        
+        ## The simpletable header (<sthead>) element contains the table's header row. The header row is optional in a simple table. Category: Table elements
+        [ dita:longName = "Simple Table Head" ]
+        element sthead { sthead.attlist, sthead.content }
+      sthead.attlist &= sthead.attributes
+    }
+    
+    ## LONG NAME: Simple Table Row
+    div {
+      strow.content = stentry*
+      strow.attributes =
+        univ-atts,
+        attribute outputclass { text }?
+      strow.element =
+        
+        ## The <simpletable> row (<strow>) element specifies a row in a simple table. Category: Table elements
+        [ dita:longName = "Simple Table Row" ]
+        element strow { strow.attlist, strow.content }
+      strow.attlist &= strow.attributes
+    }
+    
+    ## LONG NAME: Simple Table Cell (entry)
+    div {
+      stentry.content = tblcell.cnt*
+      stentry.attributes =
+        attribute specentry { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      stentry.element =
+        
+        ## The simpletable entry (<stentry>) element represents a single table cell, like <entry> in <table>. You can place any number of stentry cells in either an
+        ##               <sthead> element (for headings) or <strow> element (for rows of data). Category: Table elements
+        [ dita:longName = "Simple Table Cell (entry)" ]
+        element stentry { stentry.attlist, stentry.content }
+      stentry.attlist &= stentry.attributes
+    }
+    
+    ## LONG NAME: Review Comments Block
+    div {
+      draft-comment.content =
+        (text
+         | basic.phandblock
+         | data.elements.incl
+         | foreign.unknown.incl)*
+      draft-comment.attributes =
+        attribute author { text }?,
+        attribute time { text }?,
+        attribute disposition { text }?,
+        univ-atts-translate-no,
+        attribute outputclass { text }?
+      draft-comment.element =
+        
+        ## The <draft-comment> element allows simple review and discussion of topic contents within the marked-up content. Use the <draft-comment> element to ask a question or
+        ##               make a comment that you would like others to review. To indicate the source of the draft comment or the status of the comment, use the author, time or disposition attributes. Category:
+        ##               Miscellaneous elements
+        [ dita:longName = "Review Comments Block" ]
+        element draft-comment {
+          draft-comment.attlist, draft-comment.content
+        }
+      draft-comment.attlist &= draft-comment.attributes
+    }
+    
+    ## LONG NAME: Required Cleanup Block
+    div {
+      required-cleanup.content = any
+      required-cleanup.attributes =
+        attribute remap { text }?,
+        univ-atts-translate-no,
+        attribute outputclass { text }?
+      required-cleanup.element =
+        
+        ## A <required-cleanup> element is used as a placeholder for migrated elements that cannot be appropriately tagged without manual intervention. As the element name
+        ##               implies, the intent for authors is to clean up the contained material and eventually get rid of the <required-cleanup> element. Authors should not insert this element into documents.
+        ##               Category: Specialization elements
+        [ dita:longName = "Required Cleanup Block" ]
+        element required-cleanup {
+          required-cleanup.attlist, required-cleanup.content
+        }
+      required-cleanup.attlist &= required-cleanup.attributes
+    }
+    
+    ## LONG NAME: Footnote
+    div {
+      fn.content = fn.cnt*
+      fn.attributes =
+        attribute callout { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      fn.element =
+        
+        ## Use footnote (<fn>) to annotate text with notes that are not appropriate for inclusion in line or to indicate the source for facts or other material used in the text.
+        ##               Category: Miscellaneous elements
+        [ dita:longName = "Footnote" ]
+        element fn { fn.attlist, fn.content }
+      fn.attlist &= fn.attributes
+    }
+    
+    ## LONG NAME: Index Term
+    div {
+      indexterm.content =
+        (words.cnt
+         | [ dita:since = "1.3" ] ph
+         | indexterm
+         | index-base)*
+      indexterm.attributes =
+        attribute keyref { text }?,
+        attribute start { text }?,
+        attribute end { text }?,
+        univ-atts
+      indexterm.element =
+        
+        ## An <indexterm> element allows the author to indicate that a certain word or phrase should produce an index entry in the generated index. Category: Miscellaneous
+        ##               elements
+        [ dita:longName = "Index Term" ]
+        element indexterm { indexterm.attlist, indexterm.content }
+      indexterm.attlist &= indexterm.attributes
+    }
+    
+    ## LONG NAME: Index Base
+    div {
+      index-base.content = (words.cnt | indexterm)*
+      index-base.attributes =
+        attribute keyref { text }?,
+        univ-atts
+      index-base.element =
+        
+        ## The <index-base> element allows indexing extensions to be added by specializing off this element. It does not in itself have any meaning and should be ignored in
+        ##               processing. Category: Miscellaneous elements
+        [ dita:longName = "Index Base" ]
+        element index-base { index-base.attlist, index-base.content }
+      index-base.attlist &= index-base.attributes
+    }
+    
+    ## LONG NAME: Index term reference
+    div {
+      indextermref.content = empty
+      indextermref.attributes =
+        attribute keyref { text },
+        univ-atts
+      indextermref.element =
+        
+        ## This element is not completely defined, and is reserved for future use. Category: Miscellaneous elements
+        [ dita:longName = "Index term reference" ]
+        element indextermref {
+          indextermref.attlist, indextermref.content
+        }
+      indextermref.attlist &= indextermref.attributes
+    }
+    
+    ## LONG NAME: Citation (bibliographic source)
+    div {
+      cite.content = xrefph.cnt*
+      cite.attributes =
+        attribute keyref { text }?,
+        univ-atts,
+        attribute outputclass { text }?
+      cite.element =
+        
+        ## The <cite> element is used when you need a bibliographic citation that refers to a book or article. It specifically identifies the title of the resource. Category: Body
+        ##               elements
+        [ dita:longName = "Citation (bibliographic source)" ]
+        element cite { cite.attlist, cite.content }
+      cite.attlist &= cite.attributes
+    }
+    
+    ## LONG NAME: Cross Reference/Link
+    div {
+      xref.content = (xreftext.cnt | desc)*
+      xref.attributes =
+        attribute href { text }?,
+        attribute keyref { text }?,
+        attribute type { text }?,
+        attribute format { text }?,
+        attribute scope {
+          "external" | "local" | "peer" | "-dita-use-conref-target"
+        }?,
+        univ-atts,
+        attribute outputclass { text }?
+      xref.element =
+        
+        ## Use the cross-reference (<xref>) element to link to a different location within the current topic, or a different topic within the same help system, or to external
+        ##               sources, such as Web pages, or to a location in another topic. The href attribute on the <xref> element provides the location of the target. Category: Body elements
+        [ dita:longName = "Cross Reference/Link" ]
+        element xref { xref.attlist, xref.content }
+      xref.attlist &= xref.attributes
+    }
+  }
+  include "tblDeclMod.rnc"
+}
+
+## SPECIALIZATION ATTRIBUTE DECLARATIONS
+div {
+  alt.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/alt " ] attribute class { text }?
+  boolean.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/boolean " ] attribute class { text }?
+  cite.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/cite " ] attribute class { text }?
+  dd.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/dd " ] attribute class { text }?
+  data.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/data " ] attribute class { text }?
+  data-about.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/data-about " ] attribute class { text }?
+  ddhd.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/ddhd " ] attribute class { text }?
+  desc.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/desc " ] attribute class { text }?
+  div.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/div " ] attribute class { text }?
+  dl.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/dl " ] attribute class { text }?
+  dlentry.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/dlentry " ] attribute class { text }?
+  dlhead.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/dlhead " ] attribute class { text }?
+  draft-comment.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/draft-comment " ]
+    attribute class { text }?
+  dt.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/dt " ] attribute class { text }?
+  dthd.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/dthd " ] attribute class { text }?
+  fig.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/fig " ] attribute class { text }?
+  figgroup.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/figgroup " ] attribute class { text }?
+  fn.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/fn " ] attribute class { text }?
+  foreign.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/foreign " ] attribute class { text }?
+  image.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/image " ] attribute class { text }?
+  indexterm.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/indexterm " ] attribute class { text }?
+  index-base.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/index-base " ] attribute class { text }?
+  indextermref.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/indextermref " ]
+    attribute class { text }?
+  itemgroup.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/itemgroup " ] attribute class { text }?
+  keyword.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/keyword " ] attribute class { text }?
+  li.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/li " ] attribute class { text }?
+  lines.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/lines " ] attribute class { text }?
+  longdescref.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/longdescref " ]
+    attribute class { text }?
+  longquoteref.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/longquoteref " ]
+    attribute class { text }?
+  lq.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/lq " ] attribute class { text }?
+  navtitle.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/navtitle " ] attribute class { text }?
+  note.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/note " ] attribute class { text }?
+  object.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/object " ] attribute class { text }?
+  ol.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/ol " ] attribute class { text }?
+  p.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/p " ] attribute class { text }?
+  param.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/param " ] attribute class { text }?
+  ph.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/ph " ] attribute class { text }?
+  pre.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/pre " ] attribute class { text }?
+  q.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/q " ] attribute class { text }?
+  required-cleanup.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/required-cleanup " ]
+    attribute class { text }?
+  simpletable.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/simpletable " ]
+    attribute class { text }?
+  sl.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/sl " ] attribute class { text }?
+  sli.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/sli " ] attribute class { text }?
+  state.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/state " ] attribute class { text }?
+  stentry.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/stentry " ] attribute class { text }?
+  sthead.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/sthead " ] attribute class { text }?
+  strow.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/strow " ] attribute class { text }?
+  term.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/term " ] attribute class { text }?
+  text.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/text " ] attribute class { text }?
+  title.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/title " ] attribute class { text }?
+  tm.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/tm " ] attribute class { text }?
+  ul.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/ul " ] attribute class { text }?
+  unknown.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/unknown " ] attribute class { text }?
+  xref.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/xref " ] attribute class { text }?
+}

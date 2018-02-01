@@ -1,0 +1,238 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "    "
+  dita:moduleTitle [ "DITA Utilities Domain" ]
+  "\x{a}" ~
+  "    "
+  dita:headerComment [
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   HEADER                                    \x{a}" ~
+    "=============================================================\x{a}" ~
+    " MODULE:    DITA Utilities Domain                            \x{a}" ~
+    " VERSION:   1.2                                              \x{a}" ~
+    " DATE:      November 2009                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "=============================================================\x{a}" ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   PUBLIC DOCUMENT TYPE DEFINITION           \x{a}" ~
+    "                   TYPICAL INVOCATION                        \x{a}" ~
+    "                                                             \x{a}" ~
+    " Refer to this file by the following public identifier or an\x{a}" ~
+    "      appropriate system identifier \x{a}" ~
+    'PUBLIC "-//OASIS//ELEMENTS DITA Utilities Domain//EN"\x{a}' ~
+    '      Delivered as file "utilitiesDomain.mod"                     \x{a}' ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "SYSTEM:     Darwin Information Typing Architecture (DITA)    \x{a}" ~
+    "                                                             \x{a}" ~
+    "PURPOSE:    Declaring the elements and specialization        \x{a}" ~
+    "            attributes for the DITA Utilities Domain         \x{a}" ~
+    "                                                             \x{a}" ~
+    "ORIGINAL CREATION DATE:                                      \x{a}" ~
+    "            March 2001                                       \x{a}" ~
+    "                                                             \x{a}" ~
+    "            (C) Copyright OASIS Open 2005, 2009.             \x{a}" ~
+    "            (C) Copyright IBM Corporation 2001, 2004.        \x{a}" ~
+    "            All Rights Reserved.                             \x{a}" ~
+    "                                                             \x{a}" ~
+    " UPDATES:                                                    \x{a}" ~
+    "   2005.11.15 RDA: Updated these comments to match template  \x{a}" ~
+    '   2005.11.15 RDA: Corrected the "Delivered as" system ID    \x{a}' ~
+    "   2006.06.07 RDA: Make universal attributes universal       \x{a}" ~
+    "                     (DITA 1.1 proposal #12)                 \x{a}" ~
+    "   2006.06.14 RDA: Move univ-atts-translate-no into topic.mod\x{a}" ~
+    "   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      \x{a}" ~
+    "   2008.02.12 RDA: Add text to shape                         \x{a}" ~
+    "   2008.02.13 RDA: Create .content and .attributes entities  \x{a}" ~
+    "=============================================================\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "    "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    dita:moduleType [ "elementdomain" ]
+    "\x{a}" ~
+    "      "
+    dita:moduleShortName [ "ut-d" ]
+    "\x{a}" ~
+    "      "
+    dita:modulePublicIds [
+      "\x{a}" ~
+      "        "
+      dita:dtdMod [
+        "-//OASIS//ELEMENTS DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Utilities Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:dtdEnt [
+        "-//OASIS//ENTITIES DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Utilities Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:utilitiesDomain.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rncMod [
+        "urn:oasis:names:tc:dita:rnc:utilitiesDomain.rnc"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rngMod [
+        "urn:oasis:names:tc:dita:rng:utilitiesDomain.rng"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    "\x{a}" ~
+    "      "
+    dita:domainsContribution [ "(topic ut-d)" ]
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## Define domain extension patterns
+div {
+  ut-d-fig = imagemap.element
+  fig |= ut-d-fig
+  ut-d-data = sort-as.element
+  data |= ut-d-data
+}
+
+## ELEMENT TYPE NAME PATTERNS
+div {
+  imagemap = imagemap.element
+  area = area.element
+  shape = shape.element
+  coords = coords.element
+  sort-as = sort-as.element
+}
+
+## ELEMENT TYPE DEFINITIONS
+div {
+  
+  ## LONG NAME: Imagemap
+  div {
+    imagemap.content = image, area+
+    imagemap.attributes =
+      display-atts,
+      attribute spectitle { text }?,
+      univ-atts,
+      attribute outputclass { text }?
+    imagemap.element =
+      
+      ## The imagemap element supports the basic functionality 
+      ##             of the HTML client-side image map markup. Imagemap allows you to designate 
+      ##             a linkable area or region over an image,
+      ##             allowing a link in that region to display another topic. 
+      ##             Category: Utilities elements
+      [ dita:longName = "Imagemap" ]
+      element imagemap { imagemap.attlist, imagemap.content }
+    imagemap.attlist &= imagemap.attributes
+  }
+  
+  ## LONG NAME: Hotspot Area Description
+  div {
+    area.content = shape, coords, xref
+    area.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    area.element =
+      
+      ## The area element supports the basic functionality of the HTML 
+      ##             image map markup. 
+      ##             Category: Utilities elements
+      [ dita:longName = "Hotspot Area Description" ]
+      element area { area.attlist, area.content }
+    area.attlist &= area.attributes
+  }
+  
+  ## LONG NAME: Shape of the Hotspot
+  div {
+    shape.content = (text | \text)*
+    shape.attributes =
+      attribute keyref { text }?,
+      univ-atts-translate-no,
+      attribute outputclass { text }?
+    shape.element =
+      
+      ## The shape element defines the shape of a linkable 
+      ##             area in an imagemap. Category: Utilities elements
+      [ dita:longName = "Shape of the Hotspot" ]
+      element shape { shape.attlist, shape.content }
+    shape.attlist &= shape.attributes
+  }
+  
+  ## LONG NAME: Coordinates of the Hotspot
+  div {
+    coords.content = words.cnt*
+    coords.attributes =
+      attribute keyref { text }?,
+      univ-atts-translate-no,
+      attribute outputclass { text }?
+    coords.element =
+      
+      ## The coords element specifies the coordinates of the 
+      ##             linkable region in an imagemap area. Category: Utilities elements
+      [ dita:longName = "Coordinates of the Hotspot" ]
+      element coords { coords.attlist, coords.content }
+    coords.attlist &= coords.attributes
+  }
+  
+  ## LONG NAME: Sort phrase
+  div {
+    sort-as.content = (text | \text | keyword)*
+    sort-as.attributes =
+      univ-atts,
+      [ a:defaultValue = "sort-as" ] attribute name { text }?,
+      attribute value { text }?
+    sort-as.element =
+      
+      ##  Category: Utilities elements
+      [ dita:longName = "Sort phrase specifier" dita:since = "1.3" ]
+      element sort-as { sort-as.attlist, sort-as.content }
+    sort-as.attlist &= sort-as.attributes
+  }
+}
+
+## SPECIALIZATION ATTRIBUTE DECLARATIONS
+div {
+  imagemap.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/fig ut-d/imagemap " ]
+    attribute class { text }?
+  area.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/figgroup ut-d/area " ]
+    attribute class { text }?
+  shape.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/keyword ut-d/shape " ]
+    attribute class { text }?
+  coords.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/ph ut-d/coords " ]
+    attribute class { text }?
+  sort-as.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/data ut-d/sort-as " ]
+    attribute class { text }?
+}

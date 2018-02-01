@@ -1,0 +1,695 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "    "
+  dita:moduleTitle [ "DITA Topic Module" ]
+  "\x{a}" ~
+  "    "
+  dita:headerComment [
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   HEADER                                    \x{a}" ~
+    "=============================================================\x{a}" ~
+    "Darwin Information Typing Architecture (DITA) Version 1.3\x{a}" ~
+    "OASIS Standard\x{a}" ~
+    "17 December 2015 \x{a}" ~
+    "Copyright (c) OASIS Open 2015. All rights reserved. \x{a}" ~
+    "Source: http://docs.oasis-open.org/dita/dita/v1.3/os/part0-overview/dita-v1.3-os-part0-overview.html\x{a}" ~
+    "\x{a}" ~
+    "============================================================\x{a}" ~
+    " MODULE:    DITA DITA Topic                                  \x{a}" ~
+    " VERSION:   1.3                                              \x{a}" ~
+    " DATE:      March 2014                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "=============================================================\x{a}" ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   PUBLIC DOCUMENT TYPE DEFINITION           \x{a}" ~
+    "                   TYPICAL INVOCATION                        \x{a}" ~
+    "                                                             \x{a}" ~
+    " Refer to this file by the following public identifier or an \x{a}" ~
+    "      appropriate system identifier \x{a}" ~
+    'PUBLIC "-//OASIS//ELEMENTS DITA Topic//EN"\x{a}' ~
+    '      Delivered as file "topic.mod"                               \x{a}' ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "SYSTEM:     Darwin Information Typing Architecture (DITA)    \x{a}" ~
+    "                                                             \x{a}" ~
+    "PURPOSE:    Declaring the elements and specialization        \x{a}" ~
+    "            attributes for the base Topic type               \x{a}" ~
+    "                                                             \x{a}" ~
+    "ORIGINAL CREATION DATE:                                      \x{a}" ~
+    "            March 2001                                       \x{a}" ~
+    "                                                             \x{a}" ~
+    "            (C) Copyright OASIS Open 2005, 2009.             \x{a}" ~
+    "            (C) Copyright IBM Corporation 2001, 2004.        \x{a}" ~
+    "            All Rights Reserved.                             \x{a}" ~
+    "                                                             \x{a}" ~
+    " UPDATES:                                                    \x{a}" ~
+    "   2005.11.15 RDA: Corrected the public ID for tblDecl.mod   \x{a}" ~
+    "   2005.11.15 RDA: Removed old declaration for topicreftypes \x{a}" ~
+    "                   entity                                    \x{a}" ~
+    "   2005.11.15 RDA: Corrected the PURPOSE in this comment     \x{a}" ~
+    "   2005.11.15 RDA: Corrected Long Names for alt, indextermref\x{a}" ~
+    "   2006.06.06 RDA: Bug fixes:                                \x{a}" ~
+    "                   Added xref and fn to fig.cnt              \x{a}" ~
+    '                   Remove xmlns="" from global-atts          \x{a}' ~
+    "   2006.06.06 RDA: Moved shared items to commonElements file \x{a}" ~
+    "   2006.06.07 RDA: Added abstract> element                  \x{a}" ~
+    "   2006.06.07 RDA: Make universal attributes universal       \x{a}" ~
+    "                     (DITA 1.1 proposal #12)                 \x{a}" ~
+    "   2006.06.14 RDA: Add dir attribute to localization-atts    \x{a}" ~
+    "   2006.06.20 RDA: defn.cnt now explicitly sets its content  \x{a}" ~
+    "   2006.07.06 RDA: Moved class attributes in from topicAttr  \x{a}" ~
+    "   2006.11.30 RDA: Add -dita-use-conref-target to enumerated \x{a}" ~
+    "                     attributes                              \x{a}" ~
+    "   2006.11.30 RDA: Remove #FIXED from DITAArchVersion        \x{a}" ~
+    "   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       \x{a}" ~
+    "   2008.01.28 RDA: Add draft-comment to body.cnt             \x{a}" ~
+    "   2008.01.28 RDA: Moved <metadata> defn. to metaDecl.mod    \x{a}" ~
+    "   2008.01.30 RDA: Replace @conref defn. with %conref-atts;  \x{a}" ~
+    "   2008.02.12 RDA: Add ph to linktext, navtitle, searchtitle \x{a}" ~
+    "   2008.02.12 RDA: Modify imbeds to use specific 1.2 version \x{a}" ~
+    "   2008.02.12 RDA: Move navtitle to commonElements.mod       \x{a}" ~
+    "   2008.02.13 RDA: Add bodydiv and sectiondiv                \x{a}" ~
+    "   2008.02.13 RDA: Create .content and .attributes entities  \x{a}" ~
+    "   2008.05.06 RDA: Moved sectiondiv to section.cnt; created  \x{a}" ~
+    "                   example.cnt for use by example element    \x{a}" ~
+    "=============================================================\x{a}"
+  ]
+  "\x{a}" ~
+  "    "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    dita:moduleType [ "topic" ]
+    "\x{a}" ~
+    "      "
+    dita:moduleShortName [ "topic" ]
+    "\x{a}" ~
+    "      "
+    dita:modulePublicIds [
+      "\x{a}" ~
+      "        "
+      dita:dtdEnt [
+        "-//OASIS//ENTITIES DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Topic//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:dtdMod [
+        "-//OASIS//ELEMENTS DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Topic//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:topicMod.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdGrp [
+        "urn:oasis:names:tc:dita:xsd:topicGrp.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rncMod [
+        "urn:oasis:names:tc:dita:rnc:topicMod.rnc"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rngMod [
+        "urn:oasis:names:tc:dita:rng:topicMod.rng"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## ARCHITECTURE ATTRIBUTES
+div {
+  arch-atts =
+    [ a:defaultValue = "1.3" ] attribute dita:DITAArchVersion { text }?
+}
+
+## INFO TYPES PATTERNS
+div {
+  topic-info-types = info-types
+  info-types = topic.element
+}
+
+## ELEMENT TYPE NAME PATTERNS
+div {
+  abstract = abstract.element
+  body = body.element
+  bodydiv = bodydiv.element
+  example = example.element
+  link = link.element
+  linkinfo = linkinfo.element
+  linklist = linklist.element
+  linkpool = linkpool.element
+  linktext = linktext.element
+  prolog = prolog.element
+  related-links = related-links.element
+  searchtitle = searchtitle.element
+  section = section.element
+  sectiondiv = sectiondiv.element
+  shortdesc = shortdesc.element
+  titlealts = titlealts.element
+}
+
+## COMMON CONTENT MODEL PATTERNS
+div {
+  
+  ## Content elements common to map and topic
+  include "commonElementsMod.rnc"
+  
+  ## MetaData Elements, plus indexterm
+  include "metaDeclMod.rnc"
+  abstract.cnt =
+    text
+    | basic.block
+    | basic.ph
+    | data.elements.incl
+    | foreign.unknown.incl
+    | shortdesc
+    | txt.incl
+  body.cnt =
+    basic.block
+    | data.elements.incl
+    | draft-comment
+    | foreign.unknown.incl
+    | required-cleanup
+  
+  ## bodydiv also includes bodydiv and section
+  bodydiv.cnt =
+    text
+    | basic.block
+    | basic.ph
+    | data.elements.incl
+    | foreign.unknown.incl
+    | txt.incl
+  example.cnt =
+    text
+    | basic.block
+    | basic.ph
+    | data.elements.incl
+    | foreign.unknown.incl
+    | title
+    | txt.incl
+  section.cnt =
+    text
+    | basic.block
+    | basic.ph
+    | data.elements.incl
+    | foreign.unknown.incl
+    | sectiondiv
+    | title
+    | txt.incl
+  section.notitle.cnt =
+    text
+    | basic.block
+    | basic.ph
+    | data.elements.incl
+    | foreign.unknown.incl
+    | sectiondiv
+    | txt.incl
+  
+  ## sectiondiv also includes sectiondiv
+  sectiondiv.cnt =
+    text
+    | basic.block
+    | basic.ph
+    | data.elements.incl
+    | foreign.unknown.incl
+    | txt.incl
+  relational-atts =
+    attribute type { text }?,
+    [ dita:since = "1.3" ] attribute cascade { text }?,
+    attribute format { text }?,
+    attribute scope {
+      "external" | "local" | "peer" | "-dita-use-conref-target"
+    }?,
+    attribute role {
+      "ancestor"
+      | "child"
+      | "cousin"
+      | "descendant"
+      | "external"
+      | "friend"
+      | "next"
+      | "other"
+      | "parent"
+      | "previous"
+      | "sample"
+      | "sibling"
+      | "-dita-use-conref-target"
+    }?,
+    attribute otherrole { text }?
+  
+  ## rel-atts is deprecated as of DITA 1.2, retained for backward compatibility.
+  rel-atts =
+    attribute type { text }?,
+    attribute role {
+      "ancestor"
+      | "child"
+      | "cousin"
+      | "descendant"
+      | "external"
+      | "friend"
+      | "next"
+      | "other"
+      | "parent"
+      | "previous"
+      | "sample"
+      | "sibling"
+      | "-dita-use-conref-target"
+    }?,
+    attribute otherrole { text }?
+}
+
+## ELEMENT TYPE DECLARATIONS
+div {
+  
+  ## LONG NAME: Topic
+  div {
+    topic.content =
+      title,
+      titlealts?,
+      (shortdesc | abstract)?,
+      prolog?,
+      body?,
+      related-links?,
+      topic-info-types*
+    topic.attributes =
+      attribute id { xsd:ID },
+      conref-atts,
+      select-atts,
+      localization-atts,
+      attribute outputclass { text }?
+    topic.element =
+      
+      ## The <topic> element is the top-level DITA element for a single-subject topic or article. Other top-level DITA elements that are more content-specific are <concept>,
+      ##             <task>, <reference>, and <glossary>. Category: Topic elements
+      [ dita:longName = "Topic" ]
+      element topic { topic.attlist, topic.content }
+    topic.attlist &= topic.attributes, arch-atts, domains-att
+    idElements |= topic.element
+  }
+  
+  ## LONG NAME: Title Alternatives
+  div {
+    titlealts.content = navtitle?, searchtitle?
+    titlealts.attributes = univ-atts
+    titlealts.element =
+      
+      ## The alternate title element (<titlealts>) is optional, but can occur after the topic title. Two elements can be inserted as sub-elements of <titlealts>: navigation
+      ##             title <navtitle> and search title <searchtitle>. Category: Topic elements
+      [ dita:longName = "Title Alternatives" ]
+      element titlealts { titlealts.attlist, titlealts.content }
+    titlealts.attlist &= titlealts.attributes
+  }
+  
+  ## LONG NAME: Search Title
+  div {
+    searchtitle.content = (words.cnt | ph)*
+    searchtitle.attributes =
+      [ dita:since = "DITA 1.3" ] (attribute outputclass { text }?),
+      univ-atts
+    searchtitle.element =
+      
+      ## When your DITA topic is transformed to XHTML, the <searchtitle> element is used to create a title element at the top of the resulting HTML file. This title is normally
+      ##             used in search result summaries by some search engines, such as that in Eclipse (http://eclipse.org); if not set, the XHTML's title element defaults to the source topic's title content
+      ##             (which may not be as well optimized for search summaries) Category: Topic elements
+      [ dita:longName = "Search Title" ]
+      element searchtitle { searchtitle.attlist, searchtitle.content }
+    searchtitle.attlist &= searchtitle.attributes
+  }
+  
+  ## LONG NAME: Short Description
+  div {
+    shortdesc.content = (title.cnt | [ dita:since = "1.3" ] xref)*
+    shortdesc.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    shortdesc.element =
+      
+      ## The short description (<shortdesc>) element occurs between the topic title and the topic body, as the initial paragraph-like content of a topic, or it can be embedded
+      ##               in an abstract element. The short description, which represents the purpose or theme of the topic, is also intended to be used as a link preview and for searching. When used within a
+      ##               DITA map, the short description of the <topicref> can be used to override the short description in the topic. Category: Topic elements
+      [ dita:longName = "Short Description" ]
+      element shortdesc { shortdesc.attlist, shortdesc.content }
+    shortdesc.attlist &= shortdesc.attributes
+  }
+  
+  ## LONG NAME: Abstract
+  div {
+    abstract.content = abstract.cnt*
+    abstract.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    abstract.element =
+      
+      ## The abstract element occurs between the topic title and the topic body, as the initial content of a topic. It can contain paragraph-level content as well as one or more
+      ##             shortdesc elements which can be used for providing link previews or summaries. The <abstract> element cannot be overridden by maps, but its contained <shortdesc> elements can be, for
+      ##             the purpose of creating link summaries or previews. Category: Topic elements
+      [ dita:longName = "Abstract" ]
+      element abstract { abstract.attlist, abstract.content }
+    abstract.attlist &= abstract.attributes
+  }
+  
+  ## LONG NAME: Body
+  div {
+    body.content = (body.cnt | bodydiv | example | section)*
+    body.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    body.element =
+      
+      ## The <body> element is the container for the main content of a <topic>. Category: Topic elements
+      [ dita:longName = "Body" ]
+      element body { body.attlist, body.content }
+    body.attlist &= body.attributes
+  }
+  
+  ## LONG NAME: Body division
+  div {
+    bodydiv.content = (bodydiv.cnt | bodydiv | section)*
+    bodydiv.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    bodydiv.element =
+      
+      ## The <bodydiv> element is used to contain informal blocks of information within the body of a topic. The bodydiv element is specifically designed to be a grouping element,
+      ##             without any explicit semantics, other than to organize subsets of content into logical groups that are not intended or should not be contained as a topic. As such, it does not contain an
+      ##             explicit title to avoid enabling the creation of deeply nested content that would otherwise be written as separate topics. Content that requires a title should use a section element or a
+      ##             nested topic.
+      [ dita:longName = "Body division" ]
+      element bodydiv { bodydiv.attlist, bodydiv.content }
+    bodydiv.attlist &= bodydiv.attributes
+  }
+  
+  ## LONG NAME: No Topic nesting
+  div {
+    no-topic-nesting.content = empty
+    no-topic-nesting.attributes = empty
+    no-topic-nesting.element =
+      
+      ## The <no-topic-nesting> element is a placeholder in the DITA architecture. It is not actually used by the default DITA document types; it is for use only when creating a
+      ##             validly customized document type where the information designer wants to eliminate the ability to nest topics. Not intended for use by authors, and has no associated output processing.
+      ##             Category: Specialization elements
+      [ dita:longName = "No Topic nesting" ]
+      element no-topic-nesting {
+        no-topic-nesting.attlist, no-topic-nesting.content
+      }
+    no-topic-nesting.attlist &= no-topic-nesting.attributes
+  }
+  
+  ## LONG NAME: Section
+  div {
+    section.content = section.cnt*
+    section.attributes =
+      attribute spectitle { text }?,
+      univ-atts,
+      attribute outputclass { text }?
+    section.element =
+      
+      ## The <section> element represents an organizational division in a topic. Sections are used to organize subsets of information that are directly related to the topic. For
+      ##             example, the titles Reference Syntax, Example and Properties might represent section-level discourse within a topic about a command-line process—the content in each section relates
+      ##             uniquely to the subject of that topic. Multiple sections within a single topic do not represent a hierarchy, but rather peer divisions of that topic. Sections cannot be nested. A section
+      ##             may have an optional title. Category: Topic elements
+      [ dita:longName = "Section" ]
+      element section { section.attlist, section.content }
+    section.attlist &= section.attributes
+  }
+  
+  ## LONG NAME: Section division
+  div {
+    sectiondiv.content = (sectiondiv.cnt | sectiondiv)*
+    sectiondiv.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    sectiondiv.element =
+      
+      ## The <sectiondiv> element allows logical grouping of content within a section. There is no additional semantic associated with the sectiondiv element, aside from its
+      ##             function as a container for other content. The sectiondiv element does not contain a title; the lowest level of titled content within a topic is the section itself. If additional hierarchy
+      ##             is required, nested topics should be used in place of the section.
+      [ dita:longName = "Section division" ]
+      element sectiondiv { sectiondiv.attlist, sectiondiv.content }
+    sectiondiv.attlist &= sectiondiv.attributes
+  }
+  
+  ## LONG NAME: Example
+  div {
+    example.content = example.cnt*
+    example.attributes =
+      attribute spectitle { text }?,
+      univ-atts,
+      attribute outputclass { text }?
+    example.element =
+      
+      ## The <example> element is a section with the specific role of containing examples that illustrate or support the current topic. The <example> element has the same
+      ##             content model as <section>. Category: Topic elements
+      [ dita:longName = "Example" ]
+      element example { example.attlist, example.content }
+    example.attlist &= example.attributes
+  }
+  
+  ## PROLOG (METADATA FOR TOPICS)
+  div {
+    
+    ## LONG NAME: Prolog
+    div {
+      prolog.content =
+        author*,
+        source?,
+        publisher?,
+        copyright*,
+        critdates?,
+        permissions?,
+        metadata*,
+        resourceid*,
+        (data.elements.incl | foreign.unknown.incl)*
+      prolog.attributes = univ-atts
+      prolog.element =
+        
+        ## The <prolog> element contains information about the topic as an whole (for example, author information or subject category) that is either entered by the author or
+        ##               machine-maintained. Much of the metadata inside the <prolog> will not be displayed with the topic on output, but may be used by processes that generate search indexes or customize
+        ##               navigation. Category: Prolog elements
+        [ dita:longName = "prolog" ]
+        element prolog { prolog.attlist, prolog.content }
+      prolog.attlist &= prolog.attributes
+    }
+  }
+  
+  ## LINKING GROUPING
+  div {
+    
+    ## LONG NAME: Related Links
+    div {
+      related-links.content = (link | linklist | linkpool)*
+      related-links.attributes =
+        relational-atts,
+        univ-atts,
+        attribute outputclass { text }?
+      related-links.element =
+        
+        ## The related information links of a topic (<related-links> element) are stored in a special section following the body of the topic. After a topic is processed into it
+        ##               final output form, the related links are usually displayed at the end of the topic, although some Web-based help systems might display them in a separate navigation frame. Category:
+        ##               Topic elements
+        [ dita:longName = "related-links" ]
+        element related-links {
+          related-links.attlist, related-links.content
+        }
+      related-links.attlist &= related-links.attributes
+    }
+    
+    ## LONG NAME: Link
+    div {
+      link.content = linktext?, desc?
+      link.attributes =
+        attribute href { text }?,
+        attribute keyref { text }?,
+        attribute query { text }?,
+        relational-atts,
+        univ-atts,
+        attribute outputclass { text }?
+      link.element =
+        
+        ## The <link> element defines a relationship to another topic. Links represent the types and roles of topics in a web of information, and therefore represent navigational
+        ##               links within that web. Links are typically sorted on output based on their attributes. The optional container elements for link (<linkpool> and <linklist>) allow authors to define
+        ##               groups with common attributes, or to preserve the authored sequence of links on output. Links placed in a <linkpool> may be rearranged for display purposes (combined with other local
+        ##               or map-based links); links in a <linklist> should be displayed in the order they are defined. Refer to those elements for additional explanation. Category: Related Links
+        ##               elements
+        [ dita:longName = "link" ]
+        element link { link.attlist, link.content }
+      link.attlist &= link.attributes
+    }
+    
+    ## LONG NAME: Link Text
+    div {
+      linktext.content = (words.cnt | ph)*
+      linktext.attributes = univ-atts
+      linktext.element =
+        
+        ## The <linktext> element provides the literal label or line of text for a link. In most cases, the text of a link can be resolved during processing by cross reference
+        ##               with the target resource. Use the <linktext> element only when the target cannot be reached, such as when it is a peer or external link, or the target is local but not in DITA format.
+        ##               When used inside a topic, it will be used as the text for the specified link; when used within a map, it will be used as the text for generated links that point to the specified topic.
+        ##               Category: Related Links elements
+        [ dita:longName = "linktext" ]
+        element linktext { linktext.attlist, linktext.content }
+      linktext.attlist &= linktext.attributes
+    }
+    
+    ## LONG NAME: Link List
+    div {
+      linklist.content = title?, desc?, (linklist | link)*, linkinfo?
+      linklist.attributes =
+        attribute collection-type {
+          "choice"
+          | "family"
+          | "sequence"
+          | "unordered"
+          | 
+            ## NOTE: The TC is maintaining the value "tree", which was
+            ##                   in the 1.2 DTDs but never defined for documented, only in the DTD version
+            ##                   of linklist.
+            "-dita-use-conref-target"
+        }?,
+        attribute duplicates {
+          "no" | "yes" | "-dita-use-conref-target"
+        }?,
+        attribute mapkeyref { text }?,
+        relational-atts,
+        univ-atts,
+        attribute spectitle { text }?,
+        attribute outputclass { text }?
+      linklist.element =
+        
+        ## The <linklist> element defines an author-arranged group of links. Within <linklist>, the organization of links on final output is in the same order as originally
+        ##               authored in the DITA topic. Category: Related Links elements
+        [ dita:longName = "linklist" ]
+        element linklist { linklist.attlist, linklist.content }
+      linklist.attlist &= linklist.attributes
+    }
+    
+    ## LONG NAME: Link Information
+    div {
+      linkinfo.content = desc.cnt*
+      linkinfo.attributes = univ-atts
+      linkinfo.element =
+        
+        ## The <linkinfo> element allows you to place a descriptive paragraph following a list of links in a <linklist> element. Category: Related Links
+        ##               elements
+        [ dita:longName = "linkinfo" ]
+        element linkinfo { linkinfo.attlist, linkinfo.content }
+      linkinfo.attlist &= linkinfo.attributes
+    }
+    
+    ## LONG NAME: Link Pool
+    div {
+      linkpool.content = (linkpool | link)*
+      linkpool.attributes =
+        attribute collection-type {
+          "choice"
+          | "family"
+          | "sequence"
+          | "unordered"
+          | 
+            ## NOTE: The TC is maintaining the value "tree", which was
+            ##                   in the 1.2 DTDs but never defined for documented, only in the DTD version
+            ##                   of linkpool.
+            "-dita-use-conref-target"
+        }?,
+        attribute duplicates {
+          "no" | "yes" | "-dita-use-conref-target"
+        }?,
+        attribute mapkeyref { text }?,
+        relational-atts,
+        univ-atts,
+        attribute outputclass { text }?
+      linkpool.element =
+        
+        ## The <linkpool> element defines a group of links that have common characteristics, such as type or audience or source. When links are not in a <linklist> (that is,
+        ##               they are in <related-links> or <linkpool> elements), the organization of links on final output is determined by the output process, not by the order that the links actually occur
+        ##               in the DITA topic. Category: Related Links elements
+        [ dita:longName = "linkpool" ]
+        element linkpool { linkpool.attlist, linkpool.content }
+      linkpool.attlist &= linkpool.attributes
+    }
+  }
+}
+
+## SPECIALIZATION ATTRIBUTES
+div {
+  abstract.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/abstract " ] attribute class { text }?
+  body.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/body " ] attribute class { text }?
+  bodydiv.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/bodydiv " ] attribute class { text }?
+  example.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/example " ] attribute class { text }?
+  link.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/link " ] attribute class { text }?
+  linkinfo.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/linkinfo " ] attribute class { text }?
+  linklist.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/linklist " ] attribute class { text }?
+  linkpool.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/linkpool " ] attribute class { text }?
+  linktext.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/linktext " ] attribute class { text }?
+  no-topic-nesting.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/no-topic-nesting " ]
+    attribute class { text }?
+  prolog.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/prolog " ] attribute class { text }?
+  related-links.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/related-links " ]
+    attribute class { text }?
+  searchtitle.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/searchtitle " ]
+    attribute class { text }?
+  section.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/section " ] attribute class { text }?
+  sectiondiv.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/sectiondiv " ] attribute class { text }?
+  titlealts.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/titlealts " ] attribute class { text }?
+  topic.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/topic " ] attribute class { text }?
+  shortdesc.attlist &=
+    global-atts,
+    [ a:defaultValue = "- topic/shortdesc " ] attribute class { text }?
+}

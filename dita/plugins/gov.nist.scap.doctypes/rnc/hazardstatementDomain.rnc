@@ -1,0 +1,298 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "    "
+  dita:moduleTitle [ "DITA Hazard Statement Domain" ]
+  "\x{a}" ~
+  "    "
+  dita:headerComment [
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   HEADER                                    \x{a}" ~
+    "=============================================================\x{a}" ~
+    " MODULE:    DITA Hazard Statement Domain                     \x{a}" ~
+    " VERSION:   1.2                                              \x{a}" ~
+    " DATE:      November 2009                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "=============================================================\x{a}" ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   PUBLIC DOCUMENT TYPE DEFINITION           \x{a}" ~
+    "                   TYPICAL INVOCATION                        \x{a}" ~
+    "                                                             \x{a}" ~
+    " Refer to this file by the following public identifier or an \x{a}" ~
+    "      appropriate system identifier \x{a}" ~
+    'PUBLIC "-//OASIS//ELEMENTS DITA Hazard Statement Domain//EN"\x{a}' ~
+    '      Delivered as file "hazardstatementDomain.mod"               \x{a}' ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "SYSTEM:     Darwin Information Typing Architecture (DITA)    \x{a}" ~
+    "                                                             \x{a}" ~
+    "PURPOSE:    Declaring the elements and specialization        \x{a}" ~
+    "            attributes for the Hazard Statement Domain       \x{a}" ~
+    "                                                             \x{a}" ~
+    "ORIGINAL CREATION DATE:                                      \x{a}" ~
+    "            February 2008                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "            (C) Copyright OASIS Open 2008, 2009.             \x{a}" ~
+    "            All Rights Reserved.                             \x{a}" ~
+    "                                                             \x{a}" ~
+    " UPDATES:                                                    \x{a}" ~
+    "   2007.02.20 Chris Kravogel, SeicoDyne GmbH: Created domain \x{a}" ~
+    "   2007.03.06 Chris Kravogel, SeicoDyne GmbH: Add howtoavoid \x{a}" ~
+    "                   entity                                    \x{a}" ~
+    "   2007.11.20 Chris Kravogel, SeicoDyne GmbH: Reduced ATTLIST\x{a}" ~
+    "                   of hazardstatement to ATTLIST of note     \x{a}" ~
+    "   2008.02.05 Chris Kravogel, SeicoDyne GmbH: Renamed symbol \x{a}" ~
+    "                   to hazardsymbol, added %words.cnt; and    \x{a}" ~
+    "                   %trademark; to consequences, typeofhazard \x{a}" ~
+    "   2008.02.05 RDA: Reformatted for DITA 1.2 ; removed @alt    \x{a}" ~
+    "                   and added @scalefit on hazardsymbol       \x{a}" ~
+    "   2008.02.13 RDA: Create .content and .attributes entities  \x{a}" ~
+    "   2009.12.03 RDA: Removed caution1 and caution2 values to   \x{a}" ~
+    "                   match the revised note/@type values       \x{a}" ~
+    "=============================================================\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "    "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    dita:moduleType [ "elementdomain" ]
+    "\x{a}" ~
+    "      "
+    dita:moduleShortName [ "hazard-d" ]
+    "\x{a}" ~
+    "      "
+    dita:modulePublicIds [
+      "\x{a}" ~
+      "        "
+      dita:dtdMod [
+        "-//OASIS//ELEMENTS DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Hazard Statement Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:dtdEnt [
+        "-//OASIS//ENTITIES DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Hazard Statement Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:hazardDomain.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rncMod [
+        "urn:oasis:names:tc:dita:rnc:hazardDomain.rnc"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rngMod [
+        "urn:oasis:names:tc:dita:rng:hazardDomain.rng"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    "\x{a}" ~
+    "      "
+    dita:domainsContribution [ "(topic hazard-d)" ]
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## DOMAIN EXTENSION PATTERNS
+div {
+  hazard-d-note = hazardstatement.element
+  note |= hazard-d-note
+}
+
+## ELEMENT TYPE NAME PATTERNS
+div {
+  hazardstatement = hazardstatement.element
+  messagepanel = messagepanel.element
+  hazardsymbol = hazardsymbol.element
+  typeofhazard = typeofhazard.element
+  consequence = consequence.element
+  howtoavoid = howtoavoid.element
+}
+
+## Define elements content and attributes
+div {
+  hazard.cnt = text | basic.ph | sl | simpletable
+  
+  ## LONG NAME: Hazard Statement
+  div {
+    hazardstatement.content = messagepanel+, hazardsymbol*
+    hazardstatement.attributes =
+      attribute type {
+        "attention"
+        | "caution"
+        | "danger"
+        | "fastpath"
+        | "important"
+        | "note"
+        | "notice"
+        | "other"
+        | "remember"
+        | "restriction"
+        | "tip"
+        | "warning"
+        | "-dita-use-conref-target"
+      }?,
+      attribute spectitle { text }?,
+      attribute othertype { text }?,
+      univ-atts,
+      attribute outputclass { text }?
+    hazardstatement.element =
+      
+      ## The <hazardstatement> element contains hazard warning information. It is based on the regulations of the ANSI Z535 and the ISO 3864 standards. It gives the author the
+      ##             opportunity to select the hazard statement, to add one or more safety signs and to add the required phrases.
+      [ dita:longName = "Hazard Statement" ]
+      element hazardstatement {
+        hazardstatement.attlist, hazardstatement.content
+      }
+    hazardstatement.attlist &= hazardstatement.attributes
+  }
+  
+  ## LONG NAME: Hazard Symbol
+  div {
+    hazardsymbol.content = alt?, longdescref?
+    hazardsymbol.attributes =
+      [ dita:since = "DITA 1.3" ] (attribute href { text }?),
+      attribute scope {
+        "external" | "local" | "peer" | "-dita-use-conref-target"
+      }?,
+      attribute keyref { text }?,
+      attribute longdescref { text }?,
+      attribute height { xsd:NMTOKEN }?,
+      attribute width { xsd:NMTOKEN }?,
+      attribute align { text }?,
+      attribute scale { xsd:NMTOKEN }?,
+      attribute scalefit { "yes" | "no" | "-dita-use-conref-target" }?,
+      [ a:defaultValue = "inline" ]
+      attribute placement {
+        "break" | "inline" | "-dita-use-conref-target"
+      }?,
+      univ-atts,
+      attribute outputclass { text }?
+    hazardsymbol.element =
+      
+      ## A graphic representation intended to convey a message without the use of words. It may represent a hazard, a hazardous situation, a precaution to avoid a hazard, a result of
+      ##             not avoiding a hazard, or any combination of these messages.
+      [ dita:longName = "Hazard Symbol" ]
+      element hazardsymbol {
+        hazardsymbol.attlist, hazardsymbol.content
+      }
+    hazardsymbol.attlist &= hazardsymbol.attributes
+  }
+  
+  ## LONG NAME: Hazard Message panel
+  div {
+    messagepanel.content =
+      [ dita:since = "1.3" ] ((data | data-about)*),
+      typeofhazard,
+      consequence*,
+      howtoavoid+
+    messagepanel.attributes =
+      attribute spectitle { text }?,
+      univ-atts,
+      attribute outputclass { text }?
+    messagepanel.element =
+      
+      ## The <messagepanel> element describes the area of a safety sign or label that contains the word message which identifies a hazard, indicates how to avoid the hazard, and
+      ##             advises of the probable consequences of not avoiding the hazard.
+      [ dita:longName = "Hazard Message panel" ]
+      element messagepanel {
+        messagepanel.attlist, messagepanel.content
+      }
+    messagepanel.attlist &= messagepanel.attributes
+  }
+  
+  ## LONG NAME: The Type of Hazard
+  div {
+    typeofhazard.content = (words.cnt | ph | tm)*
+    typeofhazard.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    typeofhazard.element =
+      
+      ## <typeofhazard> element is the container for the first text entry of a safety label. It contains the description of the type of hazard, such as "Moving parts can crush
+      ##             and cut".
+      [ dita:longName = "The Type of Hazard" ]
+      element typeofhazard {
+        typeofhazard.attlist, typeofhazard.content
+      }
+    typeofhazard.attlist &= typeofhazard.attributes
+  }
+  
+  ## LONG NAME: Consequences of not Avoiding the Hazard
+  div {
+    consequence.content = (words.cnt | ph | tm)*
+    consequence.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    consequence.element =
+      
+      ## The <consequence> element is the container for the second text entry of a safety label. It contains the description of the consequences of not avoiding the hazard, such
+      ##             as "Keep guard in place".
+      [ dita:longName = "Consequences of not Avoiding the Hazard" ]
+      element consequence { consequence.attlist, consequence.content }
+    consequence.attlist &= consequence.attributes
+  }
+  
+  ## LONG NAME: How to Avoid the Hazard
+  div {
+    howtoavoid.content = hazard.cnt*
+    howtoavoid.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    howtoavoid.element =
+      
+      ## The <howtoavoid> element is the container for the third text entry of a safety label. It contains the description of how to avoid the hazard, such as "Lock out power
+      ##             before servicing".
+      [ dita:longName = "How to Avoid the Hazard" ]
+      element howtoavoid { howtoavoid.attlist, howtoavoid.content }
+    howtoavoid.attlist &= howtoavoid.attributes
+  }
+}
+
+## Specialization attributes. Global attributes and class defaults
+div {
+  hazardstatement.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/note hazard-d/hazardstatement " ]
+    attribute class { text }?
+  messagepanel.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/ul hazard-d/messagepanel " ]
+    attribute class { text }?
+  hazardsymbol.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/image hazard-d/hazardsymbol " ]
+    attribute class { text }?
+  typeofhazard.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/li hazard-d/typeofhazard " ]
+    attribute class { text }?
+  consequence.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/li hazard-d/consequence " ]
+    attribute class { text }?
+  howtoavoid.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/li hazard-d/howtoavoid " ]
+    attribute class { text }?
+}

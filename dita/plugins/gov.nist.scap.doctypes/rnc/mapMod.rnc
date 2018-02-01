@@ -1,0 +1,635 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "    "
+  dita:moduleTitle [ "DITA Map Module" ]
+  "\x{a}" ~
+  "    "
+  dita:headerComment [
+    " \x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   HEADER                                    \x{a}" ~
+    "============================================================\x{a}" ~
+    "Darwin Information Typing Architecture (DITA) Version 1.3\x{a}" ~
+    "OASIS Standard\x{a}" ~
+    "17 December 2015 \x{a}" ~
+    "Copyright (c) OASIS Open 2015. All rights reserved. \x{a}" ~
+    "Source: http://docs.oasis-open.org/dita/dita/v1.3/os/part0-overview/dita-v1.3-os-part0-overview.html\x{a}" ~
+    "=============================================================\x{a}" ~
+    " MODULE:    DITA Map                                         \x{a}" ~
+    " VERSION:   1.3                                              \x{a}" ~
+    " DATE:      March 2014                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "=============================================================\x{a}" ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   PUBLIC DOCUMENT TYPE DEFINITION           \x{a}" ~
+    "                   TYPICAL INVOCATION                        \x{a}" ~
+    "                                                             \x{a}" ~
+    " Refer to this file by the following public identifier or an \x{a}" ~
+    "      appropriate system identifier \x{a}" ~
+    'PUBLIC "-//OASIS//ELEMENTS DITA Map//EN"\x{a}' ~
+    '      Delivered as file "map.mod"                                 \x{a}' ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "SYSTEM:     Darwin Information Typing Architecture (DITA)    \x{a}" ~
+    "                                                             \x{a}" ~
+    "PURPOSE:    Declaring the elements and specialization        \x{a}" ~
+    "            attributes for the DITA Maps                     \x{a}" ~
+    "                                                             \x{a}" ~
+    "ORIGINAL CREATION DATE:                                      \x{a}" ~
+    "            March 2001                                       \x{a}" ~
+    "                                                             \x{a}" ~
+    "            (C) Copyright OASIS Open 2005, 2009.             \x{a}" ~
+    "            (C) Copyright IBM Corporation 2001, 2004.        \x{a}" ~
+    "            All Rights Reserved.                             \x{a}" ~
+    "                                                             \x{a}" ~
+    " UPDATES:                                                    \x{a}" ~
+    "   2005.11.15 RDA: Corrected public ID in the comment above  \x{a}" ~
+    "   2005.11.15 RDA: Removed old declaration for topicreftypes \x{a}" ~
+    "                     entity                                  \x{a}" ~
+    '   2006.06.06 RDA: Removed default locktitle="yes" from      \x{a}' ~
+    "                     %topicref-atts-no-toc;                  \x{a}" ~
+    "                   Remove keyword declaration                \x{a}" ~
+    "                   Add reference to commonElements           \x{a}" ~
+    "                   Add title element to map                  \x{a}" ~
+    "                   Add data element to topicmeta             \x{a}" ~
+    "                   Remove shortdesc declaration              \x{a}" ~
+    "   2006.06.07 RDA: Make universal attributes universal       \x{a}" ~
+    "                     (DITA 1.1 proposal #12)                 \x{a}" ~
+    "   2006.06.14 RDA: Add dir attribute to localization-atts    \x{a}" ~
+    "   2006.06.14 RDA: Add outputclass attribute to most elemetns\x{a}" ~
+    "   2006.11.30 RDA: Add -dita-use-conref-target to enumerated \x{a}" ~
+    "                     attributes                              \x{a}" ~
+    "   2006.11.30 RDA: Remove #FIXED from DITAArchVersion        \x{a}" ~
+    "   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2      \x{a}" ~
+    "   2008.01.28 RDA: Added <metadata> to <topicmeta>           \x{a}" ~
+    "   2008.01.30 RDA: Replace @conref defn. with %conref-atts;  \x{a}" ~
+    "   2008.02.01 RDA: Added keys attributes, more keyref attrs  \x{a}" ~
+    "   2008.02.12 RDA: Expand relcolspec content model           \x{a}" ~
+    "   2008.02.12 RDA: Modify imbeds to use specific 1.2 version \x{a}" ~
+    "   2008.02.12 RDA: Add navtitle to topicmeta                 \x{a}" ~
+    "   2008.02.13 RDA: Create .content and .attributes entities  \x{a}" ~
+    "   2010.09.20 RDA: Bring linktext content in sync with topic \x{a}" ~
+    "=============================================================\x{a}"
+  ]
+  "\x{a}" ~
+  "    "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    dita:moduleType [ "map" ]
+    "\x{a}" ~
+    "      "
+    dita:moduleShortName [ "map" ]
+    "\x{a}" ~
+    "      "
+    dita:modulePublicIds [
+      "\x{a}" ~
+      "        "
+      dita:dtdEnt [
+        "-//OASIS//ENTITIES DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Map//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:dtdMod [
+        "-//OASIS//ELEMENTS DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Map//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:mapMod.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdGrp [
+        "urn:oasis:names:tc:dita:xsd:mapGrp.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rncMod [
+        "urn:oasis:names:tc:dita:rnc:mapMod.rnc"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rngMod [
+        "urn:oasis:names:tc:dita:rng:mapMod.rng"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## ARCHITECTURE ATTRIBUTES
+div {
+  arch-atts =
+    [ a:defaultValue = "1.3" ] attribute dita:DITAArchVersion { text }?
+}
+
+## COMMON CONTENT MODEL PATTERNS
+div {
+  
+  ## Content elements common to map and topic
+  include "commonElementsMod.rnc"
+  
+  ## MetaData Elements
+  include "metaDeclMod.rnc"
+}
+
+## ELEMENT TYPE NAME PATTERNS
+div {
+  topicref = topicref.element
+  anchor = anchor.element
+  linktext = linktext.element
+  navref = navref.element
+  relcell = relcell.element
+  relcolspec = relcolspec.element
+  relheader = relheader.element
+  relrow = relrow.element
+  reltable = reltable.element
+  searchtitle = searchtitle.element
+  shortdesc = shortdesc.element
+  topicmeta = topicmeta.element
+  [ dita:since = "1.3" ] ux-window = ux-window.element
+}
+
+## COMMON ATTRIBUTE SETS
+div {
+  topicref-atts =
+    attribute collection-type {
+      "choice"
+      | "family"
+      | "sequence"
+      | "unordered"
+      | "-dita-use-conref-target"
+    }?,
+    attribute type { text }?,
+    [ dita:since = "1.3" ] attribute cascade { text }?,
+    attribute processing-role {
+      "normal" | "resource-only" | "-dita-use-conref-target"
+    }?,
+    attribute scope {
+      "external" | "local" | "peer" | "-dita-use-conref-target"
+    }?,
+    attribute locktitle { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute format { text }?,
+    attribute linking {
+      "none"
+      | "normal"
+      | "sourceonly"
+      | "targetonly"
+      | "-dita-use-conref-target"
+    }?,
+    attribute toc { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute print {
+      "no" | "printonly" | "yes" | "-dita-use-conref-target"
+    }?,
+    attribute search { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute chunk { text }?,
+    [ dita:since = "1.3" ] attribute keyscope { text }?
+  topicref-atts-no-toc =
+    attribute collection-type {
+      "choice"
+      | "family"
+      | "sequence"
+      | "unordered"
+      | "-dita-use-conref-target"
+    }?,
+    attribute type { text }?,
+    [ dita:since = "1.3" ] attribute cascade { text }?,
+    
+    ## Default set to resource-only since DITA 1.3
+    [ a:defaultValue = "resource-only" ]
+    attribute processing-role {
+      "normal" | "resource-only" | "-dita-use-conref-target"
+    }?,
+    attribute scope {
+      "external" | "local" | "peer" | "-dita-use-conref-target"
+    }?,
+    attribute locktitle { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute format { text }?,
+    attribute linking {
+      "none"
+      | "normal"
+      | "sourceonly"
+      | "targetonly"
+      | "-dita-use-conref-target"
+    }?,
+    [ a:defaultValue = "no" ]
+    attribute toc { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute print {
+      "no" | "printonly" | "yes" | "-dita-use-conref-target"
+    }?,
+    attribute search { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute chunk { text }?,
+    [ dita:since = "1.3" ] attribute keyscope { text }?
+  [ dita:since = "1.3" ]
+  topicref-atts-no-toc-no-keyscope =
+    attribute collection-type {
+      "choice"
+      | "family"
+      | "sequence"
+      | "unordered"
+      | "-dita-use-conref-target"
+    }?,
+    attribute type { text }?,
+    [ dita:since = "1.3" ] attribute cascade { text }?,
+    attribute processing-role {
+      "normal" | "resource-only" | "-dita-use-conref-target"
+    }?,
+    attribute scope {
+      "external" | "local" | "peer" | "-dita-use-conref-target"
+    }?,
+    attribute locktitle { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute format { text }?,
+    attribute linking {
+      "none"
+      | "normal"
+      | "sourceonly"
+      | "targetonly"
+      | "-dita-use-conref-target"
+    }?,
+    [ a:defaultValue = "no" ]
+    attribute toc { "no" | "-dita-use-conref-target" }?,
+    attribute print {
+      "no" | "printonly" | "yes" | "-dita-use-conref-target"
+    }?,
+    attribute search { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute chunk { text }?
+  topicref-atts-without-format =
+    attribute collection-type {
+      "choice"
+      | "family"
+      | "sequence"
+      | "unordered"
+      | "-dita-use-conref-target"
+    }?,
+    attribute type { text }?,
+    [ dita:since = "1.3" ] attribute cascade { text }?,
+    attribute processing-role {
+      "normal" | "resource-only" | "-dita-use-conref-target"
+    }?,
+    attribute scope {
+      "external" | "local" | "peer" | "-dita-use-conref-target"
+    }?,
+    attribute locktitle { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute linking {
+      "none"
+      | "normal"
+      | "sourceonly"
+      | "targetonly"
+      | "-dita-use-conref-target"
+    }?,
+    attribute toc { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute print {
+      "no" | "printonly" | "yes" | "-dita-use-conref-target"
+    }?,
+    attribute search { "no" | "yes" | "-dita-use-conref-target" }?,
+    attribute chunk { text }?,
+    [ dita:since = "1.3" ] attribute keyscope { text }?
+}
+
+## ELEMENT TYPE PATTERNS
+div {
+  
+  ## LONG NAME: Map
+  div {
+    map.content =
+      title?,
+      topicmeta?,
+      (anchor | data.elements.incl | navref | reltable | topicref)*
+    map.attributes =
+      attribute title { text }?,
+      attribute id { xsd:ID }?,
+      conref-atts,
+      attribute anchorref { text }?,
+      attribute outputclass { text }?,
+      localization-atts,
+      topicref-atts,
+      select-atts
+    
+    ## The <map> element is used to define a map which describes the relationships among a set of resources, such as DITA topics. Maps consist of references to topics and other
+    ##           resources organized into hierarchies, groups, and tables. Maps provide a way to express these relationships in a single common format that can be used for different outputs. Category: Map
+    ##           elements
+    map.element =
+      [ dita:longName = "Map" ] element map { map.attlist, map.content }
+    map.attlist &= map.attributes, arch-atts, domains-att
+    idElements |= map.element
+  }
+  
+  ## LONG NAME: Navigation Reference
+  div {
+    navref.content = empty
+    navref.attributes =
+      univ-atts,
+      attribute keyref { text }?,
+      attribute mapref { text }?,
+      attribute outputclass { text }?
+    
+    ##  The <navref> represents a pointer to another map which should be preserved as a transcluding link rather than resolved. Output formats that support such linking will
+    ##           integrate the target when displaying the referencing map to an end user. Category: Map elements 
+    navref.element =
+      [ dita:longName = "Navigation Reference" ]
+      element navref { navref.attlist, navref.content }
+    navref.attlist &= navref.attributes
+  }
+  
+  ## LONG NAME: Topic Reference
+  div {
+    topicref.content =
+      topicmeta?, (anchor | data.elements.incl | navref | topicref)*
+    topicref.attributes =
+      attribute navtitle { text }?,
+      attribute href { text }?,
+      attribute keyref { text }?,
+      attribute keys { text }?,
+      attribute query { text }?,
+      attribute copy-to { text }?,
+      attribute outputclass { text }?,
+      topicref-atts,
+      univ-atts
+    
+    ##  The <topicref> element identifies a topic (such as a concept, task, or reference) or other resource. A <topicref> can contain other<topicref> elements, allowing you
+    ##           to express navigation or table-of-contents hierarchies, as well as implying relationships between the containing <topicref> and its children. You can set the collection-type of a
+    ##           container <topicref> to determine how its children are related to each other. You can also express relationships among <topicref>s using group and table structures (using
+    ##           <topicgroup> and <reltable>). Relationships end up expressed as links in the output (with each participant in a relationship having links to the other participants by default).
+    ##           Category: Map elements 
+    topicref.element =
+      [ dita:longName = "Topic Reference" ]
+      element topicref { topicref.attlist, topicref.content }
+    topicref.attlist &= topicref.attributes
+  }
+  
+  ## LONG NAME: Anchor
+  div {
+    anchor.content = empty
+    anchor.attributes =
+      attribute outputclass { text }?,
+      localization-atts,
+      attribute id { xsd:ID },
+      conref-atts,
+      select-atts
+    
+    ## The <anchor> element is used for runtime integration of navigation. It provides an integration point that another map can point to in order to insert its navigation into
+    ##           the current navigation tree. For those familiar with Eclipse help systems, this serves the same purpose as the <anchor> element in that system. It may not be supported for all output
+    ##           formats. Category: Map elements
+    anchor.element =
+      [ dita:longName = "Anchor" ]
+      element anchor { anchor.attlist, anchor.content }
+    anchor.attlist &= anchor.attributes
+    idElements |= anchor.element
+  }
+  
+  ## LONG NAME: Relationship Table
+  div {
+    reltable.content = title?, topicmeta?, relheader?, relrow+
+    reltable.attributes =
+      attribute title { text }?,
+      attribute outputclass { text }?,
+      topicref-atts-no-toc-no-keyscope,
+      univ-atts
+    
+    ## The relationship table (<reltable>) defines relationships between topics, based on the familiar table model of rows (<relrow>), columns (<relheader>), and cells
+    ##           (<relcell>). The <relcell> elements can contain <topicref> elements, which are then related to other <topicref> elements in the same row (although not necessarily in the same
+    ##           cell). By default, the contents of a <reltable> element are not output for navigation or TOC purposes, and are used only to define relationships that can be expressed as topic-to-topic
+    ##           links. Category: Map elements
+    reltable.element =
+      [ dita:longName = "Relationship Table" ]
+      element reltable { reltable.attlist, reltable.content }
+    reltable.attlist &= reltable.attributes
+  }
+  
+  ## LONG NAME: Relationship Header
+  div {
+    relheader.content = relcolspec+
+    relheader.attributes = univ-atts
+    
+    ## The <relheader> element is a row of column definitions (<relcolspec> elements) in a relationship table. Each table can have only one set of column definitions. Category:
+    ##           Map elements
+    relheader.element =
+      [ dita:longName = "Relationship Header" ]
+      element relheader { relheader.attlist, relheader.content }
+    relheader.attlist &= relheader.attributes
+  }
+  
+  ## LONG NAME: Relationship Column Specification
+  div {
+    relcolspec.content = title?, topicmeta?, topicref*
+    relcolspec.attributes =
+      attribute outputclass { text }?,
+      topicref-atts-no-toc-no-keyscope,
+      univ-atts
+    
+    ## A column definition in the relationship table. You can use <relcolspec> column definitions to set defaults for the attributes of <topicref> elements in the column. For
+    ##           example, you can set type="concept" to treat all untyped <topicref> elements in the column as concepts. Category: Map elements
+    relcolspec.element =
+      [ dita:longName = "Relationship Column Specification" ]
+      element relcolspec { relcolspec.attlist, relcolspec.content }
+    relcolspec.attlist &= relcolspec.attributes
+  }
+  
+  ## LONG NAME: Relationship Table Row
+  div {
+    relrow.content = relcell*
+    relrow.attributes =
+      attribute outputclass { text }?,
+      univ-atts
+    
+    ##  A <relrow> is a row in the relationship table. This creates a relationship between the cells in the row, which will end up expressed as links among the <topicref>
+    ##           elements in the cells. Category: Map elements 
+    relrow.element =
+      [ dita:longName = "Relationship Table Row" ]
+      element relrow { relrow.attlist, relrow.content }
+    relrow.attlist &= relrow.attributes
+  }
+  
+  ## LONG NAME: Relationship Table Cell
+  div {
+    relcell.content = (topicref | data.elements.incl)*
+    relcell.attributes =
+      attribute outputclass { text }?,
+      topicref-atts-no-toc-no-keyscope,
+      univ-atts
+    
+    ## A <relcell> element is a cell in the relationship table. The <topicref> elements it contains will be related to topicrefs in other cells of the same row. By default,
+    ##           topicrefs in the same cell are not related to each other, unless you change the relcell's collection-type attribute to indicate that they are related. Category: Map
+    ##           elements
+    relcell.element =
+      [ dita:longName = "Relationship Table Cell" ]
+      element relcell { relcell.attlist, relcell.content }
+    relcell.attlist &= relcell.attributes
+  }
+  
+  ## LONG NAME: Topic Metadata
+  div {
+    topicmeta.content =
+      navtitle?,
+      linktext?,
+      searchtitle?,
+      shortdesc?,
+      author*,
+      source?,
+      publisher?,
+      copyright*,
+      critdates?,
+      permissions?,
+      metadata*,
+      audience*,
+      category*,
+      keywords*,
+      prodinfo*,
+      othermeta*,
+      resourceid*,
+      ux-window*,
+      (data.elements.incl | foreign.unknown.incl)*
+    topicmeta.attributes =
+      attribute lockmeta { "no" | "yes" | "-dita-use-conref-target" }?,
+      univ-atts
+    
+    ## The <topicmeta> element defines the metadata that applies to a topic when it appears in a map, and to the other topics in the map that are contained by the same element
+    ##           that contains the <topicmeta> element. When creating links, it can also be used to override the title and short description of the topic. In addition, it can be used to add index entries
+    ##           to referenced content using the <keywords> element. Category: Map elements
+    topicmeta.element =
+      [ dita:longName = "Topic Metadata" ]
+      element topicmeta { topicmeta.attlist, topicmeta.content }
+    topicmeta.attlist &= topicmeta.attributes
+  }
+  
+  ## LONG NAME: Short Description
+  div {
+    shortdesc.content = (title.cnt | [ dita:since = "1.3" ] xref)*
+    shortdesc.attributes =
+      univ-atts,
+      attribute outputclass { text }?
+    shortdesc.element =
+      
+      ## The short description (<shortdesc>) element occurs between the topic title and the topic body, as the initial paragraph-like content of a topic, or it can be embedded
+      ##               in an abstract element. The short description, which represents the purpose or theme of the topic, is also intended to be used as a link preview and for searching. When used within a
+      ##               DITA map, the short description of the <topicref> can be used to override the short description in the topic. Category: Topic elements
+      [ dita:longName = "Short Description" ]
+      element shortdesc { shortdesc.attlist, shortdesc.content }
+    shortdesc.attlist &= shortdesc.attributes
+  }
+  
+  ## LONG NAME: Link Text
+  div {
+    linktext.content = (words.cnt | ph)*
+    linktext.attributes =
+      attribute outputclass { text }?,
+      univ-atts
+    
+    ## The <linktext> element provides the literal label or line of text for a link. In most cases, the text of a link can be resolved during processing by cross reference with
+    ##           the target resource. Use the <linktext> element only when the target cannot be reached, such as when it is a peer or external link, or the target is local but not in DITA format. When
+    ##           used inside a topic, it will be used as the text for the specified link; when used within a map, it will be used as the text for generated links that point to the specified topic. Category:
+    ##           Related Links elements
+    linktext.element =
+      [ dita:longName = "Link Text" ]
+      element linktext { linktext.attlist, linktext.content }
+    linktext.attlist &= linktext.attributes
+  }
+  
+  ## LONG NAME: Search Title
+  div {
+    searchtitle.content = words.cnt*
+    searchtitle.attributes =
+      attribute outputclass { text }?,
+      univ-atts
+    
+    ## When your DITA topic is transformed to XHTML, the <searchtitle> element is used to create a title element at the top of the resulting HTML file. This title is normally used
+    ##           in search result summaries by some search engines, such as that in Eclipse (http://eclipse.org); if not set, the XHTML's title element defaults to the source topic's title content (which may
+    ##           not be as well optimized for search summaries). Category: Topic elements
+    searchtitle.element =
+      [ dita:longName = "Search Title" ]
+      element searchtitle { searchtitle.attlist, searchtitle.content }
+    searchtitle.attlist &= searchtitle.attributes
+  }
+  
+  ## LONG NAME: User Experience Window
+  div {
+    ux-window.content = empty
+    ux-window.attributes =
+      attribute name { text },
+      attribute top { text }?,
+      attribute left { text }?,
+      attribute height { text }?,
+      attribute width { text }?,
+      [ a:defaultValue = "no" ]
+      attribute on-top { "yes" | "no" | "-dita-use-conref-target" }?,
+      attribute features { text }?,
+      [ a:defaultValue = "no" ]
+      attribute relative { "yes" | "no" | "-dita-use-conref-target" }?,
+      [ a:defaultValue = "no" ]
+      attribute full-screen {
+        "yes" | "no" | "-dita-use-conref-target"
+      }?,
+      id-atts,
+      select-atts
+    
+    ##  Category: Map elements
+    ux-window.element =
+      [ dita:longName = "User Experience Window" dita:since = "1.3" ]
+      element ux-window { ux-window.attlist, ux-window.content }
+    ux-window.attlist &= ux-window.attributes
+  }
+}
+
+## SPECIALIZATION ATTRIBUTES
+div {
+  map.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/map " ] attribute class { text }?
+  navref.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/navref " ] attribute class { text }?
+  topicref.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/topicref " ] attribute class { text }?
+  anchor.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/anchor " ] attribute class { text }?
+  reltable.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/reltable " ] attribute class { text }?
+  relheader.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/relheader " ] attribute class { text }?
+  relcolspec.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/relcolspec " ] attribute class { text }?
+  relrow.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/relrow " ] attribute class { text }?
+  relcell.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/relcell " ] attribute class { text }?
+  topicmeta.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/topicmeta " ] attribute class { text }?
+  linktext.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/linktext " ] attribute class { text }?
+  searchtitle.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/searchtitle " ] attribute class { text }?
+  shortdesc.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/shortdesc " ] attribute class { text }?
+  ux-window.attlist &=
+    global-atts,
+    [ a:defaultValue = "- map/ux-window " ] attribute class { text }?
+}

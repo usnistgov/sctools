@@ -1,0 +1,70 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "    "
+  dita:moduleTitle [ "DITA Topic Base Shell (only base domains)" ]
+  "\x{a}" ~
+  "    "
+  "\x{a}" ~
+  "    "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    dita:moduleType [ "topicshell" ]
+    "\x{a}" ~
+    "      "
+    dita:moduleShortName [ "My topic" ]
+    "\x{a}" ~
+    "      "
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## ROOT ELEMENT DECLARATION
+div {
+  start |= topic.element
+}
+
+## DOMAINS ATTRIBUTE
+div {
+  domains-att =
+    [
+      a:defaultValue =
+        "(topic hazard-d) (topic hi-d) (topic indexing-d) (topic ut-d) (topic xml-d) a(props deliveryTarget) a(props phaseOfMoon) (topic highlightOnlyTopic-c)"
+    ]
+    attribute domains { text }?
+}
+
+## CONTENT CONSTRAINT INTEGRATION
+div {
+    include "highlightOnlyTopicConstraint.rnc" {
+        topic-info-types = topic.element
+        }
+        }
+
+## MODULE INCLUSIONS
+div {
+  [ dita:since = "1.3" ] include "deliveryTargetAttDomain.rnc"
+  [ dita:since = "1.3" ] include "hazardstatementDomain.rnc"
+  include "highlightDomain.rnc"
+  include "indexingDomain.rnc"
+  include "utilitiesDomain.rnc"
+  include "phaseOfMoonAttDomain.rnc"
+  include "xmlDomainMod.rnc"
+}
+
+## ID-DEFINING-ELEMENT OVERRIDES
+div {
+  any =
+    (idElements
+     | element * - topic {
+         attribute * { text }*,
+         any
+       }
+     | text)*
+}

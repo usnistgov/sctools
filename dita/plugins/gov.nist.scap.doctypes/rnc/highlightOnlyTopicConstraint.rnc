@@ -1,0 +1,33 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace ns1 = "http://dita.oasis-open.org/architecture/2005/"
+
+ns1:moduleDesc [
+  "\x{a}" ~
+  "        "
+  # ...
+  
+  "\x{a}" ~
+  "        "
+  ns1:moduleMetadata [
+    "\x{a}" ~
+    "            "
+    # ...
+    
+    "  \x{a}" ~
+    "            "
+    ns1:domainsContribution [ "(topic highlightOnlyTopic-c)" ]
+    "\x{a}" ~
+    "        "
+  ]
+  "\x{a}" ~
+  "    "
+]
+
+## CONTENT MODEL OVERRIDES
+div {
+  include "topicMod.rnc" {
+    p.content =
+      # Define constrained model here
+      mixed { (b | i | u)* }
+  }
+}

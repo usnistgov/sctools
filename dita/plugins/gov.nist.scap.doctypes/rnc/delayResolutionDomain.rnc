@@ -1,0 +1,203 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "    "
+  dita:moduleTitle [ "DITA Delay Resolution Domain" ]
+  "\x{a}" ~
+  "    "
+  dita:headerComment [
+    xml:space = "preserve"
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   HEADER                                    \x{a}" ~
+    "=============================================================\x{a}" ~
+    " MODULE:    DITA Delayed Resolution Domain                   \x{a}" ~
+    " VERSION:   1.2                                              \x{a}" ~
+    " DATE:      November 2009                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "=============================================================\x{a}" ~
+    "\x{a}" ~
+    "SYSTEM:     Darwin Information Typing Architecture (DITA)    \x{a}" ~
+    "                                                             \x{a}" ~
+    "PURPOSE:    Define elements and specialization attributes    \x{a}" ~
+    "            for Delayed Resolution Domain                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "ORIGINAL CREATION DATE:                                      \x{a}" ~
+    "            February 2008                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "            (C) Copyright OASIS Open 2008, 2009.             \x{a}" ~
+    "            All Rights Reserved.                             \x{a}" ~
+    "                                                             \x{a}" ~
+    " UPDATES:                                                    \x{a}" ~
+    "=============================================================\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "    "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    dita:moduleType [ "elementdomain" ]
+    "\x{a}" ~
+    "      "
+    dita:moduleShortName [ "delay-d" ]
+    "\x{a}" ~
+    "      "
+    dita:modulePublicIds [
+      "\x{a}" ~
+      "        "
+      dita:dtdMod [
+        "-//OASIS//ELEMENTS DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Delayed Resolution Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:dtdEnt [
+        "-//OASIS//ENTITIES DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Delayed Resolution Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:delayResolutionDomain.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rncMod [
+        "urn:oasis:names:tc:dita:rnc:delayResolutionDomain.rnc"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rngMod [
+        "urn:oasis:names:tc:dita:rng:delayResolutionDomain.rng"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    "\x{a}" ~
+    "      "
+    dita:domainsContribution [ "(topic delay-d)" ]
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## DOMAIN EXTENSION PATTERNS
+div {
+  delay-d-keywords = exportanchors.element
+  keywords |= delay-d-keywords
+}
+
+## ELEMENT TYPE NAME PATTERNS
+div {
+  exportanchors = exportanchors.element
+  anchorid = anchorid.element
+  anchorkey = anchorkey.element
+}
+
+## ELEMENT TYPE DECLARATIONS
+div {
+  
+  ## LONG NAME: Export Anchor List
+  div {
+    exportanchors.content = (anchorid | anchorkey)*
+    exportanchors.attributes = univ-atts
+    [
+      a:documentation [
+        xml:space = "preserve"
+        "The <exportanchors> element is used to delay \x{a}" ~
+        "        conref resolution within DITA documents. This allows you to \x{a}" ~
+        "        process or display DITA content in a way that will resolve only some\x{a}" ~
+        "        of the conref values in that content, while remaining values are \x{a}" ~
+        "        left for later resolution. The element contains a list of IDs or \x{a}" ~
+        "        keys that should not be resolved during the initial\x{a}" ~
+        "        preparation of the content for display; those IDs and keys will be \x{a}" ~
+        "        preserved after that preparation, as will the conref relationship itself."
+      ]
+    ]
+    exportanchors.element =
+      [ dita:longName = "Export Anchor List" ]
+      element exportanchors {
+        exportanchors.attlist, exportanchors.content
+      }
+    exportanchors.attlist &= exportanchors.attributes
+  }
+  
+  ## LONG NAME: Anchor ID
+  div {
+    anchorid.content = empty
+    anchorid.attributes =
+      attribute keyref { text }?,
+      attribute id { xsd:NMTOKEN },
+      conref-atts,
+      select-atts,
+      localization-atts,
+      attribute outputclass { text }?
+    [
+      a:documentation [
+        xml:space = "preserve"
+        "The <anchorid> element allows an author to \x{a}" ~
+        "        define a conref target that will be resolved dynamically when \x{a}" ~
+        "        rendered for an end user of the content. This element is useful when\x{a}" ~
+        "        doing an initial process of the DITA content prior to final rendering \x{a}" ~
+        "        of the content; it causes specified IDs to be preserved after that \x{a}" ~
+        "        process, and conref relationships that reuse the\x{a}" ~
+        "        element will not be resolved during the initial process."
+      ]
+    ]
+    anchorid.element =
+      [ dita:longName = "Anchor ID" ]
+      element anchorid { anchorid.attlist, anchorid.content }
+    anchorid.attlist &= anchorid.attributes
+  }
+  
+  ## LONG NAME: Anchor Key
+  div {
+    anchorkey.content = empty
+    anchorkey.attributes =
+      attribute keyref { text },
+      univ-atts,
+      attribute outputclass { text }?
+    [
+      a:documentation [
+        xml:space = "preserve"
+        "The <anchorkey> element allows an author to \x{a}" ~
+        "        define a conref target that will be resolved dynamically when \x{a}" ~
+        "        rendered for an end user of the content. This element is useful when\x{a}" ~
+        "        doing an initial process of the DITA content prior to final rendering \x{a}" ~
+        "        of the content; it allows specified keys to be preserved after that \x{a}" ~
+        "        process, and conref relationships which use that key\x{a}" ~
+        "        will not be resolved during that initial process. "
+      ]
+    ]
+    anchorkey.element =
+      [ dita:longName = "Anchor Key" ]
+      element anchorkey { anchorkey.attlist, anchorkey.content }
+    anchorkey.attlist &= anchorkey.attributes
+  }
+}
+
+## SPECIALIZATION ATTRIBUTE DECLARATIONS
+div {
+  exportanchors.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/keywords delay-d/exportanchors " ]
+    attribute class { text }?
+  anchorid.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/keyword delay-d/anchorid " ]
+    attribute class { text }?
+  anchorkey.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/keyword delay-d/anchorkey " ]
+    attribute class { text }?
+}

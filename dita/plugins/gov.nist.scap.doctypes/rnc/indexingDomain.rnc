@@ -1,0 +1,179 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+  "\x{a}" ~
+  "    "
+  dita:moduleTitle [ "DITA Indexing Domain" ]
+  "\x{a}" ~
+  "    "
+  dita:headerComment [
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   HEADER                                    \x{a}" ~
+    "=============================================================\x{a}" ~
+    " MODULE:    DITA Indexing  Domain                            \x{a}" ~
+    " VERSION:   1.2                                              \x{a}" ~
+    " DATE:      November 2009                                    \x{a}" ~
+    "                                                             \x{a}" ~
+    "=============================================================\x{a}" ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "                   PUBLIC DOCUMENT TYPE DEFINITION           \x{a}" ~
+    "                   TYPICAL INVOCATION                        \x{a}" ~
+    "                                                             \x{a}" ~
+    " Refer to this file by the following public identifier or an\x{a}" ~
+    "      appropriate system identifier \x{a}" ~
+    'PUBLIC "-//OASIS//ELEMENTS DITA Indexing Domain//EN"\x{a}' ~
+    '      Delivered as file "indexingDomain.mod"                      \x{a}' ~
+    "\x{a}" ~
+    "=============================================================\x{a}" ~
+    "SYSTEM:     Darwin Information Typing Architecture (DITA)    \x{a}" ~
+    "                                                             \x{a}" ~
+    "PURPOSE:    Declaring the elements and specialization        \x{a}" ~
+    "            attributes for the DITA Indexing Domain          \x{a}" ~
+    "                                                             \x{a}" ~
+    "ORIGINAL CREATION DATE:                                      \x{a}" ~
+    "            June 2006                                        \x{a}" ~
+    "                                                             \x{a}" ~
+    "            (C) Copyright OASIS Open 2006, 2009.             \x{a}" ~
+    "            All Rights Reserved.                             \x{a}" ~
+    " UPDATES:                                                    \x{a}" ~
+    "   2007.12.01 EK:  Reformatted DTD modules for DITA 1.2       \x{a}" ~
+    "   2008.02.13 RDA: Create .content and .attributes entities  \x{a}" ~
+    "=============================================================\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "    "
+  dita:moduleMetadata [
+    "\x{a}" ~
+    "      "
+    dita:moduleType [ "elementdomain" ]
+    "\x{a}" ~
+    "      "
+    dita:moduleShortName [ "indexing-d" ]
+    "\x{a}" ~
+    "      "
+    dita:modulePublicIds [
+      "\x{a}" ~
+      "        "
+      dita:dtdMod [
+        "-//OASIS//ELEMENTS DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Indexing Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:dtdEnt [
+        "-//OASIS//ENTITIES DITA"
+        dita:var [ presep = " " name = "ditaver" ]
+        " Indexing Domain//EN"
+      ]
+      "\x{a}" ~
+      "        "
+      dita:xsdMod [
+        "urn:oasis:names:tc:dita:xsd:indexingDomain.xsd"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rncMod [
+        "urn:oasis:names:tc:dita:rnc:indexingDomain.rnc"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "        "
+      dita:rngMod [
+        "urn:oasis:names:tc:dita:rng:indexingDomain.rng"
+        dita:var [ presep = ":" name = "ditaver" ]
+      ]
+      "\x{a}" ~
+      "      "
+    ]
+    "\x{a}" ~
+    "      "
+    dita:domainsContribution [ "(topic indexing-d)" ]
+    "\x{a}" ~
+    "    "
+  ]
+  "\x{a}" ~
+  "  "
+]
+
+## Define domain extension patterns
+div {
+  indexing-d-index-base =
+    index-see.element | index-see-also.element | index-sort-as.element
+  index-base |= indexing-d-index-base
+}
+
+## ELEMENT TYPE DEFINITIONS
+div {
+  
+  ## LONG NAME: Index See
+  div {
+    index-see.content =
+      (words.cnt | [ dita:since = "1.3" ] ph | indexterm)*
+    index-see.attributes =
+      attribute keyref { text }?,
+      univ-atts
+    index-see.element =
+      
+      ## An <index-see> element within an <indexterm> redirects the reader to another index entry that the reader should reference instead of the current one. Category:
+      ##             Indexing domain elements
+      [ dita:longName = "Index See" ]
+      element index-see { index-see.attlist, index-see.content }
+    index-see.attlist &= index-see.attributes
+  }
+  
+  ## LONG NAME: Index See Also
+  div {
+    index-see-also.content =
+      (words.cnt | [ dita:since = "1.3" ] ph | indexterm)*
+    index-see-also.attributes =
+      attribute keyref { text }?,
+      univ-atts
+    index-see-also.element =
+      
+      ## An <index-see-also> element within an <indexterm> redirects the reader to another index entry that the reader should reference in addition to the current one.
+      ##             Category: Indexing domain elements
+      [ dita:longName = "Index See Also" ]
+      element index-see-also {
+        index-see-also.attlist, index-see-also.content
+      }
+    index-see-also.attlist &= index-see-also.attributes
+  }
+  
+  ## LONG NAME: Index Sort As
+  div {
+    index-sort-as.content = words.cnt*
+    index-sort-as.attributes =
+      attribute keyref { text }?,
+      univ-atts
+    index-sort-as.element =
+      
+      ## The <index-sort-as> element specifies a sort phrase under which an index entry would be sorted. Category: Indexing domain elements
+      [ dita:longName = "Index Sort As" ]
+      element index-sort-as {
+        index-sort-as.attlist, index-sort-as.content
+      }
+    index-sort-as.attlist &= index-sort-as.attributes
+  }
+}
+
+## SPECIALIZATION ATTRIBUTES
+div {
+  index-see.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/index-base indexing-d/index-see " ]
+    attribute class { text }?
+  index-see-also.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/index-base indexing-d/index-see-also " ]
+    attribute class { text }?
+  index-sort-as.attlist &=
+    global-atts,
+    [ a:defaultValue = "+ topic/index-base indexing-d/index-sort-as " ]
+    attribute class { text }?
+}
