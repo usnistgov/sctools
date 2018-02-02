@@ -1,0 +1,22 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+    dita:moduleTitle [ "SCAP Name Attribute Domain " ]
+        dita:moduleMetadata [
+            dita:moduleType [ "attributedomain" ]
+            dita:moduleShortName [ "scapNameAtt-d" ]
+            dita:domainsContribution [ "a(props scapName)" ]
+        ]
+    ]
+
+div {
+    ## ATTRIBUTE DECLARATION PATTERN
+    scapNameAtt-d-attribute =
+        attribute scapName { xsd:NCName }?
+    }
+        
+div {
+    ## ATTRIBUTE EXTENSION PATTERN
+    props-attribute-extensions &= scapNameAtt-d-attribute
+    }

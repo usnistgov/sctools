@@ -1,0 +1,64 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+    dita:moduleTitle [ "SCAP Data Stream Domain" ]
+    dita:moduleMetadata [
+        dita:moduleType [ "elementdomain" ]
+        dita:moduleShortName [ "scapDataStream-d" ]
+        dita:domainsContribution [ "(map scapDataStream-d)" ]
+    ]
+]
+
+div {
+    ## DOMAIN EXTENSION PATTERNS
+    scapDataStream-d-topicref = 
+        scapDataStream.element | 
+        scapDictionaries.element |
+        scapCpeListRef.element |
+        scapExternalLinks.element |
+        scapUri.element |
+        scapChecklists.element |
+        scapBenchmarkRef.element |
+        scapTailoringRef.element |
+        scapChecks.element |
+        scapOvalRef.element |
+        scapOcilRef.element
+    topicref |= scapDataStream-d-topicref
+    }
+    
+div {
+    ## ELEMENT TYPE NAME PATTERNS
+    scapDataStream = scapDataStream.element
+    scapDictionaries = scapDictionaries.element
+    scapCpeListRef = scapCpeListRef.element
+    scapExternalLinks = scapExternalLinks.element
+    scapUri = scapUri.element
+    scapChecklists = scapChecklists.element
+    scapBenchmarkRef = scapBenchmarkRef.element
+    scapTailoringRef = scapTailoringRef.element
+    scapChecks = scapChecks.element
+    scapOvalRef = scapOvalRef.element
+    scapOcilRef = scapOcilRef.element 
+    }
+    
+div {
+    ## ELEMENT TYPE DECLARATIONS
+    div {
+        ## Long name: SCAP Data Stream
+        scapDataStream.content = scapDictionaries?, scapChecklists?, scapChecks
+        scapDataStream.attributes = topicref-atts, univ-atts
+        scapDataStream.element = 
+            element scapDataStream { scapDataStream.attlist, scapDataStream.content }
+        scapDataStream.attlist &= scapDataStream.attributes
+        }
+}
+
+div {
+    ## SPECIALIZATION ATTRIBUTES
+    scapDataStream.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapDataStream " ] 
+        attribute class {text} ?
+}

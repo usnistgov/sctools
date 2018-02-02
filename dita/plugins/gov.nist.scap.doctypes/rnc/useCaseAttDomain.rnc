@@ -1,0 +1,22 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+    dita:moduleTitle [ "SCAP Use Case Attribute Domain " ]
+        dita:moduleMetadata [
+            dita:moduleType [ "attributedomain" ]
+            dita:moduleShortName [ "useCaseAtt-d" ]
+            dita:domainsContribution [ "a(props useCase)" ]
+        ]
+    ]
+
+div {
+    ## ATTRIBUTE DECLARATION PATTERN
+    useCaseAtt-d-attribute =
+        attribute useCase { "CONFIGURATION" | "VULNERABILITY" | "INVENTORY" | "OTHER"  }?
+    }
+        
+div {
+    ## ATTRIBUTE EXTENSION PATTERN
+    props-attribute-extensions &= useCaseAtt-d-attribute
+    }

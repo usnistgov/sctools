@@ -1,0 +1,22 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+    dita:moduleTitle [ "Reverse-DNS Attribute Domain " ]
+        dita:moduleMetadata [
+            dita:moduleType [ "attributedomain" ]
+            dita:moduleShortName [ "reverseDNSAtt-d" ]
+            dita:domainsContribution [ "a(props reverseDNS)" ]
+        ]
+    ]
+
+div {
+    ## ATTRIBUTE DECLARATION PATTERN
+    reverseDNSAtt-d-attribute =
+        attribute reverseDNS { xsd:string { pattern="[a-zA-Z0-9\-\.]+" } }?
+    }
+        
+div {
+    ## ATTRIBUTE EXTENSION PATTERN
+    props-attribute-extensions &= reverseDNSAtt-d-attribute
+    }
