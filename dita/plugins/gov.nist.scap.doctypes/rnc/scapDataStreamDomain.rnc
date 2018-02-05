@@ -10,23 +10,6 @@ dita:moduleDesc [
         dita:domainsContribution [ "(map scapDataStream-d)" ]
     ]
 ]
-
-div {
-    ## DOMAIN EXTENSION PATTERNS
-    scapDataStream-d-topicref = 
-        scapDataStream.element | 
-        scapDictionaries.element |
-        scapCpeListRef.element |
-        scapExternalLinks.element |
-        scapUri.element |
-        scapChecklists.element |
-        scapBenchmarkRef.element |
-        scapTailoringRef.element |
-        scapChecks.element |
-        scapOvalRef.element |
-        scapOcilRef.element
-    topicref |= scapDataStream-d-topicref
-    }
     
 div {
     ## ELEMENT TYPE NAME PATTERNS
@@ -42,23 +25,174 @@ div {
     scapOvalRef = scapOvalRef.element
     scapOcilRef = scapOcilRef.element 
     }
+
+div {
+    ## DOMAIN EXTENSION PATTERNS
+    scapDataStream-d-topicref = 
+        scapDataStream | 
+        scapDictionaries |
+        scapCpeListRef |
+        scapExternalLinks |
+        scapUri |
+        scapChecklists |
+        scapBenchmarkRef |
+        scapTailoringRef |
+        scapChecks |
+        scapOvalRef |
+        scapOcilRef
+    topicref |= scapDataStream-d-topicref
+    }
+    
+div {
+    ## COMMON ATTRIBUTE SETS
+    scapDataStream-d-common-attributes = 
+        attribute navtitle { text }?,
+        attribute href { text }?,
+        attribute keyref { text }?,
+        attribute keys { text }?,
+        attribute query { text }?,
+        attribute copy-to { text }?,
+        attribute outputclass { text }?,
+        topicref-atts,
+        univ-atts
+    }
     
 div {
     ## ELEMENT TYPE DECLARATIONS
     div {
         ## Long name: SCAP Data Stream
         scapDataStream.content = scapDictionaries?, scapChecklists?, scapChecks
-        scapDataStream.attributes = topicref-atts, univ-atts
+        scapDataStream.attributes = scapDataStream-d-common-attributes
         scapDataStream.element = 
             element scapDataStream { scapDataStream.attlist, scapDataStream.content }
         scapDataStream.attlist &= scapDataStream.attributes
         }
-}
+    div {
+        ## Long name: SCAP Dictionaries
+        scapDictionaries.content = scapCpeListRef+
+        scapDictionaries.attributes = scapDataStream-d-common-attributes
+        scapDictionaries.element = 
+            element scapDictionaries { scapDictionaries.attlist, scapDictionaries.content }
+        scapDictionaries.attlist &= scapDictionaries.attributes
+        }
+    div {
+        ## SCAP Checklistss
+        scapChecklists.content = ( scapBenchmarkRef | scapTailoringRef )+
+        scapChecklists.attributes = scapDataStream-d-common-attributes
+        scapChecklists.element = 
+            element scapChecklists { scapChecklists.attlist, scapChecklists.content }
+        scapChecklists.attlist &= scapChecklists.attributes
+        }
+    div {
+        ## SCAP Checks
+        scapChecks.content = ( scapOvalRef | scapOcilRef )+
+        scapChecks.attributes = scapDataStream-d-common-attributes
+        scapChecks.element = 
+            element scapChecks { scapChecks.attlist, scapChecks.content }
+        scapChecks.attlist &= scapChecks.attributes
+        }
+    div {
+        ## SCAP CPE List Reference
+        scapCpeListRef.content = scapExternalLinks?
+        scapCpeListRef.attributes = scapDataStream-d-common-attributes
+        scapCpeListRef.element = 
+            element scapCpeListRef { scapCpeListRef.attlist, scapCpeListRef.content }
+        scapCpeListRef.attlist &= scapCpeListRef.attributes
+        }
+    div {
+        ## SCAP Benchmark Reference
+        scapBenchmarkRef.content = scapExternalLinks?
+        scapBenchmarkRef.attributes = scapDataStream-d-common-attributes
+        scapBenchmarkRef.element = 
+            element scapBenchmarkRef { scapBenchmarkRef.attlist, scapBenchmarkRef.content }
+        scapBenchmarkRef.attlist &= scapBenchmarkRef.attributes
+        }
+    div {
+        ## SCAP Tailoring Reference
+        scapTailoringRef.content = scapExternalLinks?
+        scapTailoringRef.attributes = scapDataStream-d-common-attributes
+        scapTailoringRef.element = 
+            element scapTailoringRef { scapTailoringRef.attlist, scapTailoringRef.content }
+        scapTailoringRef.attlist &= scapTailoringRef.attributes
+        }
+    div {
+        ## SCAP OVAL Reference
+        scapOvalRef.content = scapExternalLinks?
+        scapOvalRef.attributes = scapDataStream-d-common-attributes
+        scapOvalRef.element = 
+            element scapOvalRef { scapOvalRef.attlist, scapOvalRef.content }
+        scapOvalRef.attlist &= scapOvalRef.attributes
+        }
+    div {
+        ## SCAP OCIL Reference
+        scapOcilRef.content = scapExternalLinks?
+        scapOcilRef.attributes = scapDataStream-d-common-attributes
+        scapOcilRef.element = 
+            element scapOcilRef { scapOcilRef.attlist, scapOcilRef.content }
+        scapOcilRef.attlist &= scapOcilRef.attributes
+        }
+    div {
+        ## SCAP External Links
+        scapExternalLinks.content = scapUri+
+        scapExternalLinks.attributes = scapDataStream-d-common-attributes
+        scapExternalLinks.element = 
+            element scapExternalLinks { scapExternalLinks.attlist, scapExternalLinks.content }
+        scapExternalLinks.attlist &= scapExternalLinks.attributes
+        }
+    div {
+        ## SCAP URI
+        scapUri.content = empty
+        scapUri.attributes = scapDataStream-d-common-attributes
+        scapUri.element = 
+            element scapUri { scapUri.attlist, scapUri.content }
+        scapUri.attlist &= scapUri.attributes
+        }
+    }
 
 div {
     ## SPECIALIZATION ATTRIBUTES
     scapDataStream.attlist &= 
         global-atts, 
          [ a:defaultValue = "+ map/topicref scapDataStream-d/scapDataStream " ] 
+        attribute class {text} ?
+    scapDictionaries.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapDictionaries " ] 
+        attribute class {text} ?
+    scapCpeListRef.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapCpeListRef " ] 
+        attribute class {text} ?
+    scapExternalLinks.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapExternalLinks " ] 
+        attribute class {text} ?
+    scapUri.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapUri " ] 
+        attribute class {text} ?
+    scapChecklists.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapChecklists " ] 
+        attribute class {text} ?
+    scapBenchmarkRef.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapBenchmarkRef " ] 
+        attribute class {text} ?
+    scapTailoringRef.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapTailoringRef " ] 
+        attribute class {text} ?
+    scapChecks.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapChecks " ] 
+        attribute class {text} ?
+    scapOvalRef.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapOvalRef " ] 
+        attribute class {text} ?
+    scapOcilRef.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref scapDataStream-d/scapOcilRef " ] 
         attribute class {text} ?
 }

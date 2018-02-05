@@ -1,0 +1,13 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+    dita:moduleTitle [ "SCAP Data Stream Collection Module" ]
+    dita:moduleMetadata [
+        dita:moduleType [ "mapshell" ]
+        dita:moduleShortName [ "scapDataStreamCollection" ]
+        dita:domainsContribution [ "(map scapDataStream-d)" ]
+    ]
+]
+

@@ -55,7 +55,7 @@ div {
   include "indexingDomain.rnc"
   include "utilitiesDomain.rnc"
   include "phaseOfMoonAttDomain.rnc"
-  include "xmlDomainMod.rnc"
+  include "xmlDomain.rnc"
 }
 
 ## ID-DEFINING-ELEMENT OVERRIDES
