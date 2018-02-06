@@ -5,9 +5,53 @@ namespace dita = "http://dita.oasis-open.org/architecture/2005/"
 dita:moduleDesc [
     dita:moduleTitle [ "SCAP Data Stream Collection Module" ]
     dita:moduleMetadata [
-        dita:moduleType [ "mapshell" ]
+        dita:moduleType [ "map" ]
         dita:moduleShortName [ "scapDataStreamCollection" ]
-        dita:domainsContribution [ "(map scapDataStream-d)" ]
+        dita:domainsContribution [ "(map scapDataStreamCollection)" ]
     ]
 ]
+
+div {
+    ## ELEMENT TYPE NAME PATTERNS
+    scapDataStreamCollection = scapDataStreamCollection.element
+    }
+    
+div {
+    ## ELEMENT TYPE DECLARATIONS
+    div {
+        ## Long name: SCAP Data Stream Collection
+        scapDataStreamCollection.content = 
+            title?, 
+            topicmeta?, 
+            keydef*, 
+            scapDataStream+, 
+            reltable*
+        scapDataStreamCollection.attributes = 
+            attribute title { text }?,
+            attribute id { xsd:ID }?, 
+            conref-atts,
+            attribute anchorref { text }?,
+            attribute outputclass { text }?,
+            localization-atts,
+            topicref-atts,
+            select-atts                        
+        }
+        scapDataStreamCollection.element = 
+            element scapDataStreamCollection { 
+                scapDataStreamCollection.attlist, 
+                scapDataStreamCollection.content 
+            }
+        scapDataStreamCollection.attlist &= 
+            scapDataStreamCollection.attributes,
+            arch-atts,
+            domains-att
+    }
+    
+div {
+    ## SPECIALIZATION ATTRIBUTES
+    scapDataStreamCollection.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/map scapDataStreamCollection/scapDataStreamCollection " ] 
+        attribute class {text} ?
+    }
 

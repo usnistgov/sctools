@@ -1,0 +1,69 @@
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+    dita:moduleTitle [ "SCAP Data Stream Collection" ]
+    dita:moduleMetadata [
+        dita:moduleType [ "mapshell" ]
+        dita:moduleShortName [ "scapDataStreamCollection" ]
+    ]
+]
+
+div {
+    ## ROOT ELEMENT DECLARATION
+    start |= scapDataStreamCollection.element
+    }
+
+div {
+    ## DITA DOMAINS ATTRIBUTE
+    domains-att =
+        [
+        a:defaultValue = '''
+            (map scapDataStreamCollection) 
+            (map scapDataStream-d) 
+            (map ditavalref-d) 
+            (topic delay-d) 
+            (topic hazard-d) 
+            (topic hi-d) 
+            (topic indexing-d) 
+            (topic ut-d)
+            '''
+        ]
+        attribute domains { text }?
+    }
+    
+div {
+    ## CONTENT CONSTRAINT INTEGRATION
+    }
+
+div {
+    ## MODULE INCLUSIONS
+    include "mapMod.rnc"
+    include "mapGroupDomain.rnc"
+    include "delayResolutionDomain.rnc"
+    [ dita:since = "1.3" ] include "deliveryTargetAttDomain.rnc"
+    [ dita:since = "1.3" ] include "ditavalrefDomain.rnc"
+    include "indexingDomain.rnc"
+    include "hazardstatementDomain.rnc"
+    include "highlightDomain.rnc"
+    include "utilitiesDomain.rnc"
+    include "scapDataStreamCollectionMod.rnc"
+    include "scapDataStreamDomain.rnc"
+    include "reverseDNSAttDomain.rnc"
+    include "scapNameAttDomain.rnc"
+    include "scapVersionAttDomain.rnc"
+    include "useCaseAttDomain.rnc"
+    include "scapDataStreamCollectionConstraintMod.rnc"
+    }
+
+## ID-DEFINING-ELEMENT OVERRIDES
+div {
+  any =
+    (idElements
+     | element * - (map | anchor) {
+         attribute * { text }*,
+         any
+       }
+     | text)*
+}
