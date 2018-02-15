@@ -1,0 +1,22 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+    dita:moduleTitle [ "Schematron Version Attribute Domain " ]
+        dita:moduleMetadata [
+            dita:moduleType [ "attributedomain" ]
+            dita:moduleShortName [ "schematronVersionAtt-d" ]
+            dita:domainsContribution [ "a(props schematronVersion)" ]
+        ]
+    ]
+
+div {
+    ## ATTRIBUTE DECLARATION PATTERN
+    schematronVersionAtt-d-attribute =
+        attribute schematronVersion { "1.3" | "1.2" | "1.1" | "1.0"  }?
+    }
+        
+div {
+    ## ATTRIBUTE EXTENSION PATTERN
+    props-attribute-extensions &= schematronVersionAtt-d-attribute
+    }

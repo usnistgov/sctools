@@ -28,7 +28,7 @@ div {
             reltable*
         scapDataStreamCollection.attributes = 
             attribute title { text }?,
-            attribute id { xsd:ID }?, 
+#            attribute id { xsd:ID }?, 
             conref-atts,
             attribute anchorref { text }?,
             attribute outputclass { text }?,
