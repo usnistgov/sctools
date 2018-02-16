@@ -6,7 +6,7 @@ dita:moduleDesc [
     dita:moduleTitle [ "SCAP Map Group Domain Constraint" ]
     dita:moduleMetadata [
         dita:moduleType [ "constraint" ]
-        dita:moduleShortName [ "scapMapgroup-c" ]
+        dita:moduleShortName [ "scapMapgroup" ]
         dita:domainsContribution [ "(map mapgroup-d scapMapgroup-c)" ]
     ]
 ]
@@ -15,10 +15,16 @@ div {
     ## CONTENT MODEL OVERRIDES
     include "mapGroupDomain.rnc" {
         # Assign defaults to keydef element's navtitle and format attributes.
-        keydef.attributes &= 
-            [ a:defaultValue = "SCAP Component" ]
-            attribute navtitle { text },
-            [ a:defaultValue = "xml" ]
-            attribute format { text }
+        keydef.attributes = 
+        [ a:defaultValue = "SCAP Component" ]
+        attribute navtitle { text },
+        [ a:defaultValue = "xml" ]
+        attribute format { text },
+        attribute href { xsd:anyURI },
+        attribute keys { xsd:NCName },
+        [ a:defaultValue = "resource-only" ]
+        attribute processing-role {
+            "normal" | "resource-only" | "-dita-use-conref-target"
+        }?
     }
 }

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE scapDataStreamCollection PUBLIC 
+<!--<!DOCTYPE scapDataStreamCollection PUBLIC 
 "urn:pubid:scap.nist.gov:doctypes:dita:scapDataStreamCollection" 
-"scapDataStreamCollection.dtd">
-<scapDataStreamCollection format="ditamap" reverseDNS="com.example" scapName="kitchen_sink" 
+"scapDataStreamCollection.dtd">-->
+<?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection" 
+    type="application/relax-ng-compact-syntax"?>
+<scapDataStreamCollection reverseDNS="com.example" scapName="kitchen_sink" 
     schematronVersion="1.2">
     <title>RHEL7 SCAP Data Stream Collection</title>
     <keydef keys="cpe_dictionary" href="rhel7/rhel7-cpe-dict.xml"/>

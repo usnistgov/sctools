@@ -7,8 +7,14 @@ dita:moduleDesc [
     dita:moduleMetadata [
         dita:moduleType [ "mapshell" ]
         dita:moduleShortName [ "scapDataStreamCollection" ]
+        dita:shellPublicIds [
+            dita:rncShell [
+                "urn:oasis:names:tc:dita:rnc:basemap.rnc"
+                 dita:var [ presep = ":" name = "ditaver" ]
+                ]
+            ]
+        ]
     ]
-]
 
 div {
     ## ROOT ELEMENT DECLARATION
@@ -43,7 +49,7 @@ div {
         attribute domains { text }?
     }
     
- div {
+div {
      ## CONTENT CONSTRAINT INTEGRATION
     include "scapDataStreamCollectionConstraintMod.rnc"
     include "scapDataStreamConstraint.rnc"
