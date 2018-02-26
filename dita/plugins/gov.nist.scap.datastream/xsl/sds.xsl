@@ -32,7 +32,7 @@
                 ' scapDataStream-d/scapDataStream ')]"/>
             <xsl:apply-templates select="*[contains(
                 @class,
-                ' mapgroup-d/keydef ') and @format='xml']"/>
+                ' scapDataStreamCollection/scapComponent ') and @format='xml']"/>
         </sds:data-stream-collection>
     </xsl:template>
     
@@ -128,10 +128,10 @@
             uri="#{nist:scap-id('cref', @keyref)}"/>
     </xsl:template>
     
-    <!-- keydef referencing a data stream component -->
+    <!-- Component -->
     <xsl:template match="*[contains(
         @class,
-        ' mapgroup-d/keydef ') and @format='xml']">
+        ' scapDataStreamCollection/scapComponent ') and @format='xml']">
         <sds:component 
             id="{nist:scap-id('comp', @keys)}" 
             timestamp="{fn:current-dateTime()}">
