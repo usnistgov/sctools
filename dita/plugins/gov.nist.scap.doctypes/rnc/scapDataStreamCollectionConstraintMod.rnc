@@ -20,5 +20,19 @@ div {
             attribute scapName { xsd:NCName },
             attribute reverseDNS { xsd:string { pattern="[a-zA-Z0-9\-\.]+" } },
             attribute schematronVersion { "1.3" | "1.2" | "1.1" | "1.0" }
+
+        # Assign defaults to scapComponent element's navtitle, format, and processing-role 
+        # attributes. Restrict keys to NCName.
+        scapComponent.attributes = 
+        [ a:defaultValue = "Component" ]
+        attribute navtitle { text },
+        [ a:defaultValue = "xml" ]
+        attribute format { text },
+        attribute href { xsd:anyURI },
+        attribute keys { xsd:NCName },
+        [ a:defaultValue = "resource-only" ]
+        attribute processing-role {
+            "normal" | "resource-only" | "-dita-use-conref-target"
+        }?
     }
 }

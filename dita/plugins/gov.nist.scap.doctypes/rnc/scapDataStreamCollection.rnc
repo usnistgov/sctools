@@ -43,7 +43,6 @@ div {
             a(props useCase)
             (map scapDataStreamCollection scapDataStreamCollection-c)
             (map scapDataStream-d scapDataStream-c)
-            (map mapgroup-d scapMapgroup-c)
             '''
         ]
         attribute domains { text }?
@@ -53,13 +52,12 @@ div {
      ## CONTENT CONSTRAINT INTEGRATION
     include "scapDataStreamCollectionConstraintMod.rnc"
     include "scapDataStreamConstraint.rnc"
-    include "scapMapGroupConstraint.rnc"
      }
 
 div {
     ## MODULE INCLUSIONS
     include "mapMod.rnc"
-#    include "mapGroupDomain.rnc"
+    include "mapGroupDomain.rnc"
     include "delayResolutionDomain.rnc"
     [ dita:since = "1.3" ] include "deliveryTargetAttDomain.rnc"
     [ dita:since = "1.3" ] include "ditavalrefDomain.rnc"

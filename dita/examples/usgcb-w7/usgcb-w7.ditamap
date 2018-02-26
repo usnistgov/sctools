@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection" type="application/relax-ng-compact-syntax"?>
 <scapDataStreamCollection scapName="USGCB-Windows-7-2.0.5.1-Combined" schematronVersion="1.0" reverseDNS="gov.nist">
-    <keydef keys="xccdf" href="xccdf.xml"/>
-    <keydef keys="energy-xccdf" href="energy-xccdf.xml"/>
-    <keydef keys="oval" href="USGCB-Windows-7-2.0.5.1-oval.xml"/>
-    <keydef keys="energy-oval" href="USGCB-Windows-7-Energy-2.0.5.1-oval.xml"/>
-    <keydef keys="cpe-oval" href="USGCB-Windows-7-2.0.5.1-cpe-oval.xml"/>
-    <keydef keys="energy-cpe-oval" href="USGCB-Windows-7-Energy-2.0.5.1-cpe-oval.xml"/>
-    <keydef keys="ocil" href="USGCB-Windows-7-2.0.5.1-OCIL.xml"/>
-    <keydef keys="patches" href="USGCB-Windows-7-2.0.5.1-patches.xml"/>
-    <keydef keys="cpedict" href="cpe-dictionary.xml"/>
-    <keydef keys="energy-cpedict" href="energy-cpe-dictionary.xml"/>
+    <scapComponent keys="xccdf" href="xccdf.xml"/>
+    <scapComponent keys="energy-xccdf" href="energy-xccdf.xml"/>
+    <scapComponent keys="oval" href="USGCB-Windows-7-2.0.5.1-oval.xml"/>
+    <scapComponent keys="energy-oval" href="USGCB-Windows-7-Energy-2.0.5.1-oval.xml"/>
+    <scapComponent keys="cpe-oval" href="USGCB-Windows-7-2.0.5.1-cpe-oval.xml"/>
+    <scapComponent keys="energy-cpe-oval" href="USGCB-Windows-7-Energy-2.0.5.1-cpe-oval.xml"/>
+    <scapComponent keys="ocil" href="USGCB-Windows-7-2.0.5.1-OCIL.xml"/>
+    <scapComponent keys="patches" href="USGCB-Windows-7-2.0.5.1-patches.xml"/>
+    <scapComponent keys="cpedict" href="cpe-dictionary.xml"/>
+    <scapComponent keys="energy-cpedict" href="energy-cpe-dictionary.xml"/>
     <scapDataStream scapName="USGCB-Windows-7-Energy-2.0.5.1" scapVersion="1.2" useCase="CONFIGURATION">
         <scapDictionaries>
             <scapCpeListRef keyref="energy-cpedict">

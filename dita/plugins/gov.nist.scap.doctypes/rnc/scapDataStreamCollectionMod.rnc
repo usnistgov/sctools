@@ -14,6 +14,7 @@ dita:moduleDesc [
 div {
     ## ELEMENT TYPE NAME PATTERNS
     scapDataStreamCollection = scapDataStreamCollection.element
+    scapComponent = scapComponent.element
     }
     
 div {
@@ -23,7 +24,7 @@ div {
         scapDataStreamCollection.content = 
             title?, 
             topicmeta?, 
-            keydef*, 
+            scapComponent*, 
             scapDataStream+, 
             reltable*
         scapDataStreamCollection.attributes = 
@@ -35,7 +36,6 @@ div {
             localization-atts,
             topicref-atts,
             select-atts                        
-        }
         scapDataStreamCollection.element = 
             element scapDataStreamCollection { 
                 scapDataStreamCollection.attlist, 
@@ -45,6 +45,17 @@ div {
             scapDataStreamCollection.attributes,
             arch-atts,
             domains-att
+        }
+    div {
+        ## Long name: SCAP Component
+        scapComponent.content = keydef.content
+        scapComponent.attributes = keydef.attributes
+        scapComponent.element =
+            element scapComponent {
+                scapComponent.attlist,
+                scapComponent.content
+            }
+        scapComponent.attlist = scapComponent.attributes
     }
     
 div {
@@ -53,5 +64,9 @@ div {
         global-atts, 
          [ a:defaultValue = "+ map/map scapDataStreamCollection/scapDataStreamCollection " ] 
         attribute class {text} ?
+    scapComponent.attlist &= 
+        global-atts, 
+         [ a:defaultValue = "+ map/topicref mapgroup-d/keydef scapDataStreamCollection/scapComponent " ] 
+        attribute class {text} ?
     }
-
+}

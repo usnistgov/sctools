@@ -7,16 +7,16 @@
 <scapDataStreamCollection reverseDNS="com.example" scapName="kitchen_sink" 
     schematronVersion="1.2">
     <title>RHEL7 SCAP Data Stream Collection</title>
-    <keydef keys="cpe_dictionary" href="rhel7/rhel7-cpe-dict.xml"/>
-    <keydef keys="cpe_oval" href="rhel7/rhel7-cpe-oval.xml"/>
-    <keydef keys="xccdf" href="rhel7/rhel7-xccdf.xml"/>
-    <keydef keys="oval" href="rhel7/rhel7-oval.xml"/>
-    <keydef keys="ocil" href="rhel7/rhel7-ocil.xml"/>
-    <keydef keys="xccdf_pcidss" href="rhel7/rhel7-pcidss-xccdf.xml"/>
-    <keydef keys="oval000" href="rhel7/rhel7-oval000.xml"/>
-    <keydef keys="ocil000" href="rhel7/rhel7-ocil000.xml"/>
-    <keydef keys="xccdf_apparmor" href="xenial-apparmor/xenial-apparmor-xccdf.xml"/>
-    <keydef keys="oval_apparmor" href="xenial-apparmor/xenial-apparmor-oval.xml"/>
+    <scapComponent keys="cpe_dictionary" href="rhel7/rhel7-cpe-dict.xml"/>
+    <scapComponent keys="cpe_oval" href="rhel7/rhel7-cpe-oval.xml"/>
+    <scapComponent keys="xccdf" href="rhel7/rhel7-xccdf.xml"/>
+    <scapComponent keys="oval" href="rhel7/rhel7-oval.xml"/>
+    <scapComponent keys="ocil" href="rhel7/rhel7-ocil.xml"/>
+    <scapComponent keys="xccdf_pcidss" href="rhel7/rhel7-pcidss-xccdf.xml"/>
+    <scapComponent keys="oval000" href="rhel7/rhel7-oval000.xml"/>
+    <scapComponent keys="ocil000" href="rhel7/rhel7-ocil000.xml"/>
+    <scapComponent keys="xccdf_apparmor" href="xenial-apparmor/xenial-apparmor-xccdf.xml"/>
+    <scapComponent keys="oval_apparmor" href="xenial-apparmor/xenial-apparmor-oval.xml"/>
     <scapDataStream scapName="datastream_from_xccdf_ssg_rhel7_xccdf_1.2.xml" scapVersion="1.2" useCase="OTHER">
         <scapDictionaries>
             <scapCpeListRef keyref="cpe_dictionary">
