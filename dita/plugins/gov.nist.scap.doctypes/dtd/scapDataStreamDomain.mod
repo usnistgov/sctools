@@ -372,14 +372,14 @@
 <!ELEMENT  scapUri %scapUri.content;>
 <!ATTLIST  scapUri %scapUri.attributes;>
 
-<!ATTLIST  scapDataStream     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapDataStream "     >
-<!ATTLIST  scapDictionaries     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapDictionaries "     >
-<!ATTLIST  scapCpeListRef     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapCpeListRef "     >
-<!ATTLIST  scapExternalLinks     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapExternalLinks "     >
-<!ATTLIST  scapUri     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapUri "     >
-<!ATTLIST  scapChecklists     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapChecklists "     >
-<!ATTLIST  scapBenchmarkRef     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapBenchmarkRef "     >
-<!ATTLIST  scapTailoringRef     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapTailoringRef "     >
-<!ATTLIST  scapChecks     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapChecks "     >
-<!ATTLIST  scapOvalRef     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapOvalRef "     >
-<!ATTLIST  scapOcilRef     %global-atts;  class CDATA "- map/topicref scapDataStream-d/scapOcilRef "     >
+<!ATTLIST  scapDataStream     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapDataStream "     >
+<!ATTLIST  scapDictionaries     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapDictionaries "     >
+<!ATTLIST  scapCpeListRef     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapCpeListRef "     >
+<!ATTLIST  scapExternalLinks     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapExternalLinks "     >
+<!ATTLIST  scapUri     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapUri "     >
+<!ATTLIST  scapChecklists     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapChecklists "     >
+<!ATTLIST  scapBenchmarkRef     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapBenchmarkRef "     >
+<!ATTLIST  scapTailoringRef     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapTailoringRef "     >
+<!ATTLIST  scapChecks     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapChecks "     >
+<!ATTLIST  scapOvalRef     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapOvalRef "     >
+<!ATTLIST  scapOcilRef     %global-atts;  class CDATA "+ map/topicref scapDataStream-d/scapOcilRef "     >

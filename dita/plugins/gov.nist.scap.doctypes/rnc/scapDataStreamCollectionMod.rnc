@@ -62,11 +62,11 @@ div {
     ## SPECIALIZATION ATTRIBUTES
     scapDataStreamCollection.attlist &= 
         global-atts, 
-         [ a:defaultValue = "+ map/map scapDataStreamCollection/scapDataStreamCollection " ] 
+         [ a:defaultValue = "- map/map scapDataStreamCollection/scapDataStreamCollection " ] 
         attribute class {text} ?
     scapComponent.attlist &= 
         global-atts, 
-         [ a:defaultValue = "+ map/topicref mapgroup-d/keydef scapDataStreamCollection/scapComponent " ] 
+         [ a:defaultValue = "- map/topicref mapgroup-d/keydef scapDataStreamCollection/scapComponent " ] 
         attribute class {text} ?
     }
 }
