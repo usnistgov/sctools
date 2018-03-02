@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="gov.nist.scap.datastream">
+<project name="gov.nist.scap.datastream"
+	 xmlns:if="ant:if"
+	 xmlns:unless="ant:unless">
 
     <target name="dita2sds" depends="dita2sds.init, build-init, preprocess, dita2sds.transform"/>
     
@@ -10,21 +12,33 @@
         <property name="temp.output.dir.name" value=""/>
 
         <property name="out.ext" value="xml"/>
+	<condition property="DITA-OT-3">
+	  <matches string="${otrelease}" pattern="^3\.[0-9].*"/>
+	</condition>
+	<condition property="DITA-OT-2-5">
+	  <matches string="${otrelease}" pattern="^2\.5.*"/>
+	</condition>
+    </target>
+
+    <target name="dita2sds.copy-components">
+      <echo level="info">* DITA-OT release = ${otrelease}</echo> 
+      <copy if:set="DITA-OT-3" todir="${dita.output.dir}">
+	<ditafileset format="xml"/>
+      </copy>
     </target>
     
-    <target name="dita2sds.transform">
+    <target name="dita2sds.transform" depends="dita2sds.copy-components">
         <pipeline message="Convert DITA SCAP map to data stream collection format" taskname="xslt">
             <xslt basedir="${dita.output.dir}"
                 destdir="${output.dir}"
-                classpathref="dost.class.path"
-                extension="${sds.out.ext}"
+                extension="${out.ext}"
                 style=
-                "${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}sds.xsl"
+		"${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}sds.xsl"
                 filenameparameter="FILENAME"
                 filedirparameter="FILEDIR"
                 >
                 <ditaFileset format="ditamap" processingRole="normal"/>
-                <mapper classname="org.dita.dost.util.JobMapper" to="${out.ext}"/>
+                <mapper if:set="DITA-OT-2-5" classname="org.dita.dost.util.JobMapper" to="${out.ext}"/>
                 <xmlcatalog refid="dita.catalog"/>            
             </xslt>
         </pipeline>
