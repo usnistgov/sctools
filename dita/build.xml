@@ -3,12 +3,10 @@
   <property file="build.properties"/>
   <property file="${user.home}/.build.properties"/>
   <property file="${user.home}/build.properties"/>
-
+  <property file="${user.home}/build.properties.xml"/> <!-- define dita-ot-dir in this file -->
 	
   <property name="dist" location="${basedir}/dist"/>
   <property name="plugin.dist" location="${dist}/plugins"/>
-  <property name="dita-ot-dir"
-	    location="c:/Program Files/Oxygen XML Editor 19/frameworks/dita/DITA-OT2.x"/>
   <property name="plugin-src" location="${basedir}/plugins"/>
   <property name="plugin-copy_target" location="${dita-ot-dir}/plugins"/>
   <property name="ot-plugins-base-name" value="gov.nist.scap"/>
