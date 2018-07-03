@@ -108,14 +108,12 @@
 
 <!-- XPath predicate expressions -->
 <!ENTITY SubcatPredicate ".=instance('i-browse')/subcategory@id">
-<!ENTITY InProfile1 "position() &lt; 13">
-<!ENTITY InProfile2 "(position() &gt; 12) and (position() &lt; 25)">
-<!ENTITY InProfile3 "(position() &gt; 24) and (position() &lt; 37)">
-<!ENTITY InProfile4 "(position() &gt; 36) and (position() &lt; 49)">
-<!ENTITY InProfile5 "(position() &gt; 48) and (position() &lt; 61)">
-<!ENTITY InProfile6 "(position() &gt; 60) and (position() &lt; 73)">
-<!ENTITY InProfile7 "(position() &gt; 72) and (position() &lt; 85)">
-<!ENTITY InProfile8 "position() &gt; 84">
+<!ENTITY InProfile1 "position() &lt; 19">
+<!ENTITY InProfile2 "(position() &gt; 18) and (position() &lt; 37)">
+<!ENTITY InProfile3 "(position() &gt; 36) and (position() &lt; 55)">
+<!ENTITY InProfile4 "(position() &gt; 54) and (position() &lt; 73)">
+<!ENTITY InProfile5 "(position() &gt; 72) and (position() &lt; 91)">
+<!ENTITY InProfile6 "(position() &gt; 90)">
 <!ENTITY EndOfProfileStringPredicate "ends-with(., instance('i-browse')/subcategory@id)">
 <!ENTITY ProfileFlag "boolean-from-string(instance('i-restrict')/profileFlag)">
 
@@ -270,8 +268,6 @@
           <profile4/>
           <profile5/>
           <profile6/>
-          <profile7/>
-          <profile8/>
           <profile/>
 	</data>
       </xf:instance>
@@ -294,7 +290,7 @@
 	</tailoredControl>
       </xf:instance>
 
-      <xf:bind nodeset="&Profile;" calculate="concat(../profile1, ' ', ../profile2, ' ', ../profile3, ' ', ../profile4,' ', ../profile5, ' ', ../profile6, ' ',../profile7, ' ', ../profile8)"/>
+      <xf:bind nodeset="&Profile;" calculate="concat(../profile1, ' ', ../profile2, ' ', ../profile3, ' ', ../profile4,' ', ../profile5, ' ', ../profile6)"/>
 
       <xf:bind nodeset="instance('i-browse')/category/description" calculate="instance('i-core')//description[..@id=instance('i-browse')/category@id]"/>
 
@@ -508,9 +504,6 @@
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile4;]" ref="&Profile;4" value="choose(&EndOfProfileStringPredicate;, &RemoveFromProfileEnd;, &RemoveFromProfile;)"/>
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile5;]" ref="&Profile;5" value="choose(&EndOfProfileStringPredicate;, &RemoveFromProfileEnd;, &RemoveFromProfile;)"/>
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile6;]" ref="&Profile;6" value="choose(&EndOfProfileStringPredicate;, &RemoveFromProfileEnd;, &RemoveFromProfile;)"/>
-			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile7;]" ref="&Profile;7" value="choose(&EndOfProfileStringPredicate;, &RemoveFromProfileEnd;, &RemoveFromProfile;)"/>
-			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and (&InProfile8;)]" ref="&Profile;8" value="choose(&EndOfProfileStringPredicate;, &RemoveFromProfileEnd;, &RemoveFromProfile;)"/>
-<!--			      <xf:dispatch targetid="tab-profile" name="DOMActivate"/>-->
 			    </xf:action>
 			  </xf:trigger>
 			  <xf:trigger ref="@addText">
@@ -527,9 +520,6 @@
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile4;]" ref="&Profile;4" value="&AddToProfile;"/>
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile5;]" ref="&Profile;5" value="&AddToProfile;"/>
 			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile6;]" ref="&Profile;6" value="&AddToProfile;"/>
-			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and &InProfile7;]" ref="&Profile;7" value="&AddToProfile;"/>
-			      <xf:setvalue if="&SubcatXPath;[&SubcatPredicate; and (&InProfile8;)]" ref="&Profile;8" value="&AddToProfile;"/>
-<!--			      <xf:dispatch targetid="tab-profile" name="DOMActivate"/>-->
 			    </xf:action>
 			  </xf:trigger>
 			</xf:group>
@@ -693,24 +683,6 @@
 		  <xf:select ref="profile6" appearance="full">
 		    <xf:label/>
 		    <xf:itemset nodeset="&SubcatXPath;[&InProfile6;]">
-		      &ProfileLabelButton;
-                      <xf:value ref="." />
-                    </xf:itemset>
-                  </xf:select>
-		</td>
-		<td class="Cell">
-		  <xf:select ref="profile7" appearance="full">
-		    <xf:label/>
-		    <xf:itemset nodeset="&SubcatXPath;[&InProfile7;]">
-		      &ProfileLabelButton;
-                      <xf:value ref="." />
-                    </xf:itemset>
-                  </xf:select>
-		</td>
-		<td class="Cell">
-		  <xf:select ref="profile8" appearance="full">
-		    <xf:label/>
-		    <xf:itemset nodeset="&SubcatXPath;[&InProfile8;]">
 		      &ProfileLabelButton;
                       <xf:value ref="." />
                     </xf:itemset>
