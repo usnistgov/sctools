@@ -3,12 +3,12 @@
   <description>Ant build file for Baseline Tailor distribution</description>
 
   <taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
-  <taskdef name="schematron" classname="com.schematron.ant.SchematronTask"/>
+  <!-- <taskdef name="schematron" classname="com.schematron.ant.SchematronTask"/> -->
 
   <!-- set global properties for this build -->
   <property name="build" location=".."/>
   <property name="SP800-53" location="800-53-controls.xml"/>
-  <property name="cybercore-exported" location="cyber.xml"/>
+  <property name="cybercore-exported" location="spreadsheet.xml"/>
   <property name="SP800-82" location="doc/NIST.SP.800-82r2.html"/>
   
   <target name="init">
@@ -25,7 +25,7 @@
   <target name="transform">
     <!-- run XSLTs to generate catalog, families, and cyberframework core instances -->
     <xslt in="${SP800-53}" out="bt-model/catalog.xml" style="catalog.xsl"/>
-    <xslt in="${cybercore-exported}" out="bt-model/core.xml" style="core.xsl"/>
+    <xslt in="${cybercore-exported}" out="bt-model/core.xml" style="core11.xsl"/>
     <xslt in="${SP800-53}" out="bt-model/families.xml" style="families.xsl"/>
     <xslt in="bt-model/core.xml" out="bt-model/subcategories.xml" style="subcategories.xsl"/>
     <xslt in="bt-model/core.xml" out="bt-model/cat-dropdown.xml" style="cat-dropdown.xsl"/>
@@ -85,7 +85,8 @@
   <target name="zip" depends="copy" 
 	  description="zip up the copied files">
     <zip destfile="BT-${DSTAMP}.zip">
-      <fileset dir="${build}" excludes="bt/**"/>
+      <fileset dir="${build}"
+	       excludes="bt/** bt-angular/** content/** dita/**"/>
     </zip>
   </target>
 

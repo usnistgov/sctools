@@ -167,7 +167,7 @@
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
-	<version>0.11</version>
+	<version>0.12</version>
       </xf:instance>
 
       <xf:instance id="i-updated" xmlns="">
