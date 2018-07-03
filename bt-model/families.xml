@@ -7,6 +7,12 @@
          <dropDownLabel>AC-1 - ACCESS CONTROL POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
+         <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-3"/>
+         <subcategory number="PR.AC-4"/>
+         <subcategory number="PR.AC-6"/>
       </control>
       <control number="AC-2">
          <title>ACCOUNT MANAGEMENT</title>
@@ -15,6 +21,7 @@
          <priority>1</priority>
          <subcategory number="PR.AC-1"/>
          <subcategory number="PR.AC-4"/>
+         <subcategory number="PR.AC-6"/>
          <subcategory number="DE.CM-1"/>
          <subcategory number="DE.CM-3"/>
       </control>
@@ -24,6 +31,7 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="PR.AC-4"/>
+         <subcategory number="PR.AC-6"/>
          <subcategory number="PR.PT-3"/>
       </control>
       <control number="AC-4">
@@ -33,8 +41,8 @@
          <priority>1</priority>
          <subcategory number="ID.AM-3"/>
          <subcategory number="PR.AC-5"/>
-         <subcategory number="PR.PT-4"/>
          <subcategory number="PR.DS-5"/>
+         <subcategory number="PR.PT-4"/>
          <subcategory number="DE.AE-1"/>
       </control>
       <control number="AC-5">
@@ -58,42 +66,50 @@
          <dropDownLabel>AC-7 - UNSUCCESSFUL LOGON ATTEMPTS</dropDownLabel>
          <default>1</default>
          <priority>2</priority>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="AC-8">
          <title>SYSTEM USE NOTIFICATION</title>
          <dropDownLabel>AC-8 - SYSTEM USE NOTIFICATION</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="AC-9">
          <title>PREVIOUS LOGON (ACCESS) NOTIFICATION</title>
          <dropDownLabel>AC-9 - PREVIOUS LOGON (ACCESS) NOTIFICATION</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="AC-10">
          <title>CONCURRENT SESSION CONTROL</title>
          <dropDownLabel>AC-10 - CONCURRENT SESSION CONTROL</dropDownLabel>
          <default>3</default>
          <priority>3</priority>
+         <subcategory number="PR.AC-5"/>
       </control>
       <control number="AC-11">
          <title>SESSION LOCK</title>
          <dropDownLabel>AC-11 - SESSION LOCK</dropDownLabel>
          <default>2</default>
          <priority>3</priority>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="AC-12">
          <title>SESSION TERMINATION</title>
          <dropDownLabel>AC-12 - SESSION TERMINATION</dropDownLabel>
          <default>2</default>
          <priority>2</priority>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="AC-14">
          <title>PERMITTED ACTIONS WITHOUT IDENTIFICATION OR AUTHENTICATION</title>
          <dropDownLabel>AC-14 - PERMITTED ACTIONS WITHOUT IDENTIFICATION OR AUTHENTICATION</dropDownLabel>
          <default>1</default>
          <priority>3</priority>
+         <subcategory number="PR.AC-4"/>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="AC-16">
          <title>SECURITY ATTRIBUTES</title>
@@ -101,6 +117,7 @@
          <default>4</default>
          <priority>4</priority>
          <subcategory number="PR.AC-4"/>
+         <subcategory number="PR.AC-6"/>
       </control>
       <control number="AC-17">
          <title>REMOTE ACCESS</title>
@@ -123,6 +140,7 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="PR.AC-3"/>
+         <subcategory number="PR.AC-6"/>
       </control>
       <control number="AC-20">
          <title>USE OF EXTERNAL INFORMATION SYSTEMS</title>
@@ -156,12 +174,15 @@
          <dropDownLabel>AC-24 - ACCESS CONTROL DECISIONS</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.AC-4"/>
+         <subcategory number="PR.AC-6"/>
       </control>
       <control number="AC-25">
          <title>REFERENCE MONITOR</title>
          <dropDownLabel>AC-25 - REFERENCE MONITOR</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="DE.DP-2"/>
       </control>
    </family>
    <family name="AWARENESS AND TRAINING">
@@ -170,6 +191,8 @@
          <dropDownLabel>AT-1 - SECURITY AWARENESS AND TRAINING POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="AT-2">
          <title>SECURITY AWARENESS TRAINING</title>
@@ -200,6 +223,8 @@
          <dropDownLabel>AU-1 - AUDIT AND ACCOUNTABILITY POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
          <subcategory number="PR.PT-1"/>
       </control>
       <control number="AU-2">
@@ -207,6 +232,7 @@
          <dropDownLabel>AU-2 - AUDIT EVENTS</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.SC-4"/>
          <subcategory number="PR.PT-1"/>
       </control>
       <control number="AU-3">
@@ -221,8 +247,8 @@
          <dropDownLabel>AU-4 - AUDIT STORAGE CAPACITY</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
-         <subcategory number="PR.PT-1"/>
          <subcategory number="PR.DS-4"/>
+         <subcategory number="PR.PT-1"/>
       </control>
       <control number="AU-5">
          <title>RESPONSE TO AUDIT PROCESSING FAILURES</title>
@@ -236,12 +262,13 @@
          <dropDownLabel>AU-6 - AUDIT REVIEW, ANALYSIS, AND REPORTING</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.SC-4"/>
          <subcategory number="PR.PT-1"/>
          <subcategory number="DE.AE-2"/>
          <subcategory number="DE.AE-3"/>
          <subcategory number="DE.DP-4"/>
-         <subcategory number="RS.AN-1"/>
          <subcategory number="RS.CO-2"/>
+         <subcategory number="RS.AN-1"/>
       </control>
       <control number="AU-7">
          <title>AUDIT REDUCTION AND REPORT GENERATION</title>
@@ -284,6 +311,7 @@
          <dropDownLabel>AU-12 - AUDIT GENERATION</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.SC-4"/>
          <subcategory number="PR.PT-1"/>
          <subcategory number="DE.CM-1"/>
          <subcategory number="DE.CM-3"/>
@@ -316,6 +344,7 @@
          <dropDownLabel>AU-16 - CROSS-ORGANIZATIONAL AUDITING</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="ID.SC-4"/>
          <subcategory number="PR.PT-1"/>
       </control>
    </family>
@@ -325,6 +354,8 @@
          <dropDownLabel>CA-1 - SECURITY ASSESSMENT AND AUTHORIZATION POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="CA-2">
          <title>SECURITY ASSESSMENTS</title>
@@ -368,20 +399,20 @@
          <subcategory number="ID.RA-1"/>
          <subcategory number="PR.IP-7"/>
          <subcategory number="PR.IP-8"/>
+         <subcategory number="DE.AE-2"/>
+         <subcategory number="DE.AE-3"/>
          <subcategory number="DE.CM-1"/>
          <subcategory number="DE.CM-2"/>
          <subcategory number="DE.CM-3"/>
          <subcategory number="DE.CM-6"/>
          <subcategory number="DE.CM-7"/>
-         <subcategory number="DE.AE-2"/>
-         <subcategory number="DE.AE-3"/>
          <subcategory number="DE.DP-1"/>
          <subcategory number="DE.DP-2"/>
          <subcategory number="DE.DP-3"/>
          <subcategory number="DE.DP-4"/>
          <subcategory number="DE.DP-5"/>
-         <subcategory number="RS.AN-1"/>
          <subcategory number="RS.CO-3"/>
+         <subcategory number="RS.AN-1"/>
          <subcategory number="RS.MI-3"/>
       </control>
       <control number="CA-8">
@@ -405,14 +436,16 @@
          <dropDownLabel>CM-1 - CONFIGURATION MANAGEMENT POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="CM-2">
          <title>BASELINE CONFIGURATION</title>
          <dropDownLabel>CM-2 - BASELINE CONFIGURATION</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
-         <subcategory number="PR.IP-1"/>
          <subcategory number="PR.DS-7"/>
+         <subcategory number="PR.IP-1"/>
          <subcategory number="DE.AE-1"/>
       </control>
       <control number="CM-3">
@@ -493,6 +526,8 @@
          <dropDownLabel>CP-1 - CONTINGENCY PLANNING POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="CP-2">
          <title>CONTINGENCY PLAN</title>
@@ -503,21 +538,22 @@
          <subcategory number="ID.AM-6"/>
          <subcategory number="ID.BE-1"/>
          <subcategory number="ID.BE-5"/>
+         <subcategory number="ID.SC-5"/>
+         <subcategory number="PR.DS-4"/>
          <subcategory number="PR.IP-7"/>
          <subcategory number="PR.IP-9"/>
-         <subcategory number="PR.DS-4"/>
          <subcategory number="DE.AE-4"/>
-         <subcategory number="RS.AN-2"/>
-         <subcategory number="RS.AN-4"/>
+         <subcategory number="RS.RP-1"/>
          <subcategory number="RS.CO-1"/>
          <subcategory number="RS.CO-3"/>
          <subcategory number="RS.CO-4"/>
-         <subcategory number="RS.RP-1"/>
+         <subcategory number="RS.AN-2"/>
+         <subcategory number="RS.AN-4"/>
          <subcategory number="RS.IM-1"/>
          <subcategory number="RS.IM-2"/>
-         <subcategory number="RC.CO-3"/>
          <subcategory number="RC.IM-1"/>
          <subcategory number="RC.IM-2"/>
+         <subcategory number="RC.CO-3"/>
       </control>
       <control number="CP-3">
          <title>CONTINGENCY TRAINING</title>
@@ -531,6 +567,7 @@
          <dropDownLabel>CP-4 - CONTINGENCY PLAN TESTING</dropDownLabel>
          <default>1</default>
          <priority>2</priority>
+         <subcategory number="ID.SC-5"/>
          <subcategory number="PR.IP-10"/>
          <subcategory number="PR.IP-4"/>
       </control>
@@ -546,6 +583,8 @@
          <dropDownLabel>CP-7 - ALTERNATE PROCESSING SITE</dropDownLabel>
          <default>2</default>
          <priority>1</priority>
+         <subcategory number="PR.IP-9"/>
+         <subcategory number="PR.PT-5"/>
       </control>
       <control number="CP-8">
          <title>TELECOMMUNICATIONS SERVICES</title>
@@ -554,6 +593,7 @@
          <priority>1</priority>
          <subcategory number="ID.BE-4"/>
          <subcategory number="PR.PT-4"/>
+         <subcategory number="PR.PT-5"/>
       </control>
       <control number="CP-9">
          <title>INFORMATION SYSTEM BACKUP</title>
@@ -576,18 +616,22 @@
          <default>4</default>
          <priority>4</priority>
          <subcategory number="ID.BE-5"/>
+         <subcategory number="PR.PT-5"/>
       </control>
       <control number="CP-12">
          <title>SAFE MODE</title>
          <dropDownLabel>CP-12 - SAFE MODE</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.IP-9"/>
       </control>
       <control number="CP-13">
          <title>ALTERNATIVE SECURITY MECHANISMS</title>
          <dropDownLabel>CP-13 - ALTERNATIVE SECURITY MECHANISMS</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.IP-9"/>
+         <subcategory number="PR.PT-5"/>
       </control>
    </family>
    <family name="IDENTIFICATION AND AUTHENTICATION">
@@ -596,7 +640,11 @@
          <dropDownLabel>IA-1 - IDENTIFICATION AND AUTHENTICATION POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
          <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-6"/>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="IA-2">
          <title>IDENTIFICATION AND AUTHENTICATION (ORGANIZATIONAL USERS)</title>
@@ -604,6 +652,8 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-6"/>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="IA-3">
          <title>DEVICE IDENTIFICATION AND AUTHENTICATION</title>
@@ -611,6 +661,7 @@
          <default>2</default>
          <priority>1</priority>
          <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="IA-4">
          <title>IDENTIFIER MANAGEMENT</title>
@@ -618,6 +669,8 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-6"/>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="IA-5">
          <title>AUTHENTICATOR MANAGEMENT</title>
@@ -625,6 +678,8 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-6"/>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="IA-6">
          <title>AUTHENTICATOR FEEDBACK</title>
@@ -646,6 +701,8 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-6"/>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="IA-9">
          <title>SERVICE IDENTIFICATION AND AUTHENTICATION</title>
@@ -653,6 +710,7 @@
          <default>4</default>
          <priority>4</priority>
          <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="IA-10">
          <title>ADAPTIVE IDENTIFICATION AND AUTHENTICATION</title>
@@ -660,6 +718,7 @@
          <default>4</default>
          <priority>4</priority>
          <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-7"/>
       </control>
       <control number="IA-11">
          <title>RE-AUTHENTICATION</title>
@@ -667,6 +726,7 @@
          <default>4</default>
          <priority>4</priority>
          <subcategory number="PR.AC-1"/>
+         <subcategory number="PR.AC-7"/>
       </control>
    </family>
    <family name="INCIDENT RESPONSE">
@@ -675,18 +735,22 @@
          <dropDownLabel>IR-1 - INCIDENT RESPONSE POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="IR-2">
          <title>INCIDENT RESPONSE TRAINING</title>
          <dropDownLabel>IR-2 - INCIDENT RESPONSE TRAINING</dropDownLabel>
          <default>1</default>
          <priority>2</priority>
+         <subcategory number="PR.AT-5"/>
       </control>
       <control number="IR-3">
          <title>INCIDENT RESPONSE TESTING</title>
          <dropDownLabel>IR-3 - INCIDENT RESPONSE TESTING</dropDownLabel>
          <default>2</default>
          <priority>2</priority>
+         <subcategory number="ID.SC-5"/>
          <subcategory number="PR.IP-10"/>
          <subcategory number="RS.CO-1"/>
       </control>
@@ -695,25 +759,26 @@
          <dropDownLabel>IR-4 - INCIDENT HANDLING</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.SC-5"/>
          <subcategory number="DE.AE-2"/>
          <subcategory number="DE.AE-3"/>
          <subcategory number="DE.AE-4"/>
          <subcategory number="DE.AE-5"/>
+         <subcategory number="RS.RP-1"/>
+         <subcategory number="RS.CO-3"/>
+         <subcategory number="RS.CO-4"/>
          <subcategory number="RS.AN-1"/>
          <subcategory number="RS.AN-2"/>
          <subcategory number="RS.AN-3"/>
          <subcategory number="RS.AN-4"/>
-         <subcategory number="RS.CO-3"/>
-         <subcategory number="RS.CO-4"/>
          <subcategory number="RS.MI-1"/>
          <subcategory number="RS.MI-2"/>
-         <subcategory number="RS.RP-1"/>
          <subcategory number="RS.IM-1"/>
          <subcategory number="RS.IM-2"/>
          <subcategory number="RC.RP-1"/>
-         <subcategory number="RC.CO-3"/>
          <subcategory number="RC.IM-1"/>
          <subcategory number="RC.IM-2"/>
+         <subcategory number="RC.CO-3"/>
       </control>
       <control number="IR-5">
          <title>INCIDENT MONITORING</title>
@@ -730,6 +795,7 @@
          <dropDownLabel>IR-6 - INCIDENT REPORTING</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.SC-5"/>
          <subcategory number="RS.CO-2"/>
       </control>
       <control number="IR-7">
@@ -737,22 +803,24 @@
          <dropDownLabel>IR-7 - INCIDENT RESPONSE ASSISTANCE</dropDownLabel>
          <default>1</default>
          <priority>2</priority>
+         <subcategory number="PR.IP-9"/>
       </control>
       <control number="IR-8">
          <title>INCIDENT RESPONSE PLAN</title>
          <dropDownLabel>IR-8 - INCIDENT RESPONSE PLAN</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.SC-5"/>
          <subcategory number="PR.IP-7"/>
          <subcategory number="PR.IP-9"/>
          <subcategory number="DE.AE-3"/>
          <subcategory number="DE.AE-5"/>
-         <subcategory number="RS.AN-4"/>
+         <subcategory number="RS.RP-1"/>
          <subcategory number="RS.CO-1"/>
          <subcategory number="RS.CO-2"/>
          <subcategory number="RS.CO-3"/>
          <subcategory number="RS.CO-4"/>
-         <subcategory number="RS.RP-1"/>
+         <subcategory number="RS.AN-4"/>
          <subcategory number="RS.IM-1"/>
          <subcategory number="RS.IM-2"/>
          <subcategory number="RC.RP-1"/>
@@ -764,6 +832,8 @@
          <dropDownLabel>IR-9 - INFORMATION SPILLAGE RESPONSE</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="ID.SC-5"/>
+         <subcategory number="PR.IP-9"/>
       </control>
       <control number="IR-10">
          <title>INTEGRATED INFORMATION SECURITY ANALYSIS TEAM</title>
@@ -778,6 +848,8 @@
          <dropDownLabel>MA-1 - SYSTEM MAINTENANCE POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="MA-2">
          <title>CONTROLLED MAINTENANCE</title>
@@ -812,6 +884,7 @@
          <dropDownLabel>MA-6 - TIMELY MAINTENANCE</dropDownLabel>
          <default>2</default>
          <priority>2</priority>
+         <subcategory number="PR.MA-1"/>
       </control>
    </family>
    <family name="MEDIA PROTECTION">
@@ -820,6 +893,8 @@
          <dropDownLabel>MP-1 - MEDIA PROTECTION POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="MP-2">
          <title>MEDIA ACCESS</title>
@@ -833,6 +908,7 @@
          <dropDownLabel>MP-3 - MEDIA MARKING</dropDownLabel>
          <default>2</default>
          <priority>2</priority>
+         <subcategory number="PR.PT-2"/>
       </control>
       <control number="MP-4">
          <title>MEDIA STORAGE</title>
@@ -853,8 +929,8 @@
          <dropDownLabel>MP-6 - MEDIA SANITIZATION</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
-         <subcategory number="PR.IP-6"/>
          <subcategory number="PR.DS-3"/>
+         <subcategory number="PR.IP-6"/>
       </control>
       <control number="MP-7">
          <title>MEDIA USE</title>
@@ -868,6 +944,8 @@
          <dropDownLabel>MP-8 - MEDIA DOWNGRADING</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.DS-1"/>
+         <subcategory number="PR.PT-2"/>
       </control>
    </family>
    <family name="PHYSICAL AND ENVIRONMENTAL PROTECTION">
@@ -876,6 +954,8 @@
          <dropDownLabel>PE-1 - PHYSICAL AND ENVIRONMENTAL PROTECTION POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="PE-2">
          <title>PHYSICAL ACCESS AUTHORIZATIONS</title>
@@ -883,6 +963,7 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="PR.AC-2"/>
+         <subcategory number="PR.AC-6"/>
       </control>
       <control number="PE-3">
          <title>PHYSICAL ACCESS CONTROL</title>
@@ -916,14 +997,15 @@
          <subcategory number="PR.AC-2"/>
          <subcategory number="DE.CM-2"/>
          <subcategory number="DE.CM-7"/>
-         <subcategory number="RS.AN-1"/>
          <subcategory number="RS.CO-3"/>
+         <subcategory number="RS.AN-1"/>
       </control>
       <control number="PE-8">
          <title>VISITOR ACCESS RECORDS</title>
          <dropDownLabel>PE-8 - VISITOR ACCESS RECORDS</dropDownLabel>
          <default>1</default>
          <priority>3</priority>
+         <subcategory number="PR.AC-2"/>
       </control>
       <control number="PE-9">
          <title>POWER EQUIPMENT AND CABLING</title>
@@ -931,7 +1013,6 @@
          <default>2</default>
          <priority>1</priority>
          <subcategory number="ID.BE-4"/>
-         <subcategory number="PR.AC-2"/>
       </control>
       <control number="PE-10">
          <title>EMERGENCY SHUTOFF</title>
@@ -987,6 +1068,7 @@
          <dropDownLabel>PE-17 - ALTERNATE WORK SITE</dropDownLabel>
          <default>2</default>
          <priority>2</priority>
+         <subcategory number="PR.IP-9"/>
       </control>
       <control number="PE-18">
          <title>LOCATION OF INFORMATION SYSTEM COMPONENTS</title>
@@ -1017,6 +1099,8 @@
          <dropDownLabel>PL-1 - SECURITY PLANNING POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="PL-2">
          <title>SYSTEM SECURITY PLAN</title>
@@ -1045,6 +1129,7 @@
          <priority>1</priority>
          <subcategory number="ID.AM-3"/>
          <subcategory number="PR.IP-2"/>
+         <subcategory number="PR.PT-5"/>
       </control>
       <control number="PL-9">
          <title>CENTRAL MANAGEMENT</title>
@@ -1059,6 +1144,8 @@
          <dropDownLabel>PS-1 - PERSONNEL SECURITY POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
          <subcategory number="PR.IP-11"/>
       </control>
       <control number="PS-2">
@@ -1073,8 +1160,9 @@
          <dropDownLabel>PS-3 - PERSONNEL SCREENING</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
-         <subcategory number="PR.IP-11"/>
+         <subcategory number="PR.AC-6"/>
          <subcategory number="PR.DS-5"/>
+         <subcategory number="PR.IP-11"/>
       </control>
       <control number="PS-4">
          <title>PERSONNEL TERMINATION</title>
@@ -1095,18 +1183,19 @@
          <dropDownLabel>PS-6 - ACCESS AGREEMENTS</dropDownLabel>
          <default>1</default>
          <priority>3</priority>
-         <subcategory number="PR.IP-11"/>
          <subcategory number="PR.DS-5"/>
+         <subcategory number="PR.IP-11"/>
       </control>
       <control number="PS-7">
          <title>THIRD-PARTY PERSONNEL SECURITY</title>
          <dropDownLabel>PS-7 - THIRD-PARTY PERSONNEL SECURITY</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
-         <subcategory number="ID.GV-2"/>
          <subcategory number="ID.AM-6"/>
-         <subcategory number="PR.IP-11"/>
+         <subcategory number="ID.GV-2"/>
+         <subcategory number="ID.SC-4"/>
          <subcategory number="PR.AT-3"/>
+         <subcategory number="PR.IP-11"/>
          <subcategory number="DE.CM-6"/>
       </control>
       <control number="PS-8">
@@ -1123,6 +1212,8 @@
          <dropDownLabel>RA-1 - RISK ASSESSMENT POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="RA-2">
          <title>SECURITY CATEGORIZATION</title>
@@ -1132,6 +1223,7 @@
          <subcategory number="ID.AM-5"/>
          <subcategory number="ID.RA-4"/>
          <subcategory number="ID.RA-5"/>
+         <subcategory number="ID.SC-2"/>
       </control>
       <control number="RA-3">
          <title>RISK ASSESSMENT</title>
@@ -1142,6 +1234,7 @@
          <subcategory number="ID.RA-3"/>
          <subcategory number="ID.RA-4"/>
          <subcategory number="ID.RA-5"/>
+         <subcategory number="ID.SC-2"/>
          <subcategory number="PR.IP-12"/>
          <subcategory number="DE.AE-4"/>
          <subcategory number="RS.MI-3"/>
@@ -1172,12 +1265,15 @@
          <dropDownLabel>SA-1 - SYSTEM AND SERVICES ACQUISITION POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="SA-2">
          <title>ALLOCATION OF RESOURCES</title>
          <dropDownLabel>SA-2 - ALLOCATION OF RESOURCES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-4"/>
       </control>
       <control number="SA-3">
          <title>SYSTEM DEVELOPMENT LIFE CYCLE</title>
@@ -1214,6 +1310,9 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="ID.AM-4"/>
+         <subcategory number="ID.SC-1"/>
+         <subcategory number="ID.SC-3"/>
+         <subcategory number="ID.SC-4"/>
          <subcategory number="PR.AT-3"/>
          <subcategory number="DE.CM-6"/>
       </control>
@@ -1222,6 +1321,7 @@
          <dropDownLabel>SA-10 - DEVELOPER CONFIGURATION MANAGEMENT</dropDownLabel>
          <default>2</default>
          <priority>1</priority>
+         <subcategory number="PR.DS-8"/>
          <subcategory number="PR.IP-1"/>
          <subcategory number="PR.IP-2"/>
          <subcategory number="PR.IP-3"/>
@@ -1232,6 +1332,7 @@
          <default>2</default>
          <priority>1</priority>
          <subcategory number="ID.RA-1"/>
+         <subcategory number="ID.SC-3"/>
          <subcategory number="PR.IP-2"/>
       </control>
       <control number="SA-12">
@@ -1240,6 +1341,10 @@
          <default>3</default>
          <priority>1</priority>
          <subcategory number="ID.BE-1"/>
+         <subcategory number="ID.SC-1"/>
+         <subcategory number="ID.SC-2"/>
+         <subcategory number="ID.SC-3"/>
+         <subcategory number="ID.SC-4"/>
          <subcategory number="PR.IP-2"/>
       </control>
       <control number="SA-13">
@@ -1247,6 +1352,7 @@
          <dropDownLabel>SA-13 - TRUSTWORTHINESS</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="ID.BE-5"/>
       </control>
       <control number="SA-14">
          <title>CRITICALITY ANALYSIS</title>
@@ -1254,17 +1360,20 @@
          <default>4</default>
          <priority>4</priority>
          <subcategory number="ID.AM-5"/>
-         <subcategory number="ID.RA-4"/>
          <subcategory number="ID.BE-3"/>
          <subcategory number="ID.BE-4"/>
          <subcategory number="ID.BE-5"/>
+         <subcategory number="ID.RA-4"/>
          <subcategory number="ID.RM-3"/>
+         <subcategory number="ID.SC-2"/>
+         <subcategory number="PR.PT-5"/>
       </control>
       <control number="SA-15">
          <title>DEVELOPMENT PROCESS, STANDARDS, AND TOOLS</title>
          <dropDownLabel>SA-15 - DEVELOPMENT PROCESS, STANDARDS, AND TOOLS</dropDownLabel>
          <default>3</default>
          <priority>2</priority>
+         <subcategory number="ID.SC-2"/>
          <subcategory number="PR.IP-2"/>
       </control>
       <control number="SA-16">
@@ -1272,6 +1381,7 @@
          <dropDownLabel>SA-16 - DEVELOPER-PROVIDED TRAINING</dropDownLabel>
          <default>3</default>
          <priority>2</priority>
+         <subcategory number="PR.AT-3"/>
       </control>
       <control number="SA-17">
          <title>DEVELOPER SECURITY ARCHITECTURE AND DESIGN</title>
@@ -1285,6 +1395,7 @@
          <dropDownLabel>SA-18 - TAMPER RESISTANCE AND DETECTION</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="DE.DP-2"/>
       </control>
       <control number="SA-19">
          <title>COMPONENT AUTHENTICITY</title>
@@ -1303,6 +1414,7 @@
          <dropDownLabel>SA-21 - DEVELOPER SCREENING</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.IP-11"/>
       </control>
       <control number="SA-22">
          <title>UNSUPPORTED SYSTEM COMPONENTS</title>
@@ -1317,6 +1429,8 @@
          <dropDownLabel>SC-1 - SYSTEM AND COMMUNICATIONS PROTECTION POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="SC-2">
          <title>APPLICATION PARTITIONING</title>
@@ -1349,6 +1463,8 @@
          <dropDownLabel>SC-6 - RESOURCE AVAILABILITY</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="ID.AM-5"/>
+         <subcategory number="PR.PT-5"/>
       </control>
       <control number="SC-7">
          <title>BOUNDARY PROTECTION</title>
@@ -1356,8 +1472,8 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="PR.AC-5"/>
-         <subcategory number="PR.PT-4"/>
          <subcategory number="PR.DS-5"/>
+         <subcategory number="PR.PT-4"/>
          <subcategory number="DE.CM-1"/>
       </control>
       <control number="SC-8">
@@ -1379,12 +1495,15 @@
          <dropDownLabel>SC-11 - TRUSTED PATH</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.DS-2"/>
       </control>
       <control number="SC-12">
          <title>CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT</title>
          <dropDownLabel>SC-12 - CRYPTOGRAPHIC KEY ESTABLISHMENT AND MANAGEMENT</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="PR.DS-1"/>
+         <subcategory number="PR.DS-2"/>
       </control>
       <control number="SC-13">
          <title>CRYPTOGRAPHIC PROTECTION</title>
@@ -1398,12 +1517,14 @@
          <dropDownLabel>SC-15 - COLLABORATIVE COMPUTING DEVICES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="PR.AC-3"/>
       </control>
       <control number="SC-16">
          <title>TRANSMISSION OF SECURITY ATTRIBUTES</title>
          <dropDownLabel>SC-16 - TRANSMISSION OF SECURITY ATTRIBUTES</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.DS-6"/>
       </control>
       <control number="SC-17">
          <title>PUBLIC KEY INFRASTRUCTURE CERTIFICATES</title>
@@ -1423,42 +1544,49 @@
          <dropDownLabel>SC-19 - VOICE OVER INTERNET PROTOCOL</dropDownLabel>
          <default>2</default>
          <priority>1</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-20">
          <title>SECURE NAME / ADDRESS RESOLUTION SERVICE (AUTHORITATIVE SOURCE)</title>
          <dropDownLabel>SC-20 - SECURE NAME / ADDRESS RESOLUTION SERVICE (AUTHORITATIVE SOURCE)</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-21">
          <title>SECURE NAME / ADDRESS RESOLUTION SERVICE (RECURSIVE OR CACHING RESOLVER)</title>
          <dropDownLabel>SC-21 - SECURE NAME / ADDRESS RESOLUTION SERVICE (RECURSIVE OR CACHING RESOLVER)</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-22">
          <title>ARCHITECTURE AND PROVISIONING FOR NAME / ADDRESS RESOLUTION SERVICE</title>
          <dropDownLabel>SC-22 - ARCHITECTURE AND PROVISIONING FOR NAME / ADDRESS RESOLUTION SERVICE</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-23">
          <title>SESSION AUTHENTICITY</title>
          <dropDownLabel>SC-23 - SESSION AUTHENTICITY</dropDownLabel>
          <default>2</default>
          <priority>1</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-24">
          <title>FAIL IN KNOWN STATE</title>
          <dropDownLabel>SC-24 - FAIL IN KNOWN STATE</dropDownLabel>
          <default>3</default>
          <priority>1</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-25">
          <title>THIN NODES</title>
          <dropDownLabel>SC-25 - THIN NODES</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-26">
          <title>HONEYPOTS</title>
@@ -1484,6 +1612,7 @@
          <dropDownLabel>SC-29 - HETEROGENEITY</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-30">
          <title>CONCEALMENT AND MISDIRECTION</title>
@@ -1503,6 +1632,7 @@
          <dropDownLabel>SC-32 - INFORMATION SYSTEM PARTITIONING</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-34">
          <title>NON-MODIFIABLE EXECUTABLE PROGRAMS</title>
@@ -1521,36 +1651,42 @@
          <dropDownLabel>SC-36 - DISTRIBUTED PROCESSING AND STORAGE</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-37">
          <title>OUT-OF-BAND CHANNELS</title>
          <dropDownLabel>SC-37 - OUT-OF-BAND CHANNELS</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-38">
          <title>OPERATIONS SECURITY</title>
          <dropDownLabel>SC-38 - OPERATIONS SECURITY</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-39">
          <title>PROCESS ISOLATION</title>
          <dropDownLabel>SC-39 - PROCESS ISOLATION</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-40">
          <title>WIRELESS LINK PROTECTION</title>
          <dropDownLabel>SC-40 - WIRELESS LINK PROTECTION</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-41">
          <title>PORT AND I/O DEVICE ACCESS</title>
          <dropDownLabel>SC-41 - PORT AND I/O DEVICE ACCESS</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-42">
          <title>SENSOR CAPABILITY AND DATA</title>
@@ -1563,6 +1699,7 @@
          <dropDownLabel>SC-43 - USAGE RESTRICTIONS</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.PT-4"/>
       </control>
       <control number="SC-44">
          <title>DETONATION CHAMBERS</title>
@@ -1578,6 +1715,8 @@
          <dropDownLabel>SI-1 - SYSTEM AND INFORMATION INTEGRITY POLICY AND PROCEDURES</dropDownLabel>
          <default>1</default>
          <priority>1</priority>
+         <subcategory number="ID.GV-1"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="SI-2">
          <title>FLAW REMEDIATION</title>
@@ -1601,21 +1740,22 @@
          <default>1</default>
          <priority>1</priority>
          <subcategory number="ID.RA-1"/>
-         <subcategory number="PR.IP-8"/>
          <subcategory number="PR.DS-5"/>
+         <subcategory number="PR.IP-8"/>
+         <subcategory number="DE.AE-1"/>
+         <subcategory number="DE.AE-2"/>
+         <subcategory number="DE.AE-3"/>
+         <subcategory number="DE.AE-4"/>
          <subcategory number="DE.CM-1"/>
          <subcategory number="DE.CM-5"/>
          <subcategory number="DE.CM-6"/>
          <subcategory number="DE.CM-7"/>
-         <subcategory number="DE.AE-1"/>
-         <subcategory number="DE.AE-2"/>
-         <subcategory number="DE.AE-3"/>
          <subcategory number="DE.DP-2"/>
          <subcategory number="DE.DP-3"/>
          <subcategory number="DE.DP-4"/>
          <subcategory number="DE.DP-5"/>
-         <subcategory number="RS.AN-1"/>
          <subcategory number="RS.CO-3"/>
+         <subcategory number="RS.AN-1"/>
       </control>
       <control number="SI-5">
          <title>SECURITY ALERTS, ADVISORIES, AND DIRECTIVES</title>
@@ -1626,6 +1766,7 @@
          <subcategory number="ID.RA-2"/>
          <subcategory number="ID.RA-3"/>
          <subcategory number="RS.CO-5"/>
+         <subcategory number="RS.AN-5"/>
       </control>
       <control number="SI-6">
          <title>SECURITY FUNCTION VERIFICATION</title>
@@ -1639,12 +1780,14 @@
          <default>2</default>
          <priority>1</priority>
          <subcategory number="PR.DS-6"/>
+         <subcategory number="PR.DS-8"/>
       </control>
       <control number="SI-8">
          <title>SPAM PROTECTION</title>
          <dropDownLabel>SI-8 - SPAM PROTECTION</dropDownLabel>
          <default>2</default>
          <priority>2</priority>
+         <subcategory number="DE.CM-4"/>
       </control>
       <control number="SI-10">
          <title>INFORMATION INPUT VALIDATION</title>
@@ -1663,18 +1806,21 @@
          <dropDownLabel>SI-12 - INFORMATION HANDLING AND RETENTION</dropDownLabel>
          <default>1</default>
          <priority>2</priority>
+         <subcategory number="PR.IP-2"/>
       </control>
       <control number="SI-13">
          <title>PREDICTABLE FAILURE PREVENTION</title>
          <dropDownLabel>SI-13 - PREDICTABLE FAILURE PREVENTION</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.IP-2"/>
       </control>
       <control number="SI-14">
          <title>NON-PERSISTENCE</title>
          <dropDownLabel>SI-14 - NON-PERSISTENCE</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.IP-2"/>
       </control>
       <control number="SI-15">
          <title>INFORMATION OUTPUT FILTERING</title>
@@ -1687,12 +1833,14 @@
          <dropDownLabel>SI-16 - MEMORY PROTECTION</dropDownLabel>
          <default>2</default>
          <priority>1</priority>
+         <subcategory number="PR.IP-2"/>
       </control>
       <control number="SI-17">
          <title>FAIL-SAFE PROCEDURES</title>
          <dropDownLabel>SI-17 - FAIL-SAFE PROCEDURES</dropDownLabel>
          <default>4</default>
          <priority>4</priority>
+         <subcategory number="PR.IP-2"/>
       </control>
    </family>
    <family name="PROGRAM MANAGEMENT">
@@ -1701,19 +1849,23 @@
          <dropDownLabel>PM-1 - INFORMATION SECURITY PROGRAM PLAN</dropDownLabel>
          <default>4</default>
          <priority/>
+         <subcategory number="ID.GV-1"/>
          <subcategory number="ID.GV-2"/>
+         <subcategory number="ID.GV-3"/>
       </control>
       <control number="PM-2">
          <title>SENIOR INFORMATION SECURITY OFFICER</title>
          <dropDownLabel>PM-2 - SENIOR INFORMATION SECURITY OFFICER</dropDownLabel>
          <default>4</default>
          <priority/>
+         <subcategory number="ID.GV-2"/>
       </control>
       <control number="PM-3">
          <title>INFORMATION SECURITY RESOURCES</title>
          <dropDownLabel>PM-3 - INFORMATION SECURITY RESOURCES</dropDownLabel>
          <default>4</default>
          <priority/>
+         <subcategory number="ID.GV-4"/>
       </control>
       <control number="PM-4">
          <title>PLAN OF ACTION AND MILESTONES PROCESS</title>
@@ -1727,6 +1879,8 @@
          <dropDownLabel>PM-5 - INFORMATION SYSTEM INVENTORY</dropDownLabel>
          <default>4</default>
          <priority/>
+         <subcategory number="ID.AM-1"/>
+         <subcategory number="ID.AM-2"/>
       </control>
       <control number="PM-6">
          <title>INFORMATION SECURITY MEASURES OF PERFORMANCE</title>
@@ -1740,6 +1894,7 @@
          <dropDownLabel>PM-7 - ENTERPRISE ARCHITECTURE</dropDownLabel>
          <default>4</default>
          <priority/>
+         <subcategory number="ID.GV-4"/>
       </control>
       <control number="PM-8">
          <title>CRITICAL INFRASTRUCTURE PLAN</title>
@@ -1761,21 +1916,26 @@
          <subcategory number="ID.RM-1"/>
          <subcategory number="ID.RM-2"/>
          <subcategory number="ID.RM-3"/>
+         <subcategory number="ID.SC-1"/>
+         <subcategory number="ID.SC-2"/>
+         <subcategory number="ID.SC-3"/>
       </control>
       <control number="PM-10">
          <title>SECURITY AUTHORIZATION PROCESS</title>
          <dropDownLabel>PM-10 - SECURITY AUTHORIZATION PROCESS</dropDownLabel>
          <default>4</default>
          <priority/>
+         <subcategory number="ID.GV-4"/>
       </control>
       <control number="PM-11">
          <title>MISSION/BUSINESS PROCESS DEFINITION</title>
          <dropDownLabel>PM-11 - MISSION/BUSINESS PROCESS DEFINITION</dropDownLabel>
          <default>4</default>
          <priority/>
+         <subcategory number="ID.AM-6"/>
+         <subcategory number="ID.BE-3"/>
          <subcategory number="ID.GV-4"/>
          <subcategory number="ID.RA-4"/>
-         <subcategory number="ID.BE-3"/>
          <subcategory number="ID.RM-3"/>
       </control>
       <control number="PM-12">
@@ -1813,6 +1973,7 @@
          <priority/>
          <subcategory number="ID.RA-2"/>
          <subcategory number="RS.CO-5"/>
+         <subcategory number="RS.AN-5"/>
       </control>
       <control number="PM-16">
          <title>THREAT AWARENESS PROGRAM</title>

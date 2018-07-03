@@ -3,7 +3,9 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
+			<html>4</html>
 			<language>si</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>Pon</calendar.day0>
 			<calendar.day1>Tor</calendar.day1>
 			<calendar.day2>Sre</calendar.day2>
@@ -24,6 +26,7 @@
 			<calendar.month9>Oktober</calendar.month9>
 			<calendar.month10>November</calendar.month10>
 			<calendar.month11>December</calendar.month11>
+			<calendar.close>Zapri</calendar.close>
 			<format.date>dd/MM/yyyy</format.date>
 			<format.datetime>dd/MM/yyyy hh:mm:ss</format.datetime>
 			<format.decimal>,</format.decimal>

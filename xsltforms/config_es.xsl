@@ -3,7 +3,9 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
+			<html>4</html>
 			<language>es</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>Lun</calendar.day0>
 			<calendar.day1>Mar</calendar.day1>
 			<calendar.day2>Mie</calendar.day2>
@@ -24,6 +26,7 @@
 			<calendar.month9>Octubre</calendar.month9>
 			<calendar.month10>Noviembre</calendar.month10>
 			<calendar.month11>Diciembre</calendar.month11>
+			<calendar.close>Cerrar</calendar.close>
 			<format.date>dd/MM/yyyy</format.date>
 			<format.datetime>dd/MM/yyyy hh:mm:ss</format.datetime>
 			<format.decimal>,</format.decimal>

@@ -3,7 +3,9 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
+			<html>4</html>
 			<language>nb_no</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>Man</calendar.day0>
 			<calendar.day1>Tir</calendar.day1>
 			<calendar.day2>Ons</calendar.day2>
@@ -24,6 +26,7 @@
 			<calendar.month9>Oktober</calendar.month9>
 			<calendar.month10>November</calendar.month10>
 			<calendar.month11>Desember</calendar.month11>
+			<calendar.close>Lukk</calendar.close>
 			<format.date>dd.MM.yyyy</format.date>
 			<format.datetime>dd.MM.yyyy kl. hh.mm.ss</format.datetime>
 			<format.decimal>,</format.decimal>

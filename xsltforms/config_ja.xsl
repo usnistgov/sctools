@@ -1,9 +1,11 @@
-﻿<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:template name="config">
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
+			<html>4</html>
 			<language>ja</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>月</calendar.day0>
 			<calendar.day1>火</calendar.day1>
 			<calendar.day2>水</calendar.day2>
@@ -24,6 +26,7 @@
 			<calendar.month9>10月</calendar.month9>
 			<calendar.month10>11月</calendar.month10>
 			<calendar.month11>12月</calendar.month11>
+			<calendar.close>閉じる</calendar.close>
 			<format.date>yyyy/MM/dd</format.date>
 			<format.datetime>yyyy/MM/dd hh:mm:ss</format.datetime>
 			<format.decimal>.</format.decimal>

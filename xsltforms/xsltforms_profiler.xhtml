@@ -76,7 +76,7 @@
 				<xf:label>Refresh intance view</xf:label>
 			</xf:submit>
 			<xf:group ref="instance('debugger')/instance[. != '']">
-				<p class="code"><xf:output value="serialize(instance('view'),'yes')"/></p>
+				<p class="code"><xf:output value="serialize(instance('view'),'application/xml','yes')"/></p>
 			</xf:group>
 			<table>
 				<tr>

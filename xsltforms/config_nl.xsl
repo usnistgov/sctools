@@ -3,7 +3,9 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
+			<html>4</html>
 			<language>nl</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>Ma</calendar.day0>
 			<calendar.day1>Di</calendar.day1>
 			<calendar.day2>Wo</calendar.day2>
@@ -24,6 +26,7 @@
 			<calendar.month9>oktober</calendar.month9>
 			<calendar.month10>november</calendar.month10>
 			<calendar.month11>december</calendar.month11>
+			<calendar.close>dichtbij</calendar.close>
 			<format.date>dd-MM-yyyy</format.date>
 			<format.datetime>dd-MM-yyyy hh:mm:ss</format.datetime>
 			<format.decimal>,</format.decimal>

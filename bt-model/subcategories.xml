@@ -1,34 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <subCategories>
-   <id>ID.GV-1</id>
-   <id>ID.GV-2</id>
-   <id>ID.GV-3</id>
-   <id>ID.GV-4</id>
    <id>ID.AM-1</id>
    <id>ID.AM-2</id>
    <id>ID.AM-3</id>
    <id>ID.AM-4</id>
    <id>ID.AM-5</id>
    <id>ID.AM-6</id>
+   <id>ID.BE-1</id>
+   <id>ID.BE-2</id>
+   <id>ID.BE-3</id>
+   <id>ID.BE-4</id>
+   <id>ID.BE-5</id>
+   <id>ID.GV-1</id>
+   <id>ID.GV-2</id>
+   <id>ID.GV-3</id>
+   <id>ID.GV-4</id>
    <id>ID.RA-1</id>
    <id>ID.RA-2</id>
    <id>ID.RA-3</id>
    <id>ID.RA-4</id>
    <id>ID.RA-5</id>
    <id>ID.RA-6</id>
-   <id>ID.BE-1</id>
-   <id>ID.BE-2</id>
-   <id>ID.BE-3</id>
-   <id>ID.BE-4</id>
-   <id>ID.BE-5</id>
    <id>ID.RM-1</id>
    <id>ID.RM-2</id>
    <id>ID.RM-3</id>
+   <id>ID.SC-1</id>
+   <id>ID.SC-2</id>
+   <id>ID.SC-3</id>
+   <id>ID.SC-4</id>
+   <id>ID.SC-5</id>
    <id>PR.AC-1</id>
    <id>PR.AC-2</id>
    <id>PR.AC-3</id>
    <id>PR.AC-4</id>
    <id>PR.AC-5</id>
+   <id>PR.AC-6</id>
+   <id>PR.AC-7</id>
+   <id>PR.AT-1</id>
+   <id>PR.AT-2</id>
+   <id>PR.AT-3</id>
+   <id>PR.AT-4</id>
+   <id>PR.AT-5</id>
+   <id>PR.DS-1</id>
+   <id>PR.DS-2</id>
+   <id>PR.DS-3</id>
+   <id>PR.DS-4</id>
+   <id>PR.DS-5</id>
+   <id>PR.DS-6</id>
+   <id>PR.DS-7</id>
+   <id>PR.DS-8</id>
    <id>PR.IP-1</id>
    <id>PR.IP-10</id>
    <id>PR.IP-11</id>
@@ -41,24 +61,18 @@
    <id>PR.IP-7</id>
    <id>PR.IP-8</id>
    <id>PR.IP-9</id>
+   <id>PR.MA-1</id>
+   <id>PR.MA-2</id>
    <id>PR.PT-1</id>
    <id>PR.PT-2</id>
    <id>PR.PT-3</id>
    <id>PR.PT-4</id>
-   <id>PR.DS-1</id>
-   <id>PR.DS-2</id>
-   <id>PR.DS-3</id>
-   <id>PR.DS-4</id>
-   <id>PR.DS-5</id>
-   <id>PR.DS-6</id>
-   <id>PR.DS-7</id>
-   <id>PR.AT-1</id>
-   <id>PR.AT-2</id>
-   <id>PR.AT-3</id>
-   <id>PR.AT-4</id>
-   <id>PR.AT-5</id>
-   <id>PR.MA-1</id>
-   <id>PR.MA-2</id>
+   <id>PR.PT-5</id>
+   <id>DE.AE-1</id>
+   <id>DE.AE-2</id>
+   <id>DE.AE-3</id>
+   <id>DE.AE-4</id>
+   <id>DE.AE-5</id>
    <id>DE.CM-1</id>
    <id>DE.CM-2</id>
    <id>DE.CM-3</id>
@@ -67,33 +81,31 @@
    <id>DE.CM-6</id>
    <id>DE.CM-7</id>
    <id>DE.CM-8</id>
-   <id>DE.AE-1</id>
-   <id>DE.AE-2</id>
-   <id>DE.AE-3</id>
-   <id>DE.AE-4</id>
-   <id>DE.AE-5</id>
    <id>DE.DP-1</id>
    <id>DE.DP-2</id>
    <id>DE.DP-3</id>
    <id>DE.DP-4</id>
    <id>DE.DP-5</id>
-   <id>RS.AN-1</id>
-   <id>RS.AN-2</id>
-   <id>RS.AN-3</id>
-   <id>RS.AN-4</id>
+   <id>RS.RP-1</id>
    <id>RS.CO-1</id>
    <id>RS.CO-2</id>
    <id>RS.CO-3</id>
    <id>RS.CO-4</id>
    <id>RS.CO-5</id>
+   <id>RS.AN-1</id>
+   <id>RS.AN-2</id>
+   <id>RS.AN-3</id>
+   <id>RS.AN-4</id>
+   <id>RS.AN-5</id>
    <id>RS.MI-1</id>
    <id>RS.MI-2</id>
    <id>RS.MI-3</id>
-   <id>RS.RP-1</id>
    <id>RS.IM-1</id>
    <id>RS.IM-2</id>
    <id>RC.RP-1</id>
-   <id>RC.CO-3</id>
    <id>RC.IM-1</id>
    <id>RC.IM-2</id>
+   <id>RC.CO-1</id>
+   <id>RC.CO-2</id>
+   <id>RC.CO-3</id>
 </subCategories>

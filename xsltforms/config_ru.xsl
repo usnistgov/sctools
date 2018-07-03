@@ -3,7 +3,9 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
+			<html>4</html>
 			<language>ru</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>Пон</calendar.day0>
 			<calendar.day1>Вто</calendar.day1>
 			<calendar.day2>Сре</calendar.day2>
@@ -24,6 +26,7 @@
 			<calendar.month9>Октябрь</calendar.month9>
 			<calendar.month10>Ноябрь</calendar.month10>
 			<calendar.month11>Декабрь</calendar.month11>
+			<calendar.close>Закрыть</calendar.close>
 			<format.date>dd.MM.yyyy</format.date>
 			<format.datetime>dd.MM.yyyy hh:mm:ss</format.datetime>
 			<format.decimal>,</format.decimal>

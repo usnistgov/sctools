@@ -1,9 +1,11 @@
-﻿<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:template name="config">
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
+			<html>4</html>
 			<language>en</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>Mon</calendar.day0>
 			<calendar.day1>Tue</calendar.day1>
 			<calendar.day2>Wed</calendar.day2>
@@ -24,6 +26,7 @@
 			<calendar.month9>October</calendar.month9>
 			<calendar.month10>November</calendar.month10>
 			<calendar.month11>December</calendar.month11>
+			<calendar.close>Close</calendar.close>
 			<format.date>dd/MM/yyyy</format.date>
 			<format.datetime>dd/MM/yyyy hh:mm:ss</format.datetime>
 			<format.decimal>.</format.decimal>

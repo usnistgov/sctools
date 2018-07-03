@@ -3,7 +3,9 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
+			<html>4</html>
 			<language>zh_TW</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>星期一</calendar.day0>
 			<calendar.day1>星期二</calendar.day1>
 			<calendar.day2>星期三</calendar.day2>
@@ -24,8 +26,9 @@
 			<calendar.month9>10 月</calendar.month9>
 			<calendar.month10>11 月</calendar.month10>
 			<calendar.month11>12 月</calendar.month11>
-			<format.date>MM/dd/yyyy</format.date>
-			<format.datetime>MM/dd/yyyy hh:mm:ss</format.datetime>
+			<calendar.close>關閉</calendar.close>
+			<format.date>yyyy/MM/dd</format.date>
+			<format.datetime>yyyy/MM/dd hh:mm:ss</format.datetime>
 			<format.decimal>.</format.decimal>
 			<status>... 正在載入 ...</status>
 		</properties>

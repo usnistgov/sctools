@@ -1,76 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <categoryDropdowns>
    <cat>
-      <id>ID.GV</id>
-      <label>Governance (ID.GV)</label>
-   </cat>
-   <cat>
       <id>ID.AM</id>
       <label>Asset Management (ID.AM)</label>
-   </cat>
-   <cat>
-      <id>ID.RA</id>
-      <label>Risk Assessment (ID.RA)</label>
    </cat>
    <cat>
       <id>ID.BE</id>
       <label>Business Environment (ID.BE)</label>
    </cat>
    <cat>
+      <id>ID.GV</id>
+      <label>Governance (ID.GV)</label>
+   </cat>
+   <cat>
+      <id>ID.RA</id>
+      <label>Risk Assessment (ID.RA)</label>
+   </cat>
+   <cat>
       <id>ID.RM</id>
       <label>Risk Management Strategy (ID.RM)</label>
    </cat>
    <cat>
+      <id>ID.SC</id>
+      <label>Supply Chain Risk Management (ID.SC)</label>
+   </cat>
+   <cat>
       <id>PR.AC</id>
-      <label>Access Control (PR.AC)</label>
-   </cat>
-   <cat>
-      <id>PR.IP</id>
-      <label>Information Protection Processes and Procedures (PR.IP)</label>
-   </cat>
-   <cat>
-      <id>PR.PT</id>
-      <label>Protective Technology (PR.PT)</label>
-   </cat>
-   <cat>
-      <id>PR.DS</id>
-      <label>Data Security (PR.DS)</label>
+      <label>Identity Management, Authentication and Access Control (PR.AC)</label>
    </cat>
    <cat>
       <id>PR.AT</id>
       <label>Awareness and Training (PR.AT)</label>
    </cat>
    <cat>
+      <id>PR.DS</id>
+      <label>Data Security (PR.DS)</label>
+   </cat>
+   <cat>
+      <id>PR.IP</id>
+      <label>Information Protection Processes and Procedures (PR.IP)</label>
+   </cat>
+   <cat>
       <id>PR.MA</id>
       <label>Maintenance (PR.MA)</label>
    </cat>
    <cat>
-      <id>DE.CM</id>
-      <label>Security Continuous Monitoring (DE.CM)</label>
+      <id>PR.PT</id>
+      <label>Protective Technology (PR.PT)</label>
    </cat>
    <cat>
       <id>DE.AE</id>
       <label>Anomalies and Events (DE.AE)</label>
    </cat>
    <cat>
+      <id>DE.CM</id>
+      <label>Security Continuous Monitoring (DE.CM)</label>
+   </cat>
+   <cat>
       <id>DE.DP</id>
       <label>Detection Processes (DE.DP)</label>
    </cat>
    <cat>
-      <id>RS.AN</id>
-      <label>Analysis (RS.AN)</label>
+      <id>RS.RP</id>
+      <label>Response Planning (RS.RP)</label>
    </cat>
    <cat>
       <id>RS.CO</id>
       <label>Communications (RS.CO)</label>
    </cat>
    <cat>
-      <id>RS.MI</id>
-      <label>Mitigation (RS.MI)</label>
+      <id>RS.AN</id>
+      <label>Analysis (RS.AN)</label>
    </cat>
    <cat>
-      <id>RS.RP</id>
-      <label>Response Planning (RS.RP)</label>
+      <id>RS.MI</id>
+      <label>Mitigation (RS.MI)</label>
    </cat>
    <cat>
       <id>RS.IM</id>
@@ -81,11 +85,11 @@
       <label>Recovery Planning (RC.RP)</label>
    </cat>
    <cat>
-      <id>RC.CO</id>
-      <label>Communications (RC.CO)</label>
-   </cat>
-   <cat>
       <id>RC.IM</id>
       <label>Improvements (RC.IM)</label>
+   </cat>
+   <cat>
+      <id>RC.CO</id>
+      <label>Communications (RC.CO)</label>
    </cat>
 </categoryDropdowns>

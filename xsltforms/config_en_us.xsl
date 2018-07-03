@@ -4,7 +4,9 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
-			<language>en</language> <!-- navigator or default -->
+			<html>4</html>
+			<language>en_us</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>Mon</calendar.day0>
 			<calendar.day1>Tue</calendar.day1>
 			<calendar.day2>Wed</calendar.day2>
@@ -25,6 +27,7 @@
 			<calendar.month9>October</calendar.month9>
 			<calendar.month10>November</calendar.month10>
 			<calendar.month11>December</calendar.month11>
+			<calendar.close>Close</calendar.close>
 			<format.date>MM/dd/yyyy</format.date>
 			<format.datetime>MM/dd/yyyy hh:mm:ss</format.datetime>
 			<format.decimal>.</format.decimal>

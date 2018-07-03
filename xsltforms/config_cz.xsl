@@ -3,7 +3,9 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
+			<html>4</html>
 			<language>cz</language>
+			<calendar.label>...</calendar.label>
 			<calendar.day0>Po</calendar.day0>
 			<calendar.day1>Út</calendar.day1>
 			<calendar.day2>St</calendar.day2>
@@ -24,6 +26,7 @@
 			<calendar.month9>říjen</calendar.month9>
 			<calendar.month10>listopad</calendar.month10>
 			<calendar.month11>prosinec</calendar.month11>
+			<calendar.close>zavřít</calendar.close>
 			<format.date>dd.MM. yyyy</format.date>
 			<format.datetime>dd.MM. yyyy, hh.mm:ss</format.datetime>
 			<format.decimal>,</format.decimal>
