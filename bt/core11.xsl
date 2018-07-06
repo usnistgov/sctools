@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE xsl:stylesheet [
-<!ENTITY fID "substring-after(substring-before(functionCol,')'),'(')">
+<!--<!ENTITY fID "substring-after(substring-before(functionCol,')'),'(')">-->
 <!ENTITY fName "normalize-space(substring-before(functionCol,'('))">
-<!ENTITY cID "concat(&fID;,'.',substring-after(substring-before(catCol,')'),'.'))">
+<!ENTITY cID "concat(nist:fID(functionCol),'.',substring-after(substring-before(catCol,')'),'.'))">
 <!ENTITY cName "normalize-space(substring-before(catCol,'('))">
 <!ENTITY cDesc "normalize-space(substring-after(catCol,':'))">
 <!ENTITY subcatID "substring-before(subcatCol,':')">
@@ -13,25 +13,33 @@
 <!ENTITY sp800-53-list "normalize-space(fn:replace(refsCol, '&sp800-53-rev4-regexp;', '$1'))">
 ]>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:nist="http://www.nist.gov"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  exclude-result-prefixes="xs"
   xmlns:fn="http://www.w3.org/2005/xpath-functions">
 
   <xsl:output method="xml" indent="yes"/>
+  
+  <xsl:function name="nist:fID" as="xs:NMTOKEN">
+    <xsl:param name="cell" as="xs:string"/>
+    <xsl:value-of select="substring-after(substring-before($cell,')'),'(')"/>
+  </xsl:function>
 
-  <xsl:key name="functions" match="row" use="&fID;"/>
+  <xsl:key name="functions" match="row" use="nist:fID(functionCol)"/>
   <xsl:key name="categories" match="row" use="&cID;"/>
   <xsl:key name="subcategories" match="row" use="&subcatID;"/>
 
   <xsl:template match="/">
     <core>
       <xsl:for-each select="//row[generate-id() = 
-generate-id(key('functions', &fID;)[1])]">
-        <xsl:variable name="fID" select="&fID;"/>
+generate-id(key('functions', nist:fID(functionCol))[1])]">
+        <xsl:variable name="fID" select="nist:fID(functionCol)"/>
         <function id="{$fID}">
           <name>
             <xsl:value-of select="&fName;"/>
           </name>
           <xsl:for-each
-            select="//row[&fID; = $fID and 
+            select="//row[nist:fID(functionCol) = $fID and 
             generate-id() = generate-id(key('categories', &cID;)[1])]">
             <xsl:variable name="cID" select="&cID;"/>
             <category id="{$cID}">
@@ -42,7 +50,7 @@ generate-id(key('functions', &fID;)[1])]">
                 <xsl:value-of select="&cDesc;"/>
               </description>
               <xsl:for-each
-                select="//row[&fID; = $fID and &cID; = $cID and 
+                select="//row[nist:fID(functionCol) = $fID and &cID; = $cID and 
                 generate-id() = generate-id(key('subcategories', &subcatID;)[1])]">
                 <xsl:sort select="&subcatID;"/>
                 <xsl:variable name="subcatID" select="&subcatID;"/>
@@ -51,7 +59,7 @@ generate-id(key('functions', &fID;)[1])]">
                     <xsl:value-of select="&subcatDesc;"/>
                   </description>
                   <xsl:for-each
-                    select="//row[&fID; = $fID and &cID; = $cID and &subcatID; = $subcatID]">
+                    select="//row[nist:fID(functionCol) = $fID and &cID; = $cID and &subcatID; = $subcatID]">
                     <xsl:call-template name="sp800-53"/>
                   </xsl:for-each>
                 </subCategory>
