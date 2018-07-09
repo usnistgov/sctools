@@ -58,8 +58,11 @@
     <xsl:value-of select=
       "normalize-space(fn:replace($cell, nist:sp800-53-rev4-regexp(), '$1'))"/>
   </xsl:function>
-  
-  
+
+  <xsl:key name="functions" match="row" use="nist:fID(functionCol)"/>
+  <xsl:key name="categories" match="row" use="nist:cID(.)"/>
+  <xsl:key name="subcategories" match="row" use="nist:subcatID(subcatCol)"/>
+
   <xsl:template match="/">
     <core>
       <xsl:for-each select="//row[generate-id() = 
