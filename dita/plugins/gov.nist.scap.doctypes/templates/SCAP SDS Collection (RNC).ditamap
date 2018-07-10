@@ -2,9 +2,17 @@
 <?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection" 
     type="application/relax-ng-compact-syntax"?>
 <scapDataStreamCollection reverseDNS="com.example" scapName="collection" 
-    schematronVersion="1.2">
-    <keydef keys="oval" href="ovaldefs.xml"/>
-    <scapDataStream scapName="sds" scapVersion="1.3" useCase="CONFIGURATION">
+    schematronVersion="1.3">
+    <scapComponent href="" keys="oval"/>
+    <scapComponent href="" keys="xccdf"/>
+    <scapDataStream scapName="sds" scapVersion="1.3" useCase="">
+        <scapChecklists>
+            <scapBenchmarkRef keyref="xccdf">
+                <scapExternalLinks>
+                    <scapUri keyref="oval"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
         <scapChecks>
             <scapOvalRef keyref="oval"/>
         </scapChecks>

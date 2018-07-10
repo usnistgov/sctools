@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ubuntu 14 OVAL definitions from the Canonical repository containing metadata 
+    pertaining to AppArmor   -->
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+                  xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+                  xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5"
+                  xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix"
+                  xmlns:linux-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd   http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd   http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd   http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd   http://oval.mitre.org/XMLSchema/oval-definitions-5#macos linux-definitions-schema.xsd">
+
+    <generator>
+        <oval:product_name>Canonical CVE OVAL Generator</oval:product_name>
+        <oval:product_version>1</oval:product_version>
+        <oval:schema_version>5.11.1</oval:schema_version>
+        <oval:timestamp>2018-07-05T14:23:04</oval:timestamp>
+    </generator>
+
+    <definitions>
+        <definition class="inventory" id="oval:com.ubuntu.trusty:def:100" version="1">
+            <metadata>
+                <title>Check that Ubuntu 14.04 LTS (trusty) is installed.</title>
+                <description/>
+            </metadata>
+            <criteria>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:100"
+                       comment="The host is part of the unix family."/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:101"
+                       comment="The host is running Ubuntu trusty."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20122395000"
+                  version="1">
+            <metadata>
+                <title>CVE-2012-2395 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>Incomplete blacklist vulnerability in action_power.py in Cobbler 2.2.0 allows remote attackers to execute arbitrary commands via shell metacharacters in the (1) username or (2) password fields to the power_system method in the xmlrpc API.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2012-2395"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2395"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2012 Canonical Ltd.</rights>
+                    <public_date>2012-06-15</public_date>
+                    <bug>https://bugs.launchpad.net/ubuntu/+source/cobbler/+bug/978999</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2012/CVE-2012-2395.html</ref>
+                    <ref>http://www.openwall.com/lists/oss-security/2012/05/23</ref>
+                    <ref>https://github.com/cobbler/cobbler/issues/141</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>jdstrand&gt; maas-provision in 12.04 is a code copy of cobbler, but with reduced features and usage. Only the portions of maas-provision specifically used by maas will recieve official support jdstrand&gt; maas in 12.10 as of 0.1+bzr971+dfsg-0ubuntu1 no longer depends on maas-provision and maas-provision has moved to universe. 12.04 should also receive this update for maas, so deferring for now. jdstrand&gt; maas-provision removed from 12.10 before release jdstrand&gt; power functionality is blocked by the AppArmor profile in maas-provision on 12.04 LTS, so this vulnerability is mitigated. This was tested by modifying /usr/share/pyshared/cobbler/utils.py to remove the check for invalid characters, then getting a system name with 'sudo cobbler list' then doing something like: $ sudo cobbler system edit --name node-457f02f2-3fe6-11e2-a048-525400209fb8 \ $ sudo cobbler system poweron --name=node-457f02f2-3fe6-11e2-a048-525400209fb8</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20122395000"
+                       comment="The 'cobbler' package in trusty is affected and needs fixing."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20141420000"
+                  version="1">
+            <metadata>
+                <title>CVE-2014-1420 on Ubuntu 14.04 LTS (trusty) - low.</title>
+                <description>insecure temp file usage</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2014-1420"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1420"/>
+                <advisory>
+                    <severity>Low</severity>
+                    <rights>Copyright (C) 2014 Canonical Ltd.</rights>
+                    <public_date>2014-08-07</public_date>
+                    <bug>https://bugs.launchpad.net/ubuntu/+source/ubuntu-ui-toolkit/+bug/1348241</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2014/CVE-2014-1420.html</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>jdstrand&gt; desktop only. On Touch apps are confined by apparmor and use their own application-specific TMP area</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20141420000"
+                       comment="The 'ubuntu-ui-toolkit' package in trusty is affected and needs fixing."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20161585000"
+                  version="1">
+            <metadata>
+                <title>CVE-2016-1585 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>mount rules grant excessive permissions</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2016-1585"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-1585"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2016 Canonical Ltd.</rights>
+                    <public_date>2016-08-25</public_date>
+                    <bug>https://bugs.launchpad.net/apparmor/+bug/1597017</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-1585.html</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>mdeslaur&gt; no fix as of 2018-06-19</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20161585000"
+                       comment="The 'apparmor' package in trusty is affected, but a decision has been made to defer addressing it (note: '2018-06-19')."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20167032000"
+                  version="1">
+            <metadata>
+                <title>CVE-2016-7032 on Ubuntu 14.04 LTS (trusty) - negligible.</title>
+                <description>sudo_noexec.so in Sudo before 1.8.15 on Linux might allow local users to bypass intended noexec command restrictions via an application that calls the (1) system or (2) popen function.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2016-7032"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7032"/>
+                <advisory>
+                    <severity>Negligible</severity>
+                    <rights>Copyright (C) 2017 Canonical Ltd.</rights>
+                    <public_date>2017-04-14</public_date>
+                    <discovered_by>Florian Weimer</discovered_by>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-7032.html</ref>
+                    <ref>https://www.sudo.ws/alerts/noexec_bypass.html</ref>
+                    <ref>https://www.sudo.ws/devel.html#1.8.15rc1</ref>
+                    <ref>https://www.sudo.ws/repos/sudo/rev/58a5c06b5257</ref>
+                    <ref>https://www.sudo.ws/repos/sudo/rev/a826cd7787e9</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>sarnold&gt; I'm marking this negligible because this feature seems doomed to failure in the general case. Any sort of memory-protection flaws in the target process, or ability to execute system calls directly, or programs that don't use the standard C libraries, etc. won't be affected by this feature. sarnold&gt; If you rely upon this feature I suggest instead seccomp2-based filters to disable the execve() and execveat() system calls at the kernel interface or AppArmor (or other MAC system) to restrict which executables can be executed.</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20167032000"
+                       comment="The 'sudo' package in trusty is affected and needs fixing."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:201711565000"
+                  version="1">
+            <metadata>
+                <title>CVE-2017-11565 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>debian/tor.init in the Debian tor_0.2.9.11-1~deb9u1 package for Tor was designed to execute aa-exec from the standard system pathname if the apparmor package is installed, but implements this incorrectly (with a wrong assumption that the specific pathname would remain the same forever), which allows attackers to bypass intended AppArmor restrictions by leveraging the silent loss of this protection mechanism. NOTE: this does not affect systems, such as default Debian stretch installations, on which Tor startup relies on a systemd unit file (instead of this tor.init script).</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2017-11565"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11565"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2017 Canonical Ltd.</rights>
+                    <public_date>2017-07-23</public_date>
+                    <bug>http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=869153</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2017/CVE-2017-11565.html</ref>
+                    <ref>https://twitter.com/pissquark/status/888142796414226432</ref>
+                    <ref>https://bugs.debian.org/869153</ref>
+                </advisory>
+            </metadata>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:201711565000"
+                       comment="The 'tor' package in trusty is affected and needs fixing."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20113619000"
+                  version="1">
+            <metadata>
+                <title>CVE-2011-3619 on Ubuntu 14.04 LTS (trusty) - low.</title>
+                <description>The apparmor_setprocattr function in security/apparmor/lsm.c in the Linux kernel before 3.0 does not properly handle invalid parameters, which allows local users to cause a denial of service (NULL pointer dereference and OOPS) or possibly have unspecified other impact by writing to a /proc/#####/attr/current file. A flaw was discovered in the Linux kernel's AppArmor security interface when invalid information was written to it. An unprivileged local user could use this to cause a denial of service on the system.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2011-3619"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3619"/>
+                <advisory>
+                    <severity>Low</severity>
+                    <rights>Copyright (C) 2013 Canonical Ltd.</rights>
+                    <public_date>2013-06-08</public_date>
+                    <public_date_at_usn>2011-10-17</public_date_at_usn>
+                    <bug>https://bugzilla.novell.com/show_bug.cgi?id=717209</bug>
+                    <bug>https://launchpad.net/bugs/789409</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3619.html</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-1193-1</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-1379-1</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-1383-1</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-1387-1</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-1394-1</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-1256-1</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>apw&gt; this was introduced in the version of apparmour in maverick and apw&gt; has already been fixed after that</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criteria operator="OR">
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20113619000"
+                          comment="While related to the CVE in some way, the 'linux' package in trusty is not affected (note: '3.11.0-12.19')."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20113619010"
+                          comment="While related to the CVE in some way, the 'linux-flo' package in trusty is not affected (note: '3.4.0-1.3')."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20113619020"
+                          comment="While related to the CVE in some way, the 'linux-goldfish' package in trusty is not affected (note: '3.4.0-1.7')."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20113619030"
+                          comment="While related to the CVE in some way, the 'linux-grouper' package in trusty is not affected (note: '3.1.10-8.28')."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20113619040"
+                          comment="While related to the CVE in some way, the 'linux-maguro' package in trusty is not affected (note: '3.0.0-3.18')."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20113619050"
+                          comment="While related to the CVE in some way, the 'linux-mako' package in trusty is not affected (note: '3.4.0-3.21')."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20113619060"
+                          comment="While related to the CVE in some way, the 'linux-manta' package in trusty is not affected (note: '3.4.0-4.19')."
+                          negate="true"/>
+                </criteria>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20130326000"
+                  version="1">
+            <metadata>
+                <title>CVE-2013-0326 on Ubuntu 14.04 LTS (trusty) - low.</title>
+                <description>[_base images permissions world readable]</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2013-0326"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-0326"/>
+                <advisory>
+                    <severity>Low</severity>
+                    <rights>Copyright (C) 2013 Canonical Ltd.</rights>
+                    <public_date>2013-12-31</public_date>
+                    <discovered_by>Nir Magnezi</discovered_by>
+                    <bug>https://bugzilla.novell.com/show_bug.cgi?id=CVE-2013-0326</bug>
+                    <bug>https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2013-0326</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2013/CVE-2013-0326.html</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>sarnold&gt; /var/lib/nova/instances/_base/ apparently stores images with DAC permissions set to 0644. Deferred while waiting for upstream to address the issue -- I suspect the fix is simple, but the consequences may not be. jdstrand&gt; Ignoring. VMs are confined by AppArmor and are not able to read each other's files. Even if this were not the case, the files would be readable by the the libvirt-qemu:kvm user, so changing the permissions to 0640 would not help greatly. Therefore the protection would only be against other users on the system and a typical production Nova installation will not have these types of users or extra services. Furthermore, changing the permissions in a security update could be disruptive to production systems on upgrade. jdstrand&gt; no upstream fix as of 2014-05-05</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20130326000"
+                       comment="While related to the CVE in some way, a decision has been made to ignore it."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20141424000"
+                  version="1">
+            <metadata>
+                <title>CVE-2014-1424 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>apparmor_parser in the apparmor package before 2.8.95~2430-0ubuntu5.1 in Ubuntu 14.04 allows attackers to bypass AppArmor policies via unspecified vectors, related to a "miscompilation flaw."</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2014-1424"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-1424"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2014 Canonical Ltd.</rights>
+                    <public_date>2014-11-24</public_date>
+                    <assigned_to>tyhicks</assigned_to>
+                    <bug>https://bugs.launchpad.net/ubuntu/+source/apparmor/+bug/1390592</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2014/CVE-2014-1424.html</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>mdeslaur&gt; caused by incomplete backport in trusty tyhicks&gt; Ptrace, mount, and possibly other rule types are affected tyhicks&gt; Issue was specific to Ubuntu. The final version of the patch that was committed upstream was not vulnerable.</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20141424000"
+                       comment="The 'apparmor' package in trusty was vulnerable but has been fixed (note: '2.8.95~2430-0ubuntu5.1')."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20150245000"
+                  version="1">
+            <metadata>
+                <title>CVE-2015-0245 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>D-Bus 1.4.x through 1.6.x before 1.6.30, 1.8.x before 1.8.16, and 1.9.x before 1.9.10 does not validate the source of ActivationFailure signals, which allows local users to cause a denial of service (activation failure error returned) by leveraging a race condition involving sending an ActivationFailure signal before systemd responds.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2015-0245"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0245"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2015 Canonical Ltd.</rights>
+                    <public_date>2015-02-13</public_date>
+                    <public_date_at_usn>2015-02-13</public_date_at_usn>
+                    <assigned_to>mdeslaur</assigned_to>
+                    <discovered_by>Simon McVittie</discovered_by>
+                    <bug>http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=777545</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2015/CVE-2015-0245.html</ref>
+                    <ref>http://www.openwall.com/lists/oss-security/2015/02/09/6</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-3116-1</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>sarnold&gt; The policy change is recommended for stable use, though the code-based changes were made for platforms where uid==0 may not be omnipotent -- we should probably use both in our packages, or at least both for the versions with distro-patched AppArmor support.</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20150245000"
+                       comment="The 'dbus' package in trusty was vulnerable but has been fixed (note: '1.6.18-0ubuntu4.4')."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20151334000"
+                  version="1">
+            <metadata>
+                <title>CVE-2015-1334 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>attach.c in LXC 1.1.2 and earlier uses the proc filesystem in a container, which allows local container users to escape AppArmor or SELinux confinement by mounting a proc filesystem with a crafted (1) AppArmor profile or (2) SELinux label.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2015-1334"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1334"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2015 Canonical Ltd.</rights>
+                    <public_date>2015-08-12</public_date>
+                    <public_date_at_usn>2015-07-22 14:00:00 UTC</public_date_at_usn>
+                    <assigned_to>tyhicks</assigned_to>
+                    <discovered_by>Roman Fiedler</discovered_by>
+                    <crd>2015-07-22 14:00:00 UTC</crd>
+                    <bug>https://bugs.launchpad.net/ubuntu/+source/lxc/+bug/1475050</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2015/CVE-2015-1334.html</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-2675-1</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>tyhicks&gt; Affects LXC 0.9.0 and higher</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20151334000"
+                       comment="The 'lxc' package in trusty was vulnerable but has been fixed (note: '1.0.7-0ubuntu0.2')."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20151335000"
+                  version="1">
+            <metadata>
+                <title>CVE-2015-1335 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>lxc-start in lxc before 1.0.8 and 1.1.x before 1.1.4 allows local container administrators to escape AppArmor confinement via a symlink attack on a (1) mount target or (2) bind mount source.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2015-1335"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1335"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2015 Canonical Ltd.</rights>
+                    <public_date>2015-10-01</public_date>
+                    <public_date_at_usn>2015-09-29 14:00:00</public_date_at_usn>
+                    <assigned_to>sbeattie</assigned_to>
+                    <discovered_by>Roman Fiedler</discovered_by>
+                    <crd>2015-09-29 14:00:00</crd>
+                    <bug>https://launchpad.net/bugs/1476662</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2015/CVE-2015-1335.html</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-2753-1</ref>
+                </advisory>
+            </metadata>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20151335000"
+                       comment="The 'lxc' package in trusty was vulnerable but has been fixed (note: '1.0.7-0ubuntu0.5')."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20151538000"
+                  version="1">
+            <metadata>
+                <title>CVE-2015-1538 on Ubuntu 14.04 LTS (trusty) - negligible.</title>
+                <description>Integer overflow in the SampleTable::setSampleToChunkParams function in SampleTable.cpp in libstagefright in Android before 5.1.1 LMY48I allows remote attackers to execute arbitrary code via crafted atoms in MP4 data that trigger an unchecked multiplication, aka internal bug 20139950, a related issue to CVE-2015-4496.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2015-1538"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1538"/>
+                <advisory>
+                    <severity>Negligible</severity>
+                    <rights>Copyright (C) 2015 Canonical Ltd.</rights>
+                    <public_date>2015-09-30</public_date>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2015/CVE-2015-1538.html</ref>
+                    <ref>https://plus.google.com/+CyanogenMod/posts/7iuX21Tz7n8</ref>
+                    <ref>http://review.cyanogenmod.org/#/q/status:merged+project:CyanogenMod/android_frameworks_av+branch:cm-12.1</ref>
+                    <ref>http://review.cyanogenmod.org/#/q/status:merged+project:CyanogenMod/android_frameworks_av+branch:cm-12.0</ref>
+                    <ref>https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/Stagefright</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>jdstrand&gt; there are limited public details on the issue and these will not be disclosed until BlackHat/DEFCON next month. Will use this CVE for all information until details are published jdstrand&gt; the following patches are the likely fixes (12.1): http://review.cyanogenmod.org/#/c/102619/ (code not present, requires edd4a76eb4747bd19ed122df46fa46b452c12a0d) http://review.cyanogenmod.org/#/c/102620/ (ebf0d0940f7f42b220b19d3baaee7efb4c6b787d) http://review.cyanogenmod.org/#/c/102623/ (4a39c150327e080072d5f8e4239c6bbbbabd48d8) http://review.cyanogenmod.org/#/c/103266/ (7ff5505d36b1cfd8b03497e0fb5aa24b5b099e45) http://review.cyanogenmod.org/#/c/103267/ (b1f29294f1a5831eb52a81d3ee082a9475f6e879) http://review.cyanogenmod.org/#/c/103268/ (889ae4ad7227c395615d03b24a1667caa162c75f) http://review.cyanogenmod.org/#/c/103269/ (9824bfd6eec1daa93cf76b6f4199602fe35f1d9d, code not present on 15.04/15.10) http://review.cyanogenmod.org/#/c/103270/ (57db9b42418b434751f609ac7e5539367e9f01a6, code not present on 15.04/15.10) jdstrand&gt; the attack appears to be if an application opens a specially crafted MPEG4 file, an attacker could cause an application crash or execute arbitrary code by accessing out of bounds memory. In the case of android, the video could be texted to the victim's number and the system will automatically start processing the video by examining the video's container and metadata jdstrand&gt; Ubuntu's 'android' package is based on Cyanogenmod 12.0 jdstrand&gt; Ubuntu 14.04 'android' package is affected but no supported images use it jdstrand&gt; All patches (ESDS, SampleTable and MPEG4Extractor) are for MPEG-4 processing jdstrand&gt; media-hub will typically process MPEG4 files for the system and it uses gst-plugins-bad which uses media_codec_* from libhybris but libhybris doesn't expose the affected stagefright code (confirmed with jhodapp and rsalveti). Therefore, the specific attack of texting a crafted video will not work jdstrand&gt; services and well-behaved Ubuntu Store apps may access the stagefright library via libhybris, but libhybris doesn't expose the affected code so these services and apps are not affected jdstrand&gt; malicious Ubuntu Store apps could access the stagefright library but are otherwise isolated by the app-specific AppArmor profiles jdstrand&gt; malicious Ubuntu Store apps could access one of the binder services in the container via /dev/binder but none of them use stagefright (the services are: healthd, servicemanager, rild, drmserver, camera_service and sensorservice, all confirmed via their respective Android.mk files to not link stagefright) jdstrand&gt; based on the above, adjust priority to 'negligible'</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criteria operator="OR">
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20151538000"
+                          comment="While related to the CVE in some way, a decision has been made to ignore it."/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20151538010"
+                          comment="While related to the CVE in some way, the 'libhybris' package in trusty is not affected."
+                          negate="true"/>
+                </criteria>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20155279000"
+                  version="1">
+            <metadata>
+                <title>CVE-2015-5279 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>Heap-based buffer overflow in the ne2000_receive function in hw/net/ne2000.c in QEMU before 2.4.0.1 allows guest OS users to cause a denial of service (instance crash) or possibly execute arbitrary code via vectors related to receiving packets.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2015-5279"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5279"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2015 Canonical Ltd.</rights>
+                    <public_date>2015-09-28</public_date>
+                    <public_date_at_usn>2015-09-15</public_date_at_usn>
+                    <assigned_to>mdeslaur</assigned_to>
+                    <discovered_by>Qinghao Tang</discovered_by>
+                    <bug>https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=799074</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2015/CVE-2015-5279.html</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-2745-1</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>tyhicks&gt; Mitigated by AppArmor confinement when QEMU is managed by libvirt.</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20155279000"
+                       comment="The 'qemu' package in trusty was vulnerable but has been fixed (note: '2.0.0+dfsg-2ubuntu1.19')."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20166187000"
+                  version="1">
+            <metadata>
+                <title>CVE-2016-6187 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>The apparmor_setprocattr function in security/apparmor/lsm.c in the Linux kernel before 4.6.5 does not validate the buffer size, which allows local users to gain privileges by triggering an AppArmor setprocattr hook.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2016-6187"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6187"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2016 Canonical Ltd.</rights>
+                    <public_date>2016-08-06</public_date>
+                    <discovered_by>Vegard Nossum</discovered_by>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2016/CVE-2016-6187.html</ref>
+                    <ref>http://www.openwall.com/lists/oss-security/2016/07/09/1</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>jdstrand&gt; android kernels (flo, goldfish, grouper, maguro, mako and manta) are not supported on the Ubuntu Touch 14.10 and earlier preview kernels jdstrand&gt; linux-lts-saucy no longer receives official support jdstrand&gt; linux-lts-quantal no longer receives official support</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criteria operator="OR">
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187000"
+                          comment="While related to the CVE in some way, the 'linux' package in trusty is not affected."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187010"
+                          comment="While related to the CVE in some way, the 'linux-aws' package in trusty is not affected."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187020"
+                          comment="While related to the CVE in some way, a decision has been made to ignore it."/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187030"
+                          comment="While related to the CVE in some way, a decision has been made to ignore it."/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187040"
+                          comment="While related to the CVE in some way, a decision has been made to ignore it."/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187050"
+                          comment="While related to the CVE in some way, the 'linux-lts-utopic' package in trusty is not affected."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187060"
+                          comment="While related to the CVE in some way, the 'linux-lts-vivid' package in trusty is not affected."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187070"
+                          comment="While related to the CVE in some way, the 'linux-lts-wily' package in trusty is not affected."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187080"
+                          comment="While related to the CVE in some way, the 'linux-lts-xenial' package in trusty is not affected."
+                          negate="true"/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187090"
+                          comment="While related to the CVE in some way, a decision has been made to ignore it."/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187100"
+                          comment="While related to the CVE in some way, a decision has been made to ignore it."/>
+                    <criterion test_ref="oval:com.ubuntu.trusty:tst:20166187110"
+                          comment="While related to the CVE in some way, a decision has been made to ignore it."/>
+                </criteria>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20176507000"
+                  version="1">
+            <metadata>
+                <title>CVE-2017-6507 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>An issue was discovered in AppArmor before 2.12. Incorrect handling of unknown AppArmor profiles in AppArmor init scripts, upstart jobs, and/or systemd unit files allows an attacker to possibly have increased attack surfaces of processes that were intended to be confined by AppArmor. This is due to the common logic to handle 'restart' operations removing AppArmor profiles that aren't found in the typical filesystem locations, such as /etc/apparmor.d/. Userspace projects that manage their own AppArmor profiles in atypical directories, such as what's done by LXD and Docker, are affected by this flaw in the AppArmor init script logic.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2017-6507"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6507"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2017 Canonical Ltd.</rights>
+                    <public_date>2017-03-24</public_date>
+                    <public_date_at_usn>2017-03-24</public_date_at_usn>
+                    <assigned_to>tyhicks</assigned_to>
+                    <discovered_by>Stéphane Graber</discovered_by>
+                    <crd>2017-03-24</crd>
+                    <bug>https://launchpad.net/bugs/1668892</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2017/CVE-2017-6507.html</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-3247-1</ref>
+                </advisory>
+            </metadata>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20176507000"
+                       comment="The 'apparmor' package in trusty was vulnerable but has been fixed (note: '2.10.95-0ubuntu2.6~14.04.1')."/>
+            </criteria>
+        </definition>
+        <definition class="vulnerability"
+                  id="oval:com.ubuntu.trusty:def:20178900000"
+                  version="1">
+            <metadata>
+                <title>CVE-2017-8900 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+                <description>LightDM through 1.22.0, when systemd is used in Ubuntu 16.10 and 17.x, allows physically proximate attackers to bypass intended AppArmor restrictions and visit the home directories of arbitrary users by establishing a guest session.</description>
+                <affected family="unix">
+                    <platform>Ubuntu 14.04 LTS</platform>
+                </affected>
+                <reference source="CVE"
+                       ref_id="CVE-2017-8900"
+                       ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8900"/>
+                <advisory>
+                    <severity>Medium</severity>
+                    <rights>Copyright (C) 2017 Canonical Ltd.</rights>
+                    <public_date>2017-05-12</public_date>
+                    <public_date_at_usn>2017-05-11</public_date_at_usn>
+                    <assigned_to>tyhicks</assigned_to>
+                    <discovered_by>Tyler Hicks</discovered_by>
+                    <bug>https://launchpad.net/bugs/1663157</bug>
+                    <ref>http://people.canonical.com/~ubuntu-security/cve/2017/CVE-2017-8900.html</ref>
+                    <ref>https://usn.ubuntu.com/usn/usn-3285-1</ref>
+                </advisory>
+            </metadata>
+            <oval:notes>
+                <oval:note>tyhicks&gt; This issue was introduced when the user session handling moved from upstart to systemd in Ubuntu 16.10.</oval:note>
+            </oval:notes>
+            <criteria>
+                <extend_definition definition_ref="oval:com.ubuntu.trusty:def:100"
+                               comment="Ubuntu 14.04 LTS (trusty) is installed."
+                               applicability_check="true"/>
+                <criterion test_ref="oval:com.ubuntu.trusty:tst:20178900000"
+                       comment="While related to the CVE in some way, the 'lightdm' package in trusty is not affected."
+                       negate="true"/>
+            </criteria>
+        </definition>
+    </definitions>
+    <tests>
+      <ind-def:family_test id="oval:com.ubuntu.trusty:tst:100"
+                           check="at least one"
+                           check_existence="at_least_one_exists"
+                           version="1"
+                           comment="Is the host part of the unix family?">
+            <ind-def:object object_ref="oval:com.ubuntu.trusty:obj:100"/>
+            <ind-def:state state_ref="oval:com.ubuntu.trusty:ste:100"/>
+        </ind-def:family_test>
+      <ind-def:textfilecontent54_test id="oval:com.ubuntu.trusty:tst:101"
+                                      check="at least one"
+                                      check_existence="at_least_one_exists"
+                                      version="1"
+                                      comment="Is the host running Ubuntu trusty?">
+            <ind-def:object object_ref="oval:com.ubuntu.trusty:obj:101"/>
+            <ind-def:state state_ref="oval:com.ubuntu.trusty:ste:101"/>
+        </ind-def:textfilecontent54_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20122395000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'cobbler' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20122395000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20141420000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'ubuntu-ui-toolkit' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20141420000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20161585000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'apparmor' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20161585000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20167032000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'sudo' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20054890010"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:201711565000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'tor' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20168860000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20113619000"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20137445000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20113619010"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-flo' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542020"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20113619020"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-goldfish' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542030"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20113619030"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-grouper' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542040"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20113619040"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-maguro' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542090"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20113619050"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-mako' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542100"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20113619060"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-manta' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542110"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20130326000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'nova' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20147230010"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20141424000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'apparmor' package exist and is the version less than '2.8.95~2430-0ubuntu5.1'?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20161585000"/>
+            <linux-def:state state_ref="oval:com.ubuntu.trusty:ste:20141424000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20150245000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'dbus' package exist and is the version less than '1.6.18-0ubuntu4.4'?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20143477000"/>
+            <linux-def:state state_ref="oval:com.ubuntu.trusty:ste:20150245000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20151334000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'lxc' package exist and is the version less than '1.0.7-0ubuntu0.2'?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20136441000"/>
+            <linux-def:state state_ref="oval:com.ubuntu.trusty:ste:20151334000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20151335000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'lxc' package exist and is the version less than '1.0.7-0ubuntu0.5'?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20136441000"/>
+            <linux-def:state state_ref="oval:com.ubuntu.trusty:ste:20151335000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20151538000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'android' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20149911000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20151538010"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'libhybris' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20151538010"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20155279000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'qemu' package exist and is the version less than '2.0.0+dfsg-2ubuntu1.19'?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:201610155000"/>
+            <linux-def:state state_ref="oval:com.ubuntu.trusty:ste:20155279000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187000"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20137445000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187010"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-aws' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20137445010"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187020"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'linux-flo' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542020"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187030"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'linux-goldfish' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542030"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187040"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'linux-grouper' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542040"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187050"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-lts-utopic' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542050"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187060"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-lts-vivid' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542060"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187070"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-lts-wily' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542070"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187080"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'linux-lts-xenial' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20137445080"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187090"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'linux-maguro' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542090"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187100"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'linux-mako' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542100"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20166187110"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'linux-manta' package exist?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20124542110"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20176507000"
+                               version="1"
+                               check_existence="at_least_one_exists"
+                               check="all"
+                               comment="Does the 'apparmor' package exist and is the version less than '2.10.95-0ubuntu2.6~14.04.1'?">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20161585000"/>
+            <linux-def:state state_ref="oval:com.ubuntu.trusty:ste:20176507000"/>
+        </linux-def:dpkginfo_test>
+      <linux-def:dpkginfo_test id="oval:com.ubuntu.trusty:tst:20178900000"
+                               version="1"
+                               check_existence="any_exist"
+                               check="all"
+                               comment="Returns true whether or not the 'lightdm' package exists.">
+            <linux-def:object object_ref="oval:com.ubuntu.trusty:obj:20158316000"/>
+        </linux-def:dpkginfo_test>
+   </tests>
+    <objects>
+      <ind-def:family_object id="oval:com.ubuntu.trusty:obj:100"
+                             version="1"
+                             comment="The singleton family object."/>
+      <ind-def:textfilecontent54_object id="oval:com.ubuntu.trusty:obj:101"
+                                        version="1"
+                                        comment="The singleton release codename object.">
+            <ind-def:path>/etc</ind-def:path>
+            <ind-def:filename>lsb-release</ind-def:filename>
+            <ind-def:pattern operation="pattern match">^[\s\S]*DISTRIB_CODENAME=([a-z]+)$</ind-def:pattern>
+            <ind-def:instance datatype="int">1</ind-def:instance>
+        </ind-def:textfilecontent54_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20054890010"
+                                 version="1"
+                                 comment="The 'sudo' package.">
+            <linux-def:name>sudo</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20122395000"
+                                 version="1"
+                                 comment="The 'cobbler' package.">
+            <linux-def:name>cobbler</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20124542020"
+                                 version="1"
+                                 comment="The 'linux-flo' package.">
+            <linux-def:name>linux-flo</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20124542030"
+                                 version="1"
+                                 comment="The 'linux-goldfish' package.">
+            <linux-def:name>linux-goldfish</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20124542040"
+                                 version="1"
+                                 comment="The 'linux-grouper' package.">
+            <linux-def:name>linux-grouper</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20124542050"
+                                 version="1"
+                                 comment="The 'linux-lts-utopic' package.">
+            <linux-def:name>linux-lts-utopic</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20124542060"
+                                 version="1"
+                                 comment="The 'linux-lts-vivid' package.">
+            <linux-def:name>linux-lts-vivid</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20124542070"
+                                 version="1"
+                                 comment="The 'linux-lts-wily' package.">
+            <linux-def:name>linux-lts-wily</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20124542090"
+                                 version="1"
+                                 comment="The 'linux-maguro' package.">
+            <linux-def:name>linux-maguro</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20124542100"
+                                 version="1"
+                                 comment="The 'linux-mako' package.">
+            <linux-def:name>linux-mako</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20124542110"
+                                 version="1"
+                                 comment="The 'linux-manta' package.">
+            <linux-def:name>linux-manta</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20137445000"
+                                 version="1"
+                                 comment="The 'linux' package.">
+            <linux-def:name>linux</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20137445010"
+                                 version="1"
+                                 comment="The 'linux-aws' package.">
+            <linux-def:name>linux-aws</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20137445080"
+                                 version="1"
+                                 comment="The 'linux-lts-xenial' package.">
+            <linux-def:name>linux-lts-xenial</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20141420000"
+                                 version="1"
+                                 comment="The 'ubuntu-ui-toolkit' package.">
+            <linux-def:name>ubuntu-ui-toolkit</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20147230010"
+                                 version="1"
+                                 comment="The 'nova' package.">
+            <linux-def:name>nova</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20149911000"
+                                 version="1"
+                                 comment="The 'android' package.">
+            <linux-def:name>android</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:201610155000"
+                                 version="1"
+                                 comment="The 'qemu' package.">
+            <linux-def:name>qemu</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20161585000"
+                                 version="1"
+                                 comment="The 'apparmor' package.">
+            <linux-def:name>apparmor</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20168860000"
+                                 version="1"
+                                 comment="The 'tor' package.">
+            <linux-def:name>tor</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20136441000"
+                                 version="1"
+                                 comment="The 'lxc' package.">
+            <linux-def:name>lxc</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20143477000"
+                                 version="1"
+                                 comment="The 'dbus' package.">
+            <linux-def:name>dbus</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20151538010"
+                                 version="1"
+                                 comment="The 'libhybris' package.">
+            <linux-def:name>libhybris</linux-def:name>
+        </linux-def:dpkginfo_object>
+      <linux-def:dpkginfo_object id="oval:com.ubuntu.trusty:obj:20158316000"
+                                 version="1"
+                                 comment="The 'lightdm' package.">
+            <linux-def:name>lightdm</linux-def:name>
+        </linux-def:dpkginfo_object>
+   </objects>
+    <states>
+      <ind-def:family_state id="oval:com.ubuntu.trusty:ste:100"
+                            version="1"
+                            comment="The singleton family object.">
+            <ind-def:family>unix</ind-def:family>
+        </ind-def:family_state>
+      <ind-def:textfilecontent54_state id="oval:com.ubuntu.trusty:ste:101"
+                                       version="1"
+                                       comment="Ubuntu 14.04 LTS">
+            <ind-def:subexpression>trusty</ind-def:subexpression>
+        </ind-def:textfilecontent54_state>
+      <linux-def:dpkginfo_state id="oval:com.ubuntu.trusty:ste:20141424000"
+                                version="1"
+                                comment="The package name is 'apparmor' and the version is less than '2.8.95~2430-0ubuntu5.1'.">
+            <linux-def:name>apparmor</linux-def:name>
+            <linux-def:evr datatype="debian_evr_string" operation="less than">2.8.95~2430-0ubuntu5.1</linux-def:evr>
+        </linux-def:dpkginfo_state>
+      <linux-def:dpkginfo_state id="oval:com.ubuntu.trusty:ste:20150245000"
+                                version="1"
+                                comment="The package name is 'dbus' and the version is less than '1.6.18-0ubuntu4.4'.">
+            <linux-def:name>dbus</linux-def:name>
+            <linux-def:evr datatype="debian_evr_string" operation="less than">1.6.18-0ubuntu4.4</linux-def:evr>
+        </linux-def:dpkginfo_state>
+      <linux-def:dpkginfo_state id="oval:com.ubuntu.trusty:ste:20151334000"
+                                version="1"
+                                comment="The package name is 'lxc' and the version is less than '1.0.7-0ubuntu0.2'.">
+            <linux-def:name>lxc</linux-def:name>
+            <linux-def:evr datatype="debian_evr_string" operation="less than">1.0.7-0ubuntu0.2</linux-def:evr>
+        </linux-def:dpkginfo_state>
+      <linux-def:dpkginfo_state id="oval:com.ubuntu.trusty:ste:20151335000"
+                                version="1"
+                                comment="The package name is 'lxc' and the version is less than '1.0.7-0ubuntu0.5'.">
+            <linux-def:name>lxc</linux-def:name>
+            <linux-def:evr datatype="debian_evr_string" operation="less than">1.0.7-0ubuntu0.5</linux-def:evr>
+        </linux-def:dpkginfo_state>
+      <linux-def:dpkginfo_state id="oval:com.ubuntu.trusty:ste:20155279000"
+                                version="1"
+                                comment="The package name is 'qemu' and the version is less than '2.0.0+dfsg-2ubuntu1.19'.">
+            <linux-def:name>qemu</linux-def:name>
+            <linux-def:evr datatype="debian_evr_string" operation="less than">2.0.0+dfsg-2ubuntu1.19</linux-def:evr>
+        </linux-def:dpkginfo_state>
+      <linux-def:dpkginfo_state id="oval:com.ubuntu.trusty:ste:20176507000"
+                                version="1"
+                                comment="The package name is 'apparmor' and the version is less than '2.10.95-0ubuntu2.6~14.04.1'.">
+            <linux-def:name>apparmor</linux-def:name>
+            <linux-def:evr datatype="debian_evr_string" operation="less than">2.10.95-0ubuntu2.6~14.04.1</linux-def:evr>
+        </linux-def:dpkginfo_state>
+   </states>
+</oval_definitions>
