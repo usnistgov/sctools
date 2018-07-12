@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><Benchmark 
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns="http://checklists.nist.gov/xccdf/1.2" xml:lang="en-US" resolved="1" style="SCAP_1.2" id="xccdf_com.example_benchmark_generated-xccdf">
+  <status date="2018-07-10">draft</status>
+  <title>Automatically generated XCCDF from OVAL file: pruned.xml</title>
+  <description>This file has been generated automatically from oval definitions file.</description>
+  <version time="2018-07-05T14:23:04">None, generated from OVAL file.</version>
+  <metadata>      
+    <publisher xmlns="http://purl.org/dc/elements/1.1/">National Institute of Standards and Technology</publisher>      
+    <dc:creator>National Institute of Standards and Technology</dc:creator>
+    <dc:contributor>National Institute of Standards and Technology</dc:contributor>      
+    <dc:source>http://www.nist.gov</dc:source>      
+  </metadata>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-100">
+    <title>Check that Ubuntu 14.04 LTS (trusty) is installed.</title>
+    <description>Check that Ubuntu 14.04 LTS (trusty) is installed.</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:100"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20122395000">
+    <title>CVE-2012-2395 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>Incomplete blacklist vulnerability in action_power.py in Cobbler 2.2.0 
+      allows remote attackers to execute arbitrary commands via shell metacharacters in 
+      the (1) username or (2) password fields to the power_system method in the xmlrpc 
+      API.</description>    
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20122395000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20141420000">
+    <title>CVE-2014-1420 on Ubuntu 14.04 LTS (trusty) - low.</title>
+    <description>insecure temp file usage</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20141420000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20161585000">
+    <title>CVE-2016-1585 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>mount rules grant excessive permissions</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20161585000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20167032000">
+    <title>CVE-2016-7032 on Ubuntu 14.04 LTS (trusty) - negligible.</title>
+    <description>sudo_noexec.so in Sudo before 1.8.15 on Linux might allow local users to 
+      bypass intended noexec command restrictions via an application that calls the (1) 
+      system or (2) popen function.</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20167032000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-201711565000">
+    <title>CVE-2017-11565 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>debian/tor.init in the Debian tor_0.2.9.11-1~deb9u1 package for Tor was 
+      designed to execute aa-exec from the standard system pathname if the apparmor 
+      package is installed, but implements this incorrectly (with a wrong assumption 
+      that the specific pathname would remain the same forever), which allows attackers 
+      to bypass intended AppArmor restrictions by leveraging the silent loss of this 
+      protection mechanism. NOTE: this does not affect systems, such as default Debian 
+      stretch installations, on which Tor startup relies on a systemd unit file 
+      (instead of this tor.init script).</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:201711565000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20113619000">
+    <title>CVE-2011-3619 on Ubuntu 14.04 LTS (trusty) - low.</title>
+    <description>The apparmor_setprocattr function in security/apparmor/lsm.c in the Linux 
+      kernel before 3.0 does not properly handle invalid parameters, which allows local 
+      users to cause a denial of service (NULL pointer dereference and OOPS) or possibly 
+      have unspecified other impact by writing to a /proc/#####/attr/current file. A 
+      flaw was discovered in the Linux kernel's AppArmor security interface when 
+      invalid information was written to it. An unprivileged local user could use this 
+      to cause a denial of service on the system.</description>    
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20113619000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20130326000">
+    <title>CVE-2013-0326 on Ubuntu 14.04 LTS (trusty) - low.</title>
+    <description>[_base images permissions world readable]</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20130326000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20141424000">
+    <title>CVE-2014-1424 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>apparmor_parser in the apparmor package before 2.8.95~2430-0ubuntu5.1 in 
+      Ubuntu 14.04 allows attackers to bypass AppArmor policies via unspecified vectors, 
+      related to a "miscompilation flaw."</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20141424000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20150245000">
+    <title>CVE-2015-0245 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>D-Bus 1.4.x through 1.6.x before 1.6.30, 1.8.x before 1.8.16, and 1.9.x 
+      before 1.9.10 does not validate the source of ActivationFailure signals, which allows 
+      local users to cause a denial of service (activation failure error returned) by 
+      leveraging a race condition involving sending an ActivationFailure signal before 
+      systemd responds.</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20150245000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20151334000">
+    <title>CVE-2015-1334 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>blah</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20151334000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20151335000">
+    <title>CVE-2015-1335 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>blah</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20151335000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20151538000">
+    <title>CVE-2015-1538 on Ubuntu 14.04 LTS (trusty) - negligible.</title>
+    <description>blah</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20151538000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20155279000">
+    <title>CVE-2015-5279 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>blah</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20155279000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20166187000">
+    <title>CVE-2016-6187 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>blah</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20166187000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20176507000">
+    <title>CVE-2017-6507 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>blah</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20176507000"/>
+    </check>
+  </Rule>
+  <Rule selected="true" id="xccdf_com.example_rule_oval-com.ubuntu.trusty-def-20178900000">
+    <title>CVE-2017-8900 on Ubuntu 14.04 LTS (trusty) - medium.</title>
+    <description>blah</description>
+    <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+      <check-content-ref href="pruned-1.2.xml" name="oval:com.ubuntu.trusty:def:20178900000"/>
+    </check>
+  </Rule>
+</Benchmark>
