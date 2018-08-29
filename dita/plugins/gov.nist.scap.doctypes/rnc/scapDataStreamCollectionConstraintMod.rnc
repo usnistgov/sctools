@@ -25,9 +25,9 @@ div {
         # attributes. Restrict keys to NCName.
         scapComponent.attributes = 
         [ a:defaultValue = "Component" ]
-        attribute navtitle { text },
+        attribute navtitle { text }?,
         [ a:defaultValue = "xml" ]
-        attribute format { text },
+        attribute format { text }?,
         attribute href { xsd:anyURI },
         attribute keys { xsd:NCName },
         [ a:defaultValue = "resource-only" ]
