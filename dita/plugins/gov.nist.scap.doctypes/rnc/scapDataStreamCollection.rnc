@@ -31,10 +31,7 @@ div {
             (map ditavalref-d)
             (map mapgroup-d)
             (topic delay-d) 
-            (topic hazard-d) 
             (topic hi-d) 
-            (topic indexing-d) 
-            (topic ut-d)
             a(props deliveryTarget)
             a(props reverseDNS)
             a(props scapName)
@@ -61,17 +58,12 @@ div {
     include "delayResolutionDomain.rnc"
     [ dita:since = "1.3" ] include "deliveryTargetAttDomain.rnc"
     [ dita:since = "1.3" ] include "ditavalrefDomain.rnc"
-    include "indexingDomain.rnc"
-    include "hazardstatementDomain.rnc"
     include "highlightDomain.rnc"
-    include "utilitiesDomain.rnc"
     include "reverseDNSAttDomain.rnc"
     include "scapNameAttDomain.rnc"
     include "scapVersionAttDomain.rnc"
     include "schematronVersionAttDomain.rnc"
     include "useCaseAttDomain.rnc"
-#    include "scapDataStreamCollectionMod.rnc"
-#    include "scapDataStreamDomain.rnc"
     }
     
 ## ID-DEFINING-ELEMENT OVERRIDES
