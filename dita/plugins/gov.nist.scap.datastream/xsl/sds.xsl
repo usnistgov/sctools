@@ -7,7 +7,7 @@
     xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog"
     xmlns:xlink="http://www.w3.org/1999/xlink" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    exclude-result-prefixes="xs"
+    exclude-result-prefixes="xs nist fn"
     version="2.0">
     
     <xsl:output indent="yes" method="xml"/>
