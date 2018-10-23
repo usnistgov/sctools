@@ -8,6 +8,6 @@
             type="file"/>
     </transtype>
     <feature extension="dita.conductor.transtype.check" value="sds"/>
-    <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+    <feature extension="ant.import" file="sdsbuild.xml"/>
     <feature extension="dita.specialization.catalog.relative" file="catalog-dita.xml"/>
 </plugin>

@@ -1,30 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="gov.nist.scap.datastream"
-    xmlns:if="ant:if"
-    xmlns:unless="ant:unless">
+<project name="gov.nist.scap.datastream">
     
     <target name="dita2sds" 
         depends="dita2sds.init, build-init, preprocess, dita2sds.transform, dita2sds.scapval"/>
     
     <target name="dita2sds.init">
         
-        <!-- Allows the XSLT to access files containing the SCAP components (XCCDF, OVAL, etc.). 
-        Assumes these files are in the same directory as the input DITA map. -->
+        <!-- Allows the XSLT to access files containing the SCAP components (XCCDF, OVAL, etc.) -->
         <property name="temp.output.dir.name" value=""/>
         
         <property name="out.ext" value="xml"/>
         <property name="args.debug" value="yes"/>
-        <condition property="DITA-OT-3">
-            <matches string="${otrelease}" pattern="^3\.[0-9].*"/>
-        </condition>
-        <condition property="DITA-OT-2-5">
-            <matches string="${otrelease}" pattern="^2\.5.*"/>
-        </condition>
     </target>
     
     <target name="dita2sds.copy-components">
         <echo level="info">* DITA-OT release = ${otrelease}</echo> 
-        <copy if:set="DITA-OT-3" todir="${dita.output.dir}">
+        <copy todir="${dita.output.dir}">
             <ditafileset format="xml"/>
         </copy>
     </target>
@@ -32,31 +23,28 @@
     <target name="dita2sds.transform" depends="dita2sds.copy-components">
         <pipeline message="Convert DITA SCAP map to data stream collection format" taskname="xslt">
             <xslt basedir="${dita.output.dir}"
-                destdir="${output.dir}"
+                destdir="${dita.output.dir}"
                 extension="${out.ext}"
                 style=
                 "${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}sds.xsl"
                 filenameparameter="FILENAME"
                 filedirparameter="FILEDIR">
-                <ditaFileset format="ditamap" processingRole="normal"/>
-                <mapper if:set="DITA-OT-2-5" classname="org.dita.dost.util.JobMapper" to="${out.ext}"/>
+                <ditafileset format="ditamap" processingRole="normal"/>
                 <xmlcatalog refid="dita.catalog"/>            
             </xslt>
-            <xslt basedir="${output.dir}"
-                destdir="${output.dir}"
-                in="${dita.map.filename.root}.${out.ext}"
-                out=""
-                style="${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}xmlproperties.xsl">
-                <xmlcatalog refid="dita.catalog"/>
-            </xslt>            
         </pipeline>
     </target>
     
     <target name="dita2sds.scapval" depends="dita2sds.transform" if="args.scapvaljar">
+        <echo level="info">* dita.output.dir = ${dita.output.dir}</echo>
+        <xslt basedir="${dita.output.dir}"
+            destdir="${dita.output.dir}"
+            style="${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}xmlproperties.xsl">
+            <fileset file="${dita.map.filename.root}.${out.ext}"/>
+            <xmlcatalog refid="dita.catalog"/>
+        </xslt>                        
         <echo level="info">Running NIST SCAP Content Validation Tool</echo>
-<!--        <pipeline message="Extracting @scap-version from source data stream collection" taskname="xslt">
-        </pipeline>
--->        <xmlproperty file="${dita.output.dir}${file.separator}scapversion.xml"/>
+        <xmlproperty file="${dita.output.dir}${file.separator}scapversion.xml"/>
         <java jar="${args.scapvaljar}" fork="true">
             <arg value="-file ${}"/>
             <arg value="-scapversion ${root.properties.scapversion}"/>
