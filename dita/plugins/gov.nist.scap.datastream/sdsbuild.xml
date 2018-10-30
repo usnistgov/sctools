@@ -37,18 +37,18 @@
     
     <target name="dita2sds.scapval" depends="dita2sds.transform" if="args.scapvaljar">
         <echo level="info">* dita.output.dir = ${dita.output.dir}</echo>
-        <xslt basedir="${dita.output.dir}"
-            destdir="${dita.output.dir}"
+        <basename property="sds.filename.root" file="${args.input}" suffix="ditamap"/>
+        <xslt in="${dita.output.dir}${file.separator}${sds.filename.root}.${out.ext}"
+            out="${dita.output.dir}${file.separator}scapversion.xml"
             style="${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}xmlproperties.xsl">
-            <fileset file="${dita.map.filename.root}.${out.ext}"/>
-            <xmlcatalog refid="dita.catalog"/>
+             <xmlcatalog refid="dita.catalog"/>
         </xslt>                        
         <echo level="info">Running NIST SCAP Content Validation Tool</echo>
         <xmlproperty file="${dita.output.dir}${file.separator}scapversion.xml"/>
-        <java jar="${args.scapvaljar}" fork="true">
-            <arg value="-file ${}"/>
-            <arg value="-scapversion ${root.properties.scapversion}"/>
+        <java jar="${args.scapvaljar}" fork="true" dir="${dita.output.dir}">
+            <arg line="-file ${sds.filename.root}.${out.ext} -scapversion ${root.properties.scapversion}"/>
         </java>
+        <!--copy sds and validation result files to output.dir-->
     </target>
     
 </project>

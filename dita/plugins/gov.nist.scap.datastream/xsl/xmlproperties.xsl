@@ -9,15 +9,13 @@
     <xsl:template match="/processing-instruction()"/>
     
     <xsl:template match="sds:data-stream-collection">
-        <xsl:result-document href="scapversion.xml">
-            <root>
-                <properties>
+        <root>
+            <properties>
                     <scapversion>
                         <xsl:value-of select="sds:data-stream[1]/@scap-version"/>
                     </scapversion>
-                </properties>
-            </root>
-        </xsl:result-document>
+            </properties>
+        </root>
     </xsl:template>
        
 </xsl:stylesheet>

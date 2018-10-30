@@ -4,7 +4,7 @@
     <require plugin="gov.nist.scap.doctypes"/>
     <transtype name="sds" desc="SCAP Data Stream Collection">
         <param name="args.scapvaljar" 
-            desc="relative URI of NIST SCAP Content Validation Tool jar file"
+            desc="URI of NIST SCAP Content Validation Tool jar file"
             type="file"/>
     </transtype>
     <feature extension="dita.conductor.transtype.check" value="sds"/>
