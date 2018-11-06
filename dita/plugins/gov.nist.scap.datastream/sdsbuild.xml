@@ -1,54 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="gov.nist.scap.datastream">
+<project xmlns:if="ant.if" name="gov.nist.scap.datastream">
     
     <target name="dita2sds" 
-        depends="dita2sds.init, build-init, preprocess, dita2sds.transform, dita2sds.scapval"/>
+        depends="dita2sds.init, 
+        build-init, 
+        preprocess, 
+        depend.preprocess.post, 
+        dita2sds.transform, 
+        dita2sds.scapval, 
+        dita2sds.zip"/>
     
     <target name="dita2sds.init">
+        <basename property="sds.filename.root" file="${args.input}" suffix="ditamap"/>
         
         <!-- Allows the XSLT to access files containing the SCAP components (XCCDF, OVAL, etc.) -->
-        <property name="temp.output.dir.name" value=""/>
+        <property name="temp.output.dir.name" value="${sds.filename.root}"/>
         
         <property name="out.ext" value="xml"/>
         <property name="args.debug" value="yes"/>
     </target>
     
-    <target name="dita2sds.copy-components">
-        <echo level="info">* DITA-OT release = ${otrelease}</echo> 
-        <copy todir="${dita.output.dir}">
+    <target name="depend.preprocess.post">
+        <copy todir="${dita.temp.dir}">
             <ditafileset format="xml"/>
         </copy>
     </target>
     
-    <target name="dita2sds.transform" depends="dita2sds.copy-components">
+    <target name="dita2sds.transform">
         <pipeline message="Convert DITA SCAP map to data stream collection format" taskname="xslt">
             <xslt basedir="${dita.output.dir}"
                 destdir="${dita.output.dir}"
                 extension="${out.ext}"
                 style=
-                "${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}sds.xsl"
-                filenameparameter="FILENAME"
-                filedirparameter="FILEDIR">
+                "${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}sds.xsl">
                 <ditafileset format="ditamap" processingRole="normal"/>
                 <xmlcatalog refid="dita.catalog"/>            
             </xslt>
         </pipeline>
     </target>
     
-    <target name="dita2sds.scapval" depends="dita2sds.transform" if="args.scapvaljar">
-        <echo level="info">* dita.output.dir = ${dita.output.dir}</echo>
-        <basename property="sds.filename.root" file="${args.input}" suffix="ditamap"/>
+    <target name="dita2sds.scapval" if="args.scapvaljar">
         <xslt in="${dita.output.dir}${file.separator}${sds.filename.root}.${out.ext}"
-            out="${dita.output.dir}${file.separator}scapversion.xml"
+            out="${dita.temp.dir}${file.separator}scapversion.xml"
             style="${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}xmlproperties.xsl">
              <xmlcatalog refid="dita.catalog"/>
         </xslt>                        
         <echo level="info">Running NIST SCAP Content Validation Tool</echo>
-        <xmlproperty file="${dita.output.dir}${file.separator}scapversion.xml"/>
+        <xmlproperty file="${dita.temp.dir}${file.separator}scapversion.xml"/>
         <java jar="${args.scapvaljar}" fork="true" dir="${dita.output.dir}">
             <arg line="-file ${sds.filename.root}.${out.ext} -scapversion ${root.properties.scapversion}"/>
         </java>
-        <!--copy sds and validation result files to output.dir-->
+     </target>
+    
+    <target name="dita2sds.zip">
+        <zip destfile="${output.dir}${file.separator}${sds.filename.root}.zip" 
+            basedir="${dita.output.dir}"/>        
     </target>
     
 </project>
