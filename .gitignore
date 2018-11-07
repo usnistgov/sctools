@@ -25,3 +25,15 @@ xsd
 # /dita/examples/cis-w10/temp
 /dita/examples/**/temp
 /dita/examples/**/out
+faketxt
+components
+/bt/bt-model/subcategories.xml
+/bt/bt-model/catalog.xml
+/bt/bt-model/cat-dropdown.xml
+/bt/bt-model/core.xml
+/bt/bt-model/families.xml
+*.xml~
+*.ditamap~
+*.dita~
+tinymce_4.7.1
+schemas.xml
