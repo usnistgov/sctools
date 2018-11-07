@@ -3,7 +3,7 @@
 <plugin id="gov.nist.scap.datastream">
     <require plugin="gov.nist.scap.doctypes"/>
     <transtype name="sds" desc="SCAP Data Stream Collection">
-        <param name="args.scapvaljar" 
+        <param name="scapval"
             desc="URI of NIST SCAP Content Validation Tool jar file"
             type="file"/>
     </transtype>
