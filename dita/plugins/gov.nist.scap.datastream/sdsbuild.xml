@@ -24,6 +24,7 @@
         <copy todir="${dita.temp.dir}">
             <ditafileset format="xml"/>
         </copy>
+        <!--   xslt to generated Ant file to be imported     -->
     </target>
     
     <target name="dita2sds.transform">
@@ -39,7 +40,7 @@
         </pipeline>
     </target>
     
-    <target name="dita2sds.scapval" if="scapval">
+    <target name="dita2sds.scapval" if="sds.scapval">
         <xslt in="${dita.output.dir}${file.separator}${sds.filename.root}.${out.ext}"
             out="${dita.temp.dir}${file.separator}scapversion.xml"
             style="${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}xmlproperties.xsl">
@@ -47,7 +48,7 @@
         </xslt>                        
         <echo level="info">Running NIST SCAP Content Validation Tool</echo>
         <xmlproperty file="${dita.temp.dir}${file.separator}scapversion.xml"/>
-        <java jar="${scapval}" fork="true" dir="${dita.output.dir}">
+        <java jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
             <arg line="-file ${sds.filename.root}.${out.ext} -scapversion ${root.properties.scapversion}"/>
         </java>
      </target>

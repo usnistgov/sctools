@@ -3,9 +3,15 @@
 <plugin id="gov.nist.scap.datastream">
     <require plugin="gov.nist.scap.doctypes"/>
     <transtype name="sds" desc="SCAP Data Stream Collection">
-        <param name="scapval"
+        <param name="sds.scapval"
             desc="URI of NIST SCAP Content Validation Tool jar file"
             type="file"/>
+        <param name="sds.components"
+            desc="Validate individual XCCDF, OVAL, and OCIL files without building source data stream collection"
+            type="enum">
+            <val>yes</val>
+            <val default="true">no</val>
+        </param>
     </transtype>
     <feature extension="dita.conductor.transtype.check" value="sds"/>
     <feature extension="ant.import" file="sdsbuild.xml"/>
