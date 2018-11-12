@@ -5,7 +5,8 @@
         depends="dita2sds.init, 
         build-init, 
         preprocess, 
-        depend.preprocess.post, 
+        depend.preprocess.post,
+        dita2sds.component,
         dita2sds.transform, 
         dita2sds.scapval, 
         dita2sds.zip"/>
@@ -24,10 +25,30 @@
         <copy todir="${dita.temp.dir}">
             <ditafileset format="xml"/>
         </copy>
-        <!--   xslt to generated Ant file to be imported     -->
     </target>
     
-    <target name="dita2sds.transform">
+    <target name="dita2sds.component" if="sds.componentkey">
+        <xslt in="${dita.output.dir}${file.separator}${sds.filename.root}.${out.ext}"
+            out="${dita.temp.dir}${file.separator}componenthref.xml"
+            style="${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}componenthref.xsl">
+            <param name="componentkey" expression="${sds.componentkey}"/>
+            <xmlcatalog refid="dita.catalog"/>
+        </xslt>                        
+        <xmlproperty file="${dita.temp.dir}${file.separator}componenthref.xml"/>
+        <basename property="sds.componentfilename.root" 
+            file="${root.properties.componenthref}" suffix="xml"/>
+        <echo level="info">Validating component file</echo>
+        <java jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
+            <arg value="-componentfile"/>
+            <arg value="${root.properties.componenthref}"/>
+            <arg value="-valreportfile"/>
+            <arg value="${sds.componentfilename.root}-validation-report.html"/>
+            <arg value="-valresultfile"/>
+            <arg value="${sds.componentfilename.root}-validation-result.html"/>
+        </java>        
+    </target>
+    
+    <target name="dita2sds.transform"  unless="sds.componentkey">
         <pipeline message="Convert DITA SCAP map to data stream collection format" taskname="xslt">
             <xslt basedir="${dita.output.dir}"
                 destdir="${dita.output.dir}"
@@ -43,13 +64,16 @@
     <target name="dita2sds.scapval" if="sds.scapval">
         <xslt in="${dita.output.dir}${file.separator}${sds.filename.root}.${out.ext}"
             out="${dita.temp.dir}${file.separator}scapversion.xml"
-            style="${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}xmlproperties.xsl">
+            style="${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}scapversion.xsl">
              <xmlcatalog refid="dita.catalog"/>
         </xslt>                        
-        <echo level="info">Running NIST SCAP Content Validation Tool</echo>
+        <echo level="info">Validating SCAP source data stream</echo>
         <xmlproperty file="${dita.temp.dir}${file.separator}scapversion.xml"/>
         <java jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
-            <arg line="-file ${sds.filename.root}.${out.ext} -scapversion ${root.properties.scapversion}"/>
+            <arg value="-file"/>
+            <arg value="${sds.filename.root}.${out.ext}"/>
+            <arg value="-scapversion"/>
+            <arg value="${root.properties.scapversion}"/>
         </java>
      </target>
     

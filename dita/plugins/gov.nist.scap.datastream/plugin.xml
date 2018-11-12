@@ -6,12 +6,9 @@
         <param name="sds.scapval"
             desc="URI of NIST SCAP Content Validation Tool jar file"
             type="file"/>
-        <param name="sds.components"
-            desc="Validate individual XCCDF, OVAL, and OCIL files without building source data stream collection"
-            type="enum">
-            <val>yes</val>
-            <val default="true">no</val>
-        </param>
+        <param name="sds.componentkey"
+            desc="Validate individual XCCDF, OVAL, and OCIL file without building source data stream collection"
+            type="string"/>
     </transtype>
     <feature extension="dita.conductor.transtype.check" value="sds"/>
     <feature extension="ant.import" file="sdsbuild.xml"/>
