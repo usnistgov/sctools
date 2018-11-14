@@ -3,9 +3,13 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="xs"
     version="2.0">
-    
+
+    <xsl:import href="plugin:org.dita.base:xsl/common/dita-utilities.xsl"/>
+    <xsl:import href="plugin:org.dita.base:xsl/common/output-message.xsl"/>
     <xsl:output indent="yes" method="xml"/>
+    <xsl:variable name="msgprefix">SDSX</xsl:variable>    
     <xsl:param name="componentkey" as="xs:string"/>
+
     <xsl:template match="/processing-instruction()"/>
     
     <xsl:template match="*[contains(@class, 
@@ -21,11 +25,11 @@
                             @keys=$componentkey]"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:message terminate="yes">
-                            <xsl:text>No SCAP component with key '</xsl:text>
-                            <xsl:value-of select="$componentkey"/>
-                            <xsl:text>'</xsl:text>
-                        </xsl:message>
+                        <xsl:call-template name="output-message">
+                            <xsl:with-param name="id">SDSX001E</xsl:with-param>
+                            <xsl:with-param 
+                                name="msgparams">%1=<xsl:value-of select="$componentkey"/></xsl:with-param>
+                        </xsl:call-template>
                     </xsl:otherwise>
                 </xsl:choose>
             </properties>

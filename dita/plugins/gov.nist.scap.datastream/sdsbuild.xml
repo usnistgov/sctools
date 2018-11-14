@@ -54,7 +54,7 @@
         <echo level="info">Validating component file</echo>
         <java jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
             <arg value="-componentfile"/>
-            <arg value="${root.properties.scapcomponenthref}"/>
+            <arg file="${root.properties.scapcomponenthref}"/>
             <arg value="-valreportfile"/>
             <arg value="${sds.componentfilename.root}-validation-report.html"/>
             <arg value="-valresultfile"/>

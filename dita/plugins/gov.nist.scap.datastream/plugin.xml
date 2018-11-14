@@ -13,4 +13,5 @@
     <feature extension="dita.conductor.transtype.check" value="sds"/>
     <feature extension="ant.import" file="sdsbuild.xml"/>
     <feature extension="dita.specialization.catalog.relative" file="catalog-dita.xml"/>
+    <feature extension="dita.xsl.messages" file="./messages.xml"/>
 </plugin>
