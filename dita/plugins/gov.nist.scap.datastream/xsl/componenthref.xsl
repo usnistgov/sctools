@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:sds="http://scap.nist.gov/schema/scap/source/1.2" 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="xs"
     version="2.0">
@@ -13,25 +12,32 @@
         ' scapDataStreamCollection/scapDataStreamCollection ')]">
         <root>
             <properties>
-                <scapcomponenthref>
-                    <xsl:value-of 
-                        select="*[contains(@class, 
-                        ' scapDataStream-d/scapComponent ') and 
-                        @keys=$componentkey]/@href"/>
-                </scapcomponenthref>
+                <xsl:choose>
+                    <xsl:when test="*[contains(@class, 
+                        ' scapDataStreamCollection/scapComponent ') and 
+                        @keys=$componentkey]">
+                        <xsl:apply-templates select="*[contains(@class, 
+                            ' scapDataStreamCollection/scapComponent ') and 
+                            @keys=$componentkey]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:message terminate="yes">
+                            <xsl:text>No SCAP component with key '</xsl:text>
+                            <xsl:value-of select="$componentkey"/>
+                            <xsl:text>'</xsl:text>
+                        </xsl:message>
+                    </xsl:otherwise>
+                </xsl:choose>
             </properties>
         </root>
     </xsl:template>
     
-    <!--<xsl:template match="*[contains(@class, 
-        ' scapDataStream-d/scapBenchmarkRef ') or
-        contains(@class, 
-        ' scapDataStream-d/scapOvalRef ') or
-        contains(@class, 
-        ' scapDataStream-d/scapOcilRef ')]">
-        <java jar="${{sds.scapval}}" fork="true" dir="${{dita.output.dir}}">
-            <arg line="-componentfile {@href}"/>
-        </java>
-    </xsl:template>-->
-       
+    <xsl:template match="*[contains(@class, 
+        ' scapDataStreamCollection/scapComponent ') and 
+        @keys=$componentkey]">
+        <scapcomponenthref>
+            <xsl:value-of select="@href"/>
+        </scapcomponenthref>
+    </xsl:template>
+    
 </xsl:stylesheet>
