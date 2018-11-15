@@ -48,7 +48,7 @@
         <basename property="sds.componentfilename.root" 
             file="${root.properties.scapcomponenthref}" suffix="xml"/>
         <copy todir="${dita.output.dir}">
-            <fileset file="${root.properties.scapcomponenthref}"/>
+            <fileset file="${dita.temp.dir}${file.separator}${root.properties.scapcomponenthref}"/>
         </copy>
         <echo level="info">Validating component file</echo>
         <java failonerror="true"
