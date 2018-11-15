@@ -26,7 +26,7 @@
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:call-template name="output-message">
-                            <xsl:with-param name="id">SDSX001E</xsl:with-param>
+                            <xsl:with-param name="id">SDSX001F</xsl:with-param>
                             <xsl:with-param 
                                 name="msgparams">%1=<xsl:value-of select="$componentkey"/></xsl:with-param>
                         </xsl:call-template>

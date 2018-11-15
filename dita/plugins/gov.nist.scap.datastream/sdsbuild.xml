@@ -10,7 +10,6 @@
         dita2sds.component-validate,
         dita2sds.transform, 
         dita2sds.scapval, 
-        dita2sds.ready-for-zip,
         dita2sds.zip"/>
     
     <target name="dita2sds.init">
@@ -52,7 +51,8 @@
             <fileset file="${root.properties.scapcomponenthref}"/>
         </copy>
         <echo level="info">Validating component file</echo>
-        <java jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
+        <java failonerror="true"
+            jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
             <arg value="-componentfile"/>
             <arg file="${root.properties.scapcomponenthref}"/>
             <arg value="-valreportfile"/>
@@ -85,7 +85,8 @@
         </xslt>                        
         <echo level="info">Validating SCAP source data stream</echo>
         <xmlproperty file="${dita.temp.dir}${file.separator}scapversion.xml"/>
-        <java jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
+        <java failonerror="true"
+            jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
             <arg value="-file"/>
             <arg value="${sds.filename.root}.${out.ext}"/>
             <arg value="-scapversion"/>
@@ -93,22 +94,7 @@
         </java>
      </target>
     
-    <target name="dita2sds.ready-for-zip"
-        description="Determine whether to create a zip of the results">
-        <condition property="sds.ready-for-zip">
-            <or>
-                <and>
-                    <isset property="root.properties.scapcomponenthref"/>
-                    <isset property="sds.scapval"/>
-                </and>
-                <not>
-                    <isset property="root.properties.scapcomponenthref"/>
-                </not>
-            </or>
-        </condition>
-    </target>
-    
-    <target name="dita2sds.zip" if="sds.ready-for-zip" description="Create zip file">
+    <target name="dita2sds.zip" description="Create zip file">
         <zip destfile="${output.dir}${file.separator}${sds.filename.root}.zip" 
             basedir="${dita.output.dir}"/>        
     </target>

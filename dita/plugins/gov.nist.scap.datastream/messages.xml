@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messages>
-    <message id="SDSX001E" type="Error (E)">
+    <message id="SDSX001F" type="FATAL">
         <reason>No SCAP component with key '%1'.</reason>
-        <response>Provide -sds.componentkey parameter value corresponding 
-            to an scapComponent element's @keys attribute.</response>
     </message>
 </messages>
