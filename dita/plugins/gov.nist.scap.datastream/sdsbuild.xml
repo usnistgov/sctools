@@ -50,15 +50,14 @@
         <copy todir="${dita.output.dir}">
             <fileset file="${dita.temp.dir}${file.separator}${root.properties.scapcomponenthref}"/>
         </copy>
-        <echo level="info">Validating component file</echo>
         <java failonerror="true"
             jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
             <arg value="-componentfile"/>
-            <arg file="${root.properties.scapcomponenthref}"/>
+            <arg file="${dita.output.dir}${file.separator}${root.properties.scapcomponenthref}"/>
             <arg value="-valreportfile"/>
-            <arg value="${sds.componentfilename.root}-validation-report.html"/>
+            <arg file="${dita.output.dir}${file.separator}${sds.componentfilename.root}-validation-report.html"/>
             <arg value="-valresultfile"/>
-            <arg value="${sds.componentfilename.root}-validation-result.xml"/>
+            <arg file="${dita.output.dir}${file.separator}${sds.componentfilename.root}-validation-result.xml"/>
         </java>        
     </target>
     
@@ -83,12 +82,11 @@
             style="${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}scapversion.xsl">
              <xmlcatalog refid="dita.catalog"/>
         </xslt>                        
-        <echo level="info">Validating SCAP source data stream</echo>
         <xmlproperty file="${dita.temp.dir}${file.separator}scapversion.xml"/>
         <java failonerror="true"
             jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
             <arg value="-file"/>
-            <arg value="${sds.filename.root}.${out.ext}"/>
+            <arg file="${dita.output.dir}${file.separator}${sds.filename.root}.${out.ext}"/>
             <arg value="-scapversion"/>
             <arg value="${root.properties.scapversion}"/>
         </java>
