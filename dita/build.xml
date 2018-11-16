@@ -35,6 +35,9 @@
     </delete>
 	<copy todir="${plugin.dist}">
 		<fileset dir="${plugin-src}">
+		  <include name="gov.nist.scap.datastream/"/>
+		  <include name="gov.nist.scap.doctypes/"/>
+		  <include name="template_folders/"/>
 		</fileset>
 	</copy>
   </target>
