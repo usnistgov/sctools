@@ -1,0 +1,5 @@
+    <cpe-list xmlns="http://cpe.mitre.org/dictionary/2.0">
+      <cpe-item name="cpe:/o:canonical:ubuntu_linux:16.04::~~lts~~~">
+        <title>Ubuntu release 16.04 (Xenial)</title>
+      </cpe-item>
+    </cpe-list>

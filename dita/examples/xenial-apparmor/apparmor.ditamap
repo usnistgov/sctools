@@ -5,19 +5,23 @@
 <?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection" 
     type="application/relax-ng-compact-syntax"?>
 <scapDataStreamCollection reverseDNS="com.example" scapName="apparmor" 
-    schematronVersion="1.2">
-    <scapComponent keys="xccdf_apparmor" href="xenial-apparmor-xccdf.xml"/>
-    <scapComponent keys="oval_apparmor" href="xenial-apparmor-oval.xml"/>
-    <scapDataStream scapName="xenial_apparmor" scapVersion="1.3" useCase="CONFIGURATION">
+    schematronVersion="1.3">
+    <scapComponent keys="xccdf" href="xenial-apparmor-xccdf.xml"/>
+    <scapComponent keys="oval" href="xenial-apparmor-oval.xml"/>
+    <scapComponent keys="dict" href="xenial-apparmor-cpe-dictionary.xml"/>
+    <scapDataStream scapName="xenial_apparmor" scapVersion="1.3" useCase="OTHER">
+        <scapDictionaries>
+            <scapCpeListRef keyref="dict"/>
+        </scapDictionaries>
         <scapChecklists>
-            <scapBenchmarkRef keyref="xccdf_apparmor">
+            <scapBenchmarkRef keyref="xccdf">
                 <scapExternalLinks>
-                    <scapUri keyref="oval_apparmor"/>
+                    <scapUri keyref="oval"/>
                 </scapExternalLinks>
             </scapBenchmarkRef>
         </scapChecklists>
         <scapChecks>
-            <scapOvalRef keyref="oval_apparmor"/>
+            <scapOvalRef keyref="oval"/>
         </scapChecks>
     </scapDataStream>
 </scapDataStreamCollection>

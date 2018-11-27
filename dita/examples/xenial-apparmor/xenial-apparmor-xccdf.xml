@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Benchmark xmlns="http://checklists.nist.gov/xccdf/1.2" resolved="1" 
-  id="xccdf_gov.nist_benchmark_generated-xccdf">
-  <status>incomplete</status>
+<Benchmark 
+  xmlns="http://checklists.nist.gov/xccdf/1.2" 
+  xmlns:cpe="http://cpe.mitre.org/language/2.0"
+  resolved="1" xml:lang="en-US"
+  id="xccdf_gov.nist_benchmark_generated-xccdf"
+  style="SCAP_1.3">
+  <status date="2018-11-27">draft</status>
   <title>Automatically generated XCCDF from OVAL file: xenial-apparmor-oval.xml</title>
   <description>This file has been generated automatically from oval definitions file.</description>
-  <version time="2017-12-12T19:23:02">None, generated from OVAL file.</version>
+ <!-- <cpe:platform-specification>
+    <cpe:platform id="xenial">
+      <cpe:logical-test operator="AND" negate="false">
+        <cpe:fact-ref name="cpe:2.3:o:canonical:ubuntu_linux:16.04:*:*:*:lts:*:*:*"/>
+      </cpe:logical-test>
+    </cpe:platform>
+  </cpe:platform-specification>-->
+  <platform idref="cpe:/o:canonical:ubuntu_linux:16.04"/>
+  <version time="2017-12-12T19:23:02" update="https://pages.nist.gov/sctools">None, generated from OVAL file.</version>
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/"> 
+    <dc:title>Security Benchmark Pertaining to AppArmor</dc:title> 
+    <dc:creator>Joshua Lubell</dc:creator> 
+    <dc:publisher>NIST</dc:publisher> 
+    <dc:subject>example for SCAP Composor tool</dc:subject> 
+    <dc:contributor>Joshua Lubell</dc:contributor>
+    <dc:source>https://www.nist.gov</dc:source>
+  </metadata>
   <Profile id="xccdf_gov.nist_profile_apparmor">
         <title xml:lang="en-US">Xenial AppArmor Profile</title>
+        <description>Profile with both rules selected.</description>
         <select idref="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-100" selected="true"/>
         <select idref="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-20176507000" selected="true"/>
       </Profile>
-  <Rule selected="false" id="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-100">
+  <Rule selected="false" id="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-100" 
+    role="full" severity="unknown" weight="1.0">
     <title>Check that Ubuntu 16.04 LTS (xenial) is installed.</title>
     <description>Confirm that the host is part of the unix family and is running Ubuntu xenial.
     </description>
+    <ident system="http://cpe.mitre.org">cpe:/o:canonical:ubuntu_linux:16.04</ident>
     <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
       <check-content-ref href="xenial-apparmor-oval.xml" name="oval:com.ubuntu.xenial:def:100"/>
     </check>
   </Rule>
-  <Rule selected="false" id="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-20176507000">
+  <Rule selected="false" id="xccdf_gov.nist_rule_oval-com.ubuntu.xenial-def-20176507000" 
+    role="full" severity="unknown" weight="1.0">
     <title>Confirm that a version of AppArmor older than 2.12 is not present.</title>
     <description>Earlier versions incorrectly handle unknown AppArmor profiles in AppArmor init scripts, 
       upstart jobs, and/or systemd unit files.</description>

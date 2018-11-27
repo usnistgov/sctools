@@ -24,6 +24,8 @@
             <metadata>
                 <title>Check that Ubuntu 16.04 LTS (xenial) is installed.</title>
                 <description></description>
+                <reference source="http://cpe.mitre.org"
+                    ref_id="cpe:/o:canonical:ubuntu_linux:16.04"/>
             </metadata>
             <criteria>
                 <criterion test_ref="oval:com.ubuntu.xenial:tst:100" 
@@ -47,8 +49,7 @@
                 <affected family="unix">
                     <platform>Ubuntu 16.04 LTS</platform>
                 </affected>
-                <reference source="CVE" ref_id="CVE-2017-6507" 
-                    ref_url="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6507" />
+                <reference ref_id="CVE-2017-6507" source="http://cve.mitre.org"/>
                 <advisory>
                     <severity>Medium</severity>
                     <rights>Copyright (C) 2017 Canonical Ltd.</rights>
