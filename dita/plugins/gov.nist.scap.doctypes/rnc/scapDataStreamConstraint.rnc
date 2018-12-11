@@ -21,12 +21,12 @@ div {
             attribute scapVersion { "1.3" | "1.2" | "1.1" | "1.0"  },
             attribute useCase { "CONFIGURATION" | "VULNERABILITY" | "INVENTORY" | "OTHER"  }
             
-        # Require keyref attribute for scapUri element and 'Ref' elements
-        scapUri.attributes &= attribute keyref { text } 
-        scapCpeListRef.attributes &= attribute keyref { text } 
-        scapBenchmarkRef.attributes &= attribute keyref { text } 
-        scapTailoringRef.attributes &= attribute keyref { text } 
-        scapOvalRef.attributes &= attribute keyref { text } 
-        scapOcilRef.attributes &= attribute keyref { text } 
+        # Require keyref attribute for scapUri element and 'Ref' elements. Restrict keyref to NCName
+        scapUri.attributes &= attribute keyref { xsd:NCName } 
+        scapCpeListRef.attributes &= attribute keyref { xsd:NCName } 
+        scapBenchmarkRef.attributes &= attribute keyref { xsd:NCName } 
+        scapTailoringRef.attributes &= attribute keyref { xsd:NCName } 
+        scapOvalRef.attributes &= attribute keyref { xsd:NCName } 
+        scapOcilRef.attributes &= attribute keyref { xsd:NCName } 
     }
 }

@@ -22,11 +22,8 @@ div {
     div {
         ## Long name: SCAP Data Stream Collection
         scapDataStreamCollection.content = 
-            title?, 
-            topicmeta?, 
-            scapComponent*, 
-            scapDataStream+, 
-            reltable*
+            scapComponent+, 
+            scapDataStream+
         scapDataStreamCollection.attributes = 
             attribute title { text }?,
 #            attribute id { xsd:ID }?, 
