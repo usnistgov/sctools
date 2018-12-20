@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xccdf:Tailoring xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" id="xccdf_scap-workbench_tailoring_default">
+  <xccdf:benchmark href="C:/Users/lubell/Documents/Repositories/sctools/dita/examples/U_Windows_10_V1R13_STIG_SCAP_1-2/out/U_Windows_10_V1R13_STIG_SCAP_1-2.xml"/>
+  <xccdf:version time="2018-12-20T13:42:51">1</xccdf:version>
+  <xccdf:Profile id="xccdf_mil.disa.stig_profile_Disable_Slow_Rules_passphrase" extends="xccdf_mil.disa.stig_profile_Disable_Slow_Rules">
+    <xccdf:title xmlns:xhtml="http://www.w3.org/1999/xhtml" xml:lang="en" override="true">Disable Slow Rules [CUSTOMIZED]</xccdf:title>
+    <xccdf:description xmlns:xhtml="http://www.w3.org/1999/xhtml" xml:lang="en" override="true">This profile disables rules known to have poor performance in some environments, such as systems with large numbers of user accounts.</xccdf:description>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63601" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63611" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63619" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63625" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63843" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63845" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63847" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63851" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63853" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63855" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63857" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63859" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63861" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63863" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63865" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63869" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63875" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63881" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63883" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63887" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63889" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63891" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63917" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63925" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63927" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63931" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63933" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63935" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63939" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63941" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-77861r1_rule" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63371" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-77909r1_rule" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63419" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-77917r1_rule" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63427" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-78151r1_rule" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63661" selected="false"/>
+    <xccdf:set-value idref="xccdf_mil.disa.stig_value_password_minimum_length_var">20</xccdf:set-value>
+    <xccdf:set-value idref="xccdf_mil.disa.stig_value_password_complexity_var">0</xccdf:set-value>
+  </xccdf:Profile>
+</xccdf:Tailoring>

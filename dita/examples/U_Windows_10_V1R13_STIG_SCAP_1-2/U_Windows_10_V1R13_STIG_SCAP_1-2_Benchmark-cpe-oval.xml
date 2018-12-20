@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5"
+                  xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <generator>
+        <oval:product_name>repotool</oval:product_name>
+        <oval:schema_version>5.10</oval:schema_version>
+        <oval:timestamp>2018-11-13T11:16:22</oval:timestamp>
+      </generator>
+      <definitions>
+        <definition id="oval:mil.disa.stig.windows:def:1" version="1" class="inventory">
+          <metadata>
+            <title>Microsoft Windows 10</title>
+            <affected family="windows">
+              <platform>Microsoft Windows 10</platform>
+              <!-- including Microsoft Windows 8 only for the purpose of allowing SCV 1.2.1.13 validation to pass; it does not recognize Microsoft Windows 10 -->
+              <platform>Microsoft Windows 8</platform>
+            </affected>
+            <reference source="CPE" ref_id="cpe:/o:microsoft:windows_10:-:-:~-~-~-~-~"/>
+            <description>Microsoft Windows 10 is the installed operating system</description>
+          </metadata>
+          <criteria operator="AND">
+            <criterion comment="The installed operating system belongs to the Microsoft Windows family"
+                       test_ref="oval:mil.disa.stig.windows:tst:100"/>
+            <criterion comment="The installed operating system is Microsoft Windows 10"
+                       test_ref="oval:mil.disa.stig.windows:tst:101"/>
+          </criteria>
+        </definition>
+      </definitions>
+      <tests>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+                   id="oval:mil.disa.stig.windows:tst:100"
+                   version="1"
+                   comment="The installed operating system belongs to the Microsoft Windows family"
+                   check_existence="at_least_one_exists"
+                   check="all">
+          <object object_ref="oval:mil.disa.stig.windows:obj:100"/>
+          <state state_ref="oval:mil.disa.stig.windows:ste:100"/>
+        </family_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows"
+                     id="oval:mil.disa.stig.windows:tst:101"
+                     version="1"
+                     comment="The installed operating system is Windows 10"
+                     check_existence="at_least_one_exists"
+                     check="all">
+          <object object_ref="oval:mil.disa.stig.windows:obj:101"/>
+          <state state_ref="oval:mil.disa.stig.windows:ste:101"/>
+        </registry_test>
+      </tests>
+      <objects>
+        <family_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+                     id="oval:mil.disa.stig.windows:obj:100"
+                     version="1"
+                     comment="OS family"/>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows"
+                       id="oval:mil.disa.stig.windows:obj:101"
+                       version="2"
+                       comment="ProductName registry entry">
+          <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+          <key datatype="string">SOFTWARE\Microsoft\Windows NT\CurrentVersion</key>
+          <name datatype="string">ProductName</name>
+        </registry_object>
+      </objects>
+      <states>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
+                    id="oval:mil.disa.stig.windows:ste:100"
+                    version="1"
+                    comment="Microsoft Windows family">
+          <family operation="equals">windows</family>
+        </family_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows"
+                      id="oval:mil.disa.stig.windows:ste:101"
+                      version="1"
+                      comment="Microsoft Windows 10 registry entry state">
+          <value operation="pattern match">^[Ww][Ii][Nn][Dd][Oo][Ww][Ss] 10.*$</value>
+        </registry_state>
+      </states>
+    </oval_definitions>
