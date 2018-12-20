@@ -101,6 +101,13 @@
         <xsl:call-template name="cref"/>
     </xsl:template>
     
+    <!-- TailoringRef -->
+    <xsl:template match="*[contains(
+        @class,
+        ' scapDataStream-d/scapTailoringRef ')]">
+        <xsl:call-template name="cref"/>
+    </xsl:template>
+    
     <!-- OvalRef or OcilRef -->
     <xsl:template match="*[contains(
         @class,
