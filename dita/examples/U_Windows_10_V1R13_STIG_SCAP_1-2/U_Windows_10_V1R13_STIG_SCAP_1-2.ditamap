@@ -22,7 +22,7 @@
                     <scapUri keyref="oval"/>
                 </scapExternalLinks>
             </scapBenchmarkRef>
-            <scapTailoringRef keyref="tailoring"/>            
+            <scapTailoringRef keyref="tailoring"/>
         </scapChecklists>
         <scapChecks>
             <scapOvalRef keyref="oval"/>
