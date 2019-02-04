@@ -22,7 +22,7 @@
 
 <!-- Labels for baseline impact widgets -->
 <!ENTITY L "LOW">
-<!ENTITY M "MODERATE">
+<!ENTITY M "MOD">
 <!ENTITY H "HIGH">
 <!ENTITY X "N/A">
 
@@ -821,7 +821,7 @@
 	    </tr>
 	    <tr class="Heading">
 	      <td>LOW</td>
-	      <td>MODERATE</td>
+	      <td>MOD</td>
 	      <td>HIGH</td>
 	    </tr>
       
@@ -830,7 +830,7 @@
 	      <!-- Cell containing control and control enhancement IDs -->
 	      <td>
 		<div class="Cell">
-		  <xf:trigger>
+		  <xf:trigger class="ControlButton">
 		    <xf:label ref="&CXPath;@number"/>
 		    <xf:hint>
 		      <span>Open security control </span>
@@ -839,7 +839,7 @@
 		    </xf:hint>
 		    <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')/nvd"/>
 		  </xf:trigger>
-		  <xf:trigger ref="instance('i-core-url')/ics">
+		  <xf:trigger class="ControlButton" ref="instance('i-core-url')/ics">
 		    <xf:label><img src="images/factory.ico" alt="factory"/></xf:label>
 		    <xf:hint>
 		      <span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
@@ -878,7 +878,7 @@
 	      <td>
 	  
 		<!-- Drop-down for selecting control impact-->
-		<div class="DropDownCell">
+		<div class="Cell">
 		  <xf:select1 appearance="&ImpactAppearance;" ref="&CXPath;/impact@value">
 		    <xf:label/>&BaselineItemList;
 		    <xf:alert>
@@ -895,7 +895,7 @@
 
 		<!-- Drop-downs for selecting control enhancement impacts -->
 		<xf:repeat id="ceDropDown-repeat" nodeset="instance('i-settings')/enhancement">
-		  <div class="DropDownCell">
+		  <div class="Cell">
 		    <xf:select1 appearance="&ImpactAppearance;" ref="impact@value">
 		      <xf:label/>&BaselineItemList;
 		      <xf:alert>
@@ -916,13 +916,13 @@
 
 	      <!-- Cell containing checkboxes for added supplemental guidance -->
 	      <td>
-		<div class="DropDownCell">
+		<div class="Cell">
 		  <xf:input incremental="true" bind="b-c-gFlag">
 		    <xf:label/>
 		  </xf:input>
 		</div>
 		<xf:repeat nodeset="instance('i-settings')/enhancement/gFlag">
-		  <div class="DropDownCell">
+		  <div class="Cell">
 		    <xf:select1 ref="." appearance="&XRefAppearance;">
 		      <xf:label/>
 		      <xf:item>

@@ -90,7 +90,7 @@ font-weight: bold;
 }
 
 .ControlButton {
-width: 6em;
+    width: 6em;
 }
 
 .SWTitle {
@@ -116,11 +116,10 @@ font-style: italic;}
 .Control {font-weight: bold;}
 
 .Row {vertical-align: top;}
-.Cell {padding: 5px;}
 
-/* For Impact and Supp. Guidance dropdowns. Vertically aligned in Chrome, 
-but not Firefox */
-.DropDownCell {padding: 5px;}
+.Cell {
+    height: 1.5em;
+}
 
 .WideCell {padding: 20px;}
 .Functions {width: 12em;}
