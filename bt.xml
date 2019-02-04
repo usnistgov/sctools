@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- This is an XForms+XHTML document for Baseline Tailor, a user interface for tailoring security controls, browsing the Cybersecurity Framework, and creating a Framework Profile. --><?xml-stylesheet href="xsltforms/xsltforms.xsl" type="application/xml"?><?xsltforms-options debug="no" lang="en_us"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xf="http://www.w3.org/2002/xforms">
+<!-- This is an XForms+XHTML document for Baseline Tailor, a user interface for tailoring security controls, browsing the Cybersecurity Framework, and creating a Framework Profile. --><?xml-stylesheet href="xsltforms/xsltforms.xsl" type="application/xml"?><?xsltforms-options debug="no" lang="en_us"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xs="http://www.w3.org/2001/XMLSchema">
    
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -72,7 +72,7 @@
          
          <xf:instance xmlns="" id="i-updated">
             	
-            <updated>2018/07/03</updated>
+            <updated>2019/02/04</updated>
             
          </xf:instance>
          
@@ -184,7 +184,7 @@
                	  
                <impact label="LOW" value="1"></impact>
                	  
-               <impact label="MODERATE" value="2"></impact>
+               <impact label="MOD" value="2"></impact>
                	  
                <impact label="HIGH" value="3"></impact>
                	  
@@ -1321,7 +1321,7 @@
                                  
                                  <xf:item>
                                     
-                                    <xf:label>MODERATE</xf:label>
+                                    <xf:label>MOD</xf:label>
                                     
                                     <xf:value>2</xf:value>
                                     
@@ -1587,7 +1587,7 @@
                      	      
                      <td>LOW</td>
                      	      
-                     <td>MODERATE</td>
+                     <td>MOD</td>
                      	      
                      <td>HIGH</td>
                      	    
@@ -1603,7 +1603,7 @@
                         		
                         <div class="Cell">
                            		  
-                           <xf:trigger>
+                           <xf:trigger class="ControlButton">
                               		    
                               <xf:label ref="instance('i-settings')/control@number"></xf:label>
                               		    
@@ -1619,7 +1619,7 @@
                               		  
                            </xf:trigger>
                            		  
-                           <xf:trigger ref="instance('i-core-url')/ics">
+                           <xf:trigger class="ControlButton" ref="instance('i-core-url')/ics">
                               		    
                               <xf:label><img alt="factory" src="images/factory.ico" /></xf:label>
                               		    
@@ -1687,7 +1687,7 @@
                         		
                         <!-- Drop-down for selecting control impact-->
                         		
-                        <div class="DropDownCell">
+                        <div class="Cell">
                            		  
                            <xf:select1 appearance="minimal" ref="instance('i-settings')/control/impact@value">
                               		    
@@ -1703,7 +1703,7 @@
                               
                               <xf:item>
                                  
-                                 <xf:label>MODERATE</xf:label>
+                                 <xf:label>MOD</xf:label>
                                  
                                  <xf:value>2</xf:value>
                                  
@@ -1753,7 +1753,7 @@
                         		
                         <xf:repeat id="ceDropDown-repeat" nodeset="instance('i-settings')/enhancement">
                            		  
-                           <div class="DropDownCell">
+                           <div class="Cell">
                               		    
                               <xf:select1 appearance="minimal" ref="impact@value">
                                  		      
@@ -1769,7 +1769,7 @@
                                  
                                  <xf:item>
                                     
-                                    <xf:label>MODERATE</xf:label>
+                                    <xf:label>MOD</xf:label>
                                     
                                     <xf:value>2</xf:value>
                                     
@@ -1825,7 +1825,7 @@
                      	      
                      <td>
                         		
-                        <div class="DropDownCell">
+                        <div class="Cell">
                            		  
                            <xf:input bind="b-c-gFlag" incremental="true">
                               		    
@@ -1837,7 +1837,7 @@
                         		
                         <xf:repeat nodeset="instance('i-settings')/enhancement/gFlag">
                            		  
-                           <div class="DropDownCell">
+                           <div class="Cell">
                               		    
                               <xf:select1 appearance="minimal" ref=".">
                                  		      
