@@ -2031,15 +2031,15 @@
             	
             <div id="div-xref">
                	  
-               <xf:group class="Cell">
+               <xf:group>
                   	    <span>Framework Core subcategories referencing control </span>
                   	    
                   <xf:output ref="instance('i-xref')"></xf:output>
                   	    <span>:</span><br />
                   
                   <!--	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control@number or sp800-53/family=substring-before(instance('i-settings')/control@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control@number))]@id">
-	    <xf:repeat nodeset="instance('i-families')//subcategory@number[../..@number=instance('i-settings')/control@number]"> -->
-                  	    
+    <xf:repeat nodeset="instance('i-families')//subcategory@number[../..@number=instance('i-settings')/control@number]"> -->
+                  
                   <xf:repeat nodeset="instance('i-families')//subcategory@number[../..@number=instance('i-xref')]">
                      	      
                      <xf:trigger>
