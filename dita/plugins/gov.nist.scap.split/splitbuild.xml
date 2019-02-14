@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="gov.nist.scap.split">
+
+    <target name="dita2split" 
+        depends="dita2split.init, 
+        build-init, 
+        dita2split.transform, 
+        dita2split.zip"/>
+
+    <target name="dita2split.init">
+        <basename property="split.filename.root" file="${args.input}" suffix="xml"/>
+        <echo message="split.filename.root: ${split.filename.root}"/>
+        <property name="temp.output.dir.name" value="${split.filename.root}"/>
+        <echo message="temp.output.dir.name: ${temp.output.dir.name}"/>
+        <property name="out.ext" value="xml"/>
+        <property name="args.debug" value="yes"/>
+    </target>
+
+    <target name="dita2split.transform" description="Split SCAP source data stream collection">
+        <echo message="dita.output.dir: ${dita.output.dir}"/>
+        <pipeline message="Split data stream collection into components" taskname="xslt">
+            <xslt basedir="${dita.output.dir}"
+            destdir="${dita.output.dir}"
+            extension="${out.ext}"
+            style=
+                "${dita.plugin.gov.nist.scap.split.dir}${file.separator}xsl${file.separator}split.xsl">
+                <xmlcatalog refid="dita.catalog"/>            
+            </xslt>
+         </pipeline>
+    </target>
+
+    <target name="dita2split.zip" description="Create zip file">
+        <echo message="dita.output.dir: ${dita.output.dir}"/>
+        <echo message="output.dir: ${output.dir}"/>
+        <zip destfile="${output.dir}${file.separator}${split.filename.root}.zip" 
+            basedir="${dita.output.dir}"/>        
+    </target>
+    
+</project>
