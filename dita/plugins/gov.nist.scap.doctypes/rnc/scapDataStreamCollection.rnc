@@ -38,6 +38,7 @@ div {
             a(props scapVersion)
             a(props schematronVersion)
             a(props useCase)
+            a(props localUri)
             (map scapDataStreamCollection scapDataStreamCollection-c)
             (map scapDataStream-d scapDataStream-c)
             '''
@@ -64,6 +65,7 @@ div {
     include "scapVersionAttDomain.rnc"
     include "schematronVersionAttDomain.rnc"
     include "useCaseAttDomain.rnc"
+    include "localUriAttDomain.rnc"
     }
     
 ## ID-DEFINING-ELEMENT OVERRIDES

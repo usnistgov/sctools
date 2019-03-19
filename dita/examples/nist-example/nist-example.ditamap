@@ -3,8 +3,8 @@
     type="application/relax-ng-compact-syntax"?>
 <scapDataStreamCollection reverseDNS="gov.nist" scapName="ind_family_test" 
     schematronVersion="1.3">
-    <scapComponent href="xccdf.xml" keys="family_validation_content-xccdf"/>
-    <scapComponent href="oval.xml" keys="family_validation_content-oval"/>
+    <scapComponent href="checklist-content/xccdf.xml" keys="family_validation_content-xccdf"/>
+    <scapComponent href="checklist-content/oval.xml" keys="family_validation_content-oval"/>
     <scapComponent href="cpe-oval.xml" keys="family_validation_content-cpe-oval"/>
     <scapComponent href="cpe-dictionary.xml" keys="family_validation_content-cpe-dictionary"/>
     <scapDataStream scapName="ind_family_test" scapVersion="1.3" useCase="CONFIGURATION">
@@ -18,7 +18,7 @@
         <scapChecklists>
             <scapBenchmarkRef keyref="family_validation_content-xccdf">
                 <scapExternalLinks>
-                    <scapUri keyref="family_validation_content-oval"/>
+                    <scapUri localUri="oval.xml" keyref="family_validation_content-oval"/>
                 </scapExternalLinks>
             </scapBenchmarkRef>
         </scapChecklists>

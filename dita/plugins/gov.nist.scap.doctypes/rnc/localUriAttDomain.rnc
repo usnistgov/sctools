@@ -1,0 +1,22 @@
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+namespace dita = "http://dita.oasis-open.org/architecture/2005/"
+
+dita:moduleDesc [
+    dita:moduleTitle [ "SCAP Local URI Attribute Domain " ]
+        dita:moduleMetadata [
+            dita:moduleType [ "attributedomain" ]
+            dita:moduleShortName [ "localUriAtt-d" ]
+            dita:domainsContribution [ "a(props localUri)" ]
+        ]
+    ]
+
+div {
+    ## ATTRIBUTE DECLARATION PATTERN
+    localUriAtt-d-attribute =
+        attribute localUri { xsd:anyURI }?
+    }
+        
+div {
+    ## ATTRIBUTE EXTENSION PATTERN
+    props-attribute-extensions &= localUriAtt-d-attribute
+    }

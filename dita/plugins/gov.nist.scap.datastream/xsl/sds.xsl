@@ -130,9 +130,24 @@
     <xsl:template match="*[contains(
         @class,
         ' scapDataStream-d/scapUri ')]">
-        <cat:uri 
+        <xsl:element name="cat:uri">
+            <xsl:attribute name="name">
+                <xsl:choose>
+                    <xsl:when test="@localUri">
+                        <xsl:value-of select="@localUri"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="@href"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
+            <xsl:attribute name="uri">
+                <xsl:value-of select="fn:concat('#', nist:scap-id('cref', @keyref))"/>
+            </xsl:attribute>
+        </xsl:element>
+        <!--<cat:uri 
             name="{@href}" 
-            uri="#{nist:scap-id('cref', @keyref)}"/>
+            uri="#{nist:scap-id('cref', @keyref)}"/>-->
     </xsl:template>
     
     <!-- Component -->

@@ -21,12 +21,21 @@ div {
             attribute scapVersion { "1.3" | "1.2" | "1.1" | "1.0"  },
             attribute useCase { "CONFIGURATION" | "VULNERABILITY" | "INVENTORY" | "OTHER"  }
             
-        # Require keyref attribute for scapUri element and 'Ref' elements. Restrict keyref to NCName
-        scapUri.attributes &= attribute keyref { xsd:NCName } 
+        # Require keyref attribute for scapUri element and 'Ref' elements. Restrict keyref to NCName.
+        # Allow for optional localUri attribute for scapUri element.
+        scapUri.attributes &= 
+            attribute keyref { xsd:NCName },
+            attribute localUri { xsd:anyURI }?
         scapCpeListRef.attributes &= attribute keyref { xsd:NCName } 
         scapBenchmarkRef.attributes &= attribute keyref { xsd:NCName } 
         scapTailoringRef.attributes &= attribute keyref { xsd:NCName } 
         scapOvalRef.attributes &= attribute keyref { xsd:NCName } 
         scapOcilRef.attributes &= attribute keyref { xsd:NCName } 
+        
+        # Suppress unnecessary attributes
+        scapDictionaries.attributes &= empty
+        scapExternalLinks.attributes &= empty
+        scapChecklists.attributes &= empty
+        scapChecks.attributes &= empty
     }
 }
