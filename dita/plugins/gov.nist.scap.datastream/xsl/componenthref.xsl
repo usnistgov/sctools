@@ -42,6 +42,16 @@
         <scapcomponenthref>
             <xsl:value-of select="@href"/>
         </scapcomponenthref>
+        <scapcomponentlocal>
+            <xsl:choose>
+                <xsl:when test="@scope = 'local'">
+                    <xsl:text>true</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>false</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </scapcomponentlocal>
     </xsl:template>
     
 </xsl:stylesheet>
