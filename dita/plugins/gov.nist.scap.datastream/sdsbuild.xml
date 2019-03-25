@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:if="ant.if" xmlns:unless="ant.unless" name="gov.nist.scap.datastream">
+<project xmlns:if="ant:if" xmlns:unless="ant:unless" name="gov.nist.scap.datastream">
     
     <target name="dita2sds" 
         depends="dita2sds.init, 
@@ -46,20 +46,12 @@
     <target name="dita2sds.component-validate" if="root.properties.scapcomponenthref"
         description="Validate component file corresponding to -componentkey parameter">
         <echo message="root.properties.scapcomponenthref=${root.properties.scapcomponenthref}"/>
-        <echo message="root.properties.scapcomponentlocal=${root.properties.scapcomponentlocal}"/>
         <echo message="dita.temp.dir=${dita.temp.dir}"/>
         <echo message="dita.output.dir=${dita.output.dir}"/>
         <basename property="sds.componentfilename.root" 
             file="${root.properties.scapcomponenthref}" suffix="xml"/>
-        <copy todir="${dita.output.dir}" flatten="true">
-            <resources>
-                <file if:true="${root.properties.scapcomponentlocal}"
-                    file="${dita.temp.dir}${file.separator}${root.properties.scapcomponenthref}"/>
-                <!-- This seems to execute even if the component file is local! -->
-                <url if:unless="${root.properties.scapcomponentlocal}"
-                    url="${root.properties.scapcomponenthref}"/>
-            </resources>            
-        </copy>
+        <antcall target="dita2sds.localcomponent"/>
+        <antcall target="dita2sds.externalcomponent"/>
         <java failonerror="true"
             jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
             <arg value="-componentfile"/>
@@ -69,6 +61,29 @@
             <arg value="-valresultfile"/>
             <arg file="${dita.output.dir}${file.separator}${sds.componentfilename.root}-validation-result.xml"/>
         </java>        
+    </target>
+    
+    <target name="dita2sds.localcomponent" if="root.properties.scapcomponentlocal" 
+        unless="root.properties.scapcomponentexternal"
+        description="Copy local component file to dita.output.dir">
+        <echo message="Copying local component"/>
+        <copy todir="${dita.output.dir}" flatten="true">
+            <resources>
+                <file 
+                    file="${dita.temp.dir}${file.separator}${root.properties.scapcomponenthref}"/>
+            </resources>
+        </copy>
+    </target>
+    
+    <target name="dita2sds.externalcomponent" if="root.properties.scapcomponentexternal"
+        unless="root.properties.scapcomponentlocal"
+        description="Copy component file from external location to dita.output.dir">
+        <echo message="Copying external component"/>
+        <copy todir="${dita.output.dir}" flatten="true">
+            <resources>
+                <url url="${root.properties.scapcomponenthref}"/>
+            </resources>
+        </copy>
     </target>
     
     <target name="dita2sds.transform"  unless="sds.componentkey"
