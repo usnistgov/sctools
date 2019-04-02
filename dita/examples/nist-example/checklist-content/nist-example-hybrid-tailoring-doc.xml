@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xccdf:Tailoring xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" 
+  id="xccdf_scap-workbench_tailoring_default">
+  <xccdf:benchmark 
+    href="#scap_gov.nist_cref_content-xccdf"/>
+  <xccdf:version time="2019-04-02T08:27:32">1</xccdf:version>
+  <xccdf:Profile id="xccdf_scap-workbench_profile_no_negation_test">
+    <xccdf:title xml:lang="en-US">(default) [CUSTOMIZED] No Negation Test</xccdf:title>
+    <xccdf:description xml:lang="en-US">This profile doesn't inherit any other profile.</xccdf:description>
+    <xccdf:select idref="xccdf_gov.nist_rule_extend-definition-construct-with-negate-property-9" 
+      selected="false"/>
+  </xccdf:Profile>
+</xccdf:Tailoring>

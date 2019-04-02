@@ -3,13 +3,14 @@
     type="application/relax-ng-compact-syntax"?>
 <scapDataStreamCollection reverseDNS="gov.nist" scapName="example" 
     schematronVersion="1.3">
-    <title>Source Data Stream Collection</title>
+    <title>Source Data Stream Collection: Hybrid Content and Tailoring Component</title>
     <scapComponent href="checklist-content/xccdf.xml" keys="content-xccdf"/>
     <scapComponent scope="external" keys="content-oval"
         href="https://raw.githubusercontent.com/usnistgov/sctools/master/dita/examples/nist-example/checklist-content/oval.xml"/>
     <scapComponent href="cpe-oval.xml" keys="content-cpe-oval"/>
     <scapComponent href="cpe-dictionary.xml" keys="content-cpe-dictionary"/>
-    <scapComponent href="nist-example-hybrid-tailoring.xml" keys="content-tailoring"/>
+    <scapComponent href="checklist-content/nist-example-hybrid-tailoring-doc.xml"
+        keys="content-tailoring"/>
     <scapDataStream scapName="example" scapVersion="1.3" useCase="CONFIGURATION">
         <scapDictionaries>
             <scapCpeListRef keyref="content-cpe-dictionary">
