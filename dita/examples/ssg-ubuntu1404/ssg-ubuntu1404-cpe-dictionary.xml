@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns13:cpe-list xmlns:ns13="http://cpe.mitre.org/dictionary/2.0">
+    <ns13:cpe-item name="cpe:/o:canonical:ubuntu_linux:14.04">
+        <ns13:title xml:lang="en-us">Ubuntu release 14.04 (Trusty)</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_ubuntu1404:def:1</ns13:check>
+    </ns13:cpe-item>
+    <ns13:cpe-item name="cpe:/a:container">
+        <ns13:title xml:lang="en-us">Container</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_is_a_container:def:1</ns13:check>
+    </ns13:cpe-item>
+    <ns13:cpe-item name="cpe:/a:machine">
+        <ns13:title xml:lang="en-us">Bare-metal or Virtual Machine</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_is_a_machine:def:1</ns13:check>
+    </ns13:cpe-item>
+    <ns13:cpe-item name="cpe:/a:gdm">
+        <ns13:title xml:lang="en-us">Package gdm is installed</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_gdm_package:def:1</ns13:check>
+    </ns13:cpe-item>
+    <ns13:cpe-item name="cpe:/a:libuser">
+        <ns13:title xml:lang="en-us">Package libuser is installed</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_libuser_package:def:1</ns13:check>
+    </ns13:cpe-item>
+    <ns13:cpe-item name="cpe:/a:nss-pam-ldapd">
+        <ns13:title xml:lang="en-us">Package nss-pam-ldapd is installed</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_nss-pam-ldapd_package:def:1</ns13:check>
+    </ns13:cpe-item>
+    <ns13:cpe-item name="cpe:/a:pam">
+        <ns13:title xml:lang="en-us">Package pam is installed</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_pam_package:def:1</ns13:check>
+    </ns13:cpe-item>
+    <ns13:cpe-item name="cpe:/a:shadow-utils">
+        <ns13:title xml:lang="en-us">Package shadow-utils is installed</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_shadow-utils_package:def:1</ns13:check>
+    </ns13:cpe-item>
+    <ns13:cpe-item name="cpe:/a:systemd">
+        <ns13:title xml:lang="en-us">Package systemd is installed</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_systemd_package:def:1</ns13:check>
+    </ns13:cpe-item>
+    <ns13:cpe-item name="cpe:/a:yum">
+        <ns13:title xml:lang="en-us">Package yum is installed</ns13:title>
+        <ns13:check href="ssg-ubuntu1404-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_yum_package:def:1</ns13:check>
+    </ns13:cpe-item>
+</ns13:cpe-list>
+
