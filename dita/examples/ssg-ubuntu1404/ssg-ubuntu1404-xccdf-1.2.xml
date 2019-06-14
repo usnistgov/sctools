@@ -3,7 +3,7 @@
     xmlns:ns10="http://checklists.nist.gov/xccdf/1.2"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
-    id="xccdf_org.ssgproject.content_benchmark_UBUNTU-TRUSTY" resolved="1" style="SCAP_1.2" xml:lang="en-US">
+    id="xccdf_org.ssgproject.content_benchmark_UBUNTU-TRUSTY" resolved="1" style="SCAP_1.3" xml:lang="en-US">
       <ns10:status date="2019-05-03">draft</ns10:status>
       <ns10:title xml:lang="en-US">Guide to the Secure Configuration of Ubuntu 14.04</ns10:title>
       <ns10:description xml:lang="en-US">This guide presents a catalog of security-relevant

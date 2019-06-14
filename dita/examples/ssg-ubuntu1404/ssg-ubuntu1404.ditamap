@@ -21,6 +21,7 @@
             <scapBenchmarkRef keyref="xccdf">
                 <scapExternalLinks>
                     <scapUri keyref="oval"/>
+                    <scapUri keyref="ocil"/>
                 </scapExternalLinks>
             </scapBenchmarkRef>
         </scapChecklists>
