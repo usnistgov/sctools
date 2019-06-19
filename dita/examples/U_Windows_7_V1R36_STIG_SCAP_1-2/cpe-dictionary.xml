@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpe-list xmlns="http://cpe.mitre.org/dictionary/2.0">
+    <cpe-item name="cpe:/o:microsoft:windows_7">
+        <title xml:lang="en-US">Microsoft Windows 7</title>
+        <notes xml:lang="en-US">
+            <note>This CPE Name represents version 6.1.7600 of the Windows OS</note>
+        </notes>
+        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="U_Windows_7_V1R36_STIG_SCAP_1-2_Benchmark-cpe-oval.xml">oval:mil.disa.fso.windows:def:3892</check>
+    </cpe-item>
+</cpe-list>

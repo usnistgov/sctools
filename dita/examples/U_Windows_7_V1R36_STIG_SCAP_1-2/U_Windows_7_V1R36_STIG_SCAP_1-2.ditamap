@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection" 
+    type="application/relax-ng-compact-syntax"?>
+<scapDataStreamCollection reverseDNS="mil.disa.stig" 
+    scapName="U_Windows_7_V1R36_STIG_SCAP_1-2_Benchmark" schematronVersion="1.2">
+    <title>Source Data Stream Collection</title>
+    <scapComponent keys="oval" href="oval.xml"/>
+    <scapComponent keys="xccdf" href="xccdf.xml"/>
+    <scapComponent keys="cpe-oval" href="cpe-oval.xml"/>
+    <scapComponent keys="cpe-dict" href="cpe-dictionary.xml"/>
+    <scapDataStream scapName="U_Windows_7_V1R36_STIG_SCAP_1-2_Benchmark" 
+        scapVersion="1.2" useCase="CONFIGURATION">
+        <scapDictionaries>
+            <scapCpeListRef keyref="cpe-dict">
+                <scapExternalLinks>
+                    <scapUri keyref="cpe-oval"/>
+                </scapExternalLinks>
+            </scapCpeListRef>
+        </scapDictionaries>
+        <scapChecklists>
+            <scapBenchmarkRef keyref="xccdf">
+                <scapExternalLinks>
+                    <scapUri keyref="oval"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
+        <scapChecks>
+            <scapOvalRef keyref="oval"/>
+        </scapChecks>
+    </scapDataStream>
+</scapDataStreamCollection>

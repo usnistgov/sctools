@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
+    <generator>
+        <oval:product_name>repotool</oval:product_name>
+        <oval:schema_version>5.10</oval:schema_version>
+        <oval:timestamp>2018-02-27T14:37:08</oval:timestamp>
+    </generator>
+    <definitions>
+        <definition id="oval:mil.disa.fso.windows:def:3892" version="1" class="inventory">
+            <metadata>
+                <title>Microsoft Windows 7 is installed</title>
+                <affected family="windows">
+                    <platform>Microsoft Windows 7</platform>
+                </affected>
+                <reference source="CPE" ref_id="cpe:/o:microsoft:windows_7" />
+                <description>The operating system installed on the system is Microsoft Windows 7</description>
+            </metadata>
+            <criteria operator="AND">
+                <criterion comment="the installed operating system is part of the Microsoft Windows family" test_ref="oval:mil.disa.fso.windows:tst:389200" />
+                <criterion comment="Windows 7 is installed" test_ref="oval:mil.disa.fso.windows:tst:389201" />
+            </criteria>
+        </definition>
+    </definitions>
+    <tests>
+        <family_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.windows:tst:389200" version="1" comment="the installed operating system is part of the Microsoft Windows family" check_existence="at_least_one_exists" check="only one">
+            <!--**MAPPED**oval:org.mitre.oval:tst:99;1-->
+            <object object_ref="oval:mil.disa.fso.windows:obj:389200" />
+            <state state_ref="oval:mil.disa.fso.windows:ste:389200" />
+        </family_test>
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:389201" version="1" comment="Windows 7 is installed" check_existence="at_least_one_exists" check="at least one">
+            <!--**MAPPED**oval:org.mitre.oval:tst:10792;4-->
+            <object object_ref="oval:mil.disa.fso.windows:obj:389201" />
+            <state state_ref="oval:mil.disa.fso.windows:ste:389201" />
+        </registry_test>
+    </tests>
+    <objects>
+        <family_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.windows:obj:389200" version="1" comment="This is the default family object. Only one family object should exist." />
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:389201" version="1" comment="This registry key identifies the Windows ProductName">
+            <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+            <key datatype="string">SOFTWARE\Microsoft\Windows NT\CurrentVersion</key>
+            <name datatype="string">ProductName</name>
+        </registry_object>
+    </objects>
+    <states>
+        <family_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.windows:ste:389200" version="1" comment="Microsoft Windows family">
+            <!--**MAPPED**oval:org.mitre.oval:ste:99;2-->
+            <!--**DOWNGRADE**<family operation="case insensitive equals">windows</family>-->
+            <family operation="equals">windows</family>
+        </family_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:389201" version="1" comment="The registry key matches with Windows 7">
+            <!--**MAPPED**oval:org.mitre.oval:ste:5027;4-->
+            <value operation="pattern match">^.*[Ww][Ii][Nn][Dd][Oo][Ww][Ss] 7.*$</value>
+        </registry_state>
+    </states>
+</oval_definitions>
+
