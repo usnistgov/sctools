@@ -9,6 +9,8 @@
     <scapComponent keys="xccdf" href="ssg-ubuntu1404-xccdf-1.2.xml"/>
     <scapComponent keys="dict" href="ssg-ubuntu1404-cpe-dictionary.xml"/>
     <scapComponent keys="ocil" href="ssg-ubuntu1404-ocil.xml"/>
+    <scapComponent href="apparmor-xccdf.xml" keys="xccdf-apparmor"/>
+    <scapComponent href="apparmor-oval.xml" keys="oval-apparmor"/>
     <scapDataStream scapName="sds" scapVersion="1.3" useCase="OTHER">
         <scapDictionaries>
             <scapCpeListRef keyref="dict">
@@ -24,10 +26,16 @@
                     <scapUri keyref="ocil"/>
                 </scapExternalLinks>
             </scapBenchmarkRef>
+            <scapBenchmarkRef keyref="xccdf-apparmor">
+                <scapExternalLinks>
+                    <scapUri keyref="oval-apparmor"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
         </scapChecklists>
         <scapChecks>
             <scapOvalRef keyref="cpe-oval"/>
             <scapOvalRef keyref="oval"/>
+            <scapOvalRef keyref="oval-apparmor"/>
             <scapOcilRef keyref="ocil"/>
         </scapChecks>
     </scapDataStream>

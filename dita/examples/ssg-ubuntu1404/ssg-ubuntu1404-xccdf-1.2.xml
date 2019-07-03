@@ -47,7 +47,7 @@ trademarks or trademarks of Red Hat, Inc. in the United States and other
 countries. All other names are registered trademarks or trademarks of their
 respective companies.
 </ns10:rear-matter>
-      <ns10:platform idref="cpe:/o:canonical:ubuntu_linux:14.04"/>
+  <ns10:platform idref="cpe:/o:canonical:ubuntu_linux:14.04"/>
       <ns10:version update="https://github.com/OpenSCAP/scap-security-guide/releases/latest">0.1.44</ns10:version>
       <ns10:metadata>
         <dc:publisher>SCAP Security Guide Project</dc:publisher>
