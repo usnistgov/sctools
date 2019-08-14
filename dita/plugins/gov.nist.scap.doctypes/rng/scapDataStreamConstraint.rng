@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <dita:moduleDesc>
+    <dita:moduleTitle>SCAP Data Stream Domain Constraint</dita:moduleTitle>
+    <dita:moduleMetadata>
+      <dita:moduleType>constraint</dita:moduleType>
+      <dita:moduleShortName>scapDataStream</dita:moduleShortName>
+      <dita:domainsContribution>(map scapDataStream-d scapDataStream-c)</dita:domainsContribution>
+    </dita:moduleMetadata>
+  </dita:moduleDesc>
+  <div>
+    <include href="scapDataStreamDomain.rng">
+      <a:documentation>CONTENT MODEL OVERRIDES</a:documentation>
+      <!-- Require scapVersion, useCase, and scapName attributes for scapDataStream element. -->
+      <define name="scapDataStream.attributes" combine="interleave">
+        <attribute name="scapName">
+          <data type="NCName"/>
+        </attribute>
+        <attribute name="scapVersion">
+          <choice>
+            <value>1.3</value>
+            <value>1.2</value>
+            <value>1.1</value>
+            <value>1.0</value>
+          </choice>
+        </attribute>
+        <attribute name="useCase">
+          <choice>
+            <value>CONFIGURATION</value>
+            <value>VULNERABILITY</value>
+            <value>INVENTORY</value>
+            <value>OTHER</value>
+          </choice>
+        </attribute>
+      </define>
+      <!--
+        Require keyref attribute for scapUri element and 'Ref' elements. Restrict keyref to NCName.
+        Allow for optional localUri attribute for scapUri element.
+      -->
+      <define name="scapUri.attributes" combine="interleave">
+        <attribute name="keyref">
+          <data type="NCName"/>
+        </attribute>
+        <optional>
+          <attribute name="localUri">
+            <data type="anyURI"/>
+          </attribute>
+        </optional>
+      </define>
+      <define name="scapCpeListRef.attributes" combine="interleave">
+        <attribute name="keyref">
+          <data type="NCName"/>
+        </attribute>
+      </define>
+      <define name="scapBenchmarkRef.attributes" combine="interleave">
+        <attribute name="keyref">
+          <data type="NCName"/>
+        </attribute>
+      </define>
+      <define name="scapTailoringRef.attributes" combine="interleave">
+        <attribute name="keyref">
+          <data type="NCName"/>
+        </attribute>
+      </define>
+      <define name="scapOvalRef.attributes" combine="interleave">
+        <attribute name="keyref">
+          <data type="NCName"/>
+        </attribute>
+      </define>
+      <define name="scapOcilRef.attributes" combine="interleave">
+        <attribute name="keyref">
+          <data type="NCName"/>
+        </attribute>
+      </define>
+      <!-- Suppress unnecessary attributes -->
+      <define name="scapDictionaries.attributes" combine="interleave">
+        <empty/>
+      </define>
+      <define name="scapExternalLinks.attributes" combine="interleave">
+        <empty/>
+      </define>
+      <define name="scapChecklists.attributes" combine="interleave">
+        <empty/>
+      </define>
+      <define name="scapChecks.attributes" combine="interleave">
+        <empty/>
+      </define>
+    </include>
+  </div>
+</grammar>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <dita:moduleDesc>
+    <dita:moduleTitle>Reverse-DNS Attribute Domain </dita:moduleTitle>
+    <dita:moduleMetadata>
+      <dita:moduleType>attributedomain</dita:moduleType>
+      <dita:moduleShortName>reverseDNSAtt-d</dita:moduleShortName>
+      <dita:domainsContribution>a(props reverseDNS)</dita:domainsContribution>
+    </dita:moduleMetadata>
+  </dita:moduleDesc>
+  <div>
+    <define name="reverseDNSAtt-d-attribute">
+      <a:documentation>ATTRIBUTE DECLARATION PATTERN</a:documentation>
+      <optional>
+        <attribute name="reverseDNS">
+          <data type="string">
+            <param name="pattern">[a-zA-Z0-9\-\.]+</param>
+          </data>
+        </attribute>
+      </optional>
+    </define>
+  </div>
+  <div>
+    <define name="props-attribute-extensions" combine="interleave">
+      <a:documentation>ATTRIBUTE EXTENSION PATTERN</a:documentation>
+      <ref name="reverseDNSAtt-d-attribute"/>
+    </define>
+  </div>
+</grammar>

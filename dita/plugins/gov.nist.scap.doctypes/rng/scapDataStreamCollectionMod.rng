@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0">
+  <dita:moduleDesc>
+    <dita:moduleTitle>SCAP Data Stream Collection Module</dita:moduleTitle>
+    <dita:moduleMetadata>
+      <dita:moduleType>map</dita:moduleType>
+      <dita:moduleShortName>scapDataStreamCollection</dita:moduleShortName>
+      <dita:domainsContribution>(map scapDataStreamCollection)</dita:domainsContribution>
+    </dita:moduleMetadata>
+  </dita:moduleDesc>
+  <div>
+    <define name="scapDataStreamCollection">
+      <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+      <ref name="scapDataStreamCollection.element"/>
+    </define>
+    <define name="scapComponent">
+      <ref name="scapComponent.element"/>
+    </define>
+  </div>
+  <div>
+    <div>
+      <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+      <define name="scapDataStreamCollection.content">
+        <a:documentation>Long name: SCAP Data Stream Collection</a:documentation>
+        <optional>
+          <ref name="title"/>
+        </optional>
+        <oneOrMore>
+          <ref name="scapComponent"/>
+        </oneOrMore>
+        <oneOrMore>
+          <ref name="scapDataStream"/>
+        </oneOrMore>
+      </define>
+      <define name="scapDataStreamCollection.attributes">
+        <optional>
+          <attribute name="title"/>
+        </optional>
+        <!--            attribute id { xsd:ID }?, -->
+        <ref name="conref-atts"/>
+        <optional>
+          <attribute name="anchorref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="localization-atts"/>
+        <ref name="topicref-atts"/>
+        <ref name="select-atts"/>
+      </define>
+      <define name="scapDataStreamCollection.element">
+        <element name="scapDataStreamCollection">
+          <ref name="scapDataStreamCollection.attlist"/>
+          <ref name="scapDataStreamCollection.content"/>
+        </element>
+      </define>
+      <define name="scapDataStreamCollection.attlist" combine="interleave">
+        <ref name="scapDataStreamCollection.attributes"/>
+        <ref name="arch-atts"/>
+        <ref name="domains-att"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapComponent.content">
+        <a:documentation>Long name: SCAP Component</a:documentation>
+        <ref name="keydef.content"/>
+      </define>
+      <define name="scapComponent.attributes">
+        <ref name="keydef.attributes"/>
+      </define>
+      <define name="scapComponent.element">
+        <element name="scapComponent">
+          <ref name="scapComponent.attlist"/>
+          <ref name="scapComponent.content"/>
+        </element>
+      </define>
+      <define name="scapComponent.attlist">
+        <ref name="scapComponent.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapDataStreamCollection.attlist" combine="interleave">
+        <a:documentation>SPECIALIZATION ATTRIBUTES</a:documentation>
+        <ref name="global-atts"/>
+        <optional>
+          <attribute name="class" a:defaultValue="- map/map scapDataStreamCollection/scapDataStreamCollection "/>
+        </optional>
+      </define>
+      <define name="scapComponent.attlist" combine="interleave">
+        <ref name="global-atts"/>
+        <optional>
+          <attribute name="class" a:defaultValue="- map/topicref mapgroup-d/keydef scapDataStreamCollection/scapComponent "/>
+        </optional>
+      </define>
+    </div>
+  </div>
+</grammar>

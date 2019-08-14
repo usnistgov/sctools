@@ -8,5 +8,6 @@
   
   <nextCatalog catalog="dtd/catalog.xml"/>
   <nextCatalog catalog="rnc/catalog.xml"/>
+  <nextCatalog catalog="rng/catalog.xml"/>
   
 </catalog>

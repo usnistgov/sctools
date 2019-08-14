@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0">
+  <dita:moduleDesc>
+    <dita:moduleTitle>Schematron Version Attribute Domain </dita:moduleTitle>
+    <dita:moduleMetadata>
+      <dita:moduleType>attributedomain</dita:moduleType>
+      <dita:moduleShortName>schematronVersionAtt-d</dita:moduleShortName>
+      <dita:domainsContribution>a(props schematronVersion)</dita:domainsContribution>
+    </dita:moduleMetadata>
+  </dita:moduleDesc>
+  <div>
+    <define name="schematronVersionAtt-d-attribute">
+      <a:documentation>ATTRIBUTE DECLARATION PATTERN</a:documentation>
+      <optional>
+        <attribute name="schematronVersion">
+          <choice>
+            <value>1.3</value>
+            <value>1.2</value>
+            <value>1.1</value>
+            <value>1.0</value>
+          </choice>
+        </attribute>
+      </optional>
+    </define>
+  </div>
+  <div>
+    <define name="props-attribute-extensions" combine="interleave">
+      <a:documentation>ATTRIBUTE EXTENSION PATTERN</a:documentation>
+      <ref name="schematronVersionAtt-d-attribute"/>
+    </define>
+  </div>
+</grammar>
