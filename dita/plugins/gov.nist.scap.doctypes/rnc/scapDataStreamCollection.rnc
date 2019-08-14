@@ -60,12 +60,12 @@ div {
     [ dita:since = "1.3" ] include "deliveryTargetAttDomain.rnc"
     [ dita:since = "1.3" ] include "ditavalrefDomain.rnc"
     include "highlightDomain.rnc"
-    include "reverseDNSAttDomain.rnc"
+    include "scapReverseDNSAttDomain.rnc"
     include "scapNameAttDomain.rnc"
     include "scapVersionAttDomain.rnc"
-    include "schematronVersionAttDomain.rnc"
-    include "useCaseAttDomain.rnc"
-    include "localUriAttDomain.rnc"
+    include "scapSchematronVersionAttDomain.rnc"
+    include "scapUseCaseAttDomain.rnc"
+    include "scapLocalUriAttDomain.rnc"
     }
     
 ## ID-DEFINING-ELEMENT OVERRIDES
