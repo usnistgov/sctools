@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <dita:moduleDesc>
+    <dita:moduleTitle>SCAP Name Attribute Domain </dita:moduleTitle>
+    <dita:moduleMetadata>
+      <dita:moduleType>attributedomain</dita:moduleType>
+      <dita:moduleShortName>scapNameAtt-d</dita:moduleShortName>
+      <dita:domainsContribution>a(props scapName)</dita:domainsContribution>
+    </dita:moduleMetadata>
+  </dita:moduleDesc>
+  <div>
+    <define name="scapNameAtt-d-attribute">
+      <a:documentation>ATTRIBUTE DECLARATION PATTERN</a:documentation>
+      <optional>
+        <attribute name="scapName">
+          <data type="NCName"/>
+        </attribute>
+      </optional>
+    </define>
+  </div>
+  <div>
+    <define name="props-attribute-extensions" combine="interleave">
+      <a:documentation>ATTRIBUTE EXTENSION PATTERN</a:documentation>
+      <ref name="scapNameAtt-d-attribute"/>
+    </define>
+  </div>
+</grammar>

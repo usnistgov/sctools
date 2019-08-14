@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0">
+  <dita:moduleDesc>
+   <dita:moduleTitle>DITA Delivery Target Attribute Domain </dita:moduleTitle>
+
+   <dita:headerComment>
+=============================================================
+                   HEADER                                    
+=============================================================
+ MODULE:    DITA Delivery Target Attribute Domain            
+ VERSION:   1.3                                              
+ DATE:      June 2012                                        
+                                                             
+=============================================================
+
+=============================================================
+                   PUBLIC DOCUMENT TYPE DEFINITION           
+                   TYPICAL INVOCATION                        
+                                                             
+ Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+      
+PUBLIC "-//OASIS//ENTITIES DITA Delivery Target Domain//EN"
+      
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                             
+PURPOSE:    Declaring the substitution context and domain    
+            entity declarations for the Delivery Target      
+            Attribute Domain                                 
+                                                             
+ORIGINAL CREATION DATE:                                      
+            June 2013                                        
+                                                             
+            (C) Copyright OASIS Open 2013.                   
+            All Rights Reserved.                             
+                                                             
+ UPDATES:                                                    
+=============================================================
+</dita:headerComment>
+
+   <dita:moduleMetadata>
+     <dita:moduleType>attributedomain</dita:moduleType>
+
+     <dita:moduleShortName>deliveryTargetAtt-d</dita:moduleShortName>
+
+     <dita:modulePublicIds>
+       <dita:dtdEnt>-//OASIS//ENTITIES DITA<dita:var presep=" " name="ditaver"/>
+ Delivery Target Attribute Domain//EN</dita:dtdEnt>
+
+       <dita:xsdMod>urn:oasis:names:tc:dita:xsd:deliveryTargetAttDomain.xsd<dita:var presep=":" name="ditaver"/>
+        </dita:xsdMod>
+
+       <dita:rncMod>urn:oasis:names:tc:dita:rnc:deliveryTargetAttDomain.rnc<dita:var presep=":" name="ditaver"/>
+        </dita:rncMod>
+
+       <dita:rngMod>urn:oasis:names:tc:dita:rng:deliveryTargetAttDomain.rng<dita:var presep=":" name="ditaver"/>
+        </dita:rngMod>
+
+     </dita:modulePublicIds>
+
+     <dita:domainsContribution>a(props deliveryTarget)</dita:domainsContribution>
+
+   </dita:moduleMetadata>
+
+ </dita:moduleDesc>
+  <define name="deliveryTargetAtt-d-attribute">
+    <optional>
+      <attribute name="deliveryTarget" dita:since="1.3">
+        <a:documentation>Specifies the delivery target or targets to which an element applies.
+        Typical delivery target values include "pdf", "html", "epub", "print", "online", etc.</a:documentation>
+      </attribute>
+    </optional>
+  </define>
+  <define name="props-attribute-extensions" combine="interleave">
+    <ref name="deliveryTargetAtt-d-attribute"/>
+  </define>
+</grammar>

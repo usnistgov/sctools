@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection" 
+<?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection.rnc" 
     type="application/relax-ng-compact-syntax"?>
+<!--<?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rng:scapDataStreamCollection.rng" 
+    schematypens="http://relaxng.org/ns/structure/1.0"?>-->
 <scapDataStreamCollection reverseDNS="com.example" scapName="ubuntu1404" 
     schematronVersion="1.3">
     <title>Source Data Stream Collection</title>

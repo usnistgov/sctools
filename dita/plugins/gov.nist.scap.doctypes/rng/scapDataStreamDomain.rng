@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0">
+  <dita:moduleDesc>
+    <dita:moduleTitle>SCAP Data Stream Domain</dita:moduleTitle>
+    <dita:moduleMetadata>
+      <dita:moduleType>elementdomain</dita:moduleType>
+      <dita:moduleShortName>scapDataStream-d</dita:moduleShortName>
+      <dita:domainsContribution>(map scapDataStream-d)</dita:domainsContribution>
+    </dita:moduleMetadata>
+  </dita:moduleDesc>
+  <div>
+    <define name="scapDataStream">
+      <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+      <ref name="scapDataStream.element"/>
+    </define>
+    <define name="scapDictionaries">
+      <ref name="scapDictionaries.element"/>
+    </define>
+    <define name="scapCpeListRef">
+      <ref name="scapCpeListRef.element"/>
+    </define>
+    <define name="scapExternalLinks">
+      <ref name="scapExternalLinks.element"/>
+    </define>
+    <define name="scapUri">
+      <ref name="scapUri.element"/>
+    </define>
+    <define name="scapChecklists">
+      <ref name="scapChecklists.element"/>
+    </define>
+    <define name="scapBenchmarkRef">
+      <ref name="scapBenchmarkRef.element"/>
+    </define>
+    <define name="scapTailoringRef">
+      <ref name="scapTailoringRef.element"/>
+    </define>
+    <define name="scapChecks">
+      <ref name="scapChecks.element"/>
+    </define>
+    <define name="scapOvalRef">
+      <ref name="scapOvalRef.element"/>
+    </define>
+    <define name="scapOcilRef">
+      <ref name="scapOcilRef.element"/>
+    </define>
+  </div>
+  <div>
+    <define name="scapDataStream-d-topicref">
+      <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation>
+      <choice>
+        <ref name="scapDataStream"/>
+        <ref name="scapDictionaries"/>
+        <ref name="scapCpeListRef"/>
+        <ref name="scapExternalLinks"/>
+        <ref name="scapUri"/>
+        <ref name="scapChecklists"/>
+        <ref name="scapBenchmarkRef"/>
+        <ref name="scapTailoringRef"/>
+        <ref name="scapChecks"/>
+        <ref name="scapOvalRef"/>
+        <ref name="scapOcilRef"/>
+      </choice>
+    </define>
+    <define name="topicref" combine="choice">
+      <ref name="scapDataStream-d-topicref"/>
+    </define>
+  </div>
+  <div>
+    <define name="scapDataStream-d-common-attributes">
+      <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
+      <optional>
+        <attribute name="navtitle"/>
+      </optional>
+      <optional>
+        <attribute name="href"/>
+      </optional>
+      <optional>
+        <attribute name="keyref"/>
+      </optional>
+      <optional>
+        <attribute name="keys"/>
+      </optional>
+      <optional>
+        <attribute name="query"/>
+      </optional>
+      <optional>
+        <attribute name="copy-to"/>
+      </optional>
+      <optional>
+        <attribute name="outputclass"/>
+      </optional>
+      <ref name="topicref-atts"/>
+      <ref name="univ-atts"/>
+    </define>
+  </div>
+  <div>
+    <div>
+      <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+      <define name="scapDataStream.content">
+        <a:documentation>Long name: SCAP Data Stream</a:documentation>
+        <optional>
+          <ref name="scapDictionaries"/>
+        </optional>
+        <optional>
+          <ref name="scapChecklists"/>
+        </optional>
+        <ref name="scapChecks"/>
+      </define>
+      <define name="scapDataStream.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapDataStream.element">
+        <element name="scapDataStream">
+          <ref name="scapDataStream.attlist"/>
+          <ref name="scapDataStream.content"/>
+        </element>
+      </define>
+      <define name="scapDataStream.attlist" combine="interleave">
+        <ref name="scapDataStream.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapDictionaries.content">
+        <a:documentation>Long name: SCAP Dictionaries</a:documentation>
+        <oneOrMore>
+          <ref name="scapCpeListRef"/>
+        </oneOrMore>
+      </define>
+      <define name="scapDictionaries.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapDictionaries.element">
+        <element name="scapDictionaries">
+          <ref name="scapDictionaries.attlist"/>
+          <ref name="scapDictionaries.content"/>
+        </element>
+      </define>
+      <define name="scapDictionaries.attlist" combine="interleave">
+        <ref name="scapDictionaries.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapChecklists.content">
+        <a:documentation>SCAP Checklistss</a:documentation>
+        <oneOrMore>
+          <choice>
+            <ref name="scapBenchmarkRef"/>
+            <ref name="scapTailoringRef"/>
+          </choice>
+        </oneOrMore>
+      </define>
+      <define name="scapChecklists.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapChecklists.element">
+        <element name="scapChecklists">
+          <ref name="scapChecklists.attlist"/>
+          <ref name="scapChecklists.content"/>
+        </element>
+      </define>
+      <define name="scapChecklists.attlist" combine="interleave">
+        <ref name="scapChecklists.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapChecks.content">
+        <a:documentation>SCAP Checks</a:documentation>
+        <oneOrMore>
+          <choice>
+            <ref name="scapOvalRef"/>
+            <ref name="scapOcilRef"/>
+          </choice>
+        </oneOrMore>
+      </define>
+      <define name="scapChecks.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapChecks.element">
+        <element name="scapChecks">
+          <ref name="scapChecks.attlist"/>
+          <ref name="scapChecks.content"/>
+        </element>
+      </define>
+      <define name="scapChecks.attlist" combine="interleave">
+        <ref name="scapChecks.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapCpeListRef.content">
+        <a:documentation>SCAP CPE List Reference</a:documentation>
+        <optional>
+          <ref name="scapExternalLinks"/>
+        </optional>
+      </define>
+      <define name="scapCpeListRef.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapCpeListRef.element">
+        <element name="scapCpeListRef">
+          <ref name="scapCpeListRef.attlist"/>
+          <ref name="scapCpeListRef.content"/>
+        </element>
+      </define>
+      <define name="scapCpeListRef.attlist" combine="interleave">
+        <ref name="scapCpeListRef.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapBenchmarkRef.content">
+        <a:documentation>SCAP Benchmark Reference</a:documentation>
+        <optional>
+          <ref name="scapExternalLinks"/>
+        </optional>
+      </define>
+      <define name="scapBenchmarkRef.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapBenchmarkRef.element">
+        <element name="scapBenchmarkRef">
+          <ref name="scapBenchmarkRef.attlist"/>
+          <ref name="scapBenchmarkRef.content"/>
+        </element>
+      </define>
+      <define name="scapBenchmarkRef.attlist" combine="interleave">
+        <ref name="scapBenchmarkRef.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapTailoringRef.content">
+        <a:documentation>SCAP Tailoring Reference</a:documentation>
+        <optional>
+          <ref name="scapExternalLinks"/>
+        </optional>
+      </define>
+      <define name="scapTailoringRef.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapTailoringRef.element">
+        <element name="scapTailoringRef">
+          <ref name="scapTailoringRef.attlist"/>
+          <ref name="scapTailoringRef.content"/>
+        </element>
+      </define>
+      <define name="scapTailoringRef.attlist" combine="interleave">
+        <ref name="scapTailoringRef.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapOvalRef.content">
+        <a:documentation>SCAP OVAL Reference</a:documentation>
+        <optional>
+          <ref name="scapExternalLinks"/>
+        </optional>
+      </define>
+      <define name="scapOvalRef.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapOvalRef.element">
+        <element name="scapOvalRef">
+          <ref name="scapOvalRef.attlist"/>
+          <ref name="scapOvalRef.content"/>
+        </element>
+      </define>
+      <define name="scapOvalRef.attlist" combine="interleave">
+        <ref name="scapOvalRef.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapOcilRef.content">
+        <a:documentation>SCAP OCIL Reference</a:documentation>
+        <optional>
+          <ref name="scapExternalLinks"/>
+        </optional>
+      </define>
+      <define name="scapOcilRef.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapOcilRef.element">
+        <element name="scapOcilRef">
+          <ref name="scapOcilRef.attlist"/>
+          <ref name="scapOcilRef.content"/>
+        </element>
+      </define>
+      <define name="scapOcilRef.attlist" combine="interleave">
+        <ref name="scapOcilRef.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapExternalLinks.content">
+        <a:documentation>SCAP External Links</a:documentation>
+        <oneOrMore>
+          <ref name="scapUri"/>
+        </oneOrMore>
+      </define>
+      <define name="scapExternalLinks.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapExternalLinks.element">
+        <element name="scapExternalLinks">
+          <ref name="scapExternalLinks.attlist"/>
+          <ref name="scapExternalLinks.content"/>
+        </element>
+      </define>
+      <define name="scapExternalLinks.attlist" combine="interleave">
+        <ref name="scapExternalLinks.attributes"/>
+      </define>
+    </div>
+    <div>
+      <define name="scapUri.content">
+        <a:documentation>SCAP URI</a:documentation>
+        <empty/>
+      </define>
+      <define name="scapUri.attributes">
+        <ref name="scapDataStream-d-common-attributes"/>
+      </define>
+      <define name="scapUri.element">
+        <element name="scapUri">
+          <ref name="scapUri.attlist"/>
+          <ref name="scapUri.content"/>
+        </element>
+      </define>
+      <define name="scapUri.attlist" combine="interleave">
+        <ref name="scapUri.attributes"/>
+      </define>
+    </div>
+  </div>
+  <div>
+    <define name="scapDataStream.attlist" combine="interleave">
+      <a:documentation>SPECIALIZATION ATTRIBUTES</a:documentation>
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapDataStream "/>
+      </optional>
+    </define>
+    <define name="scapDictionaries.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapDictionaries "/>
+      </optional>
+    </define>
+    <define name="scapCpeListRef.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapCpeListRef "/>
+      </optional>
+    </define>
+    <define name="scapExternalLinks.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapExternalLinks "/>
+      </optional>
+    </define>
+    <define name="scapUri.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapUri "/>
+      </optional>
+    </define>
+    <define name="scapChecklists.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapChecklists "/>
+      </optional>
+    </define>
+    <define name="scapBenchmarkRef.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapBenchmarkRef "/>
+      </optional>
+    </define>
+    <define name="scapTailoringRef.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapTailoringRef "/>
+      </optional>
+    </define>
+    <define name="scapChecks.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapChecks "/>
+      </optional>
+    </define>
+    <define name="scapOvalRef.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapOvalRef "/>
+      </optional>
+    </define>
+    <define name="scapOcilRef.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref scapDataStream-d/scapOcilRef "/>
+      </optional>
+    </define>
+  </div>
+</grammar>

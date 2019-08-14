@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <dita:moduleDesc>
+    <dita:moduleTitle>SCAP Data Stream Collection Constraint</dita:moduleTitle>
+    <dita:moduleMetadata>
+      <dita:moduleType>constraint</dita:moduleType>
+      <dita:moduleShortName>scapDataStreamCollection</dita:moduleShortName>
+      <dita:domainsContribution>(map scapDataStreamCollection scapDataStreamCollection-c)</dita:domainsContribution>
+    </dita:moduleMetadata>
+  </dita:moduleDesc>
+  <div>
+    <include href="scapDataStreamCollectionMod.rng">
+      <a:documentation>CONTENT MODEL OVERRIDES</a:documentation>
+      <!--
+        Require schematronVersion, reverseDNS, and scapName attributes 
+        for scapDataStreamCollection element.
+      -->
+      <define name="scapDataStreamCollection.attributes" combine="interleave">
+        <attribute name="scapName">
+          <data type="NCName"/>
+        </attribute>
+        <attribute name="reverseDNS">
+          <data type="string">
+            <param name="pattern">[a-zA-Z0-9\-\.]+</param>
+          </data>
+        </attribute>
+        <attribute name="schematronVersion">
+          <choice>
+            <value>1.3</value>
+            <value>1.2</value>
+            <value>1.1</value>
+            <value>1.0</value>
+          </choice>
+        </attribute>
+      </define>
+      <!--
+        Assign defaults to scapComponent element's navtitle, format, scope, and processing-role 
+        attributes. Restrict keys to NCName.
+      -->
+      <define name="scapComponent.attributes">
+        <optional>
+          <attribute name="navtitle" a:defaultValue="Component"/>
+        </optional>
+        <optional>
+          <attribute name="format" a:defaultValue="xml"/>
+        </optional>
+        <optional>
+          <attribute name="scope" a:defaultValue="local">
+            <choice>
+              <value>external</value>
+              <value>local</value>
+              <value>peer</value>
+              <value>-dita-use-conref-target</value>
+            </choice>
+          </attribute>
+        </optional>
+        <attribute name="href">
+          <data type="anyURI"/>
+        </attribute>
+        <attribute name="keys">
+          <data type="NCName"/>
+        </attribute>
+        <optional>
+          <attribute name="processing-role" a:defaultValue="resource-only">
+            <choice>
+              <value>normal</value>
+              <value>resource-only</value>
+              <value>-dita-use-conref-target</value>
+            </choice>
+          </attribute>
+        </optional>
+      </define>
+    </include>
+  </div>
+</grammar>

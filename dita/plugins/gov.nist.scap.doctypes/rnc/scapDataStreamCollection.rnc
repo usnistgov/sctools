@@ -12,6 +12,10 @@ dita:moduleDesc [
                 "urn:oasis:names:tc:dita:rnc:basemap.rnc"
                  dita:var [ presep = ":" name = "ditaver" ]
                 ]
+            dita:rngShell [
+                "urn:oasis:names:tc:dita:rng:basemap.rng"
+                 dita:var [ presep = ":" name = "ditaver" ]
+                ]
             ]
         ]
     ]
