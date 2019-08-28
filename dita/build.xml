@@ -6,7 +6,10 @@
   <property file="${user.home}/build.properties.xml"/> <!-- define dita-ot-dir in this file -->
 	
   <property name="dist" location="${basedir}/dist"/>
+  <property name="composer" location="${basedir}/composer"/>
+  <property name="composer-version" value="0.1.0"/>
   <property name="plugin.dist" location="${dist}/plugins"/>
+  <property name="composer.dist" location="${composer}/plugins"/>
   <property name="plugin-src" location="${basedir}/plugins"/>
   <property name="plugin-copy_target" location="${dita-ot-dir}/plugins"/>
   <property name="ot-plugins-base-name" value="gov.nist.scap"/>
@@ -57,6 +60,40 @@
     <!-- Integrate the deployed plugins: -->
     <!--<antcall target="integrate"/>-->
 
+  </target>
+  
+  <target name="scap-composer" depends="dist-toolkit-plugins" 
+    description="create SCAP Composer directory tree from applicable plug-ins">
+    <delete includeemptydirs="true" failonerror="false">
+      <fileset dir="${composer.dist}"/>
+    </delete>
+    <copy todir="${composer.dist}">
+      <fileset dir="${plugin-src}">
+        <!--<include name="gov.nist.scap.split/"/>-->
+        <include name="gov.nist.scap.datastream/"/>
+        <include name="gov.nist.scap.doctypes/rnc/"/>
+        <include name="gov.nist.scap.doctypes/catalog.xml"/>
+        <include name="gov.nist.scap.doctypes/plugin.xml"/>
+        <include name="template_folders/"/>
+      </fileset>
+      <fileset dir="${basedir}">
+        <include name="LICENSE-composer.txt"/>
+        <include name="README-composer.txt"/>
+      </fileset>
+    </copy>
+    <move file="${composer.dist}/LICENSE-composer.txt" tofile="${composer}/LICENSE.txt"/>    
+    <move file="${composer.dist}/README-composer.txt" tofile="${composer}/README.txt">
+      <filterchain>
+        <filterreader classname="org.apache.tools.ant.filters.ReplaceTokens">
+          <param type="token" name="VERSION" value="${composer-version}"/>
+        </filterreader>
+      </filterchain>
+    </move>    
+  </target>
+  
+  <target name="scap-composer-zip" depends="scap-composer"
+    description="zip up SCAP Composer distribution files">
+    <zip basedir="${composer}" destfile="${basedir}/composer-${composer-version}.zip"/>
   </target>
 	
   <target name="dist-init">
