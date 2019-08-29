@@ -38,3 +38,7 @@ components
 tinymce_4.7.1
 schemas.xml
 /dita/examples/ssg-ubuntu1404/composed
+/dita/composer
+/dita/plugins/fox.jason.splash-2.0.0
+/dita/plugins/gov.nist.dita.v1_3.rnc
+/dita/plugins/gov.nist.scap.rncdoctypes

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection" 
+<?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection.rnc" 
     type="application/relax-ng-compact-syntax"?>
 <scapDataStreamCollection reverseDNS="mil.disa.stig" scapName="U_Windows_10_V1R13_STIG" 
     schematronVersion="1.2">

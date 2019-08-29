@@ -9,8 +9,10 @@
   <property name="composer" location="${basedir}/composer"/>
   <property name="composer-version" value="0.1.0"/>
   <property name="plugin.dist" location="${dist}/plugins"/>
-  <property name="composer.dist" location="${composer}/plugins"/>
+  <property name="composer.plugins" location="${composer}/plugins"/>
+  <property name="composer.examples" location="${composer}/examples"/>
   <property name="plugin-src" location="${basedir}/plugins"/>
+  <property name="example-src" location="${basedir}/examples"/>
   <property name="plugin-copy_target" location="${dita-ot-dir}/plugins"/>
   <property name="ot-plugins-base-name" value="gov.nist.scap"/>
 
@@ -62,16 +64,17 @@
 
   </target>
   
-  <target name="scap-composer" depends="dist-toolkit-plugins" 
+  <target name="scap-composer" depends="composer-init, dist-toolkit-plugins" 
     description="create SCAP Composer directory tree from applicable plug-ins">
     <delete includeemptydirs="true" failonerror="false">
-      <fileset dir="${composer.dist}"/>
+      <fileset dir="${composer.plugins}"/>
     </delete>
-    <copy todir="${composer.dist}">
+    <copy todir="${composer.plugins}">
       <fileset dir="${plugin-src}">
         <!--<include name="gov.nist.scap.split/"/>-->
         <include name="gov.nist.scap.datastream/"/>
         <include name="gov.nist.scap.doctypes/rnc/"/>
+        <include name="gov.nist.scap.doctypes/template_folders/"/>
         <include name="gov.nist.scap.doctypes/catalog.xml"/>
         <include name="gov.nist.scap.doctypes/plugin.xml"/>
         <include name="template_folders/"/>
@@ -81,14 +84,23 @@
         <include name="README-composer.txt"/>
       </fileset>
     </copy>
-    <move file="${composer.dist}/LICENSE-composer.txt" tofile="${composer}/LICENSE.txt"/>    
-    <move file="${composer.dist}/README-composer.txt" tofile="${composer}/README.txt">
+    <move file="${composer.plugins}/LICENSE-composer.txt" tofile="${composer}/LICENSE.txt"/>    
+    <move file="${composer.plugins}/README-composer.txt" tofile="${composer}/README.txt">
       <filterchain>
         <filterreader classname="org.apache.tools.ant.filters.ReplaceTokens">
           <param type="token" name="VERSION" value="${composer-version}"/>
         </filterreader>
       </filterchain>
-    </move>    
+    </move>
+    <copy todir="${composer.examples}">
+      <fileset dir="${example-src}">
+        <include name="nist-example/"/>
+        <include name="ssg-ubuntu1404/"/>
+        <include name="U_Windows_10_V1R13_STIG_SCAP_1-2/"/>
+        <exclude name="**/out/"/>
+        <exclude name="**/temp/"/>
+      </fileset>
+    </copy>    
   </target>
   
   <target name="scap-composer-zip" depends="scap-composer"
@@ -100,7 +112,14 @@
     <delete failonerror="false" includeemptydirs="true">
       <fileset dir="${dist}" includes="*/**"/>
     </delete>
-	<mkdir dir="${dist}"/>
+    <mkdir dir="${dist}"/>
   </target>
-
+  
+  <target name="composer-init">
+    <delete failonerror="false" includeemptydirs="true">
+      <fileset dir="${composer}" includes="*/**"/>
+    </delete>
+    <mkdir dir="${composer}"/>
+  </target>
+  
 </project>
