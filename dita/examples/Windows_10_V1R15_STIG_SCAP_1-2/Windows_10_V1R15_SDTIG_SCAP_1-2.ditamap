@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:pubid:scap.nist.gov:doctypes:dita:rnc:scapDataStreamCollection.rnc" 
+    type="application/relax-ng-compact-syntax"?>
+<scapDataStreamCollection reverseDNS="com.example" scapName="collection" 
+    schematronVersion="1.0">
+    <title>Source Data Stream Collection</title>
+    <scapComponent href="U_MS_Windows_10_V1R15_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" keys="cpe-dict"/>
+    <scapComponent keys="oval" href="U_MS_Windows_10_V1R15_STIG_SCAP_1-2_Benchmark-oval.xml"/>
+    <scapComponent href="U_MS_Windows_10_V1R15_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" keys="cpe-oval"/>
+    <scapComponent keys="xccdf" href="U_MS_Windows_10_V1R15_STIG_SCAP_1-2_Benchmark-xccdf.xml"/>
+    <scapDataStream scapName="sds" scapVersion="1.2" useCase="CONFIGURATION">
+        <scapDictionaries>
+            <scapCpeListRef keyref="cpe-dict">
+                <scapExternalLinks>
+                    <scapUri keyref="cpe-oval"/>
+                </scapExternalLinks>
+            </scapCpeListRef>
+        </scapDictionaries>
+        <scapChecklists>
+            <scapBenchmarkRef keyref="xccdf">
+                <scapExternalLinks>
+                    <scapUri keyref="oval"/>
+                </scapExternalLinks>
+            </scapBenchmarkRef>
+        </scapChecklists>
+        <scapChecks>
+            <scapOvalRef keyref="oval"/>
+            <scapOvalRef keyref="cpe-oval"/>
+        </scapChecks>
+    </scapDataStream>
+</scapDataStreamCollection>
