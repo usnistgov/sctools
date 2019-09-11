@@ -8,6 +8,7 @@
     <scapComponent keys="oval" href="U_MS_Windows_10_V1R15_STIG_SCAP_1-2_Benchmark-oval.xml"/>
     <scapComponent href="U_MS_Windows_10_V1R15_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" keys="cpe-oval"/>
     <scapComponent keys="xccdf" href="U_MS_Windows_10_V1R15_STIG_SCAP_1-2_Benchmark-xccdf.xml"/>
+    <scapComponent href="Windows_10_V1R15_STIG_SCAP_1-2-tailoring.xml" keys="tailoring"/>
     <scapDataStream scapName="sds" scapVersion="1.2" useCase="CONFIGURATION">
         <scapDictionaries>
             <scapCpeListRef keyref="cpe-dict">
@@ -22,6 +23,7 @@
                     <scapUri keyref="oval"/>
                 </scapExternalLinks>
             </scapBenchmarkRef>
+            <scapTailoringRef keyref="tailoring"/>            
         </scapChecklists>
         <scapChecks>
             <scapOvalRef keyref="oval"/>

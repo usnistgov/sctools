@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xccdf:Tailoring xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" id="xccdf_scap-workbench_tailoring_MAC-3-Public">
+  <xccdf:benchmark href="#scap_com.example_cref_xccdf"/>
+  <xccdf:version time="2019-09-03T13:42:22">1</xccdf:version>
+  <xccdf:Profile id="xccdf_mil.disa.stig_profile_MAC-3_Public">
+    <xccdf:title xml:lang="en-US">III - Administrative Public [CUSTOMIZED]</xccdf:title>
+    <xccdf:description xml:lang="en-US">This profile requires longer passwords, but with more lenient age limits.</xccdf:description>
+    <xccdf:select idref="xccdf_mil.disa.stig_group_V-63419" selected="false"/>
+    <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-77909r1_rule" selected="false"/>
+    <xccdf:set-value idref="xccdf_mil.disa.stig_value_password_minimum_length_var">15</xccdf:set-value>
+    <xccdf:set-value idref="xccdf_mil.disa.stig_value_password_maximum_age_var">7776000</xccdf:set-value>
+  </xccdf:Profile>
+</xccdf:Tailoring>
