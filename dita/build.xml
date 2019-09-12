@@ -96,9 +96,10 @@
       <fileset dir="${example-src}">
         <include name="nist-example/"/>
         <include name="ssg-ubuntu1404/"/>
-        <include name="U_Windows_10_V1R13_STIG_SCAP_1-2/"/>
+        <include name="Windows_10_V1R15_STIG_SCAP_1-2/"/>
         <exclude name="**/out/"/>
         <exclude name="**/temp/"/>
+        <exclude name="**/composed/"/>
       </fileset>
     </copy>    
   </target>
