@@ -98,6 +98,18 @@
                 <xmlcatalog refid="dita.catalog"/>            
             </xslt>
         </pipeline>
+        <pipeline message="Create DITA map referencing conversion output" taskname="xslt">
+            <xslt basedir="${dita.output.dir}"
+                destdir="${dita.output.dir}"
+                extension="ditamap"
+                style=
+                "${dita.plugin.gov.nist.scap.datastream.dir}${file.separator}xsl${file.separator}sdsditamap.xsl">
+                <ditafileset format="ditamap" processingRole="normal"/>
+                <mapper type="merge" to="ditamap-${sds.filename.root}.ditamap"/>
+                <param name="sdsuri" expression="${sds.filename.root}.${out.ext}"/>
+                <xmlcatalog refid="dita.catalog"/>            
+            </xslt>
+        </pipeline>
     </target>
     
     <target name="dita2sds.scapval" if="sds.scapval" unless="sds.componentkey"
