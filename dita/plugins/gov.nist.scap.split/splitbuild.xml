@@ -3,29 +3,46 @@
 
     <target name="dita2split" 
         depends="dita2split.init, 
-        build-init, 
+        build-init,
+        preprocess, 
+        depend.preprocess.post,
         dita2split.transform, 
         dita2split.zip"/>
 
     <target name="dita2split.init">
-        <basename property="split.filename.root" file="${args.input}" suffix="xml"/>
-        <property name="temp.output.dir.name" value="${split.filename.root}"/>
+        <basename property="split.filename.root" file="${args.input}" suffix="ditamap"/>
+        <basename property="temp.output.dir.name" file="${split.filename.root}"/>
         <property name="out.ext" value="xml"/>
         <property name="args.debug" value="yes"/>
     </target>
     
+    <target name="depend.preprocess.post" description="Copy referenced sds collection file to temp directory">
+        <copy todir="${dita.temp.dir}">
+            <ditafileset format="xml"/>
+        </copy>
+    </target>
+    
     <target name="dita2split.transform" description="Split SCAP source data stream collection">
-        <xslt in="${split.filename.root}.${out.ext}"
-            destdir="${dita.output.dir}"
-            style=
+        <echo message="args.input: ${args.input}"/>
+        <echo message="split.filename.root: ${split.filename.root}"/>
+        <echo message="temp.output.dir.name: ${temp.output.dir.name}"/>
+        <echo message="dita.output.dir: ${dita.output.dir}"/>
+        <pipeline message="Convert DITA SCAP map to data stream collection format" taskname="xslt">
+            <xslt basedir="${dita.output.dir}"
+                destdir="${dita.output.dir}"
+                extension="${out.ext}"
+                style=
                 "${dita.plugin.gov.nist.scap.split.dir}${file.separator}xsl${file.separator}split.xsl">
-            <xmlcatalog refid="dita.catalog"/>
-        </xslt>
+                <ditafileset format="ditamap" processingRole="normal"/>
+                <param name="destdir" expression="${dita.output.dir}"/>
+                <xmlcatalog refid="dita.catalog"/>            
+            </xslt>
+        </pipeline>
     </target>
 
     <target name="dita2split.zip" description="Create zip file">
         <zip destfile="${output.dir}${file.separator}${split.filename.root}.zip" 
-            basedir="${dita.output.dir}"/>        
+            basedir="${dita.output.dir}"/>                    
     </target>
     
 </project>
