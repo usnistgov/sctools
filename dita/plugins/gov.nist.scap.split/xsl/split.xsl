@@ -11,7 +11,7 @@
     version="2.0">
     
     <xsl:output indent="yes" method="xml"/>
-    <xsl:param name="destdir" as="xs:anyURI"/>
+    <xsl:param name="destdir"/>
     
     <xsl:function name="nist:filename" as="xs:string">
         <xsl:param name="compid" as="xs:string"/>
@@ -53,9 +53,11 @@
         <xsl:message>Entering sds:component</xsl:message>
         <xsl:message>destdir=</xsl:message>
         <xsl:message select="$destdir"/>
+        <xsl:message>@id=</xsl:message>
+        <xsl:message select="@id"/>
         <xsl:message>nist:filename(@id)=</xsl:message>
         <xsl:message select="nist:filename(@id)"/>
-        <xsl:result-document href="{$destdir}/{nist:filename(@id)}">
+        <xsl:result-document href="fn:concat($destdir, '/', nist:filename(@id))">
             <xsl:message>Creating result document</xsl:message>
             <xsl:apply-templates select="*"/>            
         </xsl:result-document>
