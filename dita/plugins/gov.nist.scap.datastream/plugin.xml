@@ -2,7 +2,7 @@
 <?xml-model href="dita-ot/plugin.rnc" type="application/relax-ng-compact-syntax"?>
 <plugin id="gov.nist.scap.datastream">
     <require plugin="gov.nist.scap.doctypes"/>
-    <transtype name="sds" desc="SCAP Data Stream Collection">
+    <transtype name="sds" desc="compose SCAP Data Stream Collection from component files">
         <param name="sds.scapval"
             desc="URI of NIST SCAP Content Validation Tool jar file"
             type="file"/>

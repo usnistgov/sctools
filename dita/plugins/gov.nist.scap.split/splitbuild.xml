@@ -31,7 +31,6 @@
             <xslt basedir="${dita.output.dir}"
                 destdir="${dita.output.dir}"
                 extension="${out.ext}"
-                filedirparameter="destdir"
                 style=
                 "${dita.plugin.gov.nist.scap.split.dir}${file.separator}xsl${file.separator}split.xsl">
                 <ditafileset format="ditamap" processingRole="normal"/>

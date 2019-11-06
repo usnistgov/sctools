@@ -11,27 +11,24 @@
     version="2.0">
     
     <xsl:output indent="yes" method="xml"/>
-    <xsl:param name="destdir"/>
     
     <xsl:function name="nist:filename" as="xs:string">
         <xsl:param name="compid" as="xs:string"/>
         <xsl:variable name="href" select="fn:substring-after($compid, '_comp_')"/>
         <xsl:choose>
             <xsl:when test="fn:ends-with($href, '.xml')">
-                <xsl:sequence select="$href"/>                
+                <xsl:value-of select="$href"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:sequence select="fn:concat($href, '.xml')"/>
+                <xsl:value-of select="fn:concat($href, '.xml')"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
     
-    <xsl:template match="/processing-instruction()"/>
-    
     <xsl:template match="*[contains(
         @class, 
         ' map/map ')]">
-        <xsl:message>Entering map</xsl:message>
+        <xsl:message>Matching DITA map</xsl:message>
         <xsl:apply-templates select="*[contains(
             @class,
             ' map/topicref ')]"/>
@@ -40,25 +37,29 @@
     <xsl:template match="*[contains(
         @class,
         ' map/topicref ')]">
-        <xsl:message>Entering topicref</xsl:message>
+        <xsl:message>Matching topicref</xsl:message>
         <xsl:apply-templates select="document(@href)"/>
     </xsl:template>
     
     <xsl:template match="sds:data-stream-collection">
-        <xsl:message>Entering sds:data-stream-collection</xsl:message>
+        <xsl:message>
+            <xsl:text>Matching data stream collection id=</xsl:text>
+            <xsl:value-of select="@id"/>
+        </xsl:message>
         <xsl:apply-templates select="sds:component"/>
     </xsl:template>
         
     <xsl:template match="sds:component">
-        <xsl:message>Entering sds:component</xsl:message>
-        <xsl:message>destdir=</xsl:message>
-        <xsl:message select="$destdir"/>
-        <xsl:message>@id=</xsl:message>
-        <xsl:message select="@id"/>
-        <xsl:message>nist:filename(@id)=</xsl:message>
-        <xsl:message select="nist:filename(@id)"/>
-        <xsl:result-document href="fn:concat($destdir, '/', nist:filename(@id))">
-            <xsl:message>Creating result document</xsl:message>
+        <xsl:message>
+            <xsl:text>Matching component id=</xsl:text>
+            <xsl:value-of select="@id"/>
+        </xsl:message>
+        <xsl:variable name="filename" select="nist:filename(@id)" as="xs:string"/>
+        <xsl:result-document href="{$filename}">
+            <xsl:message>
+                <xsl:text>Creating file </xsl:text>
+                <xsl:value-of select="$filename"/>
+            </xsl:message>
             <xsl:apply-templates select="*"/>            
         </xsl:result-document>
     </xsl:template>
