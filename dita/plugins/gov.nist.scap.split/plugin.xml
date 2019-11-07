@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="dita-ot/plugin.rnc" type="application/relax-ng-compact-syntax"?>
 <plugin id="gov.nist.scap.split">
+    <require plugin="gov.nist.scap.doctypes"/>
     <transtype name="split" desc="split SCAP Data Stream Collection into component files"/>    
     <feature extension="dita.conductor.transtype.check" value="split"/>
     <feature extension="ant.import" file="splitbuild.xml"/>

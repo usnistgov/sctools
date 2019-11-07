@@ -24,6 +24,8 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
+
+    <xsl:template match="/processing-instruction()"/>
     
     <xsl:template match="*[contains(
         @class, 

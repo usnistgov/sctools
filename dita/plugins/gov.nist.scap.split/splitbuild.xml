@@ -40,6 +40,9 @@
     </target>
 
     <target name="dita2split.zip" description="Create zip file">
+        <!-- Delete empty file. -->
+        <delete file="${dita.output.dir}${file.separator}${split.filename.root}.${out.ext}"/>
+        
         <zip destfile="${output.dir}${file.separator}${split.filename.root}.zip" 
             basedir="${dita.output.dir}"/>                    
     </target>
