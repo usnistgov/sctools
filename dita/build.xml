@@ -7,7 +7,7 @@
 	
   <property name="dist" location="${basedir}/dist"/>
   <property name="composer" location="${basedir}/composer"/>
-  <property name="composer-version" value="0.2.0"/>
+  <property name="composer-version" value="0.2.1"/>
   <property name="plugin.dist" location="${dist}/plugins"/>
   <property name="composer.plugins" location="${composer}/plugins"/>
   <property name="composer.examples" location="${composer}/examples"/>
@@ -81,10 +81,12 @@
         <include name="template_folders/"/>
       </fileset>
       <fileset dir="${basedir}">
+        <include name="scapComposer.scenarios"/>
         <include name="LICENSE-composer.txt"/>
         <include name="README-composer.txt"/>
       </fileset>
     </copy>
+    <move file="${composer.plugins}/scapComposer.scenarios" tofile="${composer}/scapComposer.scenarios"/>
     <move file="${composer.plugins}/LICENSE-composer.txt" tofile="${composer}/LICENSE.txt"/>    
     <move file="${composer.plugins}/README-composer.txt" tofile="${composer}/README.txt">
       <filterchain>
