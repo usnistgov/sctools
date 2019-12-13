@@ -24,7 +24,7 @@ div {
         # Assign defaults to scapComponent element's navtitle, format, scope, and processing-role 
         # attributes. Restrict keys to NCName.
         scapComponent.attributes = 
-        [ a:defaultValue = "Component" ]
+        [ a:defaultValue = "scapComponent" ]
         attribute navtitle { text }?,
         [ a:defaultValue = "xml" ]
         attribute format { text }?,
