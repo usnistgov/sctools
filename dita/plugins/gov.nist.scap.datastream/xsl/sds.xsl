@@ -133,11 +133,12 @@
         <xsl:element name="cat:uri">
             <xsl:attribute name="name">
                 <xsl:choose>
+                    <!-- Unless @localUri specified, using portion of @href after the last forward slash -->
                     <xsl:when test="@localUri">
                         <xsl:value-of select="@localUri"/>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:value-of select="@href"/>
+                        <xsl:value-of select="fn:head(fn:reverse(fn:tokenize(@href, '/')))"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>

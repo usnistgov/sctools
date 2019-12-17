@@ -13,14 +13,14 @@
         <scapDictionaries>
             <scapCpeListRef keyref="content-cpe-dictionary">
                 <scapExternalLinks>
-                    <scapUri localUri="cpe-oval.xml" keyref="content-cpe-oval"/>
+                    <scapUri keyref="content-cpe-oval"/>
                 </scapExternalLinks>
             </scapCpeListRef>
         </scapDictionaries>
         <scapChecklists>
             <scapBenchmarkRef keyref="content-xccdf">
                 <scapExternalLinks>
-                    <scapUri localUri="oval.xml" keyref="content-oval"/>
+                    <scapUri keyref="content-oval"/>
                 </scapExternalLinks>
             </scapBenchmarkRef>
         </scapChecklists>

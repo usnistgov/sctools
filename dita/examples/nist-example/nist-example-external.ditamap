@@ -19,14 +19,14 @@
         <scapDictionaries>
             <scapCpeListRef keyref="family_validation_content-cpe-dictionary">
                 <scapExternalLinks>
-                    <scapUri localUri="cpe-oval.xml" keyref="family_validation_content-cpe-oval"/>
+                    <scapUri keyref="family_validation_content-cpe-oval"/>
                 </scapExternalLinks>
             </scapCpeListRef>
         </scapDictionaries>
         <scapChecklists>
             <scapBenchmarkRef keyref="family_validation_content-xccdf">
                 <scapExternalLinks>
-                    <scapUri localUri="oval.xml" keyref="family_validation_content-oval"/>
+                    <scapUri keyref="family_validation_content-oval"/>
                 </scapExternalLinks>
             </scapBenchmarkRef>
         </scapChecklists>
