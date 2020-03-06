@@ -24,6 +24,6 @@ ComplianceAsCode Ubuntu 14.04 and the additional
 AppArmor-specific XML resources. Use this file as input to SCAP
 Composer.
 
-The `scap1\_2` directory contains an SCAP Composer DITA map 
+The `scap1_2` directory contains an SCAP Composer DITA map 
 with XML resources extracted from the ComplianceAsCode SCAP 1.2
 source data stream collection file.
