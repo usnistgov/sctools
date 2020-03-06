@@ -9,12 +9,12 @@ with additional SCAP content needed for a niche purpose.
 The `original` directory contains the original SCAP 1.2 and 
 SCAP 1.3 source data stream collections from ComplianceAsCode.
 
-The `ssg-ubuntu1404-\*.xml` files are XML resources obtained 
+The `ssg-ubuntu1404-*.xml` files are XML resources obtained 
 by extracting
 content from the SCAP 1.3 source data stream collection's 
 `\<component\>` elements. 
 
-The `apparmor-\*.xml` XML resource files supplement the ComplianceAsCode 
+The `apparmor-*.xml` XML resource files supplement the ComplianceAsCode 
 content with added XCCDF and OVAL content applicable to 
 the Ubuntu AppArmor kernel module.
 
