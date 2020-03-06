@@ -1,8 +1,7 @@
 # Ubuntu 14.04 AppArmor Example
 
 This example, based on Ubuntu Linux 14.04 content from the 
-[ComplianceAsCode GitHub project]
-(https://github.com/ComplianceAsCode/content), illustrates the 
+[ComplianceAsCode GitHub project](https://github.com/ComplianceAsCode/content), illustrates the 
 use of SCAP Composer to supplement an existing SCAP source data 
 stream collection
 with additional SCAP content needed for a niche purpose. 
