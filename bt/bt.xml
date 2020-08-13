@@ -51,26 +51,6 @@
 </xf:item>
 ">
 
-<!-- Populate priorities checkboxes -->
-<!ENTITY PriorityItemList "
-<xf:item>
-  <xf:label>P0</xf:label>
-  <xf:value>4</xf:value>
-</xf:item>
-<xf:item>
-  <xf:label>P1</xf:label>
-  <xf:value>1</xf:value>
-</xf:item>
-<xf:item>
-  <xf:label>P2</xf:label>
-  <xf:value>2</xf:value>
-</xf:item>
-<xf:item>
-  <xf:label>P3</xf:label>
-  <xf:value>3</xf:value>
-</xf:item>
-">
-
 <!-- Actions for subcategory buttons -->
 <!ENTITY SubcategoryButtonActions "
 <xf:action ev:event='DOMActivate'>
@@ -211,12 +191,6 @@
       <xf:instance id="i-baselines" xmlns="">
 	<data>
 	  <baselines>1 2 3</baselines>
-	</data>
-      </xf:instance>
-
-      <xf:instance id="i-priorities" xmlns="">
-	<data>
-	  <priorities>1 2 3</priorities>
 	</data>
       </xf:instance>
 
@@ -720,19 +694,6 @@
 		  </xf:group>
 		</td>
 		<td class="WideCell">
-		  <xf:group ref="instance('i-priorities')/priorities">
-		    <xf:label>Priorities:</xf:label>
-		    <xf:select appearance="full" ref=".">
-		      &PriorityItemList;
-		    </xf:select>
-		    <xf:trigger>
-		      <xf:label>Defaults</xf:label>
-		      <xf:hint>Check P1, P2, and P3 boxes.</xf:hint>
-		      <xf:reset ev:event="DOMActivate"/>
-		    </xf:trigger>
-		  </xf:group>
-		</td>
-		<td class="WideCell">
 		  <xf:input ref="instance('i-restrict')/profileFlag" appearance="full">
 		    <xf:label>Restrict controls to Framework Profile informative references: </xf:label>
 		  </xf:input><br/><br/>
@@ -748,7 +709,7 @@
 
 		  <xf:select1 appearance="&ControlsAppearance;" ref="control@number">
 		    <xf:label>Control:<br/></xf:label>
-		    <xf:itemset nodeset="instance('i-families')/family[@name=instance('i-settings')/family]/control[contains(instance('i-baselines')/baselines,default) and contains(instance('i-priorities')/priorities,priority) and (not(&ProfileFlag;) or subcategory[contains(&Profile;, concat(@number, ' ')) or ends-with(&Profile;, @number)])]">
+		    <xf:itemset nodeset="instance('i-families')/family[@name=instance('i-settings')/family]/control[contains(instance('i-baselines')/baselines,default) and (not(&ProfileFlag;) or subcategory[contains(&Profile;, concat(@number, ' ')) or ends-with(&Profile;, @number)])]">
 		      <xf:label ref="instance('i-families')/family[@name=instance('i-settings')/family]//dropDownLabel[..@number=context()/@number]"/>
 		      <xf:value ref="@number"/>
 		    </xf:itemset>
