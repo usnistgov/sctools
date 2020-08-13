@@ -145,7 +145,7 @@
       </xf:instance>
 
       <xf:instance id="i-version" xmlns="">
-	<version>0.20</version>
+	<version>0.2.0</version>
       </xf:instance>
 
       <xf:instance id="i-updated" xmlns="">
