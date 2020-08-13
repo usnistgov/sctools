@@ -52,6 +52,22 @@
     </xmltask>
   </target>
 
+  <target name="bt-html" depends="lastmodified"
+	  description="create bt.html in the build directory, with NIST header/footer and XSLTForms delay attributes inserted">
+    <xmltask source="bt.html" todir="${build}">
+      <insert path="//updated">${TODAY_US}</insert>
+      <insert path="/html/head/link[1]" position="after">
+	<![CDATA[
+<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
+	]]>
+      </insert>
+      <insert path="/html/head/link[last()]" position="after" file="analytics.xml"/>
+      <insert path="/html/body/*[1]" file="insert/nist-header.xml" position="before"/>
+      <attr path="//xforms-textarea[@class='Guidance']" attr="delay" value="500"/>
+      <insert path="/html/body/*[last()]" file="insert/nist-footer.xml" position="after"/>
+    </xmltask>
+  </target>
+
   <target name="index" depends="lastmodified" description="create index.html in the build directory, with NIST header/footer inserted">
     <xmltask source="index.html" todir="${build}">
       <insert path="/:html/:head/:title" position="after">
