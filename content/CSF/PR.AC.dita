@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_xgj_m2y_5mb">
+    <title>Identity Management, Authentication and Access Control (PR.AC)</title>
+    <shortdesc>Access to physical and logical assets and associated facilities is
+        limited to authorized users, processes, and devices, and is managed
+        consistent with the assessed risk of unauthorized access to authorized
+        activities and transactions.</shortdesc>
+</topic>

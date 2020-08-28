@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+    <title>Cybersecurity Framework Core Taxonomy</title>
+    <topicref audience="ID" href="ID.dita">
+        <topicref audience="ID.AM" href="ID.AM.dita">
+            <topicref audience="ID.AM-1" href="ID.AM-1.dita"/>
+            <topicref audience="ID.AM-2" href="ID.AM-2.dita"/>
+        </topicref>
+        <topicref audience="ID.BE" href="ID.BE.dita">
+            <topicref audience="ID.BE-1" href="ID.BE-1.dita"/>
+        </topicref>
+    </topicref>
+    <topicref audience="PR" href="PR.dita">
+        <topicref audience="PR.AC" href="PR.AC.dita">
+            <topicref audience="PR.AC-1" href="PR.AC-1.dita"/>
+        </topicref>        
+    </topicref>
+</map>

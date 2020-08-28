@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subjectScheme PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "subjectScheme.dtd"> 
+<subjectScheme>
+<hasPart>
+    <subjectdef keys="coreKey">
+        <subjectdef keys="ID" navtitle="IDENTIFY">
+            <subjectdef keys="ID.AM" navtitle="Asset Management">
+                <subjectdef keys="ID.AM-1" navtitle="ID.AM-1"/>                
+                <subjectdef keys="ID.AM-2" navtitle="ID.AM-2"/>                
+            </subjectdef>
+            <subjectdef keys="ID.BE" navtitle="Business Environment">
+                <subjectdef keys="ID.BE-1" navtitle="ID.BE-1"/>                
+            </subjectdef>
+        </subjectdef>
+        <subjectdef keys="PR" navtitle="PROTECT">
+            <subjectdef keys="PR.AC" navtitle="Identity Management, Authentication and Access Control">
+                <subjectdef keys="PR.AC-1" navtitle="PR.AC-1"/>                
+            </subjectdef>
+        </subjectdef>        
+    </subjectdef>
+</hasPart>
+    <enumerationdef>
+        <attributedef name="audience"/>
+        <subjectdef keyref="coreKey"/>
+    </enumerationdef>
+    <enumerationdef>
+        <attributedef name="props"/>
+        <subjectdef/>
+    </enumerationdef>
+    <enumerationdef>
+        <attributedef name="otherprops"/>
+        <subjectdef/>
+    </enumerationdef>
+</subjectScheme>

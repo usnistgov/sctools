@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_mkq_4dy_5mb">
+    <title>PROTECT (PR)</title>
+    <shortdesc>Develop and implement appropriate safeguards to ensure delivery of critical
+        services.</shortdesc>
+    <body>
+        <p>The Protect Function supports the ability to limit or contain the impact of a potential
+            cybersecurity event. Examples of outcome Categories within this Function include:
+            Identity Management and Access Control; Awareness and Training; Data Security;
+            Information Protection Processes and Procedures; Maintenance; and Protective
+            Technology.</p>
+    </body>
+</topic>

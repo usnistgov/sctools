@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ID_BE_1">
+    <title>ID.BE-1</title>
+    <shortdesc>The organization’s role in the supply chain is identified and
+        communicated</shortdesc>
+    <related-links>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/CP-2">
+            <linktext>CP-2</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/SA-12">
+            <linktext>SA-12</linktext>
+        </link>
+    </related-links>
+</topic>

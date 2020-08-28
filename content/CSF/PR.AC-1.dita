@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ID_BE_1">
+    <title>PR.AC-1</title>
+    <shortdesc>Identities and credentials are issued, managed, verified, revoked, and audited for
+        authorized devices, users and processes</shortdesc>
+    <related-links>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/AC-1">
+            <linktext>AC-1</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/AC-2">
+            <linktext>AC-2</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-1">
+            <linktext>IA-1</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-2">
+            <linktext>IA-2</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-3">
+            <linktext>IA-3</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-4">
+            <linktext>IA-4</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-5">
+            <linktext>IA-5</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-6">
+            <linktext>IA-6</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-7">
+            <linktext>IA-7</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-8">
+            <linktext>IA-8</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-10">
+            <linktext>IA-10</linktext>
+        </link>
+        <link format="html" scope="external" href="https://nvd.nist.gov/800-53/Rev4/control/IA-11">
+            <linktext>IA-11</linktext>
+        </link>
+    </related-links>
+</topic>
