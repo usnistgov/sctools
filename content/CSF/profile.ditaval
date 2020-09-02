@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <val>
-    <prop action="exclude" att="audience" val="ID.AM-1"/>
+    <prop action="exclude" att="platform"/>
+    <prop action="include" att="platform" val="ID"/>
+    <prop action="include" att="platform" val="ID.AM"/>
+    <!--<prop action="include" att="platform" val="ID.AM-1"/>-->
+    <prop action="include" att="platform" val="ID.AM-2"/>
+    <prop action="include" att="platform" val="ID.BE"/>
+    <prop action="include" att="platform" val="ID.BE-1"/>
+    <prop action="include" att="platform" val="PR"/>
+    <prop action="include" att="platform" val="PR.AC"/>
+    <prop action="include" att="platform" val="PR.AC-1"/>
 </val>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="FrameworkCore">
+    <title>Framework Core</title>
+    <shortdesc>A set of cybersecurity activities, desired outcomes,
+        and applicable references that are common across critical infrastructure sectors.</shortdesc>
+    <body>
+        <p>The Core presents industry standards, guidelines, and practices in a manner that 
+            allows for communication of cybersecurity activities and outcomes across the 
+            organization from the executive level to the implementation/operations level. The 
+            Framework Core consists of five concurrent and continuous Functions. When considered 
+            together, these Functions provide a high-level, strategic view of the lifecycle of 
+            an organization’s management of cybersecurity risk. The Framework Core then 
+            identifies underlying key Categories and Subcategories – which are discrete outcomes – 
+            for each Function, and matches them with example Informative References such as 
+            existing standards, guidelines, and practices for each Subcategory.</p>
+    </body>
+</topic>
