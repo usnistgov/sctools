@@ -10,19 +10,19 @@
   
   <xsl:function name="nist:fID" as="xs:NMTOKEN">
     <xsl:param name="cell" as="element(functionCol)"/>
-    <xsl:value-of select="substring-after(substring-before($cell,')'),'(')"/>
+    <xsl:sequence select="xs:NMTOKEN(substring-after(substring-before($cell,')'),'('))"/>
   </xsl:function>
   
   <xsl:function name="nist:fName" as="xs:NMTOKEN">
     <xsl:param name="cell" as="element(functionCol)"/>
-    <xsl:value-of select="normalize-space(substring-before($cell,'('))"/>
+    <xsl:sequence select="xs:NMTOKEN(normalize-space(substring-before($cell,'(')))"/>
   </xsl:function>
   
   <xsl:function name="nist:cID" as="xs:NMTOKEN">
     <xsl:param name="row" as="element(row)"/>
-    <xsl:value-of select=
-      "concat(nist:fID($row/functionCol),'.',
-      substring-after(substring-before($row/catCol,')'),'.'))"/>
+    <xsl:sequence select=
+      "xs:NMTOKEN(concat(nist:fID($row/functionCol),'.',
+      substring-after(substring-before($row/catCol,')'),'.')))"/>
   </xsl:function>
   
   <xsl:function name="nist:cName" as="xs:string">
@@ -37,7 +37,7 @@
   
   <xsl:function name="nist:subcatID" as="xs:NMTOKEN">
     <xsl:param name="cell" as="element(subcatCol)"/>
-    <xsl:value-of select="substring-before($cell,':')"/>
+    <xsl:sequence select="xs:NMTOKEN(substring-before($cell,':'))"/>
   </xsl:function>
   
   <xsl:function name="nist:subcatDesc" as="xs:string">
