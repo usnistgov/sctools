@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE subjectScheme PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "subjectScheme.dtd"> 
 <subjectScheme>
-<hasPart>
     <subjectdef keys="coreKey" navtitle="Cybersecurity Framework Profile">
         <subjectdef keys="ID" navtitle="IDENTIFY">
             <subjectdef keys="ID.AM" navtitle="Asset Management">
@@ -18,7 +17,6 @@
             </subjectdef>
         </subjectdef>        
     </subjectdef>
-</hasPart>
     <enumerationdef outputclass="single_value">
         <attributedef name="platform"/>
         <subjectdef keyref="coreKey"/>
