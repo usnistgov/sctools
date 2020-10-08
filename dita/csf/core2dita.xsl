@@ -3,7 +3,7 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:nist="http://www.nist.gov"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  exclude-result-prefixes="xs"
+  exclude-result-prefixes="#all"
   xmlns:fn="http://www.w3.org/2005/xpath-functions">
 
   <xsl:output method="xml" indent="yes"/>
@@ -40,6 +40,12 @@
     <xsl:sequence select="xs:NMTOKEN(substring-before($cell,':'))"/>
   </xsl:function>
   
+  <xsl:function name="nist:subcatNumber" as="xs:positiveInteger">
+    <xsl:param name="cell" as="element(subcatCol)"/>
+    <xsl:sequence select=
+      "xs:positiveInteger(substring-after(substring-before($cell,':'),'-'))"/>
+  </xsl:function>
+  
   <xsl:function name="nist:subcatDesc" as="xs:string">
     <xsl:param name="cell" as="element(subcatCol)"/>
     <xsl:value-of select="normalize-space(substring-after($cell,':'))"/>
@@ -65,9 +71,81 @@
 
   <xsl:template match="/">
     
-<!--    Generate subject scheme map -->
+<!-- Generate subject scheme map -->
+    <xsl:result-document doctype-public="-//OASIS//DTD DITA Subject Scheme Map//EN" doctype-system="subjectScheme.dtd" 
+      href="coreSubjectScheme.ditamap">
+      <subjectScheme>
+        <subjectdef keys="coreKey" navtitle="Cybersecurity Framework Profile">
+          <xsl:for-each select="//row[generate-id() = 
+            generate-id(key('functions', nist:fID(functionCol))[1])]">
+            <xsl:variable name="fID" select="nist:fID(functionCol)"/>
+            <subjectdef keys="{$fID}" navtitle="{functionCol}">
+              <xsl:for-each
+                select="//row[nist:fID(functionCol) = $fID and 
+                generate-id() = generate-id(key('categories', nist:cID(.))[1])]">
+                <xsl:variable name="cID" select="nist:cID(.)"/>
+                <subjectdef keys="{$cID}" navtitle="{nist:cName(catCol)}">
+                  <xsl:for-each
+                    select="//row[nist:fID(functionCol) = $fID and nist:cID(.) = $cID and 
+                    generate-id() = generate-id(key('subcategories', nist:subcatID(subcatCol))[1])]">
+                    <!--<xsl:sort select="nist:subcatID(subcatCol)"/>-->
+                    <xsl:sort select="nist:subcatNumber(subcatCol)" data-type="number"/>
+                    <xsl:variable name="subcatID" select="nist:subcatID(subcatCol)"/>
+                    <subjectdef keys="{$subcatID}" navtitle="{$subcatID}"/>
+                  </xsl:for-each>
+                </subjectdef>
+              </xsl:for-each>
+            </subjectdef>
+          </xsl:for-each>
+        </subjectdef>
+        <enumerationdef outputclass="single_value">
+          <attributedef name="platform"/>
+          <subjectdef keyref="coreKey"/>
+        </enumerationdef>
+        <enumerationdef>
+          <attributedef name="audience"/>
+          <subjectdef/>
+        </enumerationdef>
+        <enumerationdef>
+          <attributedef name="props"/>
+          <subjectdef/>
+        </enumerationdef>
+        <enumerationdef>
+          <attributedef name="otherprops"/>
+          <subjectdef/>
+        </enumerationdef>
+      </subjectScheme>
+    </xsl:result-document>
     
 <!--    Generate core taxonomy map -->
+    <xsl:result-document doctype-public="-//OASIS//DTD DITA Map//EN" doctype-system="map.dtd" 
+      href="coreTaxonomy.ditamap">
+      <map>
+        <title>Cybersecurity Framework Core Taxonomy</title>
+        <topicref href="FrameworkCore.dita">
+        <xsl:for-each select="//row[generate-id() = 
+          generate-id(key('functions', nist:fID(functionCol))[1])]">
+          <xsl:variable name="fID" select="nist:fID(functionCol)"/>
+          <topicref platform="{$fID}" href="{$fID}.dita">
+            <xsl:for-each
+              select="//row[nist:fID(functionCol) = $fID and 
+              generate-id() = generate-id(key('categories', nist:cID(.))[1])]">
+              <xsl:variable name="cID" select="nist:cID(.)"/>
+              <topicref platform="{$cID}" href="{fn:replace($cID, '\.', '/')}.dita">
+                <xsl:for-each
+                  select="//row[nist:fID(functionCol) = $fID and nist:cID(.) = $cID and 
+                  generate-id() = generate-id(key('subcategories', nist:subcatID(subcatCol))[1])]">
+                  <xsl:sort select="nist:subcatNumber(subcatCol)"/>
+                  <xsl:variable name="subcatID" select="nist:subcatID(subcatCol)"/>
+                  <topicref platform="{$subcatID}" href="{fn:replace($subcatID, '\.|-', '/')}.dita"/>
+                </xsl:for-each>
+              </topicref>
+            </xsl:for-each>
+          </topicref>
+        </xsl:for-each>
+        </topicref>
+      </map>
+    </xsl:result-document>
     
 <!--    Generate core topic files -->
     
@@ -82,42 +160,44 @@ generate-id(key('functions', nist:fID(functionCol))[1])]">
             <xsl:with-param name="fID" select="$fID"/>
           </xsl:call-template>
         </xsl:result-document>
-        
-<!--        <function id="{$fID}">
-          <name>
-            <xsl:value-of select="nist:fName(functionCol)"/>
-          </name>
-          <xsl:for-each
-            select="//row[nist:fID(functionCol) = $fID and 
-            generate-id() = generate-id(key('categories', nist:cID(.))[1])]">
-            <xsl:variable name="cID" select="nist:cID(.)"/>
-            <category id="{$cID}">
-              <name>
-                <xsl:value-of select="nist:cName(catCol)"/>
-              </name>
-              <description>
-                <xsl:value-of select="nist:cDesc(catCol)"/>
-              </description>
-              <xsl:for-each
-                select="//row[nist:fID(functionCol) = $fID and nist:cID(.) = $cID and 
-                generate-id() = generate-id(key('subcategories', nist:subcatID(subcatCol))[1])]">
-                <xsl:sort select="nist:subcatID(subcatCol)"/>
-                <xsl:variable name="subcatID" select="nist:subcatID(subcatCol)"/>
-                <subCategory id="{$subcatID}">
-                  <description>
-                    <xsl:value-of select="nist:subcatDesc(subcatCol)"/>
-                  </description>
-                  <xsl:for-each
-                    select="//row[nist:fID(functionCol) = $fID and nist:cID(.) = $cID 
-                    and nist:subcatID(subcatCol) = $subcatID]">
-                    <xsl:call-template name="sp800-53"/>
-                  </xsl:for-each>
-                </subCategory>
-              </xsl:for-each>
-            </category>
-          </xsl:for-each>
-        </function>
--->      </xsl:for-each>
+        <xsl:for-each
+          select="//row[nist:fID(functionCol) = $fID and 
+          generate-id() = generate-id(key('categories', nist:cID(.))[1])]">
+          <xsl:variable name="cID" select="nist:cID(.)"/>
+          
+          <!-- Generate category topic file -->
+          <xsl:result-document doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"
+            href="{$fID}/{$cID}.dita">
+            <xsl:call-template name="category-topic">
+              <xsl:with-param name="cID" select="$cID"/>
+            </xsl:call-template>
+          </xsl:result-document>
+          <category id="{$cID}">
+            <name>
+              <xsl:value-of select="nist:cName(catCol)"/>
+            </name>
+            <description>
+              <xsl:value-of select="nist:cDesc(catCol)"/>
+            </description>
+            <xsl:for-each
+              select="//row[nist:fID(functionCol) = $fID and nist:cID(.) = $cID and 
+              generate-id() = generate-id(key('subcategories', nist:subcatID(subcatCol))[1])]">
+              <xsl:sort select="nist:subcatNumber(subcatCol)"/>
+              <xsl:variable name="subcatID" select="nist:subcatID(subcatCol)"/>
+              <subCategory id="{$subcatID}">
+                <description>
+                  <xsl:value-of select="nist:subcatDesc(subcatCol)"/>
+                </description>
+                <xsl:for-each
+                  select="//row[nist:fID(functionCol) = $fID and nist:cID(.) = $cID 
+                  and nist:subcatID(subcatCol) = $subcatID]">
+                  <xsl:call-template name="sp800-53"/>
+                </xsl:for-each>
+              </subCategory>
+            </xsl:for-each>
+          </category>
+        </xsl:for-each>
+      </xsl:for-each>
   </xsl:template>
   
   <xsl:template name="function-topic">
