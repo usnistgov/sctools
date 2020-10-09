@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+    <title>Cybersecurity Framework Profile</title>
+    <ditavalref href="profile.ditaval"/>
+    <!--<mapref href="ReusableComponents/keys.ditamap"/>-->
+    <topicref format="ditamap" href="coreSubjectScheme.ditamap"/>
+    <topicref format="ditamap" href="coreTaxonomy.ditamap"/>
+</map>
