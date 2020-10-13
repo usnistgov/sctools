@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:nist="http://www.nist.gov"
@@ -9,6 +9,7 @@
   <xsl:output method="xml" indent="yes"/>
   
   <xsl:param name="sp800-53-uri-prefix" select="xs:anyURI('https://nvd.nist.gov/800-53/Rev4/control')"/>
+  <xsl:param name="output-directory" select="xs:anyURI('core')"/>
   
   <xsl:function name="nist:fID" as="xs:NMTOKEN">
     <xsl:param name="cell" as="element(functionCol)"/>
@@ -25,6 +26,11 @@
     <xsl:sequence select=
       "xs:NMTOKEN(concat(nist:fID($row/functionCol),'.',
       substring-after(substring-before($row/catCol,')'),'.')))"/>
+  </xsl:function>
+  
+  <xsl:function name="nist:cSuffix" as="xs:NMTOKEN">
+    <xsl:param name="cell" as="element(catCol)"/>
+    <xsl:sequence select="xs:NMTOKEN(fn:substring-after(fn:substring-before($cell, ')'), '.'))"/>
   </xsl:function>
   
   <xsl:function name="nist:cName" as="xs:string">
@@ -73,9 +79,26 @@
 
   <xsl:template match="/">
     
-<!-- Generate subject scheme map -->
+    <!-- Generate root map -->
+    <xsl:result-document doctype-public="-//OASIS//DTD DITA Map//EN" doctype-system="map.dtd"
+      href="{$output-directory}/core.ditamap">
+      <map>
+        <title>Cybersecurity Framework Profile</title>
+        <ditavalref href="profile.ditaval"/>
+        <!--<mapref href="ReusableComponents/keys.ditamap"/>-->
+        <topicref format="ditamap" href="coreSubjectScheme.ditamap"/>
+        <topicref format="ditamap" href="coreTaxonomy.ditamap"/>
+      </map>      
+    </xsl:result-document>
+    
+    <!-- Generate stub ditaval provile -->
+    <xsl:result-document href="{$output-directory}/profile.ditaval">
+      <val/>
+    </xsl:result-document>
+    
+    <!-- Generate subject scheme map -->
     <xsl:result-document doctype-public="-//OASIS//DTD DITA Subject Scheme Map//EN" doctype-system="subjectScheme.dtd" 
-      href="coreSubjectScheme.ditamap">
+      href="{$output-directory}/coreSubjectScheme.ditamap">
       <subjectScheme>
         <subjectdef keys="coreKey" navtitle="Cybersecurity Framework Profile">
           <xsl:for-each select="//row[generate-id() = 
@@ -119,9 +142,9 @@
       </subjectScheme>
     </xsl:result-document>
     
-<!--    Generate core taxonomy map -->
+    <!--    Generate core taxonomy map -->
     <xsl:result-document doctype-public="-//OASIS//DTD DITA Map//EN" doctype-system="map.dtd" 
-      href="coreTaxonomy.ditamap">
+      href="{$output-directory}/coreTaxonomy.ditamap">
       <map>
         <title>Cybersecurity Framework Core Taxonomy</title>
         <topicref href="FrameworkCore.dita">
@@ -149,15 +172,35 @@
       </map>
     </xsl:result-document>
     
-<!--    Generate core topic files -->
+    <!-- Generate framework core topic file -->
+    <xsl:result-document doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"
+      href="{$output-directory}/FrameworkCore.dita">
+      <topic id="{generate-id()}">
+        <title>Framework Core</title>
+        <shortdesc>A set of cybersecurity activities, desired outcomes,
+          and applicable references that are common across critical infrastructure sectors.</shortdesc>
+        <body>
+          <p>The Core presents industry standards, guidelines, and practices in a manner that 
+            allows for communication of cybersecurity activities and outcomes across the 
+            organization from the executive level to the implementation/operations level. The 
+            Framework Core consists of five concurrent and continuous Functions. When considered 
+            together, these Functions provide a high-level, strategic view of the lifecycle of 
+            an organization's management of cybersecurity risk. The Framework Core then 
+            identifies underlying key Categories and Subcategories — which are discrete outcomes — 
+            for each Function, and matches them with example Informative References such as 
+            existing standards, guidelines, and practices for each Subcategory.</p>
+        </body>
+      </topic>      
+    </xsl:result-document>
     
+      <!--    Generate function, category, and subcategory topic files -->    
       <xsl:for-each select="//row[generate-id() = 
 generate-id(key('functions', nist:fID(functionCol))[1])]">
         <xsl:variable name="fID" select="nist:fID(functionCol)"/>
         
         <!-- Generate function topic file -->
         <xsl:result-document doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd" 
-          href="{$fID}.dita">
+          href="{$output-directory}/{$fID}.dita">
           <xsl:call-template name="function-topic">
             <xsl:with-param name="fID" select="$fID"/>
           </xsl:call-template>
@@ -166,10 +209,23 @@ generate-id(key('functions', nist:fID(functionCol))[1])]">
           select="//row[nist:fID(functionCol) = $fID and 
           generate-id() = generate-id(key('categories', nist:cID(.))[1])]">
           <xsl:variable name="cID" select="nist:cID(.)"/>
+          <xsl:variable name="cSuffix" select="nist:cSuffix(catCol)"/>
           
           <!-- Generate category topic file -->
-          <xsl:result-document doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"
-            href="{$fID}/{$cID}.dita">
+<!--          <xsl:message>
+            <xsl:text>Output directory: </xsl:text>
+            <xsl:value-of select="$output-directory"/>
+          </xsl:message>
+          <xsl:message>
+            <xsl:text>fID: </xsl:text>
+            <xsl:value-of select="$fID"/>
+          </xsl:message>
+          <xsl:message>
+            <xsl:text>cID: </xsl:text>
+            <xsl:value-of select="$cID"/>
+          </xsl:message>
+-->          <xsl:result-document doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"
+            href="{$output-directory}/{$fID}/{$cSuffix}.dita">
             <xsl:call-template name="category-topic">
               <xsl:with-param name="cID" select="$cID"/>
             </xsl:call-template>
@@ -183,7 +239,7 @@ generate-id(key('functions', nist:fID(functionCol))[1])]">
             
             <!-- Generate subcategory topic file -->
             <xsl:result-document doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"
-              href="{$fID}/{$cID}/{$subcatNumber}.dita">
+              href="{$output-directory}/{$fID}/{$cSuffix}/{$subcatNumber}.dita">
               <xsl:call-template name="subcategory-topic">
                 <xsl:with-param name="fID" select="$fID"/>
                 <xsl:with-param name="cID" select="$cID"/>
