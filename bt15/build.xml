@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns:h="http://www.w3.org/1999/xhtml" name="Baseline Tailor" default="zip" basedir=".">
+  <description>Ant build file for Baseline Tailor distribution</description>
+
+  <taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
+  <!-- <taskdef name="schematron" classname="com.schematron.ant.SchematronTask"/> -->
+
+  <!-- set global properties for this build -->
+  <property name="build" location=".."/>
+  <property name="SP800-53" location="800-53-controls.xml"/>
+  <property name="cybercore-exported" location="spreadsheet.xml"/>
+  <property name="SP800-82" location="doc/NIST.SP.800-82r2.html"/>
+  
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+  </target>
+
+  <target name="lastmodified">
+    <tstamp>
+      <format property="TODAY_US" pattern="YYYY/MM/dd" locale="en,US"/>
+    </tstamp>
+  </target>
+
+  <target name="transform">
+    <!-- run XSLTs to generate catalog, families, and cyberframework core instances -->
+    <xslt in="${SP800-53}" out="bt-model/catalog.xml" style="catalog.xsl"/>
+    <xslt in="${cybercore-exported}" out="bt-model/core.xml" style="core11.xsl"/>
+    <xslt in="${SP800-53}" out="bt-model/families.xml" style="families.xsl"/>
+    <xslt in="bt-model/core.xml" out="bt-model/subcategories.xml" style="subcategories.xsl"/>
+    <xslt in="bt-model/core.xml" out="bt-model/cat-dropdown.xml" style="cat-dropdown.xsl"/>
+  </target>
+
+  <target name="ics">
+    <!-- generate ICS overlay HTML files -->
+    <delete file="temp.html"/>
+    <xslt in="${SP800-82}" out="temp.html" style="ics.xsl"/>
+  </target>
+
+  <target name="bt" depends="lastmodified" description="create bt.xml in the build directory, with NIST header/footer and XSLTForms delay attributes inserted">
+    <xmltask source="bt.xml" todir="${build}">
+      <insert path="//updated">${TODAY_US}</insert>
+      <insert path="/:html/:head/:link[1]" position="after">
+	<![CDATA[
+<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
+	]]>
+      </insert>
+      <insert path="/:html/:head/:link[last()]" position="after" file="analytics.xml"/>
+      <insert path="/:html/:body/*[1]" file="insert/nist-header.xml" position="before"/>
+      <attr path="//xf:textarea[@class='Guidance']" attr="delay" value="500"/>
+      <insert path="/:html/:body/*[last()]" file="insert/nist-footer.xml" position="after"/>
+    </xmltask>
+  </target>
+
+  <target name="bt-html" depends="lastmodified"
+	  description="create bt.html in the build directory, with NIST header/footer and XSLTForms delay attributes inserted">
+    <xmltask source="bt.html" todir="${build}">
+      <insert path="//updated">${TODAY_US}</insert>
+      <insert path="/html/head/link[1]" position="after">
+	<![CDATA[
+<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
+	]]>
+      </insert>
+      <insert path="/html/head/link[last()]" position="after" file="analytics.xml"/>
+      <insert path="/html/body/*[1]" file="insert/nist-header.xml" position="before"/>
+      <attr path="//xforms-textarea[@class='Guidance']" attr="delay" value="500"/>
+      <insert path="/html/body/*[last()]" file="insert/nist-footer.xml" position="after"/>
+    </xmltask>
+  </target>
+
+  <target name="index" depends="lastmodified" description="create index.html in the build directory, with NIST header/footer inserted">
+    <xmltask source="index.html" todir="${build}">
+      <insert path="/:html/:head/:title" position="after">
+	<![CDATA[
+<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
+	]]>
+      </insert>
+      <insert path="//:span[@class='updated']">${TODAY_US}</insert>
+      <insert path="/:html/:body/:p[1]" file="insert/nist-header.xml" position="before"/>
+      <insert path="/:html/:head/:link[last()]" position="after" file="analytics.xml"/>
+      <insert path="/:html/:body/:p[last()]" file="insert/nist-footer.xml" position="after"/>
+    </xmltask>
+  </target>
+
+  <target name="copy" depends="init, transform, ics, bt, index, clean"
+          description="generate the distribution">
+    <copy todir="${build}" preservelastmodified="true">
+      <fileset dir="." includes="*.png *.css bt-model/** images/** ics/** xsltforms/**"/>
+    </copy>
+<!--    <xmltask outputter="simple" source="${build}/bt-model/core.xml" dest="${build}/core.xml">
+      <remove path="//dropDownLabel"/>
+    </xmltask>-->
+    <!-- workaround for xmltask bug -->
+<!--    <replace file="${build}/core.xml" token="UTF-8standalone=&quot;null&quot;" value="encoding=&quot;UTF-8&quot;"/>-->
+  </target>
+
+  <target name="sch" description="validate tailoring against a schematron schema">
+    <schematron schema="${schema}" file="${file}"/>
+  </target>
+
+  <target name="zip" depends="copy" 
+	  description="zip up the copied files">
+    <zip destfile="BT-${DSTAMP}.zip">
+      <fileset dir="${build}"
+	       excludes="bt/** bt-angular/** content/** dita/**"/>
+    </zip>
+  </target>
+
+  <target name="clean"
+          description="clean up">
+    <!-- Delete any generated zip files -->
+    <delete dir="." includes="BT-*.zip"/>
+  </target>
+</project>
