@@ -1,6 +1,6 @@
 ---
 title: Baseline Tailor
-redirect_from: bt.xml#/
+redirect_from: /bt.xml#/
 ---
 
 <?xml version="1.0" encoding="UTF-8"?><!-- This is an XForms+XHTML document for Baseline Tailor, a user interface for tailoring security controls, browsing the Cybersecurity Framework, and creating a Framework Profile. --><?xml-stylesheet href="xsltforms/xsltforms.xsl" type="application/xml"?><?xsltforms-options debug="no" lang="en_us"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xs="http://www.w3.org/2001/XMLSchema">
