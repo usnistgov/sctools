@@ -15,15 +15,15 @@
       <xf:model>
          
          
-         <xf:instance xmlns="" id="i-core" src="bt-model/core.xml"></xf:instance>
+         <xf:instance xmlns="" id="i-core" resource="http://pages.nist.gov/sctools/bt-model/core.xml"></xf:instance>
          
-         <xf:instance xmlns="" id="i-cat-dropdown" src="bt-model/cat-dropdown.xml"></xf:instance>
+         <xf:instance xmlns="" id="i-cat-dropdown" resource="http://pages.nist.gov/sctools/bt-model/cat-dropdown.xml"></xf:instance>
          
-         <xf:instance xmlns="" id="i-catalog" src="bt-model/catalog.xml"></xf:instance>
+         <xf:instance xmlns="" id="i-catalog" resource="http://pages.nist.gov/sctools/bt-model/catalog.xml"></xf:instance>
          
-         <xf:instance id="i-families" src="bt-model/families.xml"></xf:instance>
+         <xf:instance id="i-families" resource="http://pages.nist.gov/sctools/bt-model/families.xml"></xf:instance>
          
-         <xf:instance id="i-subcats" src="bt-model/subcategories.xml"></xf:instance>
+         <xf:instance id="i-subcats" resource="http://pages.nist.gov/sctools/bt-model/subcategories.xml"></xf:instance>
          
 <!--         <xf:instance id="i-stylesheet" src="bt-model/stylesheet.xsl"></xf:instance>
          
@@ -35,7 +35,7 @@
          
          <!-- This model instance helps with determining where to say 'selected', 'added', 'removed' in the UI -->
          
-         <xf:instance id="i-matrix" src="bt-model/matrix.xml"></xf:instance>
+         <xf:instance id="i-matrix" resource="http://pages.nist.gov/sctools/bt-model/matrix.xml"></xf:instance>
          
          
          <xf:instance xmlns="" id="i-pretty-tailored">
