@@ -25,9 +25,13 @@
          
          <xf:instance id="i-subcats" src="bt-model/subcategories.xml"></xf:instance>
          
-         <xf:instance id="i-stylesheet" src="bt-model/stylesheet.xsl"></xf:instance>
+<!--         <xf:instance id="i-stylesheet" src="bt-model/stylesheet.xsl"></xf:instance>
          
-         <xf:instance id="i-stylesheet-profile" src="bt-model/stylesheet-profile.xsl"></xf:instance>
+         <xf:instance id="i-stylesheet-profile" src="bt-model/stylesheet-profile.xsl"></xf:instance> -->
+
+         <xf:instance id="i-stylesheet" resource="https://pages.nist.gov/sctools/bt-model/stylesheet.xsl"></xf:instance>
+         
+         <xf:instance id="i-stylesheet-profile" resource="https://pages.nist.gov/sctools/bt-model/stylesheet-profile.xsl"></xf:instance>
          
          <!-- This model instance helps with determining where to say 'selected', 'added', 'removed' in the UI -->
          
