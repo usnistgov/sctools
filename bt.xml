@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- This is an XForms+XHTML document for Baseline Tailor, a user interface for tailoring security controls, browsing the Cybersecurity Framework, and creating a Framework Profile. --><?xml-stylesheet href="xsltforms-1.5.1/xsltforms.xsl" type="application/xml"?><?xsltforms-options debug="no" lang="en_us"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><!-- This is an XForms+XHTML document for Baseline Tailor, a user interface for tailoring security controls, browsing the Cybersecurity Framework, and creating a Framework Profile. --><?xml-stylesheet href="xsltforms/xsltforms.xsl" type="application/xml"?><?xsltforms-options debug="no" lang="en_us"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xs="http://www.w3.org/2001/XMLSchema">
    
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -334,7 +334,8 @@
       
       </head>
    
-      <body>
+   <body>
+      
       
       <div class="nist-header">
          
@@ -437,7 +438,7 @@
       
       <xf:switch>
          
-         <xf:case id="case-core">
+         <xf:case id="case-core" selected="true">
             	
             <div id="div-core">
                	  
@@ -742,7 +743,7 @@
             </xf:case>
          
          
-         <xf:case id="case-profile">
+         <xf:case id="case-profile" selected="false">
             	
             <div id="div-profile">
                	  
@@ -1013,7 +1014,7 @@
             </xf:case>
          
          
-         <xf:case id="case-tailor">
+         <xf:case id="case-tailor" selected="false">
             	
             <div id="div-tailor">
                	  
@@ -1523,7 +1524,7 @@
             </xf:case>    
          
          
-         <xf:case id="case-xref">
+         <xf:case id="case-xref" selected="false">
             	
             <div id="div-xref">
                	  
