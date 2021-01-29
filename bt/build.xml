@@ -38,18 +38,9 @@
   </target>
 
   <target name="bt" depends="lastmodified" description="create bt.xml in the build directory, with NIST header/footer and XSLTForms delay attributes inserted">
-    <xmltask source="bt.xml" todir="${build}">
-      <insert path="//updated">${TODAY_US}</insert>
-      <insert path="/:html/:head/:link[1]" position="after">
-	<![CDATA[
-<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="nist_github_header.css" type="text/css"/>
-	]]>
-      </insert>
-      <insert path="/:html/:head/:link[last()]" position="after" file="analytics.xml"/>
-      <insert path="/:html/:body/*[1]" file="insert/nist-header.xml" position="before"/>
-      <attr path="//xf:textarea[@class='Guidance']" attr="delay" value="500"/>
-      <insert path="/:html/:body/*[last()]" file="insert/nist-footer.xml" position="after"/>
-    </xmltask>
+    <xslt in="bt.xml" out="${build}/bt.xml" style="internalize.xsl">
+      <param name="updated" expression="${TODAY_US}"/>
+    </xslt>
   </target>
 
   <target name="bt-html" depends="lastmodified"
@@ -85,13 +76,8 @@
   <target name="copy" depends="init, transform, ics, bt, index, clean"
           description="generate the distribution">
     <copy todir="${build}" preservelastmodified="true">
-      <fileset dir="." includes="*.png *.css bt-model/** images/** ics/** xsltforms/**"/>
+      <fileset dir="." includes="*.png *.css images/** ics/** xsltforms/**"/>
     </copy>
-<!--    <xmltask outputter="simple" source="${build}/bt-model/core.xml" dest="${build}/core.xml">
-      <remove path="//dropDownLabel"/>
-    </xmltask>-->
-    <!-- workaround for xmltask bug -->
-<!--    <replace file="${build}/core.xml" token="UTF-8standalone=&quot;null&quot;" value="encoding=&quot;UTF-8&quot;"/>-->
   </target>
 
   <target name="sch" description="validate tailoring against a schematron schema">
