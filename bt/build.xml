@@ -76,7 +76,7 @@
   <target name="copy" depends="init, transform, ics, bt, index, clean"
           description="generate the distribution">
     <copy todir="${build}" preservelastmodified="true">
-      <fileset dir="." includes="*.png *.css images/** ics/** xsltforms/**"/>
+      <fileset dir="." includes="*.png *.css bt-model/core.xml images/** ics/** xsltforms/**"/>
     </copy>
   </target>
 
@@ -88,7 +88,7 @@
 	  description="zip up the copied files">
     <zip destfile="BT-${DSTAMP}.zip">
       <fileset dir="${build}"
-	       excludes="bt/** bt-angular/** content/** dita/**"/>
+	       excludes="bt/** bt15/** bt-angular/** content/** dita/**"/>
     </zip>
   </target>
 
