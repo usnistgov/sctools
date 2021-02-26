@@ -58,10 +58,6 @@
     <xsl:param name="cell" as="element(subcatCol)"/>
     <xsl:value-of select="normalize-space(substring-after($cell,':'))"/>
   </xsl:function>
-  
-  <xsl:key name="functions" match="row" use="nist:fID(functionCol)"/>
-  <xsl:key name="categories" match="row" use="nist:cID(.)"/>
-  <xsl:key name="subcategories" match="row" use="nist:subcatID(subcatCol)"/>
 
   <!-- handle CSF typos -->
   <xsl:function name="nist:sp800-53-rev4-regexp" as="xs:string">
