@@ -82,8 +82,8 @@
         <title>Cybersecurity Framework Profile</title>
         <ditavalref href="profile.ditaval"/>
         <!--<mapref href="ReusableComponents/keys.ditamap"/>-->
-        <topicref format="ditamap" href="coreSubjectScheme.ditamap"/>
-        <topicref format="ditamap" href="coreTaxonomy.ditamap"/>
+        <mapref href="coreSubjectScheme.ditamap"/>
+        <mapref href="coreTaxonomy.ditamap"/>
       </map>      
     </xsl:result-document>
     
