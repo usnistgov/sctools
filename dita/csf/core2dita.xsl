@@ -112,7 +112,7 @@
                     <!--<xsl:sort select="nist:subcatID(subcatCol)"/>-->
                     <xsl:sort select="nist:subcatNumber(subcatCol)" data-type="number"/>
                     <xsl:variable name="subcatID" select="nist:subcatID(subcatCol)"/>
-                    <subjectdef keys="{$subcatID}" navtitle="{$subcatID}"/>
+                    <subjectdef keys="{$subcatID}"/>
                   </xsl:for-each>
                 </subjectdef>
               </xsl:for-each>
