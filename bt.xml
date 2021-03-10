@@ -6934,10 +6934,16 @@
             <xref xmlns="">AC-1</xref>
          </xf:instance>
          <xf:instance id="i-version">
-            <version xmlns="">0.2.1</version>
+            <version xmlns="">0.2.2</version>
+         </xf:instance>
+         <xf:instance id="i-r5-support">
+            <r5-support xmlns="">Baseline Tailor uses the security controls and baselines from NIST SP 800-53 Revision 4. 
+				An update to SP 800-53 Revision 5 and the SP 800-53B baselines is planned once the National Vulnerability Database 
+				supports SP 800-53 Revision 5 and SP 800-53B.
+				</r5-support>
          </xf:instance>
          <xf:instance id="i-updated">
-            <updated xmlns="">2021/01/29</updated>
+            <updated xmlns="">2021/03/10</updated>
          </xf:instance>
          <xf:instance id="i-url">
             <data xmlns="">
@@ -7045,11 +7051,11 @@
          <xf:bind nodeset="instance('i-profile')/profile"
                   calculate="concat(../profile1, ' ', ../profile2, ' ', ../profile3, ' ', ../profile4,' ', ../profile5, ' ', ../profile6)"/>
          <xf:bind nodeset="instance('i-browse')/category/description"
-                  calculate="instance('i-core')//description[..@id=instance('i-browse')/category/@id]"/>
+                  calculate="instance('i-core')//description[../@id=instance('i-browse')/category/@id]"/>
          <xf:bind nodeset="instance('i-browse')/subcategory/description"
-                  calculate="instance('i-core')//description[..@id=instance('i-browse')/subcategory/@id]"/>
+                  calculate="instance('i-core')//description[../@id=instance('i-browse')/subcategory/@id]"/>
          <xf:bind nodeset="instance('i-browse')//sp800-53-all-message/@flag"
-                  calculate="choose(instance('i-core')//sp800-53[@all=true() and ..@id=instance('i-browse')/subcategory/@id], true(), false())"
+                  calculate="choose(instance('i-core')//sp800-53[@all=true() and ../@id=instance('i-browse')/subcategory/@id], true(), false())"
                   type="xs:boolean"/>
          <xf:bind nodeset="instance('i-browse')//sp800-53-all-message"
                   relevant="@flag=true()"/>
@@ -7057,18 +7063,18 @@
                   calculate="choose(not(substring-before(..,'.')=../../function/@id and substring-before(..,'-')=../../category/@id and ..=../../subcategory/@id), false(), .)"
                   type="xs:boolean"/>
          <xf:bind nodeset="instance('i-browse')/subcategory/@removeText"
-                  relevant="contains(instance('i-profile')/profile, concat(..@id, ' ')) or ends-with(instance('i-profile')/profile, ..@id)"/>
+                  relevant="contains(instance('i-profile')/profile, concat(../@id, ' ')) or ends-with(instance('i-profile')/profile, ../@id)"/>
          <xf:bind nodeset="instance('i-browse')/subcategory/@addText"
-                  relevant="not(contains(instance('i-profile')/profile, concat(..@id, ' ')) or ends-with(instance('i-profile')/profile, ..@id))"/>
+                  relevant="not(contains(instance('i-profile')/profile, concat(../@id, ' ')) or ends-with(instance('i-profile')/profile, ../@id))"/>
          <!--      <xf:bind nodeset="instance('i-browse')/category/@id" calculate="substring-before(instance('i-browse')/subcategory/@id, '-')"/>
-
-      <xf:bind nodeset="instance('i-browse')/function/@id" calculate="substring-before(instance('i-browse')/category/@id, '.')"/>-->
+				
+				<xf:bind nodeset="instance('i-browse')/function/@id" calculate="substring-before(instance('i-browse')/category/@id, '.')"/>-->
          <xf:bind nodeset="instance('i-url')/nvd"
                   calculate="concat(instance('i-core-url')/nvdurl, '/control/', instance('i-settings')/control/@number)"/>
          <xf:bind nodeset="instance('i-url')/ics"
                   calculate="concat('ics/', instance('i-settings')/control/@number, '.html')"/>
          <xf:bind nodeset="instance('i-settings')/enhancement/xRefLabel"
-                  calculate="concat('(',..@number,')')"/>
+                  calculate="concat('(',../@number,')')"/>
          <!-- Constraints to warn if control and CE impacts inconsistent -->
          <xf:bind nodeset="instance('i-settings')/control/impact/@value"
                   constraint=". &lt;= choose(instance('i-settings')/enhancement, min(instance('i-settings')/enhancement/impact/@value), '4')"/>
@@ -7127,14 +7133,35 @@
               src="images/Needle_and_thread_silhouette.png"/>
          <span class="SWTitle">Baseline Tailor</span>
          <span class="SWSubTitle">Version
-      <xf:output ref="instance('i-version')"/>
+				<xf:output ref="instance('i-version')"/>
          </span>
          <span class="Links">
             <a href="http://dx.doi.org/10.6028/NIST.IR.8130" target="_blank">User Guide (PDF)</a> |
-	<a href="LICENSE.txt" target="_blank">License</a> | 
-	<a href="index.html" target="_blank">Security Content and Tools</a>
+				<a href="LICENSE.txt" target="_blank">License</a> | 
+				<a href="index.html" target="_blank">Security Content and Tools</a>
          </span>
       </h1>
+      <xf:switch>
+         <xf:case id="case-hide-r5" selected="true">
+            <div class="Cell">
+               <xf:trigger>
+                  <xf:label>Note on SP 800-53 Revision 5</xf:label>
+                  <xf:hint>Planned support for SP 800-53r5 and SP 800-53B.</xf:hint>
+                  <xf:toggle case="case-r5" ev:event="DOMActivate"/>
+               </xf:trigger>
+            </div>
+         </xf:case>
+         <xf:case id="case-r5" selected="false">
+            <xf:output class="cell" ref="instance('i-r5-support')"/>
+            <br/>
+            <xf:trigger class="cell">
+               <xf:label>Hide note</xf:label>
+               <xf:hint>Hide note</xf:hint>
+               <xf:toggle case="case-hide-r5" ev:event="DOMActivate"/>
+            </xf:trigger>
+         </xf:case>
+      </xf:switch>
+      <br/>
       <xf:switch>
          <xf:case id="case-hide-prefs" selected="true">
             <div class="Cell">
@@ -7220,9 +7247,9 @@
                                  <xf:action ev:event="xforms-value-changed"
                                             if="instance('i-browse')/crossRef/@flag=false()">
                                     <xf:setvalue ref="instance('i-browse')/category/@id"
-                                                 value="instance('i-core')//category/@id[../..@id=instance('i-browse')/function/@id]"/>
+                                                 value="instance('i-core')//category/@id[../../@id=instance('i-browse')/function/@id]"/>
                                     <xf:setvalue ref="instance('i-browse')/category/description"
-                                                 value="instance('i-core')//category/description[..@id=instance('i-browse')/category/@id]"/>
+                                                 value="instance('i-core')//category/description[../@id=instance('i-browse')/category/@id]"/>
                                  </xf:action>
                               </xf:select1>
                            </div>
@@ -7241,7 +7268,7 @@
                                        <xf:action ev:event="xforms-value-changed"
                                                   if="instance('i-browse')/crossRef/@flag=false()">
                                           <xf:setvalue ref="instance('i-browse')/subcategory/@id"
-                                                       value="instance('i-core')//subCategory/@id[../..@id=instance('i-browse')/category/@id]"/>
+                                                       value="instance('i-core')//subCategory/@id[../../@id=instance('i-browse')/category/@id]"/>
                                        </xf:action>
                                     </xf:select1>
                                     <br/>
@@ -7258,7 +7285,7 @@
                                        <xf:select1 appearance="minimal" ref="@id">
                                           <xf:label>Subcategory:<br/>
                                           </xf:label>
-                                          <xf:itemset nodeset="instance('i-core')//subCategory[..@id=instance('i-browse')/category/@id]">
+                                          <xf:itemset nodeset="instance('i-core')//subCategory[../@id=instance('i-browse')/category/@id]">
                                              <xf:label ref="@id"/>
                                              <xf:value ref="@id"/>
                                           </xf:itemset>
@@ -7274,7 +7301,7 @@
                                           <xf:label ref="."/>
                                           <xf:hint>
                                              <span>Remove subcategory </span>
-                                             <xf:output ref="..@id"/>
+                                             <xf:output ref="../@id"/>
                                              <span> from the Framework Profile.</span>
                                           </xf:hint>
                                           <xf:action ev:event="DOMActivate">
@@ -7302,7 +7329,7 @@
                                           <xf:label ref="."/>
                                           <xf:hint>
                                              <span>Add subcategory </span>
-                                             <xf:output ref="..@id"/>
+                                             <xf:output ref="../@id"/>
                                              <span> to the Framework Profile.</span>
                                           </xf:hint>
                                           <xf:action ev:event="DOMActivate">
@@ -7379,11 +7406,11 @@
                                  </xf:label>
                                  <xf:hint>Open NIST SP 800-82 ICS Overlay tailoring for security control definition in a new browser tab.</xf:hint>
                                  <!-- can't get this to work right )-:
-		      <xf:hint>
-			<span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
-			<xf:output ref="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory/@id]/sp800-53/control[index('reference-repeat')]"/>
-			<span> definition in a new browser tab.</span>
-		      </xf:hint>-->
+												<xf:hint>
+												<span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
+												<xf:output ref="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory/@id]/sp800-53/control[index('reference-repeat')]"/>
+												<span> definition in a new browser tab.</span>
+												</xf:hint>-->
                                  <xf:action ev:event="DOMActivate">
                                     <xf:setvalue ref="instance('i-core-url')/ics"
                                                  value="concat('ics/', instance('i-core')//subCategory[@id=instance('i-browse')/subcategory/@id]/sp800-53/control[index('reference-repeat')], '.html')"/>
@@ -7414,8 +7441,8 @@
                                  </xf:label>
                                  <xf:hint>Tailor security control.</xf:hint>
                                  <xf:action ev:event="DOMActivate">
-<!--			<xf:setvalue ref="instance('i-settings')/family" value="instance('i-families')/family/@name[starts-with(../control/@number, substring-before(context(), '-'))]"/>
-			<xf:setvalue ref="instance('i-settings')/control/@number" value="context()"/>-->
+												<!--			<xf:setvalue ref="instance('i-settings')/family" value="instance('i-families')/family/@name[starts-with(../control/@number, substring-before(context(), '-'))]"/>
+													<xf:setvalue ref="instance('i-settings')/control/@number" value="context()"/>-->
                                     <xf:setvalue ref="instance('i-settings')/family"
                                                  value="instance('i-families')/family/@name[starts-with(../control/@number, substring-before(instance('i-core')//subCategory[@id=instance('i-browse')/subcategory/@id]/sp800-53/control[index('reference-repeat')], '-'))]"/>
                                     <xf:setvalue ref="instance('i-settings')/control/@number"
@@ -7468,7 +7495,7 @@
                                           <xf:setvalue ref="instance('i-browse')/category/@id"
                                                        value="substring-before(../../crossRef,'-')"/>
                                           <xf:setvalue ref="instance('i-browse')/subcategory/@id" value="../../crossRef">
-  </xf:setvalue>
+</xf:setvalue>
                                           <xf:dispatch targetid="tab-core" name="DOMActivate"/>
                                        </xf:action>
                                     </xf:trigger>
@@ -7495,7 +7522,7 @@
                                           <xf:setvalue ref="instance('i-browse')/category/@id"
                                                        value="substring-before(../../crossRef,'-')"/>
                                           <xf:setvalue ref="instance('i-browse')/subcategory/@id" value="../../crossRef">
-  </xf:setvalue>
+</xf:setvalue>
                                           <xf:dispatch targetid="tab-core" name="DOMActivate"/>
                                        </xf:action>
                                     </xf:trigger>
@@ -7522,7 +7549,7 @@
                                           <xf:setvalue ref="instance('i-browse')/category/@id"
                                                        value="substring-before(../../crossRef,'-')"/>
                                           <xf:setvalue ref="instance('i-browse')/subcategory/@id" value="../../crossRef">
-  </xf:setvalue>
+</xf:setvalue>
                                           <xf:dispatch targetid="tab-core" name="DOMActivate"/>
                                        </xf:action>
                                     </xf:trigger>
@@ -7549,7 +7576,7 @@
                                           <xf:setvalue ref="instance('i-browse')/category/@id"
                                                        value="substring-before(../../crossRef,'-')"/>
                                           <xf:setvalue ref="instance('i-browse')/subcategory/@id" value="../../crossRef">
-  </xf:setvalue>
+</xf:setvalue>
                                           <xf:dispatch targetid="tab-core" name="DOMActivate"/>
                                        </xf:action>
                                     </xf:trigger>
@@ -7576,7 +7603,7 @@
                                           <xf:setvalue ref="instance('i-browse')/category/@id"
                                                        value="substring-before(../../crossRef,'-')"/>
                                           <xf:setvalue ref="instance('i-browse')/subcategory/@id" value="../../crossRef">
-  </xf:setvalue>
+</xf:setvalue>
                                           <xf:dispatch targetid="tab-core" name="DOMActivate"/>
                                        </xf:action>
                                     </xf:trigger>
@@ -7603,7 +7630,7 @@
                                           <xf:setvalue ref="instance('i-browse')/category/@id"
                                                        value="substring-before(../../crossRef,'-')"/>
                                           <xf:setvalue ref="instance('i-browse')/subcategory/@id" value="../../crossRef">
-  </xf:setvalue>
+</xf:setvalue>
                                           <xf:dispatch targetid="tab-core" name="DOMActivate"/>
                                        </xf:action>
                                     </xf:trigger>
@@ -7676,20 +7703,20 @@
                               <xf:label>Control:<br/>
                               </xf:label>
                               <xf:itemset nodeset="instance('i-families')/family[@name=instance('i-settings')/family]/control[contains(instance('i-baselines')/baselines,default) and (not(boolean-from-string(instance('i-restrict')/profileFlag)) or subcategory[contains(instance('i-profile')/profile, concat(@number, ' ')) or ends-with(instance('i-profile')/profile, @number)])]">
-                                 <xf:label ref="instance('i-families')/family[@name=instance('i-settings')/family]//dropDownLabel[..@number=context()/@number]"/>
+                                 <xf:label ref="instance('i-families')/family[@name=instance('i-settings')/family]//dropDownLabel[../@number=context()/@number]"/>
                                  <xf:value ref="@number"/>
                               </xf:itemset>
                               <xf:action ev:event="xforms-value-changed">
-
-		      <!-- update control info in the UI -->
+											
+											<!-- update control info in the UI -->
                                  <xf:setvalue ref="../title"
-                                              value="instance('i-catalog')/control[@number=instance('i-settings')/control@number]/title"/>
+                                              value="instance('i-catalog')/control[@number=instance('i-settings')/control/@number]/title"/>
                                  <xf:setvalue ref="../default"
-                                              value="instance('i-catalog')/control[@number=instance('i-settings')/control@number]/default"/>
+                                              value="instance('i-catalog')/control[@number=instance('i-settings')/control/@number]/default"/>
                                  <xf:setvalue ref="../impact/@label"
-                                              value="instance('i-choices')/impact[@value=instance('i-settings')/control/default]@label"/>
+                                              value="instance('i-choices')/impact[@value=instance('i-settings')/control/default]/@label"/>
                                  <xf:setvalue ref="../impact/@value"
-                                              value="instance('i-choices')/impact[@value=instance('i-settings')/control/default]@value"/>
+                                              value="instance('i-choices')/impact[@value=instance('i-settings')/control/default]/@value"/>
                                  <xf:setvalue ref="../gFlag" value="false()"/>
                                  <xf:setvalue ref="../l"
                                               value="instance('i-matrix')/row[@value=concat(instance('i-settings')/control/default,instance('i-settings')/control/impact/@value)]/l"/>
@@ -7700,9 +7727,9 @@
                                  <!-- replace control enhancement data as per new selection -->
                                  <xf:delete nodeset="instance('i-settings')//enhancement"/>
                                  <xf:insert nodeset="instance('i-settings')/*"
-                                            origin="instance('i-catalog')/control[@number=instance('i-settings')/control@number]/enhancement"
+                                            origin="instance('i-catalog')/control[@number=instance('i-settings')/control/@number]/enhancement"
                                             at="last()"
-                                            if="instance('i-catalog')/control[@number=instance('i-settings')/control@number]/enhancement"/>
+                                            if="instance('i-catalog')/control[@number=instance('i-settings')/control/@number]/enhancement"/>
                                  <xf:setvalue ref="instance('i-count')" value="0"/>
                                  <xf:action while="instance('i-count') &lt; count(instance('i-settings')/enhancement)">
                                     <xf:setvalue ref="instance('i-count')" value="instance('i-count') + 1"/>
@@ -7713,7 +7740,7 @@
                                                origin="instance('i-ceTemplate')/impact"
                                                context="instance('i-settings')/enhancement[number(instance('i-count'))]/xRefLabel"/>
                                     <xf:setvalue ref="instance('i-settings')/enhancement[number(instance('i-count'))]/impact/@label"
-                                                 value="instance('i-choices')/impact[@value=instance('i-settings')/enhancement[number(instance('i-count'))]/default]@label"/>
+                                                 value="instance('i-choices')/impact[@value=instance('i-settings')/enhancement[number(instance('i-count'))]/default]/@label"/>
                                     <xf:setvalue ref="instance('i-settings')/enhancement[number(instance('i-count'))]/impact/@value"
                                                  value="../../default"/>
                                     <xf:insert nodeset="instance('i-settings')/enhancement[number(instance('i-count'))]/*"
@@ -7763,8 +7790,8 @@
                </xf:group>
                <p/>
                <table border="1">
-
-	    <!-- Security control header -->
+						
+						<!-- Security control header -->
                   <tr class="Heading">
                      <td rowspan="2">CONTROL<br/>NUMBER</td>
                      <td rowspan="2">CONTROL NAME<br/>
@@ -7780,15 +7807,15 @@
                      <td>HIGH</td>
                   </tr>
                   <tr class="Row">
-	
-	      <!-- Cell containing control and control enhancement IDs -->
+							
+							<!-- Cell containing control and control enhancement IDs -->
                      <td>
                         <div class="Cell">
                            <xf:trigger class="ControlButton">
-                              <xf:label ref="instance('i-settings')/control@number"/>
+                              <xf:label ref="instance('i-settings')/control/@number"/>
                               <xf:hint>
                                  <span>Open security control </span>
-                                 <xf:output ref="instance('i-settings')/control@number"/>
+                                 <xf:output ref="instance('i-settings')/control/@number"/>
                                  <span> definition in a new browser tab.</span>
                               </xf:hint>
                               <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')/nvd"/>
@@ -7799,7 +7826,7 @@
                               </xf:label>
                               <xf:hint>
                                  <span>Open NIST SP 800-82 ICS Overlay tailoring for security control </span>
-                                 <xf:output ref="instance('i-settings')/control@number"/>
+                                 <xf:output ref="instance('i-settings')/control/@number"/>
                                  <span> definition in a new browser tab.</span>
                               </xf:hint>
                               <xf:load ev:event="DOMActivate" show="new" ref="instance('i-url')/ics"/>
@@ -7807,7 +7834,7 @@
                         </div>
                         <xf:repeat nodeset="instance('i-settings')/enhancement">
                            <div class="Cell">
-                              <xf:output ref="instance('i-settings')/control@number"/>
+                              <xf:output ref="instance('i-settings')/control/@number"/>
                               <span>(</span>
                               <xf:output ref="@number"/>
                               <span>)</span>
@@ -7832,8 +7859,8 @@
                      </td>
                      <!-- Cell containing drop-down lists for selecting impacts -->
                      <td>
-	  
-		<!-- Drop-down for selecting control impact-->
+								
+								<!-- Drop-down for selecting control impact-->
                         <div class="Cell">
                            <xf:select1 appearance="minimal" ref="instance('i-settings')/control/impact/@value">
                               <xf:label/>
@@ -7857,8 +7884,8 @@
                                  <xf:output ref="instance('i-alerts')/cImpactTooHigh"/>
                               </xf:alert>
                               <xf:action ev:event="xforms-value-changed">
-                                 <xf:setvalue ref="..@label"
-                                              value="instance('i-choices')/impact[@value=instance('i-settings')/control/impact/@value]@label"/>
+                                 <xf:setvalue ref="../@label"
+                                              value="instance('i-choices')/impact[@value=instance('i-settings')/control/impact/@value]/@label"/>
                                  <xf:setvalue ref="../../l"
                                               value="instance('i-matrix')/row[@value=concat(instance('i-settings')/control/default,instance('i-settings')/control/impact/@value)]/l"/>
                                  <xf:setvalue ref="../../m"
@@ -7893,8 +7920,8 @@
                                     <xf:output value="choose(instance('i-settings')/control[@number='CM-7'] and instance('i-settings')/enhancement[@number='4']/impact/@value != '4' and instance('i-settings')/enhancement[@number='5']/impact/@value != '4' and instance('i-settings')/enhancement[@number='4']/impact/@value &gt;= instance('i-settings')/enhancement[@number='5']/impact/@value, instance('i-alerts')/CM-7, instance('i-alerts')/ceImpactTooLow)"/>
                                  </xf:alert>
                                  <xf:action ev:event="xforms-value-changed">
-                                    <xf:setvalue ref="..@label"
-                                                 value="instance('i-choices')/impact[@value=instance('i-settings')/enhancement[position()=index('ceDropDown-repeat')]/impact/@value]@label"/>
+                                    <xf:setvalue ref="../@label"
+                                                 value="instance('i-choices')/impact[@value=instance('i-settings')/enhancement[position()=index('ceDropDown-repeat')]/impact/@value]/@label"/>
                                     <xf:setvalue ref="../../l"
                                                  value="instance('i-matrix')/row[@value=concat(instance('i-settings')/enhancement[position()=index('ceDropDown-repeat')]/default,instance('i-settings')/enhancement[position()=index('ceDropDown-repeat')]/impact/@value)]/l"/>
                                     <xf:setvalue ref="../../m"
@@ -7992,7 +8019,7 @@
                               <xf:group>
                                  <xf:label>
                                     <span>Control Enhancement (</span>
-                                    <xf:output ref="..@number"/>
+                                    <xf:output ref="../@number"/>
                                     <span>) Additional Supplemental Guidance:</span>
                                     <br/>
                                  </xf:label>
@@ -8024,8 +8051,8 @@
                   <span>:</span>
                   <br/>
                   <!--	    <xf:repeat nodeset="instance('i-core')//subCategory[sp800-53/control=instance('i-settings')/control/@number or sp800-53/family=substring-before(instance('i-settings')/control/@number, '-') or (sp800-53@all and not(sp800-53/except=instance('i-settings')/control/@number))]@id">
-    <xf:repeat nodeset="instance('i-families')//subcategory/@number[../..@number=instance('i-settings')/control/@number]"> -->
-                  <xf:repeat nodeset="instance('i-families')//subcategory/@number[../..@number=instance('i-xref')]">
+							<xf:repeat nodeset="instance('i-families')//subcategory/@number[../../@number=instance('i-settings')/control/@number]"> -->
+                  <xf:repeat nodeset="instance('i-families')//subcategory/@number[../../@number=instance('i-xref')]">
                      <xf:trigger>
                         <xf:label ref="."/>
                         <xf:hint>
@@ -8041,7 +8068,7 @@
                            <xf:setvalue ref="instance('i-browse')/category/@id"
                                         value="substring-before(../../crossRef,'-')"/>
                            <xf:setvalue ref="instance('i-browse')/subcategory/@id" value="../../crossRef">
-  </xf:setvalue>
+</xf:setvalue>
                            <xf:dispatch targetid="tab-core" name="DOMActivate"/>
                         </xf:action>
                      </xf:trigger>
@@ -8052,13 +8079,13 @@
       </xf:switch>
       <div class="footer">
          <p>
-	
-Last updated: <xf:output ref="instance('i-updated')"/>
+				
+				Last updated: <xf:output ref="instance('i-updated')"/>
             <br/>
-
-Contact: <strong>
+				
+				Contact: <strong>
                <a href="mailto:lubell@nist.gov">Joshua
-Lubell</a>
+					Lubell</a>
             </strong>
          </p>
       </div>
