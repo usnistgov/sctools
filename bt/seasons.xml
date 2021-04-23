@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="xsltforms/xsltforms.xsl" type="application/xml"?>
+<?xml-model href="http://www.oxygenxml.com/1999/xhtml/xhtml-xforms.nvdl" type="application/xml" schematypens="http://purl.oclc.org/dsdl/nvdl/ns/structure/1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xf="http://www.w3.org/2002/xforms"
+    xmlns:ev="http://www.w3.org/2001/xml-events">
+    <head>
+        <title>Test conditional selection lists</title>
+        <xf:model>
+            
+            <xf:instance id="selected-values" xmlns="">
+                <data>
+                    <season id="win"/>
+                    <month id="jan"/>
+                </data>
+            </xf:instance>
+            
+            <xf:instance id="seasons" xmlns="">
+                <root>
+                    <item id="spr" name="Spring"/>
+                    <item id="sum" name="Summer"/>
+                    <item id="aut" name="Autumn"/>
+                    <item id="win" name="Winter"/>
+                </root>
+            </xf:instance>
+            
+            <xf:instance id="months" xmlns="">
+                <root>
+                    <item id="jan" name="January" seasonid="win"/>
+                    <item id="feb" name="February" seasonid="win"/>
+                    <item id="mar" name="March" seasonid="spr"/>
+                    <item id="apr" name="April" seasonid="spr"/>
+                    <item id="may" name="May" seasonid="spr"/>
+                    <item id="jun" name="June" seasonid="sum"/>
+                    <item id="jul" name="July" seasonid="sum"/>
+                    <item id="aug" name="August" seasonid="sum"/>
+                    <item id="sep" name="September" seasonid="aut"/>
+                    <item id="oct" name="October" seasonid="aut"/>
+                    <item id="nov" name="November" seasonid="aut"/>
+                    <item id="dec" name="December" seasonid="win"/>
+                </root>
+            </xf:instance>
+            <!--<xf:bind id="season-name"
+                calculate="instance('seasons')/item/@name[../@id=instance('selected-values')/season/@id]"/>-->
+            <!--<xf:bind id="month-name"
+                ref="instance('months')/item/@name[../@id=instance('selected-values')/month/@id]"/>-->
+        </xf:model>
+    </head>
+    <body>
+        <p>Test conditional selection lists -
+            month selector depends on the current season</p>
+        
+        <xf:select1 ref="instance('selected-values')/season/@id">
+            <xf:label>Season:</xf:label>
+            <xf:itemset nodeset="instance('seasons')/item">
+                <xf:label ref="@name"/>
+                <xf:value ref="@id"/>
+            </xf:itemset>
+            <!-- As soon as you change this value we set the month default value -->
+            <xf:action ev:event="xforms-value-changed">
+                <xf:setvalue ref="instance('selected-values')/month/@id" 
+                    value="instance('months')/item/@id[../@seasonid=instance('selected-values')/season/@id]"/>
+            </xf:action>
+        </xf:select1>
+        <br/>
+        <xf:select1 ref="instance('selected-values')/month/@id">
+            <xf:label>Month:</xf:label>
+            <xf:itemset nodeset="instance('months')/item[@seasonid=instance('selected-values')/season/@id]">
+                <xf:label ref="@name"/>
+                <xf:value ref="@id"/>
+            </xf:itemset>
+        </xf:select1>
+        <br/>
+        <xf:output ref="instance('seasons')/item/@name[../@id=instance('selected-values')/season/@id]">
+            <xf:label>selected-season: </xf:label>
+        </xf:output>
+        <br/>
+        
+        <xf:output ref="instance('months')/item/@name[../@id=instance('selected-values')/month/@id]">
+            <xf:label>selected-month: </xf:label>
+        </xf:output>
+        
+        <h4>Relevant Months using Repeat</h4>
+        <xf:repeat nodeset="instance('months')/item[@seasonid=instance('selected-values')/season/@id]">
+            <xf:output ref="@name"/>
+        </xf:repeat>
+        
+    </body>
+</html>
