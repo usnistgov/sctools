@@ -1,0 +1,11 @@
+release-search#!/control?version=4.0&number=AU-3#800-53-body
+
+release-search#!/controls?version=4.0&family=AU#800-53-body
+
+release-search#!/controls?version=4.0#800-53-body
+
+version is either 4.0 or 5.1
+
+#800-53-body scrolls down to the SP 800-53 Rev [4.0|5.1] heading
+
+#pageName scrolls down to the STP 800-53 Release Search heading

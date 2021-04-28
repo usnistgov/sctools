@@ -32,10 +32,6 @@
 			<!-- Lists subcategories referencing each control. Used to create subcat buttons in Cross References tab -->
 			<instance id="i-families" src="bt-model/families.xml"/>
 			
-			<instance id="i-xref">
-				<xref xmlns="">AC-1</xref>
-			</instance>
-			
 			<instance id="i-version">
 				<version xmlns="">0.0.1</version>
 			</instance>
@@ -62,18 +58,14 @@
 					<function>ID</function>
 					<category>ID.AM</category>
 					<subcategory>ID.AM-1</subcategory>
-					<crossRef/>
-					<cRefFlag>false</cRefFlag>
+					<subcatRef/>
+					<sRefFlag>false</sRefFlag>
+					<controlRef>AC-1</controlRef>
 				</data>
 			</instance>
 			
 			<bind ref="instance('i-core-url')/ics" relevant="../icsFlag=true()"/>
 			<bind ref="instance('i-core-url')/icsFlag" type="boolean"/>
-			<!--<bind ref="instance('i-browse')/category/@crossRefP" type="boolean"/>
-			<bind ref="instance('i-browse')/subcategory/@crossRefP" type="boolean"/-->>
-			
-			<!--<xf:bind ref="instance('i-browse')/cRefFlag"
-				calculate="choose(../crossRef=../subcategory, true(), false())" type="boolean"-->/>
 			
 		</model>
 		
@@ -156,7 +148,7 @@
 													<value>RC</value>
 												</item>
 												<action ev:event="xforms-value-changed" 
-													if="../cRefFlag=false()">
+													if="../sRefFlag=false()">
 													<!-- Set category to default -->
 													<setvalue ref="../category"
 													value=
@@ -180,7 +172,7 @@
 																<value ref="id"/>
 															</itemset>
 															<action ev:event="xforms-value-changed" 
-																if="../cRefFlag=false()">
+																if="../sRefFlag=false()">
 																<!-- Set subcategory to default value -->
 																<setvalue ref="../subcategory" value="concat(../category, '-1')"/>
 															</action>
@@ -204,9 +196,9 @@
 																	<label ref="@id"/>
 																	<value ref="@id"/>
 																</itemset>
-																<action ev:event="xforms-value-changed" if="../cRefFlag=true()">
+																<action ev:event="xforms-value-changed" if="../sRefFlag=true()">
 																	<!-- Enable cascading defaults -->
-																	<setvalue ref="../cRefFlag" value="false()"/>
+																	<setvalue ref="../sRefFlag" value="false()"/>
 																</action>
 															</select1><html:br />
 															<html:strong>
@@ -278,7 +270,7 @@
 													<html:span>.</html:span>
 												</hint>
 												<action ev:event="DOMActivate">
-													<setvalue ref="instance('i-xref')"
+													<setvalue ref="instance('i-browse')/controlRef"
 														value="context()"/>
 													<dispatch targetid="tab-xref" name="DOMActivate"
 													/>
@@ -294,11 +286,11 @@
 			<case id="case-xref" selected="false">
 				<html:div id="div-xref">
 					<html:span>Framework Core subcategories referencing control </html:span>
-					<output ref="instance('i-xref')"/>
+					<output ref="instance('i-browse')/controlRef"/>
 					<html:span>:</html:span>
 					<html:br />
 					<repeat
-						nodeset="instance('i-families')//subcategory/@number[../../@number=instance('i-xref')]">
+						nodeset="instance('i-families')//subcategory/@number[../../@number=instance('i-browse')/controlRef]">
 						<trigger>
 							<label ref="."/>
 							<hint>
@@ -309,30 +301,21 @@
 							<xf:action ev:event="DOMActivate">
 								<action if="context()!=instance('i-browse')/subcategory">
 									
-									<!-- Set crossRef to selected button and cRefFlag to prevent cascading 
+									<!-- Set subcatRef to selected button and sRefFlag to prevent cascading 
 										xforms-value-changed defaults -->
-									<xf:setvalue ref="instance('i-browse')/crossRef" value="context()"/>
-									<xf:setvalue ref="instance('i-browse')/cRefFlag" value="true()"/>
+									<xf:setvalue ref="instance('i-browse')/subcatRef" value="context()"/>
+									<xf:setvalue ref="instance('i-browse')/sRefFlag" value="true()"/>
 									
 									<!-- Change in subcategory causes changes to category, function -->
 									<xf:setvalue ref="instance('i-browse')/function"
-										value="substring-before(../crossRef,'.')"/>
+										value="substring-before(../subcatRef,'.')"/>
 									<xf:setvalue ref="instance('i-browse')/category"
-										value="substring-before(../crossRef,'-')"/>
-									<xf:setvalue ref="instance('i-browse')/subcategory" value="../crossRef"/>
+										value="substring-before(../subcatRef,'-')"/>
+									<xf:setvalue ref="instance('i-browse')/subcategory" value="../subcatRef"/>
 									
 								</action>
 								<xf:dispatch targetid="tab-core" name="DOMActivate"/>
 							</xf:action>
-							<!--<action ev:event="DOMActivate">
-								<setvalue ref="instance('i-browse')/category/@crossRefP" value="true()"/>
-								<setvalue ref="instance('i-browse')/subcategory/@crossRefP" value="true()"/>
-								<setvalue ref="instance('i-browse')/xref" value="context()"/>
-								<setvalue ref="instance('i-browse')/subcategory" value="../xref"/>
-								<setvalue ref="instance('i-browse')/category" value="substring-before(../xref,'-')"/>
-								<setvalue ref="instance('i-browse')/function" value="substring-before(../xref,'.')"/>
-								<dispatch targetid="tab-core" name="DOMActivate"/>
-							</action>-->
 						</trigger>
 					</repeat>
 				</html:div>
