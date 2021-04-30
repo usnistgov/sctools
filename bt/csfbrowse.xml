@@ -16,30 +16,30 @@
 	xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:ev="http://www.w3.org/2001/xml-events">
 	<head>
-		
+
 		<title>Cybersecurity Framework / SP 800-53 Browser</title>
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="styles.css" type="text/css" />
-		
+
 		<model xmlns="http://www.w3.org/2002/xforms">
-			
+
 			<!-- Framework Core -->
 			<instance id="i-core" src="bt-model/core.xml"/>
-			
+
 			<!-- Used to construct itemset for category select1. Derived from core.xml -->
 			<instance id="i-cat-dropdown" src="bt-model/cat-dropdown.xml"/>
-			
+
 			<!-- Lists subcategories referencing each control. Used to create subcat buttons in Cross References tab -->
 			<instance id="i-families" src="bt-model/families.xml"/>
-			
+
 			<instance id="i-version">
 				<version xmlns="">0.0.1</version>
 			</instance>
-			
+
 			<instance id="i-updated">
 				<updated xmlns=""/>
 			</instance>
-			
+
 			<instance id="i-core-url">
 				<data xmlns="">
 					<control/>
@@ -47,11 +47,11 @@
 					<ics/>
 					<icsFlag>false</icsFlag>
 					<nvdurl>https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/</nvdurl>
-					<version>4.0</version>
+					<version>5.1</version>
 				</data>
 			</instance>
-			
-			
+
+
 			<!-- Captures the current Framework Core browser UI state. -->
 			<instance id="i-browse">
 				<data xmlns="">
@@ -63,12 +63,12 @@
 					<controlRef>AC-1</controlRef>
 				</data>
 			</instance>
-			
+
 			<bind ref="instance('i-core-url')/ics" relevant="../icsFlag=true()"/>
 			<bind ref="instance('i-core-url')/icsFlag" type="boolean"/>
-			
+
 		</model>
-		
+
 	</head>
 	<body>
 		<h1>
@@ -80,10 +80,9 @@
 			<span class="Links">
 				<a href="&userguide;" target="_blank">User Guide (PDF)</a> | <a href="LICENSE.txt"
 					target="_blank">License</a> | <a href="index.html" target="_blank">Security
-						Content and Tools</a>
+					Content and Tools</a>
 			</span>
 		</h1>
-		
 		<switch xmlns="http://www.w3.org/2002/xforms">
 			<case id="case-hide-prefs" selected="true">
 				<trigger>
@@ -93,19 +92,34 @@
 				</trigger>
 			</case>
 			<case id="case-prefs" selected="false">
-				<input ref="instance('i-core-url')/icsFlag" appearance="full">
-					<label><html:img src="images/factory.ico" alt="factory" /> NIST SP 800-82
-						(Revision 2) Industrial Control Systems overlay: </label>
-				</input>					
-				<html:br/>
-				<trigger>
+				<select1 class="block" ref="instance('i-core-url')/version" appearance="full">
+					<label>NIST SP 800-53 version:</label>
+					<hint>Choose which revision of SP 800-53 to use</hint>
+					<item>
+						<label>Revision 4</label>
+						<value>4.0</value>
+					</item>
+					<item>
+						<label>Revision 5</label>
+						<value>5.1</value>
+					</item>
+				</select1>
+				<select class="block" ref="instance('i-core-url')/icsFlag" appearance="full">
+					<label/>
+					<item>
+						<label>
+							<output value="'images/factory.ico'" mediatype="image/*"/> NIST SP
+							800-82 (Revision 2) Industrial Control Systems Overlay </label>
+						<value>true</value>
+					</item>
+				</select>
+				<trigger class="block" appearance="full">
 					<label>OK</label>
 					<hint>Accept selections.</hint>
 					<toggle case="case-hide-prefs" ev:event="DOMActivate"/>
 				</trigger>
 			</case>
 		</switch>
-		<br />
 		<group xmlns="http://www.w3.org/2002/xforms" id="horizontal-tab-menu">
 			<trigger id="tab-core" appearance="minimal">
 				<label class="TabText">Cyber Framework Browser</label>
@@ -118,214 +132,173 @@
 		</group>
 		<switch xmlns="http://www.w3.org/2002/xforms">
 			<case id="case-core" selected="true">
-					<group id="div-core" ref="instance('i-browse')">
+				<group id="div-core" ref="instance('i-browse')">
+					<table xmlns="http://www.w3.org/1999/xhtml">
+						<tr class="Row">
+							<td class="Cell">
+								<select1 class="Functions" xmlns="http://www.w3.org/2002/xforms"
+									appearance="full" ref="function">
+									<label>Framework core function:</label>
+									<item>
+										<label class="ID">IDENTIFY (ID)</label>
+										<value>ID</value>
+									</item>
+									<item>
+										<label class="PR">PROTECT (PR)</label>
+										<value>PR</value>
+									</item>
+									<item>
+										<label class="DE">DETECT (DE)</label>
+										<value>DE</value>
+									</item>
+									<item>
+										<label class="RS">RESPOND (RS)</label>
+										<value>RS</value>
+									</item>
+									<item>
+										<label class="RC">RECOVER (RC)</label>
+										<value>RC</value>
+									</item>
+									<action ev:event="xforms-value-changed" if="../sRefFlag=false()">
+										<!-- Set category to default -->
+										<setvalue ref="../category" value="instance('i-core')//category/@id[../../@id=instance('i-browse')/function][1]"/>
+									</action>
+								</select1>
+							</td>
+							<td>
+								<group xmlns="http://www.w3.org/2002/xforms">
+									<select1 class="block" ref="category" appearance="minimal">
+										<label>Category:</label>
+										<itemset
+											nodeset="instance('i-cat-dropdown')//cat[substring-before(id, '.')=instance('i-browse')/function]">
+											<label ref="label"/>
+											<value ref="id"/>
+										</itemset>
+										<action ev:event="xforms-value-changed"
+											if="../sRefFlag=false()">
+											<!-- Set subcategory to default value -->
+											<setvalue ref="../subcategory" value="concat(../category, '-1')"/>
+										</action>
+									</select1>
+									<output class="block" value="concat(category, ':&#xa0;', 
+										instance('i-core')//description[../@id=instance('i-browse')/category])"
+									/>
+								</group>
+								<group xmlns="http://www.w3.org/2002/xforms">
+									<select1 class="block" ref="subcategory" appearance="minimal">
+										<label>Subcategory:</label>
+										<itemset
+											nodeset="instance('i-core')//category[@id=instance('i-browse')/category]/subCategory">
+											<label ref="@id"/>
+											<value ref="@id"/>
+										</itemset>
+										<action ev:event="xforms-value-changed"
+											if="../sRefFlag=true()">
+											<!-- Enable cascading defaults -->
+											<setvalue ref="../sRefFlag" value="false()"/>
+										</action>
+									</select1>
+									<output class="block" value="concat(subcategory, ':&#xa0;', 
+										instance('i-core')//description[../@id=instance('i-browse')/subcategory])"
+									/>
+								</group>
+							</td>
+						</tr>
+					</table>
+					<output value="concat(subcategory, '&#xa0;Informative References to NIST SP 800-53:')"/>
+					<repeat id="reference-repeat"
+						nodeset="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory]/sp800-53/control">
 						<table xmlns="http://www.w3.org/1999/xhtml">
-							<tbody>
-								<tr class="Row">
-									<td class="Cell">
-										<div class="Functions">
-											<select1 xmlns="http://www.w3.org/2002/xforms" appearance="full"
-												ref="function">
-												<label>Framework core function:<html:br /></label>
-												<item>
-													<label class="ID">IDENTIFY (ID)</label>
-													<value>ID</value>
-												</item>
-												<item>
-													<label class="PR">PROTECT (PR)</label>
-													<value>PR</value>
-												</item>
-												<item>
-													<label class="DE">DETECT (DE)</label>
-													<value>DE</value>
-												</item>
-												<item>
-													<label class="RS">RESPOND (RS)</label>
-													<value>RS</value>
-												</item>
-												<item>
-													<label class="RC">RECOVER (RC)</label>
-													<value>RC</value>
-												</item>
-												<action ev:event="xforms-value-changed" 
-													if="../sRefFlag=false()">
-													<!-- Set category to default -->
-													<setvalue ref="../category"
-													value=
-													"instance('i-core')//category/@id[../../@id=instance('i-browse')/function][1]"/>
-												</action>
-											</select1>
-										</div>
-									</td>
-									<td>
-										<table>
-											<tbody>
-												<tr>
-													<td class="Cell">
-														<select1 xmlns="http://www.w3.org/2002/xforms" ref="category"
-															appearance="minimal">
-															<label>Category:<html:br /></label>
-															<itemset
-																nodeset=
-																"instance('i-cat-dropdown')//cat[substring-before(id, '.')=instance('i-browse')/function]">
-																<label ref="label"/>
-																<value ref="id"/>
-															</itemset>
-															<action ev:event="xforms-value-changed" 
-																if="../sRefFlag=false()">
-																<!-- Set subcategory to default value -->
-																<setvalue ref="../subcategory" value="concat(../category, '-1')"/>
-															</action>
-														</select1><br />
-														<strong>
-															<xf:output ref="category"/>
-															<span>: </span>
-														</strong>
-														<xf:output ref="instance('i-core')//description[../@id=instance('i-browse')/category]"/>
-													</td>
-												</tr>
-												<tr>
-													<td class="Cell">
-														<group xmlns="http://www.w3.org/2002/xforms" ref="subcategory">
-															<select1 appearance="minimal"
-																ref=".">
-																<label>Subcategory:<html:br /></label>
-																<itemset
-																	nodeset=
-																	"instance('i-core')//category[@id=instance('i-browse')/category]/subCategory">
-																	<label ref="@id"/>
-																	<value ref="@id"/>
-																</itemset>
-																<action ev:event="xforms-value-changed" if="../sRefFlag=true()">
-																	<!-- Enable cascading defaults -->
-																	<setvalue ref="../sRefFlag" value="false()"/>
-																</action>
-															</select1><html:br />
-															<html:strong>
-																<output ref="."/>
-																<html:span>: </html:span>
-															</html:strong>
-															<output ref="instance('i-core')//description[../@id=instance('i-browse')/subcategory]"/>
-															<html:br />
-														</group>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<html:p><output ref="instance('i-browse')/subcategory"/> Informative
-							References to NIST SP 800-53:</html:p>
-						<repeat id="reference-repeat"
-							nodeset=
-							"instance('i-core')//subCategory[@id=instance('i-browse')/subcategory]/sp800-53/control">
-							<html:table>
-								<html:tbody>
-									<html:tr>
-										<html:td class="ControlButton">
-											<trigger>
-												<label ref="."/>
-												<hint>
-													<html:span>Open security control </html:span>
-													<output ref="."/>
-													<html:span> definition in a new browser tab.</html:span>
-												</hint>
-												<action ev:event="DOMActivate"
-													submission="trigger-submission">
-													<setvalue ref="instance('i-core-url')/control"
-														value="concat(instance('i-core-url')/nvdurl, 'control?version=', 
+							<tr>
+								<td class="ControlButton">
+									<trigger xmlns="http://www.w3.org/2002/xforms">
+										<label ref="."/>
+										<hint>
+											<output value="concat('Open security control&#xa0;', ., 
+												'&#xa0;definition in a new browser tab')"/>
+										</hint>
+										<action ev:event="DOMActivate"
+											submission="trigger-submission">
+											<setvalue ref="instance('i-core-url')/control" value="concat(instance('i-core-url')/nvdurl, 'control?version=', 
 														instance('i-core-url')/version, '&amp;', 'number=', context())"/>
-													<load show="new"
-														ref="instance('i-core-url')/control"/>
-												</action>
-											</trigger>
-										</html:td>
-										<html:td>
-											<trigger ref="instance('i-core-url')/ics">
-												<label><html:img src="images/factory.ico" alt="factory"
-												/></label>
-												<hint>Open NIST SP 800-82 ICS Overlay tailoring for
-													security control definition in a new browser
-													tab.</hint>
-												<action ev:event="DOMActivate">
-													<setvalue ref="instance('i-core-url')/ics"
-														value=
-														"concat('ics/', 
+											<load show="new" ref="instance('i-core-url')/control"/>
+										</action>
+									</trigger>
+								</td>
+								<td>
+									<trigger xmlns="http://www.w3.org/2002/xforms"
+										ref="instance('i-core-url')/ics">
+										<label>
+											<output value="'images/factory.ico'" mediatype="image/*"
+											/>
+										</label>
+										<hint>Open NIST SP 800-82 ICS Overlay tailoring for security
+											control definition in a new browser tab.</hint>
+										<action ev:event="DOMActivate">
+											<setvalue ref="instance('i-core-url')/ics" value="concat('ics/', 
 														instance('i-core')//subCategory[@id=instance('i-browse')/subcategory]/sp800-53/control[index('reference-repeat')], 
 														'.html')"/>
-													<load show="new" ref="instance('i-core-url')/ics"
-													/>
-												</action>
-											</trigger>
-										</html:td>
-										<html:td>
-											<trigger>
-												<label><html:img src="images/link.ico" alt="link"
-												/></label>
-												<hint>
-													<html:span>Show Framework Core subcategories referencing </html:span>
-													<output ref="context()"/>
-													<html:span>.</html:span>
-												</hint>
-												<action ev:event="DOMActivate">
-													<setvalue ref="instance('i-browse')/controlRef"
-														value="context()"/>
-													<dispatch targetid="tab-xref" name="DOMActivate"
-													/>
-												</action>
-											</trigger>
-										</html:td>
-									</html:tr>
-								</html:tbody>
-							</html:table>
-						</repeat>
-					</group>
-			</case> 
-			<case id="case-xref" selected="false">
-				<html:div id="div-xref">
-					<html:span>Framework Core subcategories referencing control </html:span>
-					<output ref="instance('i-browse')/controlRef"/>
-					<html:span>:</html:span>
-					<html:br />
-					<repeat
-						nodeset="instance('i-families')//subcategory/@number[../../@number=instance('i-browse')/controlRef]">
-						<trigger>
-							<label ref="."/>
-							<hint>
-								<html:span>Show Framework Core </html:span>
-								<output ref="."/>
-								<html:span> definition.</html:span>
-							</hint>
-							<xf:action ev:event="DOMActivate">
-								<action if="context()!=instance('i-browse')/subcategory">
-									
-									<!-- Set subcatRef to selected button and sRefFlag to prevent cascading 
-										xforms-value-changed defaults -->
-									<xf:setvalue ref="instance('i-browse')/subcatRef" value="context()"/>
-									<xf:setvalue ref="instance('i-browse')/sRefFlag" value="true()"/>
-									
-									<!-- Change in subcategory causes changes to category, function -->
-									<xf:setvalue ref="instance('i-browse')/function"
-										value="substring-before(../subcatRef,'.')"/>
-									<xf:setvalue ref="instance('i-browse')/category"
-										value="substring-before(../subcatRef,'-')"/>
-									<xf:setvalue ref="instance('i-browse')/subcategory" value="../subcatRef"/>
-									
-								</action>
-								<xf:dispatch targetid="tab-core" name="DOMActivate"/>
-							</xf:action>
-						</trigger>
+											<load show="new" ref="instance('i-core-url')/ics"/>
+										</action>
+									</trigger>
+								</td>
+								<td>
+									<trigger xmlns="http://www.w3.org/2002/xforms">
+										<label>
+											<output value="'images/link.ico'" mediatype="image/*"/>
+										</label>
+										<hint>
+											<output
+												value="concat('Show Framework Core subcategories referencing&#xa0;', 
+												context())"/>
+										</hint>
+										<action ev:event="DOMActivate">
+											<setvalue ref="instance('i-browse')/controlRef" value="context()"/>
+											<dispatch targetid="tab-xref" name="DOMActivate"/>
+										</action>
+									</trigger>
+								</td>
+							</tr>
+						</table>
 					</repeat>
-				</html:div>
+				</group>
+			</case>
+			<case id="case-xref" selected="false">
+				<output value="concat('Framework Core subcategories referencing control&#xa0;', 
+					instance('i-browse')/controlRef, ':')"/>
+				<repeat
+					nodeset="instance('i-families')//subcategory/@number[../../@number=instance('i-browse')/controlRef]">
+					<trigger>
+						<label ref="."/>
+						<hint>
+							<output value="concat('Show Framework Core&#xa0;', ., '&#xa0;definition')"/>
+						</hint>
+						<action ev:event="DOMActivate">
+							<action if="context()!=instance('i-browse')/subcategory">
+
+								<!-- Set subcatRef to selected button and sRefFlag to prevent cascading 
+									xforms-value-changed defaults -->
+								<setvalue ref="instance('i-browse')/subcatRef" value="context()"/>
+								<setvalue ref="instance('i-browse')/sRefFlag" value="true()"/>
+
+								<!-- Change in subcategory causes changes to category, function -->
+								<setvalue ref="instance('i-browse')/function" value="substring-before(../subcatRef,'.')"/>
+								<setvalue ref="instance('i-browse')/category" value="substring-before(../subcatRef,'-')"/>
+								<setvalue ref="instance('i-browse')/subcategory" value="../subcatRef"/>
+
+							</action>
+							<dispatch targetid="tab-core" name="DOMActivate"/>
+						</action>
+					</trigger>
+				</repeat>
 			</case>
 		</switch>
 		<div class="footer">
 			<p> Last updated: <xf:output ref="instance('i-updated')"/>
-				<br /> Contact: <strong><a href="mailto:lubell@nist.gov">Joshua Lubell</a></strong>
+				<br /> Contact: <strong><a href="mailto:joshua.lubell@nist.gov">Joshua
+					Lubell</a></strong>
 			</p>
 		</div>
 	</body>
-	
+
 </html>

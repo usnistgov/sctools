@@ -5,8 +5,10 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xf="http://www.w3.org/2002/xforms"
     xmlns:ev="http://www.w3.org/2001/xml-events">
+    
     <head>
         <title>Test conditional selection lists</title>
+        <link rel="stylesheet" href="seasons.css" type="text/css" />
         <xf:model>
             
             <xf:instance id="selected-values" xmlns="">
@@ -51,7 +53,7 @@
         <p>Test conditional selection lists -
             month selector depends on the current season</p>
         
-        <xf:select1 ref="instance('selected-values')/season/@id">
+        <xf:select1 class="block" ref="instance('selected-values')/season/@id">
             <xf:label>Season:</xf:label>
             <xf:itemset nodeset="instance('seasons')/item">
                 <xf:label ref="@name"/>
@@ -63,21 +65,18 @@
                     value="instance('months')/item/@id[../@seasonid=instance('selected-values')/season/@id]"/>
             </xf:action>
         </xf:select1>
-        <br/>
-        <xf:select1 ref="instance('selected-values')/month/@id">
+        <xf:select1 appearance="minimal" class="block" ref="instance('selected-values')/month/@id">
             <xf:label>Month:</xf:label>
             <xf:itemset nodeset="instance('months')/item[@seasonid=instance('selected-values')/season/@id]">
                 <xf:label ref="@name"/>
                 <xf:value ref="@id"/>
             </xf:itemset>
         </xf:select1>
-        <br/>
-        <xf:output ref="instance('seasons')/item/@name[../@id=instance('selected-values')/season/@id]">
+        <xf:output class="block" ref="instance('seasons')/item/@name[../@id=instance('selected-values')/season/@id]">
             <xf:label>selected-season: </xf:label>
         </xf:output>
-        <br/>
         
-        <xf:output ref="instance('months')/item/@name[../@id=instance('selected-values')/month/@id]">
+        <xf:output class="block" ref="instance('months')/item/@name[../@id=instance('selected-values')/month/@id]">
             <xf:label>selected-month: </xf:label>
         </xf:output>
         
