@@ -224,14 +224,15 @@
 												'&#xa0;definition in a new browser tab')"/>
 										</hint>
 										<action ev:event="DOMActivate" submission="trigger-submission">
-											<setvalue ref="instance('i-url')/control" if="instance('i-url')/ctrlQueries = 0" 
+											<setvalue ref="instance('i-url')/control" 
 												value="concat(../ctrlUrlPrefix, 'control?version=', 
 												../version, '&amp;', 'number=', context())"/>
 											<!-- Users only need to see the RMF 800-53 release search boilerplate once! -->
 											<setvalue ref="instance('i-url')/control" if="instance('i-url')/ctrlQueries > 0" 
-												value="concat(../ctrlUrlPrefix, 'control?version=', 
-												../version, '&amp;', 'number=', context(), ../ctrlFragIdRef)"/>
-											<load show="new" ref="instance('i-url')/control"/>
+												value="concat(., ../ctrlFragIdRef)"/>
+											
+											<!-- load element resource attribute with AVT doesn't seem to work -->
+											<load target="_blank" ref="instance('i-url')/control"/>
 											<setvalue ref="instance('i-url')/ctrlQueries" value=". + 1"/>
 										</action>
 									</trigger>
@@ -249,7 +250,9 @@
 											<setvalue ref="instance('i-url')/icsUrl" value="concat('ics/', 
 														instance('i-core')//subCategory[@id=instance('i-browse')/subcategory]/sp800-53/control[index('reference-repeat')], 
 														'.html')"/>
-											<load show="new" ref="instance('i-url')/icsUrl"/>
+											
+											<!-- load element resource attribute with AVT doesn't seem to work -->
+											<load target="_blank" ref="instance('i-url')/icsUrl"/>
 										</action>
 									</trigger>
 								</td>
