@@ -8,4 +8,4 @@ version is either 4.0 or 5.1
 
 #800-53-body scrolls down to the SP 800-53 Rev [4.0|5.1] heading
 
-#pageName scrolls down to the STP 800-53 Release Search heading
+#pageName scrolls down to the SP 800-53 Release Search heading

@@ -40,18 +40,27 @@
 				<updated xmlns=""/>
 			</instance>
 
-			<instance id="i-core-url">
+			<instance id="i-url">
+				<!-- ctrlFragIdRef: the fragment ID reference for RMF 800-53 release search result -->
+				<!-- ctrlQueries: the number of SP 800-53 release queries -->
 				<data xmlns="">
 					<control/>
 					<family/>
-					<ics/>
+					<icsUrl/>
 					<icsFlag>false</icsFlag>
-					<nvdurl>https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/</nvdurl>
+					<ctrlUrlPrefix>https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/</ctrlUrlPrefix>
+					<ctrlFragIdRef>#800-53-body</ctrlFragIdRef>
 					<version>5.1</version>
+					<ctrlQueries>0</ctrlQueries>
 				</data>
 			</instance>
-
-
+			
+			<bind ref="instance('i-url')/icsUrl" relevant="../icsFlag=true()"/>
+			<bind ref="instance('i-url')/icsFlag" type="boolean"/>
+			<bind ref="instance('i-url')/ctrlQueries" type="integer"/>
+			<bind ref="instance('i-url')/ctrlUrlPrefix" readonly="true()"/>
+			<bind ref="instance('i-url')/ctrlFragIdRef" readonly="true()"/>
+			
 			<!-- Captures the current Framework Core browser UI state. -->
 			<instance id="i-browse">
 				<data xmlns="">
@@ -63,10 +72,7 @@
 					<controlRef>AC-1</controlRef>
 				</data>
 			</instance>
-
-			<bind ref="instance('i-core-url')/ics" relevant="../icsFlag=true()"/>
-			<bind ref="instance('i-core-url')/icsFlag" type="boolean"/>
-
+			
 		</model>
 
 	</head>
@@ -92,7 +98,7 @@
 				</trigger>
 			</case>
 			<case id="case-prefs" selected="false">
-				<select1 class="block" ref="instance('i-core-url')/version" appearance="full">
+				<select1 class="block" ref="instance('i-url')/version" appearance="full">
 					<label>NIST SP 800-53 version:</label>
 					<hint>Choose which revision of SP 800-53 to use</hint>
 					<item>
@@ -104,7 +110,7 @@
 						<value>5.1</value>
 					</item>
 				</select1>
-				<select class="block" ref="instance('i-core-url')/icsFlag" appearance="full">
+				<select class="block" ref="instance('i-url')/icsFlag" appearance="full">
 					<label/>
 					<item>
 						<label>
@@ -217,17 +223,22 @@
 											<output value="concat('Open security control&#xa0;', ., 
 												'&#xa0;definition in a new browser tab')"/>
 										</hint>
-										<action ev:event="DOMActivate"
-											submission="trigger-submission">
-											<setvalue ref="instance('i-core-url')/control" value="concat(instance('i-core-url')/nvdurl, 'control?version=', 
-														instance('i-core-url')/version, '&amp;', 'number=', context())"/>
-											<load show="new" ref="instance('i-core-url')/control"/>
+										<action ev:event="DOMActivate" submission="trigger-submission">
+											<setvalue ref="instance('i-url')/control" if="instance('i-url')/ctrlQueries = 0" 
+												value="concat(../ctrlUrlPrefix, 'control?version=', 
+												../version, '&amp;', 'number=', context())"/>
+											<!-- Users only need to see the RMF 800-53 release search boilerplate once! -->
+											<setvalue ref="instance('i-url')/control" if="instance('i-url')/ctrlQueries > 0" 
+												value="concat(../ctrlUrlPrefix, 'control?version=', 
+												../version, '&amp;', 'number=', context(), ../ctrlFragIdRef)"/>
+											<load show="new" ref="instance('i-url')/control"/>
+											<setvalue ref="instance('i-url')/ctrlQueries" value=". + 1"/>
 										</action>
 									</trigger>
 								</td>
 								<td>
 									<trigger xmlns="http://www.w3.org/2002/xforms"
-										ref="instance('i-core-url')/ics">
+										ref="instance('i-url')/icsUrl">
 										<label>
 											<output value="'images/factory.ico'" mediatype="image/*"
 											/>
@@ -235,10 +246,10 @@
 										<hint>Open NIST SP 800-82 ICS Overlay tailoring for security
 											control definition in a new browser tab.</hint>
 										<action ev:event="DOMActivate">
-											<setvalue ref="instance('i-core-url')/ics" value="concat('ics/', 
+											<setvalue ref="instance('i-url')/icsUrl" value="concat('ics/', 
 														instance('i-core')//subCategory[@id=instance('i-browse')/subcategory]/sp800-53/control[index('reference-repeat')], 
 														'.html')"/>
-											<load show="new" ref="instance('i-core-url')/ics"/>
+											<load show="new" ref="instance('i-url')/icsUrl"/>
 										</action>
 									</trigger>
 								</td>
