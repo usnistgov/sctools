@@ -44,8 +44,7 @@
 				<!-- ctrlFragIdRef: the fragment ID reference for RMF 800-53 release search result -->
 				<!-- ctrlQueries: the number of SP 800-53 release queries -->
 				<data xmlns="">
-					<control/>
-					<family/>
+					<controlUrl/>
 					<icsUrl/>
 					<icsFlag>false</icsFlag>
 					<ctrlUrlPrefix>https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/</ctrlUrlPrefix>
@@ -224,15 +223,15 @@
 												'&#xa0;definition in a new browser tab')"/>
 										</hint>
 										<action ev:event="DOMActivate" submission="trigger-submission">
-											<setvalue ref="instance('i-url')/control" 
+											<setvalue ref="instance('i-url')/controlUrl" 
 												value="concat(../ctrlUrlPrefix, 'control?version=', 
 												../version, '&amp;', 'number=', context())"/>
 											<!-- Users only need to see the RMF 800-53 release search boilerplate once! -->
-											<setvalue ref="instance('i-url')/control" if="instance('i-url')/ctrlQueries > 0" 
+											<setvalue ref="instance('i-url')/controlUrl" if="instance('i-url')/ctrlQueries > 0" 
 												value="concat(., ../ctrlFragIdRef)"/>
 											
 											<!-- load element resource attribute with AVT doesn't seem to work -->
-											<load target="_blank" ref="instance('i-url')/control"/>
+											<load target="_blank" ref="instance('i-url')/controlUrl"/>
 											<setvalue ref="instance('i-url')/ctrlQueries" value=". + 1"/>
 										</action>
 									</trigger>
