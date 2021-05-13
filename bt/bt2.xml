@@ -53,13 +53,13 @@
 					<ctrlQueries>0</ctrlQueries>
 				</data>
 			</instance>
-			
+
 			<bind ref="instance('i-url')/icsUrl" relevant="../icsFlag=true()"/>
 			<bind ref="instance('i-url')/icsFlag" type="boolean"/>
 			<bind ref="instance('i-url')/ctrlQueries" type="integer"/>
 			<bind ref="instance('i-url')/ctrlUrlPrefix" readonly="true()"/>
 			<bind ref="instance('i-url')/ctrlFragIdRef" readonly="true()"/>
-			
+
 			<!-- Captures the current Framework Core browser UI state. -->
 			<instance id="i-browse">
 				<data xmlns="">
@@ -71,7 +71,7 @@
 					<controlRef>AC-1</controlRef>
 				</data>
 			</instance>
-			
+
 			<instance id="i-catalogs">
 				<data xmlns="">
 					<catalog>
@@ -84,7 +84,7 @@
 					</catalog>
 				</data>
 			</instance>
-			
+
 			<instance id="i-baselines">
 				<data xmlns="">
 					<baseline>
@@ -109,25 +109,27 @@
 					</baseline>
 				</data>
 			</instance>
-			
+
 			<instance id="i-baseline">
 				<data xmlns="">L</data>
 			</instance>
-			
+
 			<instance id="i-tailoring">
 				<data xmlnd="">
-					<counter/> <!-- repeat index -->
+					<counter/>
+					<!-- repeat index -->
 					<action>
 						<symbol>NSB</symbol>
 						<criteria>Not related specifically to the baseline scope</criteria>
 					</action>
 					<action>
 						<symbol>SWS</symbol>
-						<criteria>Expected to be routinely satisfied without specification</criteria>
+						<criteria>Expected to be routinely satisfied without
+							specification</criteria>
 					</action>
 				</data>
 			</instance>
-			
+
 			<instance id="i-blank">
 				<data xmlns="">
 					<action>
@@ -136,7 +138,7 @@
 					</action>
 				</data>
 			</instance>
-			
+
 		</model>
 
 	</head>
@@ -277,7 +279,8 @@
 							</td>
 						</tr>
 					</table>
-					<output value="concat(subcategory, '&#xa0;Informative References to NIST SP 800-53:')"/>
+					<output
+						value="concat(subcategory, '&#xa0;Informative References to NIST SP 800-53:')"/>
 					<repeat id="reference-repeat"
 						nodeset="instance('i-core')//subCategory[@id=instance('i-browse')/subcategory]/sp800-53/control">
 						<table xmlns="http://www.w3.org/1999/xhtml">
@@ -289,14 +292,13 @@
 											<output value="concat('Open security control&#xa0;', ., 
 												'&#xa0;definition in a new browser tab')"/>
 										</hint>
-										<action ev:event="DOMActivate" submission="trigger-submission">
-											<setvalue ref="instance('i-url')/controlUrl" 
-												value="concat(../ctrlUrlPrefix, 'control?version=', 
+										<action ev:event="DOMActivate"
+											submission="trigger-submission">
+											<setvalue ref="instance('i-url')/controlUrl" value="concat(../ctrlUrlPrefix, 'control?version=', 
 												../version, '&amp;', 'number=', context())"/>
 											<!-- Users only need to see the RMF 800-53 release search boilerplate once! -->
-											<setvalue ref="instance('i-url')/controlUrl" if="instance('i-url')/ctrlQueries > 0" 
-												value="concat(., ../ctrlFragIdRef)"/>
-											
+											<setvalue ref="instance('i-url')/controlUrl" if="instance('i-url')/ctrlQueries > 0" value="concat(., ../ctrlFragIdRef)"/>
+
 											<!-- load element resource attribute with AVT doesn't seem to work -->
 											<load target="_blank" ref="instance('i-url')/controlUrl"/>
 											<setvalue ref="instance('i-url')/ctrlQueries" value=". + 1"/>
@@ -316,7 +318,7 @@
 											<setvalue ref="instance('i-url')/icsUrl" value="concat('ics/', 
 														instance('i-core')//subCategory[@id=instance('i-browse')/subcategory]/sp800-53/control[index('reference-repeat')], 
 														'.html')"/>
-											
+
 											<!-- load element resource attribute with AVT doesn't seem to work -->
 											<load target="_blank" ref="instance('i-url')/icsUrl"/>
 										</action>
@@ -346,36 +348,57 @@
 			<case id="case-tailor" selected="false">
 				<select1 class="block" appearance="minimal" ref="instance('i-baseline')">
 					<label>Baseline to be tailored</label>
-					<itemset nodeset="instance('i-baselines')/baseline[contains(versions, instance('i-url')/version)]">
+					<itemset
+						nodeset="instance('i-baselines')/baseline[contains(versions, instance('i-url')/version)]">
 						<label>
-							<output value="concat('SP 800-53 Rev ', instance('i-url')/version, ' ', name)"/>
+							<output
+								value="concat('SP 800-53 Rev ', instance('i-url')/version, ' ', name)"
+							/>
 						</label>
 						<value ref="value"/>
 					</itemset>
 				</select1>
-				<group class="block" ref="instance('i-tailoring')">
-					<label>Tailoring Actions</label>
-					<repeat ref="action" indexref="counter">
-						<input class="tailoringActions" ref="symbol">
-							<label>Symbol</label>
-						</input>
-						<textarea class="tailoringActions"  ref="criteria"/>
-						<trigger class="tailoringActions">
-							<label>×</label>
-							<hint>Delete tailoring action</hint>
-							<action ev:event="DOMActivate">
-								<delete ref="."/>
-							</action>
+				<switch>
+					<case id="case-hide-tailoring-actions" selected="true">
+						<trigger>
+							<label>Tailoring Actions...</label>
+							<hint>Edit/show tailoring action symbols and criteria</hint>
+							<toggle case="case-tailoring-actions" ev:event="DOMActivate"/>
 						</trigger>
-					</repeat>
-					<trigger>
-						<label>+</label>
-						<hint>Add tailoring action</hint>
-						<action ev:event="DOMActivate">
-							<insert ref="action" origin="instance('i-blank')/action"/>
-						</action>
-					</trigger>					
-				</group>
+					</case>
+					<case id="case-tailoring-actions" selected="false">
+						<group class="block" ref="instance('i-tailoring')">
+							<label>Tailoring Actions</label>
+							<repeat ref="action" indexref="counter">
+								<input class="tailoringActions" ref="symbol">
+									<label>Symbol</label>
+								</input>
+								<textarea class="tailoringActions" ref="criteria">
+									<label>Criteria</label>
+								</textarea>
+								<trigger class="tailoringActions">
+									<label>×</label>
+									<hint>Delete tailoring action</hint>
+									<action ev:event="DOMActivate">
+										<delete ref="."/>
+									</action>
+								</trigger>
+							</repeat>
+							<trigger>
+								<label>+</label>
+								<hint>Add tailoring action</hint>
+								<action ev:event="DOMActivate">
+									<insert ref="action" origin="instance('i-blank')/action"/>
+								</action>
+							</trigger>
+						</group>
+						<trigger class="block" appearance="full">
+							<label>OK</label>
+							<hint>Hide tailoring actions and criteria</hint>
+							<toggle case="case-hide-tailoring-actions" ev:event="DOMActivate"/>
+						</trigger>
+					</case>
+				</switch>
 			</case>
 			<case id="case-xref" selected="false">
 				<output value="concat('Framework Core subcategories referencing control&#xa0;', 
@@ -385,7 +408,8 @@
 					<trigger>
 						<label ref="."/>
 						<hint>
-							<output value="concat('Show Framework Core&#xa0;', ., '&#xa0;definition')"/>
+							<output
+								value="concat('Show Framework Core&#xa0;', ., '&#xa0;definition')"/>
 						</hint>
 						<action ev:event="DOMActivate">
 							<action if="context()!=instance('i-browse')/subcategory">

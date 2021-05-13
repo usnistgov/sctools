@@ -146,7 +146,10 @@ xforms-select[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].block,
 xforms-select1[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]).block,
 xforms-select1[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].block,
 xforms-output[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]).block,
-xforms-output[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].block{
+xforms-output[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].block,
+xforms-trigger[xf-ref]:not([xf-bound]),
+xforms-trigger[xf-bind]:not([xf-bound]),
+xforms-trigger[xf-notrelevant]{
     display: block;
     padding: 5px;
     }
@@ -154,16 +157,11 @@ xforms-output[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].block{
 xforms-repeat-item > xforms-input[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]).tailoringActions,
 xforms-repeat-item > xforms-input[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].tailoringActions,
 xforms-repeat-item > xforms-textarea[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]).tailoringActions,
-xforms-repeat-item > xforms-textarea[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].tailoringActions{
-    padding: 5px;
-    vertical-align: text-top;
-    }
-    
+xforms-repeat-item > xforms-textarea[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].tailoringActions,
 xforms-repeat-item > xforms-trigger:not([xf-ref]):not([xf-bind]).tailoringActions,
-xforms-repeat-item > xforms-trigger[xf-bound]:not([xf-notrelevant]).tailoringActions {
+xforms-repeat-item > xforms-trigger[xf-bound]:not([xf-notrelevant]).tailoringActions{
     padding: 5px;
     vertical-align: text-top;
-}
-
+    }    
 
 /*]]>*/<!--/*--></css><!--*/-->
