@@ -116,16 +116,13 @@
 
 			<instance id="i-tailoring">
 				<data xmlnd="">
-					<counter/>
-					<!-- repeat index -->
 					<action>
 						<symbol>NSB</symbol>
 						<criteria>Not related specifically to the baseline scope</criteria>
 					</action>
 					<action>
 						<symbol>SWS</symbol>
-						<criteria>Expected to be routinely satisfied without
-							specification</criteria>
+						<criteria>Expected to be routinely satisfied without specification</criteria>
 					</action>
 				</data>
 			</instance>
@@ -190,7 +187,7 @@
 				</trigger>
 			</case>
 		</switch>
-		<group xmlns="http://www.w3.org/2002/xforms" id="horizontal-tab-menu">
+		<group xmlns="http://www.w3.org/2002/xforms" class="horizontal-tab-menu">
 			<trigger id="tab-core" appearance="minimal">
 				<label class="TabText">Cyber Framework Browser</label>
 				<toggle case="case-core" ev:event="DOMActivate"/>
@@ -369,21 +366,36 @@
 					<case id="case-tailoring-actions" selected="false">
 						<group class="block" ref="instance('i-tailoring')">
 							<label>Tailoring Actions</label>
-							<repeat ref="action" indexref="counter">
-								<input class="tailoringActions" ref="symbol">
-									<label>Symbol</label>
-								</input>
-								<textarea class="tailoringActions" ref="criteria">
-									<label>Criteria</label>
-								</textarea>
-								<trigger class="tailoringActions">
-									<label>×</label>
-									<hint>Delete tailoring action</hint>
-									<action ev:event="DOMActivate">
-										<delete ref="."/>
-									</action>
-								</trigger>
-							</repeat>
+							<html:table>
+								<html:thead>
+									<html:tr>
+										<html:td>Symbol</html:td>
+										<html:td>Criteria</html:td>
+										<html:td/>
+									</html:tr>
+								</html:thead>
+								<html:tbody>
+									<repeat ref="action">
+										<html:tr class="TailoringAction">
+											<html:td class="Symbol">
+												<input ref="symbol"/>
+											</html:td>
+											<html:td>
+												<textarea ref="criteria"/>
+											</html:td>
+											<html:td>
+												<trigger>
+												<label>×</label>
+												<hint>Delete tailoring action</hint>
+												<action ev:event="DOMActivate">
+												<delete ref="."/>
+												</action>
+												</trigger>
+											</html:td>
+										</html:tr>
+									</repeat>
+								</html:tbody>
+							</html:table>
 							<trigger>
 								<label>+</label>
 								<hint>Add tailoring action</hint>

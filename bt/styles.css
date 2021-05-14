@@ -2,10 +2,10 @@
 /* Make CSS file a well-formed XML document so that it can be used with XSLTForms */
 
 /* instructions for styling the horizontal tabs at the top of the form */
-#horizontal-tab-menu {
+.horizontal-tab-menu {
 font-size: x-large;
 }
-#horizontal-tab-menu xforms-trigger {
+.horizontal-tab-menu xforms-trigger {
 border-left: solid gray 1px;
 border-top: solid gray 1px;
 border-right: solid gray 1px;
@@ -153,15 +153,18 @@ xforms-trigger[xf-notrelevant]{
     display: block;
     padding: 5px;
     }
+    
+.TailoringAction {
+vertical-align: top;
+}
 
-xforms-repeat-item > xforms-input[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]).tailoringActions,
-xforms-repeat-item > xforms-input[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].tailoringActions,
-xforms-repeat-item > xforms-textarea[xf-bound]:not([xf-notrelevant]):not([xf-appearance="full"]).tailoringActions,
-xforms-repeat-item > xforms-textarea[xf-bound]:not([xf-notrelevant])[xf-appearance="full"].tailoringActions,
-xforms-repeat-item > xforms-trigger:not([xf-ref]):not([xf-bind]).tailoringActions,
-xforms-repeat-item > xforms-trigger[xf-bound]:not([xf-notrelevant]).tailoringActions{
-    padding: 5px;
-    vertical-align: text-top;
-    }    
+.TailoringAction > td > xforms-input > xforms-body > input {
+    width: 5em;
+}
+
+.TailoringAction > td > xforms-textarea > xforms-body > textarea {
+    width: 20em;
+    height: 3em;
+}
 
 /*]]>*/<!--/*--></css><!--*/-->
