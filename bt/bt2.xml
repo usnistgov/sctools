@@ -115,7 +115,7 @@
 			</instance>
 
 			<instance id="i-tailoring">
-				<data xmlnd="">
+				<data xmlns="">
 					<action>
 						<symbol>NSB</symbol>
 						<criteria>Not related specifically to the baseline scope</criteria>
