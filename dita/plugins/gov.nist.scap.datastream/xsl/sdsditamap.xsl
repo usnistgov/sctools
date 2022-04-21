@@ -7,7 +7,7 @@
     <xsl:output indent="yes" method="xml"
         doctype-public="-//OASIS//DTD DITA Map//EN"
         doctype-system="map.dtd"/>
-    <xsl:param name="sdsuri" as="xs:anyURI"/>
+    <xsl:param name="sdsuri"/>
     
     <xsl:template match="*[contains(
         @class, 
