@@ -12,9 +12,9 @@
         dita2sds.scapval, 
         dita2sds.zip"/>
     
-    <target name="dita2sds.init">
+    <target name="dita2sds.init">        
         <basename property="sds.filename.root" file="${args.input}" suffix="ditamap"/>
-        
+
         <!-- Allows the XSLT to access files containing the SCAP components (XCCDF, OVAL, etc.) -->
         <property name="temp.output.dir.name" value="${sds.filename.root}"/>
         <property name="out.ext" value="xml"/>
@@ -53,7 +53,9 @@
         <antcall target="dita2sds.localcomponent"/>
         <antcall target="dita2sds.externalcomponent"/>
         <java failonerror="true"
-            jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
+              jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
+	  <sysproperty key="java.protocol.handler.pkgs"
+		       value="sun.net.www.protocol"/>
             <arg value="-componentfile"/>
             <arg file="${dita.output.dir}${file.separator}${sds.componentfilename.root}.xml"/>
             <arg value="-valreportfile"/>
@@ -122,6 +124,8 @@
         <xmlproperty file="${dita.temp.dir}${file.separator}scapversion.xml"/>
         <java failonerror="true"
             jar="${sds.scapval}" fork="true" dir="${dita.output.dir}">
+            <sysproperty key="java.protocol.handler.pkgs"
+		         value="sun.net.www.protocol"/>
             <arg value="-file"/>
             <arg file="${dita.output.dir}${file.separator}${sds.filename.root}.${out.ext}"/>
             <arg value="-scapversion"/>
