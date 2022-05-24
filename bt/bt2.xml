@@ -102,11 +102,6 @@
 						<value>H</value>
 						<versions>4.0 5.1</versions>
 					</baseline>
-					<baseline>
-						<name>PRIVACY</name>
-						<value>P</value>
-						<versions>5.1</versions>
-					</baseline>
 				</data>
 			</instance>
 
@@ -122,7 +117,8 @@
 					</action>
 					<action>
 						<symbol>SWS</symbol>
-						<criteria>Expected to be routinely satisfied without specification</criteria>
+						<criteria>Expected to be routinely satisfied without
+							specification</criteria>
 					</action>
 				</data>
 			</instance>
@@ -294,7 +290,7 @@
 											<setvalue ref="instance('i-url')/controlUrl" value="concat(../ctrlUrlPrefix, 'control?version=', 
 												../version, '&amp;', 'number=', context())"/>
 											<!-- Users only need to see the RMF 800-53 release search boilerplate once! -->
-											<setvalue ref="instance('i-url')/controlUrl" if="instance('i-url')/ctrlQueries > 0" value="concat(., ../ctrlFragIdRef)"/>
+											<!--<setvalue ref="instance('i-url')/controlUrl" if="instance('i-url')/ctrlQueries > 0" value="concat(., ../ctrlFragIdRef)"/>-->
 
 											<!-- load element resource attribute with AVT doesn't seem to work -->
 											<load target="_blank" ref="instance('i-url')/controlUrl"/>
@@ -367,13 +363,13 @@
 						<group class="block" ref="instance('i-tailoring')">
 							<label>Tailoring Actions</label>
 							<html:table>
-								<html:thead>
-									<html:tr>
-										<html:td>Symbol</html:td>
-										<html:td>Criteria</html:td>
-										<html:td/>
-									</html:tr>
-								</html:thead>
+								<thead xmlns="http://www.w3.org/1999/xhtml">
+									<tr>
+										<td>Symbol</td>
+										<td>Criteria</td>
+										<td></td>
+									</tr>
+								</thead>
 								<html:tbody>
 									<repeat ref="action">
 										<html:tr class="TailoringAction">
