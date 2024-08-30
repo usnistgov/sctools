@@ -6937,9 +6937,10 @@
             <version xmlns="">0.2.2</version>
          </xf:instance>
          <xf:instance id="i-r5-support">
-            <r5-support xmlns="">Baseline Tailor uses the security controls and baselines from NIST SP 800-53 Revision 4. 
-				An update to SP 800-53 Revision 5 and the SP 800-53B baselines is planned once the National Vulnerability Database 
-				supports SP 800-53 Revision 5 and SP 800-53B.
+            <r5-support xmlns="">Baseline Tailor uses out of date versions of NIST SP 800-53, NIST SP 800-82, and the Cybersecurity Framework. 
+               Baseline Tailor should not be relied upon as an authoritative reference to NIST SP 800-series or Cybersecurity Framework reference data.
+               Up to date web-navigable versions of NIST SP 800-53 and the Cybersecurity Framework are available through NIST's Cybersecurity and Privacy Reference Tool.
+               An up to date version of SP 800-82 is available in PDF format at NIST's Computer Security Resource Center.
 				</r5-support>
          </xf:instance>
          <xf:instance id="i-updated">
@@ -7145,8 +7146,8 @@
          <xf:case id="case-hide-r5" selected="true">
             <div class="Cell">
                <xf:trigger>
-                  <xf:label>Note on SP 800-53 Revision 5</xf:label>
-                  <xf:hint>Planned support for SP 800-53r5 and SP 800-53B.</xf:hint>
+                  <xf:label>Note on SP 800-53, CSF, and SP 800-82 versions</xf:label>
+                  <xf:hint>SP 800-53, CSF, and SP 800-82 versions are out of date.</xf:hint>
                   <xf:toggle case="case-r5" ev:event="DOMActivate"/>
                </xf:trigger>
             </div>
